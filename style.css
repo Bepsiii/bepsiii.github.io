@@ -2,27 +2,20 @@
    Table of Contents
    ==========================================================================
 
-   1.  Reset & Base Styles (body)
+   1.  Reset & Base Styles
    2.  Global Elements & Components
-       - Links (general, .inline-link, nav current page)
-       - Buttons (.cta-button)
    3.  Layout Components
-       - Header & Navigation
-       - Footer & Social Links
    4.  Page Structure & Common Sections
-       - Generic Page Header (.page-header)
-       - Generic Content Section (.content-section, .section-title-wrapper)
    5.  Page-Specific Styles
-       - Home Page (Hero Section, Typewriter)
-       - Contact Page (#contact-form-section, #contactForm, .contact-info-item, #discord-section)
-       - About Page (#about-content, .about-subsection)
-       - AscentCustoms WIP Page (#ascent-wip-page)
-       - AscentCustoms Project Page (#ascentcustoms-details, .store-links-list, .project-cta-buttons)
-       - Setup Page (#setup-details, .setup-category, .keyboard-accordion)
-       - Reviews Page (#reviews-listing, .review-item-card)
-       - Articles Page (#articles-listing, .article-item-card)
-       - Gallery Page (#gallery-main, .gallery-grid, .lightbox)
-       - Spreadsheets/Resources Page (#spreadsheets-listing, .resource-item-card)
+       - Home Page
+       - Contact Page
+       - About Page
+       - AscentCustoms WIP Page
+       - AscentCustoms Project Page
+       - Setup Page
+       - Reviews & Articles Pages
+       - Gallery Page
+       - Spreadsheets/Resources Page
    6.  Animations (@keyframes)
    7.  Responsive Styles (@media queries)
 
@@ -35,9 +28,9 @@
 body {
   margin: 0;
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  background-color: #000000; /* Black background */
-  color: #e0e0e0; /* Light grey text color */
-  overflow-x: hidden; /* Prevent horizontal scrollbars on body */
+  background-color: #000000;
+  color: #e0e0e0;
+  overflow-x: hidden;
 }
 
 /* ==========================================================================
@@ -46,28 +39,27 @@ body {
 
 /* Links
    -------------------------------------------------------------------------- */
-.inline-link { /* Used on About Page, can be a global style */
-  color: #00aeff; /* A bright, clear link color */
+.inline-link {
+  color: #00aeff;
   text-decoration: none;
   font-weight: 500;
-  border-bottom: 1px dotted #00aeff; /* Subtle underline */
+  border-bottom: 1px dotted #00aeff;
   transition: color 0.3s ease, border-bottom-color 0.3s ease;
 }
 
 .inline-link:hover,
 .inline-link:focus {
-  color: #33c6ff; /* Lighter color on hover/focus */
+  color: #33c6ff;
   border-bottom-color: #33c6ff;
-  text-decoration: none; /* Ensure no default underline appears on hover */
+  text-decoration: none;
 }
 
 /* Navigation Current Page Link */
-nav ul li ul li a.current-page-link, /* For dropdown items */
-nav ul > li > a.current-page-link { /* For main nav items if directly linked */
-  color: #00bfff; /* Or your preferred highlight color */
-  font-weight: 700; /* Make it bold */
+nav ul li ul li a.current-page-link,
+nav ul > li > a.current-page-link {
+  color: #00bfff;
+  font-weight: 700;
 }
-
 
 /* Buttons
    -------------------------------------------------------------------------- */
@@ -75,7 +67,7 @@ nav ul > li > a.current-page-link { /* For main nav items if directly linked */
   display: inline-block;
   padding: 0.8rem 1.8rem;
   margin-top: 1.5rem;
-  background-image: linear-gradient(to right, #007bff, #0056b3); /* Primary blue gradient */
+  background-image: linear-gradient(to right, #007bff, #0056b3);
   color: #ffffff;
   font-size: 1.1rem;
   font-weight: 500;
@@ -83,14 +75,14 @@ nav ul > li > a.current-page-link { /* For main nav items if directly linked */
   border-radius: 25px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-image 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3), 0 2px 5px rgba(0, 123, 255, 0.2);
-  border: none; /* Ensure no default border */
+  border: none;
   cursor: pointer;
 }
 
 .cta-button:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4), 0 3px 7px rgba(0, 123, 255, 0.3);
-  background-image: linear-gradient(to right, #0069d9, #004085); /* Darker blue on hover */
+  background-image: linear-gradient(to right, #0069d9, #004085);
 }
 
 /* ==========================================================================
@@ -104,55 +96,54 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #1a1a1a; /* Dark grey for header */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.2); /* Modernized header shadow */
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .logo a {
-  display: inline-block; /* Ensure the link wrapper for the logo behaves well */
+  display: inline-block;
 }
 
 .logo img {
   height: 40px;
-  width: auto; /* Maintain aspect ratio */
-  display: block; /* Remove extra space below image */
-  vertical-align: middle; /* Better alignment if link has text */
+  width: auto;
+  display: block;
+  vertical-align: middle;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem; /* Spacing between main nav items */
+  gap: 1.5rem;
   margin: 0;
   padding: 0;
 }
 
 nav ul li {
-  position: relative; /* For positioning dropdowns */
+  position: relative;
 }
 
-nav a { /* General style for all nav links */
+nav a {
   text-decoration: none;
   color: #e0e0e0;
   font-weight: 500;
   transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 0.5rem 0; /* Add some padding for easier clicking on main nav items */
+  padding: 0.5rem 0;
 }
 
-nav ul > li > a:hover { /* Main navigation item hover */
+nav ul > li > a:hover {
   color: #ffffff;
 }
 
-/* Dropdown Menu */
 nav ul li ul {
   display: none;
   position: absolute;
-  background-image: linear-gradient(to bottom, #303030, #2a2a2a); /* Subtle dark gradient */
+  background-image: linear-gradient(to bottom, #303030, #2a2a2a);
   top: 100%;
   left: 0;
   padding: 0.5rem 0;
   min-width: 190px;
-  z-index: 1000; /* Ensure dropdown is above other content */
+  z-index: 1000;
   border-radius: 6px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.3);
   border: 1px solid #383838;
@@ -163,7 +154,7 @@ nav ul li:hover ul {
 }
 
 nav ul li ul li {
-  padding: 0; /* Reset padding if any inherited */
+  padding: 0;
 }
 
 nav ul li ul li a {
@@ -173,7 +164,7 @@ nav ul li ul li a {
   color: #d0d0d0;
 }
 
-nav ul li ul li a:hover { /* Dropdown item hover */
+nav ul li ul li a:hover {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.05);
 }
@@ -186,7 +177,7 @@ footer {
   background-color: #1a1a1a;
   color: #999999;
   font-size: 0.9rem;
-  margin-top: 3rem; /* Default margin, might be overridden */
+  margin-top: 3rem;
 }
 
 .social-links {
@@ -196,7 +187,7 @@ footer {
   gap: 1rem;
 }
 
-.social-links a { /* Reuses .cta-button like styling but smaller */
+.social-links a {
   display: inline-block;
   padding: 0.6rem 1.2rem;
   background-image: linear-gradient(to right, #007bff, #0056b3);
@@ -219,53 +210,48 @@ footer {
    4. Page Structure & Common Sections
    ========================================================================== */
 
-/* Generic Page Header (Used on About, Contact, Reviews pages)
-   -------------------------------------------------------------------------- */
 .page-header {
   text-align: center;
   padding: 3rem 1rem 2rem 1rem;
   background-color: #101010;
   border-bottom: 1px solid #2a2a2a;
-  margin-bottom: 2rem; /* Space before main content section */
+  margin-bottom: 2rem;
 }
 
 .page-header h1 {
   font-size: 2.8rem;
   color: #ffffff;
-  margin-top: 0; /* Remove default top margin */
+  margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 700;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-/* Generic Content Section (Base for About, Contact, Reviews, Setup, etc.)
-   -------------------------------------------------------------------------- */
 .content-section {
   padding: 3rem 2rem;
-  max-width: 900px; /* Default max-width */
+  max-width: 900px;
   margin: 3rem auto;
   animation: fadeInSection 1s ease-out forwards;
-  background-color: #121212; /* Default dark grey box background */
+  background-color: #121212;
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 5px 10px rgba(0,0,0,0.25);
-  border-top: 3px solid #007bff; /* Blue accent top border */
+  border-top: 3px solid #007bff;
 }
 
-.section-title-wrapper { /* Wrapper for h2 to center it */
+.section-title-wrapper {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.content-section .section-title-wrapper h2, /* Standard h2 within content sections */
-#discord-section .section-title-wrapper h2 { /* Ensure Discord section h2 also follows this if wrapped */
+.content-section .section-title-wrapper h2 {
   font-size: 2.4rem;
   color: #ffffff;
   margin-top: 0;
-  margin-bottom: 1rem; /* Original margin-bottom of h2, now controlled by wrapper */
-  padding-bottom: 0.5rem; /* Padding for space below underline */
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
   font-weight: 700;
-  border-bottom: 2px solid #007bff; /* Blue accent underline */
-  display: inline-block; /* To make underline only as wide as text */
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
 }
 
 .content-section p {
@@ -291,44 +277,44 @@ footer {
   min-height: 80vh;
   position: relative;
   text-align: center;
-  padding: 2rem; /* Padding for the hero section itself */
-  background-color: #0d0d0d; /* Fallback background color */
+  padding: 2rem;
+  background-color: #0d0d0d;
   background-size: cover;
   background-position: center center;
   transition: background-image 1s ease-in-out;
-  overflow: hidden; /* Ensures pseudo-element doesn't cause scrollbars */
+  overflow: hidden;
   animation: fadeInHero 1.5s ease-in-out;
 }
 
-.hero::before { /* Tint overlay for background image */
+.hero::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Adjust tint as needed */
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
-.hero > div { /* Container for hero text content */
+.hero > div {
   position: relative;
-  z-index: 2; /* Above the tint */
-  background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background for content box */
-  padding: 20px 30px; /* Space inside the content box */
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   color: #fff;
   text-align: center;
-  max-width: 600px; /* Constrain width of the content box */
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.hero h1 { /* Main hero title */
+.hero h1 {
   font-size: 2.8rem;
   margin-top: 0;
-  margin-bottom: 0.5rem; /* Space below H1 */
+  margin-bottom: 0.5rem;
   color: #ffffff;
   font-weight: 700;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 12px rgba(0, 204, 255, 0.2);
@@ -336,49 +322,45 @@ footer {
 
 .hero .hero-title-static,
 .hero .typewriter-container {
-  display: inline; /* Keep "Hi, I'm" and "Bepsi" on the same line if possible */
+  display: inline;
 }
 
 .typewriter-container {
-  border-right: .15em solid #00ccff; /* Caret for typewriter */
+  border-right: .15em solid #00ccff;
   white-space: nowrap;
   overflow: hidden;
   animation: typing 3.0s steps(25, end) forwards, blink-caret .75s step-end infinite;
-  font-size: 2.8rem; /* Match hero h1 */
+  font-size: 2.8rem;
   color: #ffffff;
   display: inline-block;
   vertical-align: bottom;
   font-weight: 700;
-  margin-bottom: 0.5rem; /* Consistent with H1 margin */
+  margin-bottom: 0.5rem;
 }
 
 .hero p.subtitle {
   font-size: 1.4rem;
   color: #b0b0b0;
-  margin-top: 0.5rem; /* Space above subtitle */
-  margin-bottom: 1.5rem; /* Space below subtitle, before CTA */
-  max-width: 600px; /* Match content box width */
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
   font-weight: 300;
 }
 
-.hero .cta-button { /* Specific CTA adjustments for hero if needed */
-  background-image: linear-gradient(to right, #007bff, #0056b3);
-}
 
 /* Contact Page
    -------------------------------------------------------------------------- */
-#contact-form-section { /* Specific content section for contact form */
+#contact-form-section {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
 
 #contact-form-section .section-title-wrapper,
-#contact-form-section > p:first-of-type { /* Target the direct intro paragraph */
+#contact-form-section > p:first-of-type {
   text-align: center;
 }
 
-/* Email Display on Contact Page */
 .contact-info-item {
   display: flex;
   align-items: center;
@@ -386,13 +368,13 @@ footer {
   gap: 0.75rem;
   padding: 1rem 0;
   margin-top: 1rem;
-  margin-bottom: 2rem; /* Space before the form */
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 .contact-icon {
   font-size: 1.5rem;
-  color: #00bfff; /* Accent color */
+  color: #00bfff;
 }
 
 .contact-link {
@@ -408,18 +390,17 @@ footer {
   text-decoration: underline;
 }
 
-/* Contact Form */
 #contactForm {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-top: 2rem; /* Space after intro paragraph/email */
+  margin-top: 2rem;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  text-align: left; /* Labels and inputs align left */
+  text-align: left;
 }
 
 .form-group label {
@@ -457,42 +438,20 @@ footer {
   min-height: 120px;
 }
 
-.form-submit-button { /* Extends .cta-button */
+.form-submit-button {
   width: auto;
   padding: 0.9rem 2rem;
   font-size: 1.1rem;
-  align-self: center; /* Center the button */
+  align-self: center;
 }
 
-/* Form Status Messages */
-.form-status-message {
-  margin-top: 1.5rem;
-  padding: 1rem;
-  border-radius: 6px;
+#discord-section {
   text-align: center;
-  font-weight: 500;
-}
-
-.form-status-message.success {
-  background-color: rgba(40, 167, 69, 0.2);
-  color: #28a745;
-  border: 1px solid #28a745;
-}
-
-.form-status-message.error {
-  background-color: rgba(220, 53, 69, 0.2);
-  color: #dc3545;
-  border: 1px solid #dc3545;
-}
-
-/* Discord Section on Contact Page */
-#discord-section { /* This is a .content-section */
-  text-align: center;
-  padding-top: 2rem; /* Additional spacing if needed */
+  padding-top: 2rem;
   padding-bottom: 3rem;
 }
 
-#discord-section > p { /* Intro paragraph for Discord section */
+#discord-section > p {
   text-align: center;
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
@@ -511,12 +470,12 @@ footer {
   border-radius: 8px;
   border: 1px solid #333;
   max-width: 450px;
-  margin: 0 auto 1rem auto; /* Added bottom margin */
+  margin: 0 auto 1rem auto;
 }
 
 .discord-icon {
   font-size: 2.5rem;
-  color: #5865F2; /* Discord brand color */
+  color: #5865F2;
 }
 
 .discord-tag {
@@ -529,7 +488,7 @@ footer {
   white-space: nowrap;
 }
 
-.discord-copy-button { /* Extends .cta-button */
+.discord-copy-button {
   padding: 0.6rem 1.2rem;
   font-size: 0.95rem;
   display: inline-flex;
@@ -540,15 +499,15 @@ footer {
 
 .discord-copy-button .fa-copy,
 .discord-copy-button .fa-check {
-  font-size: 1em; /* Relative to button text */
+  font-size: 1em;
 }
 
-.copy-status-message { /* For Discord tag copy feedback */
+.copy-status-message {
   margin-top: 1rem;
   padding: 0.8rem 1rem;
   border-radius: 6px;
   font-weight: 500;
-  min-height: 2.5em; /* Prevent layout shift */
+  min-height: 2.5em;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -560,7 +519,7 @@ footer {
   transform: translateY(0);
 }
 
-.copy-status-message.success { /* Different from form status for potential distinction */
+.copy-status-message.success {
   background-color: rgba(40, 167, 69, 0.15);
   color: #34c759;
   border: 1px solid rgba(40, 167, 69, 0.3);
@@ -572,12 +531,8 @@ footer {
   border: 1px solid rgba(220, 53, 69, 0.3);
 }
 
-/* About Page
+/* About, AscentCustoms Project, Spreadsheets/Resources Pages
    -------------------------------------------------------------------------- */
-#about-content { /* Specific content section for about page */
-  /* Uses .content-section base styles */
-}
-
 .about-subsection {
   margin-top: 2.5rem;
   margin-bottom: 1.5rem;
@@ -585,160 +540,12 @@ footer {
 
 .about-subsection h3 {
   font-size: 1.8rem;
-  color: #00bfff; /* Accent color */
+  color: #00bfff;
   margin-top: 0;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #333; /* Subtle underline */
+  border-bottom: 1px solid #333;
   font-weight: 600;
-}
-
-#about-content p { /* Paragraphs specifically within about content, if needing override */
-  /* Inherits from .content-section p by default */
-}
-
-/* AscentCustoms WIP Page (Full Screen Style)
-   -------------------------------------------------------------------------- */
-#ascent-wip-page { /* Main container for the WIP page content */
-  height: calc(100vh - 100px); /* Adjust 100px based on your actual header height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-  max-width: none;
-  background-color: #000000;
-  border-top: none;
-  animation: none;
-  box-shadow: none; /* Override default content section shadow */
-  border-radius: 0; /* Override default content section radius */
-}
-
-/* Remove site footer margin for this specific page */
-body:has(#ascent-wip-page) footer {
-  margin-top: 0;
-}
-
-.ascent-backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  background-image: url('https://media.tenor.com/APB12vyfxVUAAAAM/fractal-universe.gif');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  mix-blend-mode: lighten;
-  opacity: 0.15;
-}
-
-.ascent-container {
-  position: relative;
-  z-index: 1;
-  padding: 30px;
-  max-width: 700px;
-  background-color: rgba(10, 10, 10, 0.3);
-  border-radius: 8px;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #E0E0E0;
-}
-
-.ascent-container h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  margin-top: 0;
-  margin-bottom: 25px;
-  letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-
-.ascent-subtitle {
-  font-size: 1.3rem;
-  font-weight: 100;
-  color: #CCCCCC;
-  margin-top: -15px;
-  margin-bottom: 30px;
-}
-
-.ascent-details {
-  font-size: 1.1rem;
-  font-weight: 300;
-  line-height: 1.7;
-  margin-bottom: 35px;
-  color: #B0B0B0;
-  max-width: 550px;
-}
-
-.ascent-details p {
-  margin-top: 0;
-  margin-bottom: 12px;
-}
-
-.ascent-details strong {
-  font-weight: 400;
-  color: #D0D0D0;
-}
-
-.ascent-page-footer {
-  font-size: 0.8rem;
-  font-weight: 300;
-  color: #757575;
-  margin-top: 40px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.ascent-copyright-text {
-  margin-bottom: 0;
-}
-
-.ascent-footer-button {
-  display: inline-block;
-  padding: 8px 18px;
-  margin-top: 15px;
-  border: 1px solid #555555;
-  border-radius: 5px;
-  color: #AAAAAA;
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 0.85rem;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.ascent-footer-button:hover,
-.ascent-footer-button:focus {
-  background-color: #333333;
-  color: #FFFFFF;
-  border-color: #777777;
-  outline: none;
-}
-
-/* AscentCustoms Project Page (Standard Layout)
-   -------------------------------------------------------------------------- */
-#ascentcustoms-details { /* This is a .content-section */
- /* Add specific styles if needed beyond .content-section and .about-subsection */
-}
-
-.project-image-placeholder { /* Placeholder for inline images on project pages */
-  border: 2px dashed #444;
-  padding: 3rem 1rem;
-  text-align: center;
-  color: #666;
-  font-style: italic;
-  border-radius: 8px;
-  margin: 1.5rem 0;
-  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .store-links-list {
@@ -770,648 +577,37 @@ body:has(#ascent-wip-page) footer {
     font-weight: 500;
 }
 .store-links-list li a.inline-link:hover {
-    text-decoration: underline; /* Underline on hover for better UX */
+    text-decoration: underline;
 }
 
 .project-cta-buttons {
     text-align: center;
     margin-top: 2rem;
-    display: flex; /* Arrange buttons in a row */
-    justify-content: center; /* Center buttons */
-    gap: 1rem; /* Space between buttons */
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 .project-cta-buttons .cta-button {
-    margin-top: 0; /* Override default margin-top for buttons in this container */
-}
-
-
-/* Setup Page (#setup-details)
-   -------------------------------------------------------------------------- */
-#setup-details {
-    /* This section will inherit styles from .content-section by default */
-    animation: fadeInSection 1s ease-out forwards; /* Ensure animation is applied */
-    padding: 3rem 2rem; /* Standard .content-section padding */
-    background-color: #121212; /* Standard .content-section background */
-    border-top: 3px solid #007bff; /* Standard .content-section border */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 5px 10px rgba(0,0,0,0.25); /* Standard shadow */
-}
-
-.setup-category {
-    position: relative; /* Needed for the ::before overlay */
-    overflow: hidden; /* Contain the overlay */
-    margin-bottom: 2rem; /* Space between categories */
-    padding: 2rem 1.5rem; /* Padding inside the category for content spacing */
-    border-radius: 8px; /* Rounded corners for the category block */
-    background-color: #1A1A1A; /* CONSISTENT DARK background for ALL categories */
-    background-size: cover; /* Will apply if background-image is set */
-    background-position: center; /* Will apply if background-image is set */
-    background-repeat: no-repeat; /* Will apply if background-image is set */
-    text-align: center; /* Center inline-block children like h3 */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Add a subtle shadow to each category */
-    border: 1px solid #333; /* Subtle border for all category boxes */
-}
-.setup-category:last-child {
-    margin-bottom: 0; /* Remove bottom margin from the last category inside #setup-details */
-}
-
-/* --- Background Images for Setup Categories (OPTIONAL) --- */
-/* The order here MUST match the order of .setup-category divs in setup.html */
-/* If you want a background image for a section, uncomment and set the URL */
-/* Otherwise, they will use the solid #1A1A1A background from .setup-category */
-
-/*
-#setup-details .setup-category:nth-of-type(1) { /* Desktop Specifications */
-/* background-image: url('/images/setup/desktop_bg.jpg'); */
-/* } */
-/*
-#setup-details .setup-category:nth-of-type(2) { /* Mice & Mousepads */
-/* background-image: url('/images/setup/mice_mousepads_bg.jpg'); */
-/* } */
-/*
-#setup-details .setup-category:nth-of-type(3) { /* Keyboards */
-/* background-image: url('/images/setup/keyboards_bg.jpg'); */
-/* } */
-/*
-#setup-details .setup-category:nth-of-type(4) { /* Audio Setup */
-/* background-image: url('/images/setup/audio_bg.jpg'); */
-/* } */
-/*
-#setup-details .setup-category:nth-of-type(6) { /* Laptop */
-/* background-image: url('/images/setup/laptop_bg.jpg'); */
-/* } */
-
-
-/* Tint Overlay for Background Images (Only applies if background-image is set) */
-.setup-category::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent; /* Default to transparent */
-    z-index: 1; /* Behind content, above background image */
-    transition: background-color 0.3s ease;
-    border-radius: 8px; /* Match parent border-radius */
-}
-
-/* Apply dark tint ONLY if a background image IS SET on the element */
-/* This requires knowing which ones have images. We'll use the nth-of-type for now. */
-/* If a category has a background-image rule above, its ::before should get this tint */
-#setup-details .setup-category:has(>[style*="background-image"])::before {
-    background-color: rgba(0, 0, 0, 0.45); /* Subtle tint for sections with images */
-}
-/* Or, if you prefer to be explicit with nth-of-type: */
-/*
-#setup-details .setup-category:nth-of-type(1)::before, /* Desktop */
-/* #setup-details .setup-category:nth-of-type(2)::before, /* Mice */
-/* #setup-details .setup-category:nth-of-type(3)::before, /* Keyboards */
-/* #setup-details .setup-category:nth-of-type(4)::before, /* Audio */
-/* #setup-details .setup-category:nth-of-type(6)::before  /* Laptop */ /* {
-/* background-color: rgba(0, 0, 0, 0.45);
-/* }
-*/
-
-
-/* Ensure all direct children content is above the tint */
-#setup-details > .section-title-wrapper,
-#setup-details > p:first-of-type,
-.setup-category > h3,
-.setup-category > .setup-image-placeholder,
-.setup-category > .spec-list,
-.setup-category > .item-list,
-.setup-category > .setup-subsection,
-.setup-category > .keyboard-accordion {
-    position: relative;
-    z-index: 2; /* Above the ::before tint */
-}
-
-/* Adjust heading style for better contrast */
-.setup-category h3 {
-    font-size: 1.9rem;
-    color: #ffffff; /* Ensure white for contrast */
     margin-top: 0;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid #007bff;
-    display: inline-block; /* Allows centering via parent's text-align: center */
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Add subtle shadow for readability */
-}
-.setup-category h3 .fas { /* Icon in heading */
-    margin-right: 0.75rem;
-    color: #00bfff;
-    font-size: 0.9em;
-}
-
-/* Adjust subsection heading style */
-.setup-subsection h4 {
-    font-size: 1.4rem;
-    color: #00bfff; /* Keep accent color */
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-weight: 500;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-    text-align: left; /* Ensure subsection titles are left-aligned */
-}
-
-/* Specification List (Used for Desktop, Laptop, Server) */
-.spec-list {
-    margin-top: 1rem;
-    padding-left: 1rem; /* Indent spec list */
-    line-height: 1.8; /* Increase line height for readability */
-    text-align: left; /* Ensure spec list content is left-aligned */
-}
-
-.spec-list dt { /* Definition Term (Label) */
-    font-weight: 500;
-    color: #e5e5e5; /* Slightly brighter label */
-    width: 100px; /* Fixed width for labels */
-    display: inline-block;
-    margin-right: 0.5rem; /* Space between label and value */
-    vertical-align: top; /* Align label with top of value */
-}
-
-.spec-list dd { /* Definition Description (Value) */
-    display: inline-block;
-    color: #c0c0c0; /* Slightly dimmer value color */
-    margin-left: 0; /* Reset default margin */
-    margin-bottom: 0.5rem; /* Space below each spec item */
-    width: calc(100% - 120px); /* Calculate remaining width */
-    vertical-align: top;
-}
-
-/* Item List (Used for Mice, Mousepads, Audio etc.) */
-.item-list {
-    list-style: none; /* Remove default bullets */
-    padding-left: 0.5rem; /* Slight indent for items */
-    margin-top: 0.5rem;
-    text-align: left; /* Ensure item list content is left-aligned */
-}
-
-.item-list li {
-    color: #c8c8c8; /* Ensure item text is readable */
-    margin-bottom: 0.75rem; /* Space between list items */
-    line-height: 1.6;
-}
-.item-list li::before { /* Custom bullet using Font Awesome */
-    content: '\f105'; /* Font Awesome chevron-right icon */
-    font-family: 'Font Awesome 6 Free'; /* Ensure Font Awesome is loaded */
-    font-weight: 900; /* Use the solid style */
-    color: #007bff; /* Accent color for bullet */
-    margin-right: 0.75rem;
-    font-size: 0.9em;
-}
-
-/* Keyboard Accordion Styles */
-.keyboard-accordion {
-    margin-top: 1rem;
-    text-align: left; /* Ensure accordion content is left-aligned */
-}
-
-.keyboard-item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator between items */
-}
-.keyboard-item:last-child {
-    border-bottom: none;
-}
-
-.keyboard-trigger {
-    background-color: transparent;
-    border: none;
-    color: #e0e0e0; /* Match text color */
-    font-size: 1.1rem; /* Match paragraph font size */
-    font-weight: 500;
-    padding: 1rem 0.5rem; /* Vertical padding, less horizontal */
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    display: flex; /* Use flex to align text and icon */
-    justify-content: space-between; /* Push icon to the right */
-    align-items: center;
-    transition: background-color 0.2s ease;
-}
-
-.keyboard-trigger:hover,
-.keyboard-trigger.active { /* Style when hovered or active */
-    background-color: rgba(255, 255, 255, 0.05); /* Subtle highlight */
-    color: #ffffff;
-}
-
-.accordion-icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    border-right: 0.15em solid currentColor; /* Arrow part 1 */
-    border-bottom: 0.15em solid currentColor; /* Arrow part 2 */
-    transform: rotate(45deg); /* Point down */
-    transition: transform 0.3s ease;
-    margin-right: 0.5rem; /* Space from edge */
-    flex-shrink: 0; /* Prevent icon shrinking */
-}
-
-.keyboard-trigger.active .accordion-icon {
-    transform: rotate(-135deg); /* Point up when active */
-}
-
-.keyboard-details {
-    max-height: 0; /* Hidden by default */
-    overflow: hidden;
-    transition: max-height 0.4s ease-out; /* Smooth transition */
-    background-color: rgba(0, 0, 0, 0.1); /* Slightly different background for details */
-    padding-left: 1.5rem; /* Indent details */
-    padding-right: 0.5rem;
-    color: #b0b0b0; /* Base color for detail text */
-    text-align: left; /* Ensure details are left-aligned */
-}
-.keyboard-details.active {
-    /* max-height is set by JS */
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-.keyboard-details p {
-    margin: 0 0 0.5rem 0; /* Adjust spacing within details */
-    font-size: 1rem; /* Slightly smaller text for details */
-}
-.keyboard-details p strong {
-    color: #d0d0d0;
-    font-weight: 500;
-}
-
-
-/* Image Placeholder Styling - Make it blend better */
-/* This style applies if you choose to use inline images within the .setup-image-placeholder div */
-.setup-image-placeholder {
-    border: 2px dashed rgba(255, 255, 255, 0.2); /* Lighter dash */
-    padding: 3rem 1rem;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.4); /* Lighter placeholder text */
-    font-style: italic;
-    border-radius: 8px;
-    margin: 1.5rem auto; /* Center the placeholder if it's not full width */
-    background-color: rgba(255, 255, 255, 0.03); /* Even more subtle background */
-    position: relative; /* Ensure it's above the tint */
-    z-index: 2;
-    max-width: 600px; /* Give it a max-width so it doesn't stretch too far */
-}
-.setup-image-placeholder img { /* Styling for actual images inside placeholder */
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-    display: block;
-    margin: 0 auto;
-}
-
-
-/* Reviews Page (#reviews-listing)
-   -------------------------------------------------------------------------- */
-#reviews-listing {
-    /* Uses .content-section base styles */
-}
-
-.review-items-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 2rem; /* Space between review cards */
-    margin-top: 2rem;
-}
-
-.review-item-card {
-    background-color: #1F1F1F; /* Slightly lighter than main content section */
-    border-radius: 8px;
-    overflow: hidden; /* To contain the thumbnail's rounded corners if any */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Ensure the link inside takes full card height */
-    flex-direction: column;
-}
-
-.review-item-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.4);
-}
-
-.review-card-link {
-    text-decoration: none;
-    color: inherit; /* Inherit text color from parent */
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Make link fill the card */
-}
-
-.review-thumbnail {
-    width: 100%;
-    height: 160px; /* ADJUSTED: Fixed height for thumbnails, try 160px or 150px */
-    overflow: hidden; /* Crop images that are too large */
-    background-color: #2a2a2a; /* Fallback for missing/broken images */
-    display: flex; /* For centering placeholder text if image fails */
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-style: italic;
-}
-
-.review-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cover the area, cropping if necessary */
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.review-item-card:hover .review-thumbnail img {
-    transform: scale(1.05); /* Slight zoom on hover */
-}
-
-.review-card-content {
-    padding: 1.5rem;
-    flex-grow: 1; /* Allow content to take remaining space */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Pushes date to the bottom */
-}
-
-.review-card-title {
-    font-size: 1.4rem;
-    color: #00bfff; /* Accent color for titles */
-    margin-top: 0;
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-}
-
-.review-card-excerpt {
-    font-size: 0.95rem;
-    color: #b0b0b0;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    flex-grow: 1; /* Allow excerpt to take space before date */
-}
-
-.review-card-date {
-    font-size: 0.85rem;
-    color: #777;
-    text-align: right;
-    margin-top: auto; /* Pushes date to the bottom */
-}
-
-/* Articles Page (#articles-listing) - Apply similar styling
-   -------------------------------------------------------------------------- */
-#articles-listing {
-    /* Uses .content-section base styles */
-}
-
-.article-items-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 2rem; /* Space between article cards */
-    margin-top: 2rem;
-}
-
-.article-item-card {
-    background-color: #1F1F1F;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.article-item-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.4);
-}
-
-.article-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.article-thumbnail {
-    width: 100%;
-    height: 160px; /* ADJUSTED: Consistent thumbnail height */
-    overflow: hidden;
-    background-color: #2a2a2a; /* Fallback */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-style: italic;
-}
-
-.article-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.article-item-card:hover .article-thumbnail img {
-    transform: scale(1.05);
-}
-
-.article-card-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.article-card-title {
-    font-size: 1.4rem;
-    color: #00bfff;
-    margin-top: 0;
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-}
-
-.article-card-excerpt {
-    font-size: 0.95rem;
-    color: #b0b0b0;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-}
-
-.article-card-date {
-    font-size: 0.85rem;
-    color: #777;
-    text-align: right;
-    margin-top: auto;
-}
-
-
-/* Gallery Page (#gallery-main)
-   -------------------------------------------------------------------------- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 1rem; /* Space between gallery items */
-    margin-top: 2rem;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden; /* To make image cover and for hover effects */
-    border-radius: 8px; /* Rounded corners for items */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    cursor: pointer;
-    aspect-ratio: 1 / 1; /* Make items square, adjust as needed (e.g., 16/9) */
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cover the area, cropping if necessary */
-    display: block;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.05);
-    filter: brightness(0.8);
-}
-
-.gallery-item .image-caption { /* Optional caption on hover */
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0,0,0,0.7);
-    color: white;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    box-sizing: border-box;
-}
-
-.gallery-item:hover .image-caption {
-    opacity: 1;
-}
-
-
-/* Lightbox Styles
-   -------------------------------------------------------------------------- */
-.lightbox-overlay {
-    position: fixed;
-    z-index: 10000; /* High z-index to be on top */
-    padding-top: 60px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.9); /* Black with opacity */
-    display: flex; /* Use flexbox for centering */
-    justify-content: center;
-    align-items: center;
-}
-
-.lightbox-content {
-    margin: auto;
-    display: block;
-    max-width: 85%;
-    max-height: 85vh;
-    animation: lightboxZoom 0.6s ease-out;
-    border-radius: 4px;
-}
-
-@keyframes lightboxZoom {
-    from {transform: scale(0.8); opacity: 0;}
-    to {transform: scale(1); opacity: 1;}
-}
-
-#lightbox-caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 15px 0;
-    font-size: 1.1rem;
-    height: 50px; /* Reserve space */
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.lightbox-close:hover,
-.lightbox-close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.lightbox-prev,
-.lightbox-next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -50px; /* Adjust to vertically center with image */
-    color: white;
-    font-weight: bold;
-    font-size: 24px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    -webkit-user-select: none;
-    background-color: rgba(0,0,0,0.3);
-}
-.lightbox-prev:hover,
-.lightbox-next:hover {
-    background-color: rgba(0,0,0,0.6);
-}
-
-.lightbox-next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-.lightbox-prev {
-    left: 0;
-}
-
-
-/* Spreadsheets/Resources Page (#spreadsheets-listing)
-   -------------------------------------------------------------------------- */
-#spreadsheets-listing {
-    /* Uses .content-section base styles */
 }
 
 .resource-items-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive grid */
-    gap: 2rem; /* Space between resource cards */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
     margin-top: 2rem;
 }
 
 .resource-item-card {
-    background-color: #1F1F1F; /* Slightly lighter than main content section */
+    background-color: #1F1F1F;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
-    flex-direction: column; /* Stack icon and content vertically */
+    flex-direction: column;
     padding: 1.5rem;
-    text-align: center; /* Center icon and button */
+    text-align: center;
 }
 
 .resource-item-card:hover {
@@ -1421,11 +617,11 @@ body:has(#ascent-wip-page) footer {
 
 .resource-card-icon {
     margin-bottom: 1.5rem;
-    color: #00bfff; /* Accent color for icons */
+    color: #00bfff;
 }
 
-.resource-card-icon .fas { /* For Font Awesome icons */
-    font-size: 3rem; /* Larger icon size */
+.resource-card-icon .fas {
+    font-size: 3rem;
 }
 
 .resource-card-content {
@@ -1436,7 +632,7 @@ body:has(#ascent-wip-page) footer {
 
 .resource-card-title {
     font-size: 1.5rem;
-    color: #ffffff; /* White title for better contrast on dark card */
+    color: #ffffff;
     margin-top: 0;
     margin-bottom: 0.75rem;
     line-height: 1.3;
@@ -1447,19 +643,189 @@ body:has(#ascent-wip-page) footer {
     color: #b0b0b0;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Allow description to take space before button */
+    flex-grow: 1;
 }
 
 .resource-button {
-    margin-top: auto; /* Pushes button to the bottom of the card */
-    align-self: center; /* Center button within the card */
-    padding: 0.7rem 1.5rem; /* Slightly smaller button */
+    margin-top: auto;
+    align-self: center;
+    padding: 0.7rem 1.5rem;
 }
 .resource-button .fas {
     margin-left: 0.5rem;
     font-size: 0.9em;
 }
 
+/* Setup Page
+   -------------------------------------------------------------------------- */
+#setup-details {
+    animation: fadeInSection 1s ease-out forwards;
+    padding: 3rem 2rem;
+    background-color: #121212;
+    border-top: 3px solid #007bff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 5px 10px rgba(0,0,0,0.25);
+}
+
+.setup-category {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    background-color: #1A1A1A;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid #333;
+}
+.setup-category:last-child {
+    margin-bottom: 0;
+}
+
+.setup-category h3 {
+    font-size: 1.9rem;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid #007bff;
+    display: inline-block;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.setup-category h3 .fas {
+    margin-right: 0.75rem;
+    color: #00bfff;
+    font-size: 0.9em;
+}
+
+.setup-subsection h4 {
+    font-size: 1.4rem;
+    color: #00bfff;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    text-align: left;
+}
+
+.spec-list {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.spec-list dt {
+    font-weight: 500;
+    color: #e5e5e5;
+    width: 100px;
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: top;
+}
+
+.spec-list dd {
+    display: inline-block;
+    color: #c0c0c0;
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+    width: calc(100% - 120px);
+    vertical-align: top;
+}
+
+.item-list {
+    list-style: none;
+    padding-left: 0.5rem;
+    margin-top: 0.5rem;
+    text-align: left;
+}
+
+.item-list li {
+    color: #c8c8c8;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+.item-list li::before {
+    content: '\f105';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #007bff;
+    margin-right: 0.75rem;
+    font-size: 0.9em;
+}
+
+.keyboard-accordion {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.keyboard-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.keyboard-item:last-child {
+    border-bottom: none;
+}
+
+.keyboard-trigger {
+    background-color: transparent;
+    border: none;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 1rem 0.5rem;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.keyboard-trigger:hover,
+.keyboard-trigger.active {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+.accordion-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-right: 0.15em solid currentColor;
+    border-bottom: 0.15em solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+.keyboard-trigger.active .accordion-icon {
+    transform: rotate(-135deg);
+}
+
+.keyboard-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding-left: 1.5rem;
+    padding-right: 0.5rem;
+    color: #b0b0b0;
+    text-align: left;
+}
+.keyboard-details.active {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.keyboard-details p {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+.keyboard-details p strong {
+    color: #d0d0d0;
+    font-weight: 500;
+}
 
 /* ==========================================================================
    6. Animations (@keyframes)
@@ -1477,10 +843,10 @@ body:has(#ascent-wip-page) footer {
 
 @keyframes blink-caret {
   from, to { border-color: transparent; }
-  50% { border-color: #00ccff; } /* Caret color */
+  50% { border-color: #00ccff; }
 }
 
-@keyframes fadeInSection { /* Apply this selectively if needed */
+@keyframes fadeInSection {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
@@ -1490,53 +856,48 @@ body:has(#ascent-wip-page) footer {
    ========================================================================== */
 
 @media (max-width: 768px) {
-  /* Header & Navigation */
   header {
-    flex-direction: column; /* Stack logo and nav on small screens */
+    flex-direction: column;
     padding: 1rem;
   }
   nav ul {
-    flex-direction: column; /* Stack nav items */
-    align-items: center; /* Center nav items */
-    gap: 0.5rem; /* Reduce gap */
-    margin-top: 1rem; /* Space between logo and nav */
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
   }
-  nav ul li ul { /* Ensure dropdowns still work correctly */
+  nav ul li ul {
     left: 50%;
-    transform: translateX(-50%); /* Center dropdown below parent */
+    transform: translateX(-50%);
     min-width: 150px;
   }
   nav a,
   nav ul li ul li a {
-    padding: 0.5rem 1rem; /* Adjust padding for touch targets */
+    padding: 0.5rem 1rem;
   }
-
-
-  /* Hero Section */
   .hero h1,
   .typewriter-container {
-    font-size: 2.2rem; /* Smaller font size for mobile */
+    font-size: 2.2rem;
   }
   .hero p.subtitle {
-    font-size: 1.1rem; /* Smaller subtitle for mobile */
+    font-size: 1.1rem;
   }
-  .hero > div { /* Hero content box */
+  .hero > div {
     padding: 15px 20px;
   }
-
-  /* Call to Action Button */
   .cta-button,
   .social-links a,
   .form-submit-button,
   .discord-copy-button {
-    padding: 0.7rem 1.5rem; /* Adjust button padding for mobile */
-    font-size: 1rem; /* Smaller button text */
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
   }
-
-  /* Content Sections */
   .content-section {
-    padding: 2rem 1rem; /* Less padding on smaller screens */
+    padding: 2rem 1rem;
     margin: 2rem auto;
+  }
+  #setup-details { /* Ensure padding is adjusted for mobile too */
+    padding: 2rem 1rem;
   }
   .content-section .section-title-wrapper h2,
   #discord-section .section-title-wrapper h2 {
@@ -1546,63 +907,11 @@ body:has(#ascent-wip-page) footer {
     font-size: 1rem;
     line-height: 1.6;
   }
-
-  /* Page Specific Headers */
   .page-header h1 {
     font-size: 2.2rem;
   }
-
-  /* Contact Form */
-  .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group textarea {
-    padding: 0.8rem;
-    font-size: 0.95rem;
-  }
-
-  /* About Page */
-  .about-subsection h3 {
-    font-size: 1.5rem;
-  }
-
-  /* Discord Section */
-  .discord-tag-container {
-    padding: 1rem;
-    gap: 0.75rem;
-  }
-  .discord-icon {
-    font-size: 2rem;
-  }
-  .discord-tag {
-    font-size: 1.1rem;
-  }
-
-  /* AscentCustoms WIP Page */
-  .ascent-container h1 {
-    font-size: 2.2rem;
-  }
-  .ascent-subtitle {
-    font-size: 1.1rem;
-  }
-  .ascent-details {
-    font-size: 1rem;
-  }
-  .ascent-container {
-    padding: 25px;
-    margin: 20px; /* Add some margin so it doesn't touch screen edges */
-    max-width: calc(100% - 40px); /* Ensure padding/margin respected */
-  }
-  .ascent-footer-button {
-    padding: 7px 15px;
-    font-size: 0.8rem;
-  }
-  #ascent-wip-page {
-     height: calc(100vh - 80px); /* Adjust for potentially taller mobile header */
-  }
-
-  /* Setup Page */
   .setup-category {
-      padding: 2rem 1.5rem; /* Adjust padding */
+      padding: 2rem 1.5rem;
   }
   .setup-category h3 {
       font-size: 1.6rem;
@@ -1611,25 +920,14 @@ body:has(#ascent-wip-page) footer {
       font-size: 1.2rem;
   }
   .spec-list dt {
-      width: 80px; /* Reduce label width */
+      width: 80px;
   }
   .spec-list dd {
-      width: calc(100% - 95px); /* Adjust value width */
+      width: calc(100% - 95px);
   }
-  .item-list li {
-      font-size: 0.95rem;
-  }
-  .keyboard-trigger {
-      font-size: 1rem;
-  }
-  .keyboard-details p {
-      font-size: 0.95rem;
-  }
-
 }
 
 @media (max-width: 480px) {
-  /* Further adjustments for very small screens */
   .hero h1,
   .typewriter-container {
     font-size: 1.8rem;
@@ -1637,11 +935,9 @@ body:has(#ascent-wip-page) footer {
   .hero p.subtitle {
     font-size: 1rem;
   }
-
   .page-header h1 {
     font-size: 2rem;
   }
-
   .content-section .section-title-wrapper h2,
   #discord-section .section-title-wrapper h2 {
     font-size: 1.8rem;
@@ -1649,49 +945,27 @@ body:has(#ascent-wip-page) footer {
   .content-section p {
     font-size: 0.95rem;
   }
-
-  /* AscentCustoms WIP Page */
-  .ascent-container h1 {
-    font-size: 1.8rem;
-  }
-  .ascent-subtitle {
-    font-size: 1rem;
-  }
-  .ascent-details {
-    font-size: 0.9rem;
-  }
-  .ascent-page-footer {
-    margin-top: 30px;
-  }
-  #ascent-wip-page {
-     height: calc(100vh - 70px); /* Further adjustment for mobile header */
-  }
-
-  /* Setup Page */
   .setup-category {
-      padding: 1.5rem 1rem; /* Adjust padding */
+      padding: 1.5rem 1rem;
+      margin-bottom: 2rem;
+  }
+  .setup-category h3 {
+      font-size: 1.5rem;
   }
   .spec-list dt,
   .spec-list dd {
-      display: block; /* Stack label and value */
+      display: block;
       width: 100%;
       margin-right: 0;
       vertical-align: baseline;
   }
   .spec-list dt {
-      margin-bottom: 0.1rem; /* Small space below label */
-      color: #00bfff; /* Make label stand out more */
+      margin-bottom: 0.1rem;
+      color: #00bfff;
   }
    .spec-list dd {
-      margin-bottom: 0.8rem; /* Space below value */
-      padding-left: 1rem; /* Indent value below label */
-  }
-  .setup-category {
-      padding-bottom: 1.5rem;
-      margin-bottom: 2rem;
-  }
-  .setup-category h3 {
-      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      padding-left: 1rem;
   }
    .keyboard-trigger {
       padding: 0.8rem 0.2rem;
