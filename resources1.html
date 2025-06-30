@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spreadsheets - Bepsi</title>
+    <title>Helpful Spreadsheets - Bepsi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -144,30 +144,30 @@
                         <a href="https://docs.google.com/spreadsheets/d/12jjOAsstn5d8HCQ5f5Y3wgKbxemBJBxaIzOqEDu6hTc/edit?gid=1848579347" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
                     </div>
                 </div>
+
                 <!-- AULA -->
                 <div class="interactive-card" data-aos="fade-up">
                     <div class="p-6 flex flex-col h-full resource-content">
                         <div class="flex-shrink-0 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><circle cx="12" cy="12" r="10"></circle></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2"> Why You Shouldnt Buy Aula</h3>
+                        <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Aula</h3>
                         <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Aula boards.</p>
                         <a href="https://imgur.com/a/aula-boards-are-not-hazardous-amazing-9D5pcXs" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                     </div>
                 </div>
-                <!-- ROYAL KLUDGE  -->
+
+                <!-- ROYAL KLUDGE -->
                 <div class="interactive-card" data-aos="fade-up">
                     <div class="p-6 flex flex-col h-full resource-content">
                         <div class="flex-shrink-0 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><circle cx="12" cy="12" r="10"></circle></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Why You Shouldnt Buy Royal Kludge</h3>
+                        <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Royal Kludge</h3>
                         <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Royal Kludge boards.</p>
                         <a href="https://imgur.com/a/royal-kludge-is-good-brand-you-should-buy-keyboards-x7LTFwp" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                     </div>
                 </div>
-
-
 
                 <!-- TEMPLATE FOR NEW RESOURCE -->
                 <!--
@@ -195,12 +195,12 @@
             // Load header and footer, then initialize scripts
             const loadComponents = async () => {
                 try {
-                    const headerResponse = await fetch('header.html');
+                    const headerResponse = await fetch('./header.html');
                     if (!headerResponse.ok) throw new Error('Failed to fetch header');
                     const headerData = await headerResponse.text();
                     document.getElementById('header-placeholder').innerHTML = headerData;
 
-                    const footerResponse = await fetch('footer.html');
+                    const footerResponse = await fetch('./footer.html');
                     if (!footerResponse.ok) throw new Error('Failed to fetch footer');
                     const footerData = await footerResponse.text();
                     document.getElementById('footer-placeholder').innerHTML = footerData;
