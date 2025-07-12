@@ -10,7 +10,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* This keeps the glow effect consistent with other pages */
         .interactive-card {
             position: relative;
             background: rgba(23, 23, 23, 0.6);
@@ -19,17 +18,15 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 1rem;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease, height 0.4s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
         }
-
         .interactive-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 30px rgba(0,0,0,0.25);
         }
-
         .interactive-card::before {
             content: '';
             position: absolute;
@@ -37,9 +34,7 @@
             border-radius: inherit;
             padding: 1px;
             background: radial-gradient(600px at var(--x) var(--y), rgba(14, 165, 233, 0.7), rgba(139, 92, 246, 0.6), transparent 70%);
-            -webkit-mask: 
-                linear-gradient(#fff 0 0) content-box, 
-                linear-gradient(#fff 0 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             z-index: 0;
@@ -47,17 +42,33 @@
             transition: opacity 0.4s ease-in-out;
             filter: blur(20px);
         }
-
         .interactive-card:hover::before {
             opacity: 1;
         }
-        
         .interactive-card > * {
             position: relative;
             z-index: 1;
         }
         .resource-content {
             flex-grow: 1;
+        }
+        .filter-btn {
+            @apply px-4 py-2 text-sm font-semibold text-gray-400 bg-gray-800/50 rounded-full transition-colors duration-300 hover:bg-sky-500 hover:text-white;
+        }
+        .filter-btn.active {
+            @apply bg-sky-500 text-white;
+        }
+        .resource-item.hidden {
+            transform: scale(0.95);
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .resource-item {
+            transition: opacity 0.4s ease, transform 0.4s ease, height 0.4s ease, padding 0.4s ease, margin 0.4s ease;
         }
     </style>
 </head>
@@ -68,131 +79,150 @@
     <!-- Page Specific Content -->
     <div id="main-content" class="relative z-20 bg-stone-950 pt-32">
         <section class="container mx-auto px-6 py-12">
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight text-center text-glow" data-aos="fade-up">Helpful Spreadsheets</h1>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight text-center text-glow" data-aos="fade-up">Helpful Resources</h1>
             <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">Curated data & tools by myself and the community for recommendations and help.</p>
         </section>
 
         <section id="spreadsheets-listing" class="container mx-auto px-6 py-16">
+            <!-- Filter Buttons -->
+            <div id="filter-container" class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="peripherals">Peripherals</button>
+                <button class="filter-btn" data-filter="audio">Audio</button>
+                <button class="filter-btn" data-filter="monitors">Monitors</button>
+                <button class="filter-btn" data-filter="warnings">Community Warnings</button>
+            </div>
+
             <div id="cards-wrapper" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- PCHH Peripheral Master Sheet -->
-                <div class="interactive-card" data-aos="fade-up">
-                    <div class="p-6 flex flex-col h-full resource-content">
-                        <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M22 2H2v14h20V2zM12 14v4M8 18h8"/></svg></div>
-                        <h3 class="text-xl font-bold text-white mb-2">PCHH Peripheral Master Sheet</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Covers pretty much every peripheral. Maintained by few people but used by many.</p>
-                        <a href="https://docs.google.com/spreadsheets/d/1CIWFbKjMJWiEGHglCxdMEld50axj1eTgmKKMwJrCSo8/edit?gid=718224983#gid=718224983" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
+                <div class="resource-item" data-category="peripherals" data-aos="fade-up">
+                    <div class="interactive-card">
+                        <div class="p-6 flex flex-col h-full resource-content">
+                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M22 2H2v14h20V2zM12 14v4M8 18h8"/></svg></div>
+                            <h3 class="text-xl font-bold text-white mb-2">PCHH Peripheral Master Sheet</h3>
+                            <p class="text-gray-400 mb-4 flex-grow">Covers pretty much every peripheral. Maintained by few people but used by many.</p>
+                            <a href="https://docs.google.com/spreadsheets/d/1CIWFbKjMJWiEGHglCxdMEld50axj1eTgmKKMwJrCSo8/edit?gid=718224983#gid=718224983" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Simple Recommendation Sheet -->
-                <div class="interactive-card" data-aos="fade-up" data-aos-delay="100">
-                     <div class="p-6 flex flex-col h-full resource-content">
-                        <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M19 12H5M19 8H5M19 16H5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Simple Recommendation Sheet</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Covers audio recommendations for the normies. Thank you to Pelperson and the NTL Team.</p>
-                        <a href="https://docs.google.com/spreadsheets/d/1IpYhHzt151sio5rT_AvBSzpz1-kCfG1tqJ8Oa0Ra1_I/edit?gid=314339735#gid=314339735" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
+                <div class="resource-item" data-category="audio" data-aos="fade-up" data-aos-delay="100">
+                    <div class="interactive-card">
+                         <div class="p-6 flex flex-col h-full resource-content">
+                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M19 12H5M19 8H5M19 16H5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
+                            <h3 class="text-xl font-bold text-white mb-2">Simple Recommendation Sheet</h3>
+                            <p class="text-gray-400 mb-4 flex-grow">Covers audio recommendations for the normies. Thank you to Pelperson and the NTL Team.</p>
+                            <a href="https://docs.google.com/spreadsheets/d/1IpYhHzt151sio5rT_AvBSzpz1-kCfG1tqJ8Oa0Ra1_I/edit?gid=314339735#gid=314339735" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- NCR's Speaker Master Sheet -->
-                <div class="interactive-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-6 flex flex-col h-full resource-content">
-                        <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                        <h3 class="text-xl font-bold text-white mb-2">NCR's Speaker Master Sheet</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Every speaker at every budget. Thank you to NCR for creating this. @ncr_is_washed</p>
-                        <a href="https://docs.google.com/spreadsheets/d/1UPhmxSuc2LHnxjcwCwIE9iGiRaOH0f0-HTqhu4A5jMo/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
+                <div class="resource-item" data-category="audio" data-aos="fade-up" data-aos-delay="200">
+                    <div class="interactive-card">
+                        <div class="p-6 flex flex-col h-full resource-content">
+                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                            <h3 class="text-xl font-bold text-white mb-2">NCR's Speaker Master Sheet</h3>
+                            <p class="text-gray-400 mb-4 flex-grow">Every speaker at every budget. Thank you to NCR for creating this. @ncr_is_washed</p>
+                            <a href="https://docs.google.com/spreadsheets/d/1UPhmxSuc2LHnxjcwCwIE9iGiRaOH0f0-HTqhu4A5jMo/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Monitor Ranking List -->
-                <div class="interactive-card" data-aos="fade-up">
-                    <div class="p-6 flex flex-col h-full resource-content">
-                        <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Monitor Ranking List</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">A tracker for Monitors on the market. Tiered and Price Checked.</p>
-                        <a href="https://docs.google.com/spreadsheets/d/1qCInWar0InXoyHYAwAnONcE-zxpQpMGP2uUUkz9iBkI/edit?gid=2076833903#gid=2076833903" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
+                <div class="resource-item" data-category="monitors" data-aos="fade-up">
+                    <div class="interactive-card">
+                        <div class="p-6 flex flex-col h-full resource-content">
+                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                            <h3 class="text-xl font-bold text-white mb-2">Monitor Ranking List</h3>
+                            <p class="text-gray-400 mb-4 flex-grow">A tracker for Monitors on the market. Tiered and Price Checked.</p>
+                            <a href="https://docs.google.com/spreadsheets/d/1qCInWar0InXoyHYAwAnONcE-zxpQpMGP2uUUkz9iBkI/edit?gid=2076833903#gid=2076833903" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Hall Effect Keyboards -->
-                <div class="interactive-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-6 flex flex-col h-full resource-content">
-                        <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><path d="M17 2v4M7 2v4M2 12h20"/></svg></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Hall Effect Keyboards List</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Covers issues with hall effect manufacturers and provides recommendations.</p>
-                        <a href="https://docs.google.com/document/d/e/2PACX-1vSsjTA29tUSQDgT_FWmvX2nHg17RLzCXdZnBV2pdAWO2SqJmzeNl9EQNc2Yw2Cy4kHjIBcDVVCUgErC/pub" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Document</a>
+                <div class="resource-item" data-category="peripherals" data-aos="fade-up" data-aos-delay="100">
+                    <div class="interactive-card">
+                        <div class="p-6 flex flex-col h-full resource-content">
+                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><path d="M17 2v4M7 2v4M2 12h20"/></svg></div>
+                            <h3 class="text-xl font-bold text-white mb-2">Hall Effect Keyboards List</h3>
+                            <p class="text-gray-400 mb-4 flex-grow">Covers issues with hall effect manufacturers and provides recommendations.</p>
+                            <a href="https://docs.google.com/document/d/e/2PACX-1vSsjTA29tUSQDgT_FWmvX2nHg17RLzCXdZnBV2pdAWO2SqJmzeNl9EQNc2Yw2Cy4kHjIBcDVVCUgErC/pub" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Document</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Subwoofer Master Sheet -->
-                <div class="interactive-card" data-aos="fade-up" data-aos-delay="200">
-                     <div class="p-6 flex flex-col h-full resource-content">
-                        <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Subwoofer Master Sheet</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Need specifications, reviews, or just looking for a subwoofer to get?</p>
-                        <a href="https://docs.google.com/spreadsheets/d/1dU5OOnf3nVgctJszmfyBjaxK69dkXte6ZL6anVTW2_M/edit?gid=834598950" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
+                <div class="resource-item" data-category="audio" data-aos="fade-up" data-aos-delay="200">
+                    <div class="interactive-card">
+                         <div class="p-6 flex flex-col h-full resource-content">
+                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
+                            <h3 class="text-xl font-bold text-white mb-2">Subwoofer Master Sheet</h3>
+                            <p class="text-gray-400 mb-4 flex-grow">Need specifications, reviews, or just looking for a subwoofer to get?</p>
+                            <a href="https://docs.google.com/spreadsheets/d/1dU5OOnf3nVgctJszmfyBjaxK69dkXte6ZL6anVTW2_M/edit?gid=834598950" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
+                        </div>
                     </div>
                 </div>
                 
-                 <!-- JST Batteries -->
-                <div class="interactive-card" data-aos="fade-up" data-aos-delay="300">
-                     <div class="p-6 flex flex-col h-full resource-content">
-                        <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9H2l2 10h9.5A2.5 2.5 0 0 0 16 18V9Z"/></svg></div>
-                        <h3 class="text-xl font-bold text-white mb-2">JST Batteries</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">A specialized sheet covering JST batteries. Extremely helpful for modifying mice.</p>
-                        <a href="https://docs.google.com/spreadsheets/d/12jjOAsstn5d8HCQ5f5Y3wgKbxemBJBxaIzOqEDu6hTc/edit?gid=1848579347" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
-                    </div>
-                </div>
-
-                <!-- AULA -->
-                <div class="interactive-card" data-aos="fade-up">
-                    <div class="p-6 flex flex-col h-full resource-content">
-                        <div class="flex-shrink-0 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                <div class="resource-item" data-category="peripherals" data-aos="fade-up" data-aos-delay="300">
+                    <div class="interactive-card">
+                         <div class="p-6 flex flex-col h-full resource-content">
+                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9H2l2 10h9.5A2.5 2.5 0 0 0 16 18V9Z"/></svg></div>
+                            <h3 class="text-xl font-bold text-white mb-2">JST Batteries</h3>
+                            <p class="text-gray-400 mb-4 flex-grow">A specialized sheet covering JST batteries. Extremely helpful for modifying mice.</p>
+                            <a href="https://docs.google.com/spreadsheets/d/12jjOAsstn5d8HCQ5f5Y3wgKbxemBJBxaIzOqEDu6hTc/edit?gid=1848579347" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Aula</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Aula boards.</p>
-                        <a href="https://imgur.com/a/aula-boards-are-not-hazardous-amazing-9D5pcXs" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                     </div>
                 </div>
 
-                <!-- ROYAL KLUDGE -->
-                <div class="interactive-card" data-aos="fade-up">
-                    <div class="p-6 flex flex-col h-full resource-content">
-                        <div class="flex-shrink-0 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                <div class="resource-item" data-category="warnings" data-aos="fade-up">
+                    <div class="interactive-card">
+                        <div class="p-6 flex flex-col h-full resource-content">
+                            <div class="flex-shrink-0 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Aula</h3>
+                            <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Aula boards.</p>
+                            <a href="https://imgur.com/a/aula-boards-are-not-hazardous-amazing-9D5pcXs" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Royal Kludge</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Royal Kludge boards.</p>
-                        <a href="https://imgur.com/a/royal-kludge-is-good-brand-you-should-buy-keyboards-x7LTFwp" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                     </div>
                 </div>
 
-                <!-- MADLIONS -->
-                <div class="interactive-card" data-aos="fade-up">
-                    <div class="p-6 flex flex-col h-full resource-content">
-                        <div class="flex-shrink-0 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                <div class="resource-item" data-category="warnings" data-aos="fade-up">
+                    <div class="interactive-card">
+                        <div class="p-6 flex flex-col h-full resource-content">
+                            <div class="flex-shrink-0 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Royal Kludge</h3>
+                            <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Royal Kludge boards.</p>
+                            <a href="https://imgur.com/a/royal-kludge-is-good-brand-you-should-buy-keyboards-x7LTFwp" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Madlions</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Madlions boards.</p>
-                        <a href="https://imgur.com/a/stop-buying-madlions-slop-S7lrqVu" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                     </div>
                 </div>
-
-
+                
+                <div class="resource-item" data-category="warnings" data-aos="fade-up">
+                    <div class="interactive-card">
+                        <div class="p-6 flex flex-col h-full resource-content">
+                            <div class="flex-shrink-0 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Madlions</h3>
+                            <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Madlions boards.</p>
+                            <a href="https://imgur.com/a/stop-buying-madlions-slop-S7lrqVu" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- TEMPLATE FOR NEW RESOURCE -->
                 <!--
-                <div class="interactive-card" data-aos="fade-up">
-                    <div class="p-6 flex flex-col h-full resource-content">
-                        <div class="flex-shrink-0 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><circle cx="12" cy="12" r="10"></circle></svg>
+                <div class="resource-item" data-category="new-category" data-aos="fade-up">
+                    <div class="interactive-card">
+                        <div class="p-6 flex flex-col h-full resource-content">
+                            <div class="flex-shrink-0 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><circle cx="12" cy="12" r="10"></circle></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Your New Resource Title</h3>
+                            <p class="text-gray-400 mb-4 flex-grow">A short description of your new resource goes here.</p>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Your New Resource Title</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">A short description of your new resource goes here.</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                     </div>
                 </div>
                 -->
@@ -206,7 +236,6 @@
     <script src="main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Load header and footer, then initialize scripts
             const loadComponents = async () => {
                 try {
                     const headerResponse = await fetch('./header.html');
@@ -278,6 +307,30 @@
                                   y = e.clientY - rect.top;
                             card.style.setProperty('--x', `${x}px`);
                             card.style.setProperty('--y', `${y}px`);
+                        }
+                    });
+                }
+
+                // Filter system logic
+                const filterContainer = document.getElementById('filter-container');
+                const resourceItems = document.querySelectorAll('.resource-item');
+
+                if (filterContainer) {
+                    filterContainer.addEventListener('click', (e) => {
+                        if (e.target.tagName === 'BUTTON') {
+                            // Update active button style
+                            filterContainer.querySelector('.active').classList.remove('active');
+                            e.target.classList.add('active');
+
+                            const filter = e.target.getAttribute('data-filter');
+
+                            resourceItems.forEach(item => {
+                                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                                    item.classList.remove('hidden');
+                                } else {
+                                    item.classList.add('hidden');
+                                }
+                            });
                         }
                     });
                 }
