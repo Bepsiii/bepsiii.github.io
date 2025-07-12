@@ -53,7 +53,6 @@
             flex-grow: 1;
         }
         
-        /* New styles for filter cards */
         .filter-card {
             padding: 0.75rem 1.5rem;
             cursor: pointer;
@@ -83,8 +82,9 @@
         .resource-item {
             transition: all 0.4s ease-in-out;
         }
+        /* New Category Tag Style */
         .category-tag {
-            @apply absolute bottom-4 right-4 bg-sky-500/10 text-sky-300 text-xs font-semibold px-3 py-1 rounded-full;
+            @apply inline-block bg-gray-700/50 text-sky-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 capitalize;
         }
     </style>
 </head>
@@ -116,8 +116,8 @@
                         <div class="p-6 flex flex-col h-full resource-content">
                             <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M22 2H2v14h20V2zM12 14v4M8 18h8"/></svg></div>
                             <h3 class="text-xl font-bold text-white mb-2">PCHH Peripheral Master Sheet</h3>
-                            <p class="text-gray-400 mb-12 flex-grow">Covers pretty much every peripheral. Maintained by few people but used by many.</p>
-                            <div class="category-tag">Peripherals</div>
+                            <div class="category-tag mb-4">Peripherals</div>
+                            <p class="text-gray-400 mb-4 flex-grow">Covers pretty much every peripheral. Maintained by few people but used by many.</p>
                             <a href="https://docs.google.com/spreadsheets/d/1CIWFbKjMJWiEGHglCxdMEld50axj1eTgmKKMwJrCSo8/edit?gid=718224983#gid=718224983" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
                         </div>
                     </div>
@@ -128,8 +128,8 @@
                          <div class="p-6 flex flex-col h-full resource-content">
                             <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M19 12H5M19 8H5M19 16H5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
                             <h3 class="text-xl font-bold text-white mb-2">Simple Recommendation Sheet</h3>
-                            <p class="text-gray-400 mb-12 flex-grow">Covers audio recommendations for the normies. Thank you to Pelperson and the NTL Team.</p>
-                             <div class="category-tag">Audio</div>
+                             <div class="category-tag mb-4">Audio</div>
+                            <p class="text-gray-400 mb-4 flex-grow">Covers audio recommendations for the normies. Thank you to Pelperson and the NTL Team.</p>
                             <a href="https://docs.google.com/spreadsheets/d/1IpYhHzt151sio5rT_AvBSzpz1-kCfG1tqJ8Oa0Ra1_I/edit?gid=314339735#gid=314339735" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
                         </div>
                     </div>
@@ -140,8 +140,8 @@
                         <div class="p-6 flex flex-col h-full resource-content">
                             <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
                             <h3 class="text-xl font-bold text-white mb-2">NCR's Speaker Master Sheet</h3>
-                            <p class="text-gray-400 mb-12 flex-grow">Every speaker at every budget. Thank you to NCR for creating this. @ncr_is_washed</p>
-                             <div class="category-tag">Audio</div>
+                             <div class="category-tag mb-4">Audio</div>
+                            <p class="text-gray-400 mb-4 flex-grow">Every speaker at every budget. Thank you to NCR for creating this. @ncr_is_washed</p>
                             <a href="https://docs.google.com/spreadsheets/d/1UPhmxSuc2LHnxjcwCwIE9iGiRaOH0f0-HTqhu4A5jMo/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
                         </div>
                     </div>
@@ -152,8 +152,8 @@
                         <div class="p-6 flex flex-col h-full resource-content">
                             <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
                             <h3 class="text-xl font-bold text-white mb-2">Monitor Ranking List</h3>
-                            <p class="text-gray-400 mb-12 flex-grow">A tracker for Monitors on the market. Tiered and Price Checked.</p>
-                             <div class="category-tag">Monitors</div>
+                             <div class="category-tag mb-4">Monitors</div>
+                            <p class="text-gray-400 mb-4 flex-grow">A tracker for Monitors on the market. Tiered and Price Checked.</p>
                             <a href="https://docs.google.com/spreadsheets/d/1qCInWar0InXoyHYAwAnONcE-zxpQpMGP2uUUkz9iBkI/edit?gid=2076833903#gid=2076833903" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
                         </div>
                     </div>
@@ -164,8 +164,8 @@
                         <div class="p-6 flex flex-col h-full resource-content">
                             <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><path d="M17 2v4M7 2v4M2 12h20"/></svg></div>
                             <h3 class="text-xl font-bold text-white mb-2">Hall Effect Keyboards List</h3>
-                            <p class="text-gray-400 mb-12 flex-grow">Covers issues with hall effect manufacturers and provides recommendations.</p>
-                             <div class="category-tag">Peripherals</div>
+                             <div class="category-tag mb-4">Peripherals</div>
+                            <p class="text-gray-400 mb-4 flex-grow">Covers issues with hall effect manufacturers and provides recommendations.</p>
                             <a href="https://docs.google.com/document/d/e/2PACX-1vSsjTA29tUSQDgT_FWmvX2nHg17RLzCXdZnBV2pdAWO2SqJmzeNl9EQNc2Yw2Cy4kHjIBcDVVCUgErC/pub" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Document</a>
                         </div>
                     </div>
@@ -176,8 +176,8 @@
                          <div class="p-6 flex flex-col h-full resource-content">
                             <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
                             <h3 class="text-xl font-bold text-white mb-2">Subwoofer Master Sheet</h3>
-                            <p class="text-gray-400 mb-12 flex-grow">Need specifications, reviews, or just looking for a subwoofer to get?</p>
-                             <div class="category-tag">Audio</div>
+                             <div class="category-tag mb-4">Audio</div>
+                            <p class="text-gray-400 mb-4 flex-grow">Need specifications, reviews, or just looking for a subwoofer to get?</p>
                             <a href="https://docs.google.com/spreadsheets/d/1dU5OOnf3nVgctJszmfyBjaxK69dkXte6ZL6anVTW2_M/edit?gid=834598950" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
                         </div>
                     </div>
@@ -188,8 +188,8 @@
                          <div class="p-6 flex flex-col h-full resource-content">
                             <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9H2l2 10h9.5A2.5 2.5 0 0 0 16 18V9Z"/></svg></div>
                             <h3 class="text-xl font-bold text-white mb-2">JST Batteries</h3>
-                            <p class="text-gray-400 mb-12 flex-grow">A specialized sheet covering JST batteries. Extremely helpful for modifying mice.</p>
-                             <div class="category-tag">Peripherals</div>
+                             <div class="category-tag mb-4">Peripherals</div>
+                            <p class="text-gray-400 mb-4 flex-grow">A specialized sheet covering JST batteries. Extremely helpful for modifying mice.</p>
                             <a href="https://docs.google.com/spreadsheets/d/12jjOAsstn5d8HCQ5f5Y3wgKbxemBJBxaIzOqEDu6hTc/edit?gid=1848579347" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
                         </div>
                     </div>
@@ -202,8 +202,8 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Aula</h3>
-                            <p class="text-gray-400 mb-12 flex-grow">An Imgur album full of the issues with Aula boards.</p>
-                             <div class="category-tag">Community Warnings</div>
+                             <div class="category-tag mb-4">Community Warnings</div>
+                            <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Aula boards.</p>
                             <a href="https://imgur.com/a/aula-boards-are-not-hazardous-amazing-9D5pcXs" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                         </div>
                     </div>
@@ -216,8 +216,8 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Royal Kludge</h3>
-                            <p class="text-gray-400 mb-12 flex-grow">An Imgur album full of the issues with Royal Kludge boards.</p>
-                             <div class="category-tag">Community Warnings</div>
+                             <div class="category-tag mb-4">Community Warnings</div>
+                            <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Royal Kludge boards.</p>
                             <a href="https://imgur.com/a/royal-kludge-is-good-brand-you-should-buy-keyboards-x7LTFwp" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                         </div>
                     </div>
@@ -230,8 +230,8 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Madlions</h3>
-                            <p class="text-gray-400 mb-12 flex-grow">An Imgur album full of the issues with Madlions boards.</p>
-                             <div class="category-tag">Community Warnings</div>
+                             <div class="category-tag mb-4">Community Warnings</div>
+                            <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Madlions boards.</p>
                             <a href="https://imgur.com/a/stop-buying-madlions-slop-S7lrqVu" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                         </div>
                     </div>
@@ -246,8 +246,8 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><circle cx="12" cy="12" r="10"></circle></svg>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Your New Resource Title</h3>
-                            <p class="text-gray-400 mb-12 flex-grow">A short description of your new resource goes here.</p>
-                             <div class="category-tag">New Category</div>
+                             <div class="category-tag mb-4">New Category</div>
+                            <p class="text-gray-400 mb-4 flex-grow">A short description of your new resource goes here.</p>
                             <a href="#" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
                         </div>
                     </div>
@@ -352,12 +352,18 @@
                             const filter = filterButton.getAttribute('data-filter');
 
                             resourceItems.forEach(item => {
+                                // Add a small delay to re-trigger AOS animation
+                                item.removeAttribute('data-aos');
+                                void item.offsetWidth; // Trigger reflow
+                                item.setAttribute('data-aos', 'fade-up');
+
                                 if (filter === 'all' || item.getAttribute('data-category') === filter) {
                                     item.classList.remove('hidden');
                                 } else {
                                     item.classList.add('hidden');
                                 }
                             });
+                             AOS.refresh();
                         }
                     });
                 }
