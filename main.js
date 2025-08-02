@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Load the header and footer into their placeholders
-    loadComponent('header-placeholder', 'header.html');
-    loadComponent('footer-placeholder', 'footer.html');
+    loadComponent('#header-placeholder', 'header.html');
+    loadComponent('#footer-placeholder', 'footer.html');
 
     // This function holds all scripts that need to run AFTER the header/footer are loaded
     const initializeDynamicContent = () => {
