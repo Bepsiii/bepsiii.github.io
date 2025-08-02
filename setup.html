@@ -5,178 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Setup - Bepsi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .setup-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+        }
+        .setup-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            filter: brightness(0.4);
+        }
+        .setup-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(12, 10, 9, 0.5) 0%, rgba(12, 10, 9, 1) 90%);
+            z-index: -1;
+        }
+        .interactive-card {
+            position: relative;
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.25);
+        }
+        .interactive-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: radial-gradient(600px at var(--x) var(--y), rgba(14, 165, 233, 0.7), rgba(139, 92, 246, 0.6), transparent 70%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            filter: blur(20px);
+        }
+        .interactive-card:hover::before {
+            opacity: 1;
+        }
+        .interactive-card > * {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body class="transition-colors duration-500">
 
     <div id="header-placeholder"></div>
 
     <!-- Page Specific Content -->
-    <div id="main-content" class="relative z-20 bg-stone-950 pt-32">
-        <section class="container mx-auto px-6 py-12">
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight text-center text-glow" data-aos="fade-up">My Setup</h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">Here's a breakdown of the hardware I currently use for gaming, productivity, projects, and hosting.</p>
+    <div id="main-content" class="relative z-20 bg-stone-950">
+        
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 pt-40 pb-20 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight text-glow" data-aos="fade-up">My Setup</h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">The gear behind the scenes. A curated list of the hardware and peripherals that power my work, gaming, and creative projects.</p>
         </section>
 
-        <section id="setup-details" class="container mx-auto px-6 py-16">
-            <div class="space-y-8">
-                
-                <!-- Desktop Specifications -->
-                <div class="relative rounded-2xl overflow-hidden" data-aos="fade-up">
-                    <img src="images/setup/setup1.png" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/1f2937/FFFFFF?text=Desktop+Background';" alt="Desktop PC Setup" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black/50"></div>
-                    <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="p-6 lg:p-8 glass-effect h-full lg:col-span-1">
-                             <h3 class="flex items-center text-2xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-sky-400"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Desktop</h3>
-                            <dl class="space-y-3">
-                                <div class="flex justify-between"><dt class="text-gray-400">CPU</dt><dd>Intel Core i7 12700KF</dd></div>
-                                <div class="flex justify-between"><dt class="text-gray-400">AIO</dt><dd>Arctic Freezer II 240mm</dd></div>
-                                <div class="flex justify-between"><dt class="text-gray-400">Mobo</dt><dd>ASRock B660M Pro RS</dd></div>
-                                <div class="flex justify-between"><dt class="text-gray-400">RAM</dt><dd>2 x 16GB DDR4 3600MHz</dd></div>
-                                <div class="flex justify-between"><dt class="text-gray-400">GPU</dt><dd>ASUS TUF RX 6800 OC</dd></div>
-                                <div class="flex justify-between text-right"><dt class="text-gray-400 pr-4">Storage</dt><dd>1TB SN570, 500GB Kioxia, 960GB Lexar NQ, 4TB HDD</dd></div>
-                                <div class="flex justify-between"><dt class="text-gray-400">Case</dt><dd>Montech Air 100 Lite</dd></div>
-                                <div class="flex justify-between"><dt class="text-gray-400">PSU</dt><dd>Corsair RM750x 750W</dd></div>
-                            </dl>
-                        </div>
+        <!-- Desktop Section -->
+        <section class="setup-section">
+            <img src="images/setup/setup1.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Desktop';" alt="Desktop Background" class="setup-background">
+            <div class="setup-overlay"></div>
+            <div class="container mx-auto px-6" id="cards-wrapper">
+                <div class="interactive-card max-w-2xl mx-auto" data-aos="fade-up">
+                    <div class="p-8">
+                        <h3 class="flex items-center text-3xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-4 text-sky-400"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Desktop</h3>
+                        <dl class="space-y-3 text-lg">
+                            <div class="flex justify-between"><dt class="text-gray-400">CPU</dt><dd>Intel Core i7 12700KF</dd></div>
+                            <div class="flex justify-between"><dt class="text-gray-400">AIO</dt><dd>Arctic Freezer II 240mm</dd></div>
+                            <div class="flex justify-between"><dt class="text-gray-400">Mobo</dt><dd>ASRock B660M Pro RS</dd></div>
+                            <div class="flex justify-between"><dt class="text-gray-400">RAM</dt><dd>32GB DDR4 3600MHz</dd></div>
+                            <div class="flex justify-between"><dt class="text-gray-400">GPU</dt><dd>ASUS TUF RX 6800 OC</dd></div>
+                            <div class="flex justify-between text-right"><dt class="text-gray-400 pr-4 shrink-0">Storage</dt><dd>1TB SN570, 500GB Kioxia, 1TB MX500, 4TB HDD</dd></div>
+                            <div class="flex justify-between"><dt class="text-gray-400">Case</dt><dd>Montech Air 100 Lite</dd></div>
+                            <div class="flex justify-between"><dt class="text-gray-400">PSU</dt><dd>Corsair RM750x 750W</dd></div>
+                        </dl>
                     </div>
                 </div>
-
-                 <!-- Peripherals -->
-                <div class="relative rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/setup/XM2@2x.png" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/1f2937/FFFFFF?text=Peripherals+Background';" alt="Peripherals" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black/50"></div>
-                     <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="p-6 lg:p-8 glass-effect h-full lg:col-span-1">
-                           <h3 class="flex items-center text-2xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-sky-400"><path d="M22 2H2v14h20V2zM12 14v4M8 18h8"/></svg>Peripherals</h3>
-                            <div class="space-y-6">
-                                <div>
-                                    <h4 class="text-lg font-semibold text-white mb-3">Mice</h4>
-                                    <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                        <li>Zowie ZA13-C</li>
-                                        <li>Razer Viper V2 Pro (AscentCustoms Shell)</li>
-                                        <li>Scyrox V8</li>
-                                        <li>Mchose L7 Pro</li>
-                                        <li>Lamzu Inca</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold text-white mb-3">Mousepads</h4>
-                                    <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                        <li>Skypad 3.0 XL (Glass)</li>
-                                        <li>InfinityMice Speed V2</li>
-                                        <li>Puretrak P-51 Mustang</li>
-                                        <li>Padsmith Crucible V2</li>
-                                        <li>Matrova Vein Custom Print</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Keyboards -->
-                <div class="relative rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/setup/sayodevice.png" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/1f2937/FFFFFF?text=Keyboards+Background';" alt="Keyboards" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black/50"></div>
-                     <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="p-6 lg:p-8 glass-effect h-full lg:col-span-1">
-                           <h3 class="flex items-center text-2xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-sky-400"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><path d="M17 2v4M7 2v4M2 12h20"/></svg>Keyboards</h3>
-                             <div class="space-y-4">
-                                <details class="group">
-                                    <summary class="flex justify-between items-center font-semibold cursor-pointer py-2 text-lg">ENVKB 65m <span class="group-open:rotate-90 transition-transform duration-200">&#9656;</span></summary>
-                                    <div class="pl-4 pt-2 text-gray-400">Switches: Kang White V2 (Lubed)<br>Stabs: TX Stabs<br>Keycaps: Alfei WOB Cherry Profile ABS</div>
-                                </details>
-                                <details class="group">
-                                    <summary class="flex justify-between items-center font-semibold cursor-pointer py-2 text-lg">ENVKB MCRO <span class="group-open:rotate-90 transition-transform duration-200">&#9656;</span></summary>
-                                    <div class="pl-4 pt-2 text-gray-400">Switches: Boba U4 Tactile<br>Keycaps: Alfei WOB Cherry Profile</div>
-                                </details>
-                                <details class="group">
-                                    <summary class="flex justify-between items-center font-semibold cursor-pointer py-2 text-lg">Tester68 <span class="group-open:rotate-90 transition-transform duration-200">&#9656;</span></summary>
-                                     <div class="pl-4 pt-2 text-gray-400">Base: Tester68 (Friction Mounted) <br> Switches: Gateron Blue<br>Keycaps: GMK Cyan Keycaps</div>
-                                </details>
-                                <details class="group">
-                                    <summary class="flex justify-between items-center font-semibold cursor-pointer py-2 text-lg">"BumAss Sayodevice" (Pictured) <span class="group-open:rotate-90 transition-transform duration-200">&#9656;</span></summary>
-                                     <div class="pl-4 pt-2 text-gray-400">PCB: Sayodevice K64H3 <br> Plate: FR4 64 Key <br> Stabilisers: RK <br> Switches: Wuque Studio Flux HE<br>Case: Tofu60 Silver <br> Keycaps: GMK Pixel </div>
-                                </details>
-                                <details class="group">
-                                    <summary class="flex justify-between items-center font-semibold cursor-pointer py-2 text-lg">Pavlov <span class="group-open:rotate-90 transition-transform duration-200">&#9656;</span></summary>
-                                     <div class="pl-4 pt-2 text-gray-400">Base: KBDFans Pavlov EWhite <br> Plate: PC <br> Stabilisers: Typeplus x YIKB <br> Switches: Keygeek Keylin <br> Keycaps: Aifei BoW </div>
-                                </details>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Audio and Other Gear -->
-                <div class="relative rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                    <img src="images/setup/section4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/1f2937/FFFFFF?text=Audio+Background';" alt="Audio Gear" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black/50"></div>
-                     <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="p-6 lg:p-8 glass-effect h-full lg:col-span-1">
-                           <h3 class="flex items-center text-2xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-sky-400"><path d="M19 12H5M19 8H5M19 16H5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>Audio & Other Gear</h3>
-                            <div class="space-y-6">
-                                <div>
-                                    <h4 class="text-lg font-semibold text-white mb-3">Audio</h4>
-                                    <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                        <li>Google Pixel Buds Pro</li>
-                                        <li>Sennheiser HD 580 Precision</li>
-                                        <li>Ziigaat Odyssey</li>
-                                        <li>Tanchjim Fission</li>
-                                        <li>Truthear Nova</li>
-                                        <li>FIIO K11 (DAC/Amp)</li>
-                                        <li>Arturia Minifuse 1</li>
-                                        <li>SE Electronics V7 Mic</li>
-                                        <li>Kali Audio LP-8 v2 Speakers</li>
-                                        <li>Tannoy TS2.10 Subwoofer</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold text-white mb-3">Monitors & More</h4>
-                                    <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                        <li>Alienware AW2725DF (360Hz QD-OLED)</li>
-                                        <li>Acer Nitro XV271U (180Hz IPS)</li>
-                                        <li>Xbox Wireless Controller (Forza Edition)</li>
-                                        <li>Bambu Lab A1 Mini 3D Printer</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Laptop & Server -->
-                <div class="relative rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                    <img src="images/setup/section6.png" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/1f2937/FFFFFF?text=Laptop+%26+Server+Background';" alt="Laptop and Server" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black/50"></div>
-                     <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="p-6 lg:p-8 glass-effect h-full">
-                            <h3 class="flex items-center text-2xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-sky-400"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="17" x2="22" y2="17"/></svg>Laptop</h3>
-                            <dl class="space-y-3">
-                                <div class="flex justify-between"><dt class="text-gray-400">Model</dt><dd>Lenovo Yoga Pro 7</dd></div>
-                                <div class="flex justify-between"><dt class="text-gray-400">CPU</dt><dd>Intel Core i7-13700H</dd></div>
-                                <div class="flex justify-between"><dt class="text-gray-400">RAM</dt><dd>16GB LPDDR5X (Soldered)</dd></div>
-                                <div class="flex justify-between text-right"><dt class="text-gray-400 pr-4">Screen</dt><dd>14.5" 2.5K IPS 90Hz</dd></div>
-                            </dl>
-                        </div>
-                        <div class="p-6 lg:p-8 glass-effect h-full">
-                            <h3 class="flex items-center text-2xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-sky-400"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>Server</h3>
-                             <dl class="space-y-3">
-                                <div class="flex justify-between"><dt class="text-gray-400">Model</dt><dd>Dell Optiplex 3040</dd></div>
-                                <div class="flex justify-between"><dt class="text-gray-400">CPU</dt><dd>Intel Core i5-6600</dd></div>
-                                <div class="flex justify-between"><dt class="text-gray-400">RAM</dt><dd>16GB DDR3L HyperX</dd></div>
-                                <div class="flex justify-between text-right"><dt class="text-gray-400 pr-4">Storage</dt><dd>240GB SSD, 2TB HDD</dd></div>
-                            </dl>
-                        </div>
-                     </div>
-                </div>
-
             </div>
         </section>
+
+        <!-- Peripherals Section -->
+        <section class="setup-section">
+             <img src="images/setup/XM2@2x.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Peripherals';" alt="Peripherals Background" class="setup-background">
+            <div class="setup-overlay"></div>
+            <div class="container mx-auto px-6" id="cards-wrapper">
+                <div class="interactive-card max-w-4xl mx-auto" data-aos="fade-up">
+                    <div class="p-8">
+                        <h3 class="flex items-center text-3xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-4 text-sky-400"><path d="M22 2H2v14h20V2zM12 14v4M8 18h8"/></svg>Peripherals</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-3">Mice</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>Zowie ZA13-C</li>
+                                    <li>Razer Viper V2 Pro (AscentCustoms Shell)</li>
+                                    <li>Scyrox V8</li>
+                                    <li>Mchose L7 Pro</li>
+                                    <li>Lamzu Inca</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-3">Mousepads</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>Skypad 3.0 XL (Glass)</li>
+                                    <li>InfinityMice Speed V2</li>
+                                    <li>Puretrak P-51 Mustang</li>
+                                    <li>Padsmith Crucible V2</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Keyboards Section -->
+        <section class="setup-section">
+            <img src="images/setup/sayodevice.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Keyboards';" alt="Keyboards Background" class="setup-background">
+            <div class="setup-overlay"></div>
+            <div class="container mx-auto px-6" id="cards-wrapper">
+                <div class="interactive-card max-w-2xl mx-auto" data-aos="fade-up">
+                    <div class="p-8">
+                        <h3 class="flex items-center text-3xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-4 text-sky-400"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><path d="M17 2v4M7 2v4M2 12h20"/></svg>Keyboards</h3>
+                        <div class="space-y-4 text-lg">
+                            <details class="group">
+                                <summary class="flex justify-between items-center font-semibold cursor-pointer py-2">ENVKB 65m <span class="group-open:rotate-90 transition-transform duration-200">&#9656;</span></summary>
+                                <div class="pl-4 pt-2 text-gray-400 space-y-1 text-base">
+                                    <p><strong>Switches:</strong> Kang White V2 (Lubed), <strong>Keycaps:</strong> Alfei WOB</p>
+                                </div>
+                            </details>
+                             <details class="group">
+                                <summary class="flex justify-between items-center font-semibold cursor-pointer py-2">"BumAss Sayo" <span class="group-open:rotate-90 transition-transform duration-200">&#9656;</span></summary>
+                                 <div class="pl-4 pt-2 text-gray-400 space-y-1 text-base">
+                                    <p><strong>Switches:</strong> Wuque Studio Flux HE, <strong>Case:</strong> Tofu60 Silver</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <div id="footer-placeholder"></div>
@@ -184,58 +180,83 @@
     <script src="main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('header.html')
-                .then(response => {
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                    const mobileMenuButton = document.getElementById('mobile-menu-button');
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (mobileMenuButton && mobileMenu) {
-                        mobileMenuButton.addEventListener('click', () => {
-                            mobileMenu.classList.toggle('hidden');
-                        });
-                    }
-                })
-                .catch(error => console.error('Error fetching header:', error));
+            const loadComponents = async () => {
+                try {
+                    const headerResponse = await fetch('./header.html');
+                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
+                    const headerData = await headerResponse.text();
+                    document.getElementById('header-placeholder').innerHTML = headerData;
 
-            fetch('footer.html')
-                .then(response => {
-                     if (!response.ok) throw new Error('Network response was not ok');
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                    const discordID = 'theukgovernment';
-                    const copyButtonFooter = document.getElementById('discord-copy-footer');
+                    const footerResponse = await fetch('./footer.html');
+                    if (!footerResponse.ok) throw new Error('Failed to fetch footer');
+                    const footerData = await footerResponse.text();
+                    document.getElementById('footer-placeholder').innerHTML = footerData;
                     
-                    const copyToClipboard = (text) => {
-                        const textarea = document.createElement('textarea');
-                        textarea.value = text;
-                        document.body.appendChild(textarea);
-                        textarea.select();
-                        try {
-                            document.execCommand('copy');
-                            const tooltip = document.createElement('span');
-                            tooltip.className = 'absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-auto min-w-max p-2 text-xs text-white bg-gray-800 rounded-md shadow-lg';
-                            tooltip.textContent = 'Copied!';
-                            copyButtonFooter.appendChild(tooltip);
-                            setTimeout(() => {
-                               tooltip.remove();
-                            }, 1500);
-                        } catch (err) {
-                            console.error('Failed to copy: ', err);
-                        }
-                        document.body.removeChild(textarea);
-                    };
-                    
-                    if(copyButtonFooter) {
-                         copyButtonFooter.addEventListener('click', () => copyToClipboard(discordID));
+                    initializePageScripts();
+
+                } catch (error) {
+                    console.error('Error loading components:', error);
+                }
+            };
+            
+            const initializePageScripts = () => {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 50,
+                });
+
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenuButton && mobileMenu) {
+                    mobileMenuButton.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+                }
+                
+                const discordID = 'theukgovernment';
+                const copyToClipboard = (text, button) => {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    try {
+                        document.execCommand('copy');
+                        const tooltip = document.createElement('span');
+                        tooltip.className = 'absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-auto min-w-max p-2 text-xs text-white bg-gray-800 rounded-md shadow-lg';
+                        tooltip.textContent = 'Copied!';
+                        button.appendChild(tooltip);
+                        setTimeout(() => {
+                           tooltip.remove();
+                        }, 1500);
+                    } catch (err) {
+                        console.error('Failed to copy: ', err);
                     }
-                })
-                 .catch(error => console.error('Error fetching footer:', error));
+                    document.body.removeChild(textarea);
+                };
+                
+                document.body.addEventListener('click', function(event){
+                    const copyButton = event.target.closest('#discord-copy-footer');
+                    if(copyButton){
+                        copyToClipboard(discordID, copyButton);
+                    }
+                });
+                
+                const cardsWrapper = document.querySelectorAll('#cards-wrapper');
+                if(cardsWrapper.length > 0) {
+                    document.addEventListener('mousemove', e => {
+                        for(const card of document.getElementsByClassName('interactive-card')) {
+                            const rect = card.getBoundingClientRect(),
+                                  x = e.clientX - rect.left,
+                                  y = e.clientY - rect.top;
+                            card.style.setProperty('--x', `${x}px`);
+                            card.style.setProperty('--y', `${y}px`);
+                        }
+                    });
+                }
+            };
+            
+            loadComponents();
         });
     </script>
 </body>
