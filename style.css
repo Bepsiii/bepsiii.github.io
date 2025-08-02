@@ -29,7 +29,7 @@ body {
     bottom: 0;
     border-radius: 1rem; /* Match the container's border-radius */
     padding: 1px;
-    background: linear-gradient(145deg, rgba(56, 189, 248, 0.4), rgba(56, 189, 248, 0) 50%);
+    background: linear-gradient(145deg, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0) 50%);
     -webkit-mask: 
         linear-gradient(#fff 0 0) content-box, 
         linear-gradient(#fff 0 0);
@@ -40,7 +40,7 @@ body {
 }
 
 .container-glow:hover::before {
-    background: linear-gradient(145deg, rgba(56, 189, 248, 0.7), rgba(56, 189, 248, 0.1) 70%);
+    background: linear-gradient(145deg, rgba(56, 189, 248, 0.4), rgba(56, 189, 248, 0.1) 70%);
 }
 
 
