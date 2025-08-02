@@ -4,20 +4,17 @@ body {
     background-color: #0c0a09;
     color: #E5E7EB;
 }
-
 .text-glow {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
-
 .section-title {
     text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
 }
-
 .parallax-element {
     will-change: transform;
 }
 
-/* --- Header & Dropdowns --- */
+/* --- Header & Dropdowns (Corrected z-index and styles) --- */
 .glass-effect {
     background: rgba(17, 24, 39, 0.4);
     backdrop-filter: blur(24px);
@@ -25,12 +22,10 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: inset 0 1px 1px rgba(255,255,255,0.08);
 }
-
 .dropdown {
     position: relative;
     display: inline-block;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -38,7 +33,7 @@ body {
     margin-top: 0.75rem;
     min-width: 180px;
     box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
-    z-index: 100;
+    z-index: 100; /* This is the key fix */
     border-radius: 0.75rem;
     padding: 0.5rem;
     opacity: 0;
@@ -46,13 +41,11 @@ body {
     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
     transform-origin: top right;
 }
-
 .dropdown:hover .dropdown-content {
     display: block;
     opacity: 1;
     transform: scale(1) translateY(0);
 }
-
 .dropdown-content a {
     color: #d1d5db;
     padding: 10px 16px;
@@ -61,7 +54,6 @@ body {
     text-align: left;
     border-radius: 0.5rem;
 }
-
 .dropdown-content a:hover {
     background-color: rgba(14, 165, 233, 0.1);
     color: #fff;
@@ -79,12 +71,10 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: inset 0 1px 1px rgba(255,255,255,0.08);
 }
-
 .interactive-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
 }
-
 .interactive-card::before {
     content: '';
     position: absolute;
@@ -100,11 +90,9 @@ body {
     transition: opacity 0.4s ease-in-out;
     filter: blur(30px);
 }
-
 .interactive-card:hover::before {
     opacity: 1;
 }
-
 .interactive-card > * {
     position: relative;
     z-index: 1;
