@@ -16,8 +16,8 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            padding-top: 8rem;
-            padding-bottom: 8rem;
+            padding-top: 10rem;
+            padding-bottom: 10rem;
             overflow: hidden;
         }
         .setup-background {
@@ -29,10 +29,10 @@
             object-fit: cover;
             z-index: -2;
             filter: brightness(0.3);
-            transform: scale(1.1);
-            transition: transform 6s ease-out;
+            transform: scale(1.15);
+            transition: transform 8s ease-out;
         }
-        [data-aos="fade-up"].aos-animate .setup-background {
+        [data-aos="fade-in"].aos-animate .setup-background {
             transform: scale(1);
         }
         .setup-overlay {
@@ -41,23 +41,34 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(12, 10, 9, 0.5) 0%, rgba(12, 10, 9, 1) 90%);
+            background: radial-gradient(circle at center, rgba(12, 10, 9, 0.4) 0%, rgba(12, 10, 9, 0.9) 85%);
             z-index: -1;
+        }
+        /* New blend effect between sections */
+        .setup-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20rem; 
+            background: linear-gradient(to top, #0c0a09 10%, transparent);
+            z-index: 0;
         }
         .interactive-card {
             position: relative;
-            background: rgba(17, 24, 39, 0.4);
+            background: rgba(17, 24, 39, 0.45);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 1rem;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.08);
         }
         .interactive-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
         }
         .interactive-card::before {
             content: '';
@@ -65,7 +76,7 @@
             inset: 0;
             border-radius: inherit;
             padding: 1px;
-            background: radial-gradient(800px at var(--x) var(--y), rgba(14, 165, 233, 0.5), rgba(139, 92, 246, 0.4), transparent 60%);
+            background: radial-gradient(800px at var(--x) var(--y), rgba(14, 165, 233, 0.6), rgba(139, 92, 246, 0.5), transparent 60%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -103,11 +114,11 @@
         </section>
 
         <!-- Desktop Section -->
-        <section class="setup-section" data-aos="fade-up">
+        <section class="setup-section" data-aos="fade-in">
             <img src="images/setup/setup1.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Desktop';" alt="Desktop Background" class="setup-background">
             <div class="setup-overlay"></div>
             <div class="container mx-auto px-6" id="cards-wrapper">
-                <div class="interactive-card max-w-2xl mx-auto" data-aos="fade-up">
+                <div class="interactive-card max-w-xl mx-auto" data-aos="fade-up">
                     <div class="p-8">
                         <h3 class="flex items-center text-3xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-4 text-sky-400"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Desktop</h3>
                         <dl class="space-y-3 text-lg">
@@ -126,11 +137,11 @@
         </section>
 
         <!-- Peripherals Section -->
-        <section class="setup-section" data-aos="fade-up">
+        <section class="setup-section" data-aos="fade-in">
              <img src="images/setup/XM2@2x.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Peripherals';" alt="Peripherals Background" class="setup-background">
             <div class="setup-overlay"></div>
             <div class="container mx-auto px-6" id="cards-wrapper">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     <div class="interactive-card" data-aos="fade-right" data-aos-delay="100">
                         <div class="p-8">
                             <h3 class="flex items-center text-3xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-4 text-sky-400"><path d="M22 2H2v14h20V2zM12 14v4M8 18h8"/></svg>Mice & Mousepads</h3>
@@ -175,28 +186,48 @@
         </section>
         
         <!-- Audio Section -->
-        <section class="setup-section" data-aos="fade-up">
+        <section class="setup-section" data-aos="fade-in">
             <img src="images/setup/section4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Audio';" alt="Audio Gear Background" class="setup-background">
             <div class="setup-overlay"></div>
             <div class="container mx-auto px-6" id="cards-wrapper">
-                 <div class="interactive-card max-w-2xl mx-auto" data-aos="fade-up">
-                    <div class="p-8">
-                        <h3 class="flex items-center text-3xl font-bold text-white mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-4 text-sky-400"><path d="M19 12H5M19 8H5M19 16H5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>Audio</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-2 text-lg">
-                            <li>Google Pixel Buds Pro</li>
-                            <li>Sennheiser HD 580 Precision</li>
-                            <li>Ziigaat Odyssey / Tanchjim Fission / Truthear Nova</li>
-                            <li>FIIO K11 (DAC/Amp) & Arturia Minifuse 1</li>
-                            <li>SE Electronics V7 Mic</li>
-                            <li>Kali Audio LP-8 v2 Speakers & Tannoy TS2.10 Sub</li>
-                        </ul>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <div class="interactive-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="p-8">
+                            <h3 class="flex items-center text-2xl font-bold text-white mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 mr-3 text-sky-400"><path d="M19 12H5M19 8H5M19 16H5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>Headphones</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                <li>Google Pixel Buds Pro</li>
+                                <li>Sennheiser HD 580 Precision</li>
+                                <li>Ziigaat Odyssey</li>
+                                <li>Tanchjim Fission</li>
+                                <li>Truthear Nova</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="interactive-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="p-8">
+                            <h3 class="flex items-center text-2xl font-bold text-white mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 mr-3 text-sky-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Speakers & Amps</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                <li>Kali Audio LP-8 v2 Speakers</li>
+                                <li>Tannoy TS2.10 Subwoofer</li>
+                                <li>FIIO K11 (DAC/Amp)</li>
+                                <li>Arturia Minifuse 1</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="interactive-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="p-8">
+                            <h3 class="flex items-center text-2xl font-bold text-white mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 mr-3 text-sky-400"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>Microphone</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                <li>SE Electronics V7 Mic</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         
          <!-- Other Hardware Section -->
-        <section class="setup-section" data-aos="fade-up">
+        <section class="setup-section" data-aos="fade-in">
             <img src="images/setup/section6.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Other+Hardware';" alt="Other Hardware Background" class="setup-background">
             <div class="setup-overlay"></div>
             <div class="container mx-auto px-6" id="cards-wrapper">
@@ -255,9 +286,9 @@
             
             const initializePageScripts = () => {
                 AOS.init({
-                    duration: 800,
+                    duration: 1000, // Slower animation for a more cinematic feel
                     once: true,
-                    offset: 200,
+                    offset: 300, // Trigger animations a bit later
                 });
 
                 const mobileMenuButton = document.getElementById('mobile-menu-button');
