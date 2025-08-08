@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Guide: Launching a FiveM Server</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutral Harmony -->
+    <!-- Application Structure Plan: The application is structured as a phased project roadmap, guiding the user from foundational strategy to long-term operations. This non-linear, task-oriented design breaks the dense report into digestible, interactive stages (Strategy, Build, Launch, Grow). This is more intuitive for a project planner than the report's linear chapter format, allowing users to jump to the section most relevant to their current needs. Key interactions include toggling between framework comparisons, exploring a visual timeline, and interacting with 'card' elements for key scripts and monetization packages. This structure prioritizes user action and decision-making over passive reading. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Compliance Hierarchy (Rockstar, Cfx.re, Tebex). Goal: Organize. Viz/Method: A structured HTML/CSS diagram using nested flexbox containers to show the hierarchy visually. Interaction: Hover effects to highlight each layer. Justification: A visual diagram is more intuitive for understanding hierarchical relationships than plain text. Method: HTML/Tailwind.
+        - Report Info: ESX vs. QBCore Comparison. Goal: Compare. Viz/Method: An interactive toggleable table. Interaction: Buttons to switch between a detailed comparison view and a final recommendation summary. Justification: Allows for both deep-dive analysis and a quick, decisive conclusion, catering to different user needs. Method: HTML/Tailwind/JS.
+        - Report Info: Launch Action Plan. Goal: Change/Process. Viz/Method: An interactive vertical timeline. Interaction: Clicking on a phase reveals detailed action steps. Justification: A timeline effectively visualizes the project's progression over time, making the 12-week plan easy to follow. Method: HTML/Tailwind/JS.
+        - Report Info: Monetization Packages. Goal: Inform/Organize. Viz/Method: A series of styled cards. Interaction: N/A. Justification: Cards are a clean, modern way to present distinct product offerings, making the compliant options clear and easy to understand. Method: HTML/Tailwind.
+        - Report Info: Development Time Allocation (Chart). Goal: Compare proportions. Viz/Method: A Doughnut chart from Chart.js. Interaction: Tooltips on hover. Justification: A doughnut chart provides a quick visual summary of where development time is spent, reinforcing the importance of core systems. Method: Chart.js.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4;
+            color: #333;
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-button.active {
+            border-bottom-color: #a58a5c;
+            color: #a58a5c;
+        }
+        .nav-button:hover {
+            border-bottom-color: #c5b291;
+            color: #c5b291;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #e5e0d8;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: 4px solid #a58a5c;
+        }
+        .timeline-path {
+            position: absolute;
+            left: -22px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e5e0d8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 py-8">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#a58a5c] mb-2">FiveM Server Launch Planner</h1>
+            <p class="text-lg text-gray-600">An Interactive Guide to Releasing "Drug Wars"</p>
+        </header>
+
+        <nav class="flex justify-center border-b border-gray-200 mb-12">
+            <button class="nav-button active py-4 px-6 text-gray-500 font-medium" data-target="strategy">1. Strategy & Compliance</button>
+            <button class="nav-button py-4 px-6 text-gray-500 font-medium" data-target="build">2. Build & Develop</button>
+            <button class="nav-button py-4 px-6 text-gray-500 font-medium" data-target="launch">3. Launch & Monetize</button>
+            <button class="nav-button py-4 px-6 text-gray-500 font-medium" data-target="grow">4. Grow & Retain</button>
+        </nav>
+
+        <main>
+            <!-- Section 1: Strategy & Compliance -->
+            <section id="strategy" class="content-section active">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">Phase 1: Strategy & Compliance</h2>
+                    <p class="max-w-3xl mx-auto text-gray-600">A successful server is built on a solid foundation. This phase is about understanding the rules of the ecosystem and making the critical architectural decisions that will define your project's entire lifecycle. Neglecting this stage is the most common reason for server failure.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-[#a58a5c]">The Trinity of Compliance</h3>
+                        <p class="mb-6 text-gray-600">Your server operates under a strict hierarchy of rules. A violation at any level can jeopardize the entire project. Understanding this framework is non-negotiable.</p>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-md bg-gray-50 border border-gray-200">
+                                <h4 class="font-bold">1. Rockstar Games EULA</h4>
+                                <p class="text-sm text-gray-500">Highest Authority: Prohibits unauthorized commercial use of GTA V intellectual property.</p>
+                            </div>
+                            <div class="ml-4 p-4 rounded-md bg-gray-50 border border-gray-200">
+                                <h4 class="font-bold">2. Cfx.re Platform License</h4>
+                                <p class="text-sm text-gray-500">Platform Operator: Mandates use of Tebex for all monetization and forbids illegal content.</p>
+                            </div>
+                            <div class="ml-8 p-4 rounded-md bg-gray-50 border border-gray-200">
+                                <h4 class="font-bold">3. Tebex AUP</h4>
+                                <p class="text-sm text-gray-500">Monetization Gateway: Granular rules prohibiting pay-to-win, loot boxes, and direct currency sales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-[#a58a5c]">The "Fictionality Defense"</h3>
+                        <p class="mb-4 text-gray-600">A theme like "Drug Wars" is permissible only if framed as clear, fictional entertainment. You must create a controlled environment through a comprehensive server rulebook to mitigate risk.</p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><span class="text-[#a58a5c] mr-2">✓</span> <strong>Prohibit Offensive RP:</strong> Zero tolerance for hate speech, harassment, or graphic themes.</li>
+                            <li class="flex items-start"><span class="text-[#a58a5c] mr-2">✓</span> <strong>Enforce High-Quality RP:</strong> Ban random killing (RDM) and vehicle deathmatching (VDM).</li>
+                            <li class="flex items-start"><span class="text-[#a58a5c] mr-2">✓</span> <strong>Establish Safe Zones:</strong> Create "Green Zones" like hospitals where violence is forbidden.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Build & Develop -->
+            <section id="build" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">Phase 2: Build & Develop</h2>
+                    <p class="max-w-3xl mx-auto text-gray-600">This is where your vision becomes a reality. This phase covers the foundational technical choices and the selection of scripts that will create your server's core gameplay loop. Every decision here impacts performance, stability, and future development.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg border border-gray-200 mb-8">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-[#a58a5c]">Framework Showdown: ESX vs. QBCore</h3>
+                    <p class="text-center max-w-2xl mx-auto text-gray-600 mb-6">Choosing a framework is the most critical technical decision you'll make. It locks you into a development ecosystem. This choice must be driven by which framework's available scripts best serve your "Drug Wars" concept.</p>
+                    <div class="flex justify-center mb-6 space-x-2">
+                        <button id="show-comparison" class="px-4 py-2 bg-[#a58a5c] text-white rounded-md shadow-sm">Full Comparison</button>
+                        <button id="show-recommendation" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md">Recommendation</button>
+                    </div>
+
+                    <div id="comparison-view">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr>
+                                        <th class="py-3 px-4 bg-gray-50 font-bold border-b">Feature</th>
+                                        <th class="py-3 px-4 bg-gray-50 font-bold border-b">ESX Ecosystem</th>
+                                        <th class="py-3 px-4 bg-gray-50 font-bold border-b">QBCore Ecosystem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="py-3 px-4 font-medium">Installation</td>
+                                        <td class="py-3 px-4 text-gray-600">Manual, more complex</td>
+                                        <td class="py-3 px-4 text-gray-600">Streamlined via txAdmin</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="py-3 px-4 font-medium">Community</td>
+                                        <td class="py-3 px-4 text-gray-600">Massive but fragmented</td>
+                                        <td class="py-3 px-4 text-gray-600">Large and centralized (Discord)</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="py-3 px-4 font-medium">Gang/Territory Scripts</td>
+                                        <td class="py-3 px-4 text-gray-600">Mature options like `bixbi_territories`</td>
+                                        <td class="py-3 px-4 text-gray-600">Robust options like `qb-gangs`</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="py-3 px-4 font-medium">Modernity</td>
+                                        <td class="py-3 px-4 text-gray-600">Older, battle-tested architecture</td>
+                                        <td class="py-3 px-4 text-gray-600">Newer, more optimized design</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="recommendation-view" class="hidden">
+                         <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg">
+                            <h4 class="font-bold text-lg text-blue-800">Recommendation: QBCore</h4>
+                            <p class="mt-2 text-blue-700">For a new "Drug Wars" server, **QBCore is recommended**. Its streamlined installation, modern architecture, centralized support, and comprehensive scripts like `qb-gangs` provide a more efficient and sustainable development path. It offers a lower barrier to entry and makes troubleshooting more manageable for new developers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-center mb-6 text-[#a58a5c]">Core Systems Toolkit</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card p-6 rounded-lg">
+                        <h4 class="font-bold text-lg">ox_inventory</h4>
+                        <p class="text-sm text-gray-500 mb-3">Inventory Management</p>
+                        <p class="text-gray-600">The gold standard. Slot-based, supports item metadata (e.g., drug purity), and essential for the illicit economy.</p>
+                    </div>
+                    <div class="card p-6 rounded-lg">
+                        <h4 class="font-bold text-lg">eco_crafting</h4>
+                        <p class="text-sm text-gray-500 mb-3">Drug Production</p>
+                        <p class="text-gray-600">A powerful, multi-framework script for creating complex, multi-stage drug production recipes.</p>
+                    </div>
+                    <div class="card p-6 rounded-lg">
+                        <h4 class="font-bold text-lg">qb-gangs</h4>
+                        <p class="text-sm text-gray-500 mb-3">Turf Control (QBCore)</p>
+                        <p class="text-gray-600">The ideal choice for QBCore. Allows in-game gang creation, stashes, and territory control for turf wars.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Launch & Monetize -->
+            <section id="launch" class="content-section">
+                 <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">Phase 3: Launch & Monetize</h2>
+                    <p class="max-w-3xl mx-auto text-gray-600">With development underway, it's time to plan your go-to-market strategy and build a compliant commercial engine. This phase covers how to officially announce your server, attract players, and generate revenue without violating platform rules.</p>
+                </div>
+
+                <div class="grid md:grid-cols-5 gap-8">
+                    <div class="md:col-span-3">
+                        <h3 class="text-2xl font-bold mb-4 text-[#a58a5c]">12-Week Launch Action Plan</h3>
+                        <div class="relative pl-8">
+                            <div class="timeline-path"></div>
+                            <div class="timeline-item relative pb-8">
+                                <h4 class="font-bold">Weeks 1-2: Pre-Production</h4>
+                                <p class="text-gray-600">Finalize compliance docs, server rules, and make the final ESX/QBCore framework decision.</p>
+                            </div>
+                            <div class="timeline-item relative pb-8">
+                                <h4 class="font-bold">Weeks 3-8: Core Development</h4>
+                                <p class="text-gray-600">Setup hosting and install core systems: inventory, crafting, and territories. Integrate them to create the gameplay loop.</p>
+                            </div>
+                            <div class="timeline-item relative pb-8">
+                                <h4 class="font-bold">Weeks 9-10: Monetization & Alpha Test</h4>
+                                <p class="text-gray-600">Create and integrate your Tebex webstore. Design compliant cosmetic/convenience packages. Run a closed alpha test.</p>
+                            </div>
+                            <div class="timeline-item relative pb-8">
+                                <h4 class="font-bold">Week 11-12: Go-to-Market</h4>
+                                <p class="text-gray-600">Establish Discord, begin streamer outreach, and prepare a high-quality release post for the Cfx.re forums.</p>
+                            </div>
+                             <div class="timeline-item relative">
+                                <h4 class="font-bold">Launch Day!</h4>
+                                <p class="text-gray-600">Publish your forum post and officially open the server to the public.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <div class="card p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-[#a58a5c]">Compliant Monetization</h3>
+                            <p class="mb-4 text-gray-600">Monetization is essential for sustainability but strictly regulated. Focus on a "Cosmetic & Convenience" model.</p>
+                            <div class="space-y-3">
+                                <div class="p-3 bg-green-50 rounded-md">
+                                    <p class="font-medium text-green-800">✓ Priority Queue</p>
+                                </div>
+                                <div class="p-3 bg-green-50 rounded-md">
+                                    <p class="font-medium text-green-800">✓ Custom Clothing & Car Skins</p>
+                                </div>
+                                <div class="p-3 bg-green-50 rounded-md">
+                                    <p class="font-medium text-green-800">✓ Custom License Plates</p>
+                                </div>
+                                <div class="p-3 bg-red-50 rounded-md">
+                                    <p class="font-medium text-red-800">✗ Direct In-Game Currency</p>
+                                </div>
+                                <div class="p-3 bg-red-50 rounded-md">
+                                    <p class="font-medium text-red-800">✗ Loot Boxes / Gambling</p>
+                                </div>
+                                <div class="p-3 bg-red-50 rounded-md">
+                                    <p class="font-medium text-red-800">✗ Pay-to-Win Weapons/Vehicles</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Grow & Retain -->
+            <section id="grow" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">Phase 4: Grow & Retain</h2>
+                    <p class="max-w-3xl mx-auto text-gray-600">A successful launch is just the beginning. Long-term viability depends on your ability to foster a positive community, manage feedback effectively, and continuously improve the server. This creates a "Community Flywheel" that drives sustained growth.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-[#a58a5c]">The Community Flywheel</h3>
+                        <p class="mb-4 text-gray-600">This positive feedback loop is the engine of long-term success. Investing in your community is a direct investment in your server's future.</p>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                            <li>A well-managed community feels valued.</li>
+                            <li>Valued players provide high-quality feedback.</li>
+                            <li>Developers use feedback to improve the server.</li>
+                            <li>Updates show players their voices are heard.</li>
+                            <li>Players become more invested, providing more feedback.</li>
+                        </ol>
+                    </div>
+                     <div class="card p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-[#a58a5c]">Development Time Allocation</h3>
+                        <p class="mb-4 text-gray-600">A visual breakdown of where development effort is typically focused, highlighting the importance of the core gameplay systems.</p>
+                        <div class="chart-container">
+                            <canvas id="devTimeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                 <div class="mt-8">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-[#a58a5c]">Long-Term Operations Checklist</h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg border">
+                            <h4 class="font-bold">Establish a Discord Hub</h4>
+                            <p class="text-gray-600">Use Discord as the central point for rules, announcements, and patch notes. Use bots for automation.</p>
+                        </div>
+                         <div class="bg-white p-6 rounded-lg border">
+                            <h4 class="font-bold">Structure Feedback</h4>
+                            <p class="text-gray-600">Create dedicated channels like `#bug-reports` and `#suggestions` to keep feedback organized and actionable.</p>
+                        </div>
+                         <div class="bg-white p-6 rounded-lg border">
+                            <h4 class="font-bold">Monitor Performance</h4>
+                            <p class="text-gray-600">Regularly use `resmon 1` in-game to identify and optimize resource-heavy scripts before they cause lag.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navButtons = document.querySelectorAll('.nav-button');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const target = button.dataset.target;
+
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    contentSections.forEach(section => {
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            const showComparisonBtn = document.getElementById('show-comparison');
+            const showRecommendationBtn = document.getElementById('show-recommendation');
+            const comparisonView = document.getElementById('comparison-view');
+            const recommendationView = document.getElementById('recommendation-view');
+
+            showComparisonBtn.addEventListener('click', () => {
+                comparisonView.style.display = 'block';
+                recommendationView.style.display = 'none';
+                showComparisonBtn.classList.add('bg-[#a58a5c]', 'text-white');
+                showComparisonBtn.classList.remove('bg-gray-200', 'text-gray-700');
+                showRecommendationBtn.classList.add('bg-gray-200', 'text-gray-700');
+                showRecommendationBtn.classList.remove('bg-[#a58a5c]', 'text-white');
+            });
+
+            showRecommendationBtn.addEventListener('click', () => {
+                comparisonView.style.display = 'none';
+                recommendationView.style.display = 'block';
+                showRecommendationBtn.classList.add('bg-[#a58a5c]', 'text-white');
+                showRecommendationBtn.classList.remove('bg-gray-200', 'text-gray-700');
+                showComparisonBtn.classList.add('bg-gray-200', 'text-gray-700');
+                showComparisonBtn.classList.remove('bg-[#a58a5c]', 'text-white');
+            });
+            
+            const ctx = document.getElementById('devTimeChart');
+            if(ctx) {
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Core Systems (Inv/Craft/Gangs)', 'Compliance & Setup', 'Monetization & Testing', 'Launch Marketing'],
+                        datasets: [{
+                            label: 'Time Allocation',
+                            data: [5, 2, 2, 3],
+                            backgroundColor: [
+                                'rgba(165, 138, 92, 0.8)',
+                                'rgba(197, 178, 145, 0.7)',
+                                'rgba(110, 110, 110, 0.6)',
+                                'rgba(150, 150, 150, 0.5)'
+                            ],
+                            borderColor: '#f8f7f4',
+                            borderWidth: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        family: "'Inter', sans-serif"
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += context.parsed + ' Weeks';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
