@@ -11,28 +11,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&family=Creepster&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         @keyframes blink {
-            50% { border-color: yellow; }
+            50% { border-color: yellow; text-shadow: 0 0 10px yellow; }
         }
         @keyframes color-change {
-            0% { color: red; }
-            25% { color: yellow; }
-            50% { color: blue; }
-            75% { color: green; }
-            100% { color: red; }
+            0% { color: red; } 25% { color: yellow; } 50% { color: blue; } 75% { color: green; } 100% { color: red; }
         }
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
-            20%, 40%, 60%, 80% { transform: translateX(10px); }
+            0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); } 20%, 40%, 60%, 80% { transform: translateX(10px); }
         }
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from { transform: rotate(0deg); } to { transform: rotate(360deg); }
         }
         @keyframes background-scroll {
-            from { background-position: 0 0; }
-            to { background-position: -1000px -1000px; }
+            from { background-position: 0 0; } to { background-position: -1000px -1000px; }
         }
+        @keyframes fly-in-left { from { left: -500px; } to { left: 5%; } }
+        @keyframes fly-in-right { from { right: -500px; } to { right: 10%; } }
+        @keyframes fly-in-left-2 { from { left: -500px; } to { left: 20%; } }
+        @keyframes fly-in-right-2 { from { right: -500px; } to { right: 25%; } }
+        @keyframes fly-across { from { left: -30%; transform: rotate(-5deg); } to { left: 110%; transform: rotate(5deg); } }
 
         body {
             font-family: 'Comic Sans MS', cursive;
@@ -79,6 +76,7 @@
             cursor: pointer;
             box-shadow: 5px 5px 0px black;
             transition: all 0.1s ease;
+            z-index: 50;
         }
         .nav-button:active {
             transform: translate(5px, 5px);
@@ -88,14 +86,12 @@
         .content-section {
             display: none;
             border: 5px dotted;
-            animation: blink 1s infinite;
+            animation: blink 0.8s infinite;
             padding: 15px;
             margin-top: 20px;
             background: rgba(0,0,0,0.4);
         }
-        .content-section.active {
-            display: block;
-        }
+        .content-section.active { display: block; }
 
         .card {
             background-color: #00ff00;
@@ -104,12 +100,15 @@
             padding: 10px;
             margin-bottom: 15px;
         }
+        .card h3 { font-family: 'Press Start 2P', cursive; font-size: 1.5rem; text-decoration: underline; color: #ff00ff; }
+        .card li { margin-bottom: 10px; }
 
         .ling-gif {
             width: 150px;
             height: 150px;
             border: 5px solid red;
             animation: shake 0.5s infinite;
+            z-index: 100;
         }
 
         .star-trail {
@@ -120,25 +119,23 @@
             animation: fadeOut 1s forwards;
             z-index: 9999;
         }
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-        }
+        @keyframes fadeOut { to { opacity: 0; transform: scale(0.5); } }
         
         #mute-button {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background: red;
-            color: white;
-            font-size: 20px;
-            padding: 10px;
-            border: 3px solid white;
-            z-index: 10000;
-            cursor: pointer;
-            font-family: 'Press Start 2P';
+            position: fixed; bottom: 10px; right: 10px; background: red; color: white; font-size: 20px;
+            padding: 10px; border: 3px solid white; z-index: 10000; cursor: pointer; font-family: 'Press Start 2P';
+        }
+        
+        .sale-banner {
+            position: absolute;
+            top: 50%;
+            font-family: 'Creepster', cursive;
+            font-size: 5rem;
+            color: red;
+            text-shadow: 3px 3px yellow;
+            white-space: nowrap;
+            animation: fly-across 10s linear infinite;
+            z-index: 1;
         }
 
     </style>
@@ -153,65 +150,100 @@
             </marquee>
         </header>
         
+        <div class="sale-banner">SALE! SALE! SALE! BIG SAVINGS! CLICK NOW!</div>
+
         <img src="https://placehold.co/150x150/ff0000/ffffff?text=SPINNING+MONEY+GIF" class="ling-gif" style="position: absolute; top: 10px; left: 10px; animation: spin 2s linear infinite;">
         <img src="https://placehold.co/150x150/00ff00/000000?text=EXPLOSION+GIF" class="ling-gif" style="position: absolute; top: 20px; right: 20px;">
 
         <!-- SCATTERED NAVIGATION -->
-        <button class="nav-button" data-target="strategy" style="top: 200px; left: 5%;">1. BORING LEGAL STUFF</button>
-        <button class="nav-button" data-target="build" style="top: 250px; right: 10%;">2. BUILD IT LIKE A BOSS</button>
-        <button class="nav-button" data-target="launch" style="top: 350px; left: 20%;">3. LAUNCH THE ROCKET!</button>
-        <button class="nav-button" data-target="grow" style="top: 450px; right: 25%;">4. GET RICH & FAMOUS</button>
+        <button class="nav-button" data-target="strategy" style="top: 200px; left: -500px; animation: fly-in-left 1s forwards 0.5s;">1. BORING LEGAL STUFF</button>
+        <button class="nav-button" data-target="build" style="top: 250px; right: -500px; animation: fly-in-right 1s forwards 0.8s;">2. BUILD IT LIKE A BOSS</button>
+        <button class="nav-button" data-target="launch" style="top: 350px; left: -500px; animation: fly-in-left-2 1s forwards 1.1s;">3. LAUNCH THE ROCKET!</button>
+        <button class="nav-button" data-target="grow" style="top: 450px; right: -500px; animation: fly-in-right-2 1s forwards 1.4s;">4. GET RICH & FAMOUS</button>
 
         <main style="margin-top: 150px; padding: 20px;">
             <!-- Section 1: Strategy & Compliance -->
             <section id="strategy" class="content-section active" style="border-color: red;">
-                <h2 style="font-size: 2.5rem; color: yellow; text-align: center;">PHASE 1: DON'T GET BANNED! (BORING!)</h2>
-                <p style="color: white; text-align: center; font-size: 1.2rem;">Listen up! You want a server? You follow the rules! Simple! No cry babies!</p>
+                <h2 style="font-size: 2.5rem; color: yellow; text-align: center; font-family: 'Creepster';">PHASE 1: DON'T GET BANNED! (BORING!)</h2>
                 <div class="card" style="background-color: hotpink; color: black;">
-                    <h3 style="font-weight: bold; font-size: 2rem; text-decoration: underline;">THE 3 BIG BOSSES</h3>
+                    <h3>THE 3 BIG BOSSES</h3>
                     <p>You mess with them, you get squashed like bug!</p>
-                    <ul style="list-style-type: square; padding-left: 20px;">
+                    <ul>
                         <li><strong>Rockstar:</strong> THEIR GAME! THEIR RULES! NO SELLING FAKE GTA MONEY!</li>
                         <li><strong>Cfx.re:</strong> The FiveM gods! Use Tebex or get ZAPPED!</li>
                         <li><strong>Tebex:</strong> The money people! No pay-to-win JUNK!</li>
+                    </ul>
+                </div>
+                <div class="card" style="background-color: purple; color: white;">
+                    <h3>LING'S "DRUG WARS" DEFENSE!</h3>
+                    <p>Your server is "Drug Wars"? Risky! You need RULES! Big, strong rules!</p>
+                    <ul>
+                        <li><strong style="color:red;">NO HATE SPEECH!</strong> Ling has zero tolerance for idiots. BAN HAMMER!</li>
+                        <li><strong style="color:yellow;">NO RANDOM KILLING (RDM)!</strong> This isn't Call of Duty, you children!</li>
+                        <li><strong style="color:yellow;">NO CAR KILLING (VDM)!</strong> Use your guns, not your bumper!</li>
+                        <li><strong style="color:lime;">MAKE SAFE ZONES!</strong> Hospitals are for healing, not shooting! Green means GO AWAY!</li>
                     </ul>
                 </div>
             </section>
 
             <!-- Section 2: Build & Develop -->
             <section id="build" class="content-section" style="border-color: blue;">
-                <h2 style="font-size: 2.5rem; color: cyan; text-align: center;">PHASE 2: BUILD YOUR AWESOME SERVER!</h2>
-                <marquee behavior="scroll" direction="up" scrollamount="5" style="height: 50px; color: lime;">ESX vs QBCORE!! THE ULTIMATE BATTLE!!</marquee>
+                <h2 style="font-size: 2.5rem; color: cyan; text-align: center; font-family: 'Creepster';">PHASE 2: BUILD YOUR AWESOME SERVER!</h2>
+                <marquee behavior="scroll" direction="up" scrollamount="5" style="height: 50px; color: lime; font-family: 'Press Start 2P';">ESX vs QBCORE!! THE ULTIMATE BATTLE!! WINNER GETS YOUR MONEY!!</marquee>
                 <div class="card" style="background-color: lime; color: black;">
-                    <h3 style="font-weight: bold; font-size: 2rem;">ESX OR QBCORE? WHO CARES, PICK ONE!</h3>
-                    <p>LING SAYS: QBCORE IS FOR NEWBIES! It's easier! Less headache! Now stop asking and download it!</p>
+                    <h3>ESX OR QBCORE? WHO CARES!</h3>
+                    <p>LING SAYS: QBCORE IS FOR NEWBIES! It's easier! Less headache! ESX is for old people who like things difficult. You want easy money? Use QBCore. Now stop asking and download it!</p>
                 </div>
                  <div class="card" style="background-color: orange;">
-                    <h3 style="font-weight: bold; font-size: 2rem;">GET THESE SCRIPTS! NOW!</h3>
-                    <p>ox_inventory (for all your junk!), eco_crafting (make cool stuff!), qb-gangs (for your little friends!). GO!</p>
+                    <h3>GET THESE SCRIPTS! NOW!</h3>
+                    <p>Don't be cheap! Get the good stuff!</p>
+                    <ul>
+                        <li><strong>ox_inventory:</strong> For all your junk! Best one! It has pictures! Ooooh, shiny!</li>
+                        <li><strong>eco_crafting:</strong> Make cool stuff! Turn your worthless junk into slightly less worthless junk!</li>
+                        <li><strong>qb-gangs:</strong> For your little friends to fight over ugly colours on the map!</li>
+                    </ul>
                 </div>
             </section>
 
             <!-- Section 3: Launch & Monetize -->
             <section id="launch" class="content-section" style="border-color: yellow;">
-                <h2 style="font-size: 2.5rem; color: #ff00ff; text-align: center;">PHASE 3: TIME FOR BLAST OFF! $$$</h2>
+                <h2 style="font-size: 2.5rem; color: #ff00ff; text-align: center; font-family: 'Creepster';">PHASE 3: TIME FOR BLAST OFF! $$$</h2>
                 <div class="card" style="background-color: cyan; color: navy;">
-                    <h3 style="font-weight: bold; font-size: 2rem;">LING'S 12-WEEK PLAN TO RICHES!</h3>
-                    <ol style="list-style-type: decimal-leading-zero; padding-left: 20px;">
-                        <li>Weeks 1-8: STOP BEING LAZY AND BUILD THE THING!</li>
-                        <li>Weeks 9-10: MAKE YOUR TEBEX STORE! SELL HATS! NOT GUNS!</li>
-                        <li>Weeks 11-12: TELL EVERYONE! SPAM DISCORD! GET STREAMERS!</li>
-                        <li>LAUNCH DAY: PUSH THE BIG RED BUTTON!</li>
+                    <h3>LING'S 12-WEEK PLAN TO RICHES!</h3>
+                    <ol style="list-style-type: decimal-leading-zero; padding-left: 20px; font-weight: bold;">
+                        <li><strong>Weeks 1-8:</strong> STOP BEING LAZY AND BUILD THE THING!</li>
+                        <li><strong>Weeks 9-10:</strong> MAKE YOUR TEBEX STORE! SELL HATS! NOT GUNS!</li>
+                        <li><strong>Weeks 11-12:</strong> TELL EVERYONE! SPAM DISCORD! GET STREAMERS!</li>
+                        <li><strong>LAUNCH DAY:</strong> PUSH THE BIG RED BUTTON! HOPE IT DOESN'T EXPLODE!</li>
                     </ol>
+                </div>
+                <div class="card" style="background-color: red; color: white;">
+                    <h3>HOW TO MAKE MONEY (LEGALLY!)</h3>
+                    <p>Don't be greedy and stupid! Follow Tebex rules!</p>
+                    <ul>
+                        <li><strong style="color:lime;">YES! Priority Queue!</strong> Let rich people pay to skip the line!</li>
+                        <li><strong style="color:lime;">YES! Custom Clothes & Car Skins!</strong> Make them look pretty!</li>
+                        <li><strong style="color:black; background: yellow;">NO! Selling Money!</strong> Are you crazy?! INSTA-BAN!</li>
+                        <li><strong style="color:black; background: yellow;">NO! Loot Boxes!</strong> This isn't a casino! GO TO VEGAS!</li>
+                        <li><strong style="color:black; background: yellow;">NO! Pay-to-Win Guns!</strong> Unfair! Makes people cry!</li>
+                    </ul>
                 </div>
             </section>
 
             <!-- Section 4: Grow & Retain -->
             <section id="grow" class="content-section" style="border-color: green;">
-                <h2 style="font-size: 2.5rem; color: red; text-align: center;">PHASE 4: KEEP THE PARTY GOING!</h2>
+                <h2 style="font-size: 2.5rem; color: red; text-align: center; font-family: 'Creepster';">PHASE 4: KEEP THE PARTY GOING!</h2>
                  <div class="card" style="background-color: yellow; color: purple;">
-                    <h3 style="font-weight: bold; font-size: 2rem;">THE COMMUNITY FLYWHEEL THINGY!</h3>
-                    <p>Be nice to players -> They give you ideas -> You make server better -> They love you more -> They give you more ideas AND MONEY! It's a money machine!</p>
+                    <h3>THE COMMUNITY FLYWHEEL THINGY!</h3>
+                    <p>It's a money machine! Be nice to players -> They give you ideas -> You make server better -> They love you more -> They give you more ideas AND MONEY! Simple!</p>
+                </div>
+                 <div class="card" style="background-color: #333; color: lime; font-family: 'Press Start 2P';">
+                    <h3>LONG TERM = LONG MONEY!</h3>
+                    <ul>
+                        <li>MAKE A DISCORD! For announcements and fighting!</li>
+                        <li>ORGANIZE FEEDBACK! So you don't lose the good ideas in all the junk!</li>
+                        <li>USE 'resmon 1'! Find the laggy scripts and DESTROY THEM!</li>
+                    </ul>
                 </div>
                 <img src="https://placehold.co/200x150/ffff00/000000?text=DANCING+BANANA+GIF" style="display: block; margin: 20px auto; border: 5px solid hotpink;">
             </section>
@@ -224,9 +256,25 @@
         document.addEventListener('DOMContentLoaded', function() {
             const navButtons = document.querySelectorAll('.nav-button');
             const contentSections = document.querySelectorAll('.content-section');
+            let wooshSynth;
+
+            // --- SOUND EFFECTS ---
+            function setupSounds() {
+                wooshSynth = new Tone.NoiseSynth({
+                    noise: { type: 'white' },
+                    envelope: { attack: 0.005, decay: 0.2, sustain: 0 }
+                }).toDestination();
+            }
+            
+            function playWoosh() {
+                if (Tone.context.state !== 'running') return;
+                if (!wooshSynth) setupSounds();
+                wooshSynth.triggerAttack();
+            }
 
             navButtons.forEach(button => {
                 button.addEventListener('click', () => {
+                    playWoosh();
                     const target = button.dataset.target;
                     contentSections.forEach(section => {
                         section.classList.remove('active');
@@ -245,27 +293,21 @@
                 document.body.appendChild(trail);
                 trail.style.left = e.pageX + 'px';
                 trail.style.top = e.pageY + 'px';
-                setTimeout(() => {
-                    trail.remove();
-                }, 1000);
+                setTimeout(() => { trail.remove(); }, 1000);
             });
 
-            // --- AUTOPLAYING SOUND ---
+            // --- AUTOPLAYING MUSIC ---
             const muteButton = document.getElementById('mute-button');
-            let synth;
-            let loop;
-            let isMuted = true;
-
+            let musicSynth, loop, isMuted = true;
             const notes = ["C4", "E4", "G4", "A4", "G4", "E4", "C4"];
             let noteIndex = 0;
 
             function playMusic() {
-                if (Tone.context.state !== 'running') {
-                    Tone.context.resume();
-                }
-                synth = new Tone.Synth().toDestination();
+                if (Tone.context.state !== 'running') { Tone.context.resume(); }
+                if (!wooshSynth) setupSounds(); // Ensure synths are ready
+                musicSynth = new Tone.Synth().toDestination();
                 loop = new Tone.Loop(time => {
-                    synth.triggerAttackRelease(notes[noteIndex % notes.length], "8n", time);
+                    musicSynth.triggerAttackRelease(notes[noteIndex % notes.length], "8n", time);
                     noteIndex++;
                 }, "4n").start(0);
                 Tone.Transport.start();
@@ -278,32 +320,25 @@
                 if (loop) {
                     Tone.Transport.stop();
                     Tone.Transport.cancel();
-                    loop.dispose();
-                    synth.dispose();
+                    if(loop) loop.dispose();
+                    if(musicSynth) musicSynth.dispose();
                 }
                 isMuted = true;
                 muteButton.textContent = "MUTED";
                 muteButton.style.background = 'red';
             }
 
-            // Start muted
-            stopMusic();
+            stopMusic(); // Start muted
 
-            // User must interact to start audio
             document.body.addEventListener('click', () => {
                 if (isMuted && Tone.context.state !== 'running') {
                     playMusic();
                 }
             }, { once: true });
 
-
             muteButton.addEventListener('click', (e) => {
                 e.stopPropagation();
-                if (isMuted) {
-                    playMusic();
-                } else {
-                    stopMusic();
-                }
+                if (isMuted) { playMusic(); } else { stopMusic(); }
             });
         });
     </script>
