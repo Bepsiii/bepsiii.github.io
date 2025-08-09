@@ -159,6 +159,8 @@
                 
                 const reverb = new Tone.Reverb(5).toDestination();
                 synth = new Tone.Synth({
+                    // Volume is in decibels. Negative values are quieter.
+                    volume: -12,
                     oscillator: { type: 'sine' },
                     envelope: { attack: 0.1, decay: 0.5, sustain: 0.1, release: 2 }
                 }).connect(reverb);
