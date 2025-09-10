@@ -60,6 +60,18 @@
         .article-content {
             flex-grow: 1;
         }
+
+        .warning-strip {
+            background: repeating-linear-gradient(
+                45deg,
+                #fdd835,
+                #fdd835 10px,
+                #212121 10px,
+                #212121 20px
+            );
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
     </style>
 </head>
 <body class="transition-colors duration-500">
@@ -73,42 +85,49 @@
             <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">Thoughts, Guides & Musings. Dive into a collection of articles covering various topics, from tech insights and guides to personal reflections and more.</p>
         </section>
 
+        <section class="container mx-auto px-6 pb-12">
+            <div class="warning-strip p-4 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
+                <p class="font-bold text-lg">Under Construction</p>
+                <p>This page is a work in progress. More articles will be added soon!</p>
+            </div>
+        </section>
+
         <section id="articles-listing" class="container mx-auto px-6 py-16">
             <div id="cards-wrapper" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Article Card 1 -->
-                <a href="article-placeholder-1.html" class="interactive-card" data-aos="fade-up">
+                <a href="#" class="interactive-card" data-aos="fade-up">
                     <div class="relative">
-                        <img src="https://via.placeholder.com/400x225/444444/eeeeee?text=Article+Thumbnail+1" alt="Article Thumbnail 1" class="w-full object-cover">
+                        <img src="https://via.placeholder.com/400x225/444444/eeeeee?text=Coming+Soon" alt="Article Thumbnail 1" class="w-full object-cover">
                     </div>
                     <div class="p-6 flex flex-col article-content">
-                        <h3 class="text-xl font-bold text-white mb-2">Placeholder</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Placeholder</p>
-                        <p class="text-xs text-gray-500">Published: June 05, 2025</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Placeholder Article 1</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">This is a placeholder for a future article. Check back soon for more content!</p>
+                        <p class="text-xs text-gray-500">Coming Soon</p>
                     </div>
                 </a>
 
                 <!-- Article Card 2 -->
-                <a href="article-placeholder-2.html" class="interactive-card" data-aos="fade-up" data-aos-delay="100">
+                <a href="#" class="interactive-card" data-aos="fade-up" data-aos-delay="100">
                      <div class="relative">
-                        <img src="https://via.placeholder.com/400x225/444444/eeeeee?text=Article+Thumbnail+2" alt="Article Thumbnail 2">
+                        <img src="https://via.placeholder.com/400x225/444444/eeeeee?text=Coming+Soon" alt="Article Thumbnail 2">
                     </div>
                     <div class="p-6 flex flex-col article-content">
-                        <h3 class="text-xl font-bold text-white mb-2">Placeholder</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Placeholder</p>
-                        <p class="text-xs text-gray-500">Published: May 20, 2025</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Placeholder Article 2</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">This is a placeholder for a future article. Check back soon for more content!</p>
+                        <p class="text-xs text-gray-500">Coming Soon</p>
                     </div>
                 </a>
 
                 <!-- Article Card 3 -->
-                <a href="article-placeholder-3.html" class="interactive-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="#" class="interactive-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative">
-                        <img src="https://via.placeholder.com/400x225/444444/eeeeee?text=Article+Thumbnail+3" alt="Article Thumbnail 3">
+                        <img src="https://via.placeholder.com/400x225/444444/eeeeee?text=Coming+Soon" alt="Article Thumbnail 3">
                     </div>
                     <div class="p-6 flex flex-col article-content">
-                        <h3 class="text-xl font-bold text-white mb-2">Placeholder</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Placeholder</p>
-                        <p class="text-xs text-gray-500">Published: May 01, 2025</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Placeholder Article 3</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">This is a placeholder for a future article. Check back soon for more content!</p>
+                        <p class="text-xs text-gray-500">Coming Soon</p>
                     </div>
                 </a>
 
