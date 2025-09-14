@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Bottleneck Calculator | Bepsi</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="transition-colors duration-500">
+
+    <header-placeholder></header-placeholder>
+
+    <main class="relative z-20 bg-stone-950 pt-40 pb-20">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl font-bold text-sky-400 text-center mb-6" data-aos="fade-up">
+                Bottleneck Calculator
+            </h1>
+            <div class="max-w-3xl mx-auto text-lg text-gray-300 space-y-6" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                    Answer the questions below to determine if your system has a bottleneck.
+                </p>
+                <form id="bottleneck-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="cpu" class="block text-sky-400">CPU</label>
+                            <input type="text" id="cpu" name="cpu" class="w-full bg-stone-800 text-white rounded-md px-4 py-2 mt-2">
+                        </div>
+                        <div>
+                            <label for="gpu" class="block text-sky-400">GPU</label>
+                            <input type="text" id="gpu" name="gpu" class="w-full bg-stone-800 text-white rounded-md px-4 py-2 mt-2">
+                        </div>
+                        <div>
+                            <label for="ram" class="block text-sky-400">RAM (in GB)</label>
+                            <input type="number" id="ram" name="ram" class="w-full bg-stone-800 text-white rounded-md px-4 py-2 mt-2">
+                        </div>
+                        <div>
+                            <label for="storage" class="block text-sky-400">Storage Type</label>
+                            <select id="storage" name="storage" class="w-full bg-stone-800 text-white rounded-md px-4 py-2 mt-2">
+                                <option>HDD</option>
+                                <option>SSD</option>
+                                <option>NVMe SSD</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="resolution" class="block text-sky-400">Monitor Resolution</label>
+                            <select id="resolution" name="resolution" class="w-full bg-stone-800 text-white rounded-md px-4 py-2 mt-2">
+                                <option>1080p</option>
+                                <option>1440p</option>
+                                <option>4K</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="games" class="block text-sky-400">What games do you play?</label>
+                            <input type="text" id="games" name="games" class="w-full bg-stone-800 text-white rounded-md px-4 py-2 mt-2">
+                        </div>
+                    </div>
+                    <div class="text-center mt-6">
+                        <button type="submit" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded">
+                            Calculate
+                        </button>
+                    </div>
+                </form>
+                <div id="result" class="hidden mt-6 text-center">
+                    <h2 class="text-3xl font-bold text-sky-400">Result</h2>
+                    <p class="text-xl text-gray-300 mt-4">
+                        You shouldn't worry about bottlenecks. Just enjoy your PC! Modern components are generally well-balanced, and performance is influenced by a wide range of factors including game optimization, driver versions, and background processes. Instead of focusing on a single "bottleneck," it's more productive to ensure your system is well-maintained and optimized for the games and applications you use most.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer-placeholder></footer-placeholder>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('bottleneck-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('result').classList.remove('hidden');
+        });
+    </script>
+
+</body>
+</html>
