@@ -5,126 +5,271 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reviews - Bepsi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* This keeps the glow effect consistent with other pages */
-        .interactive-card {
+        .floating-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 18s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -70px) scale(1.15); }
+            66% { transform: translate(-50px, 40px) scale(0.85); }
+        }
+        
+        .review-card {
             position: relative;
-            background: rgba(23, 23, 23, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
+            border-radius: 1.5rem;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
+            transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
-
-        .interactive-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.25);
+        
+        .review-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 30px 60px -12px rgba(14, 165, 233, 0.5);
+            border-color: rgba(14, 165, 233, 0.6);
         }
-
-        .interactive-card::before {
+        
+        .review-card::before {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            padding: 1px;
-            background: radial-gradient(600px at var(--x) var(--y), rgba(14, 165, 233, 0.7), rgba(139, 92, 246, 0.6), transparent 70%);
-            -webkit-mask: 
-                linear-gradient(#fff 0 0) content-box, 
-                linear-gradient(#fff 0 0);
+            padding: 2px;
+            background: linear-gradient(135deg, 
+                rgba(14, 165, 233, 0.8), 
+                rgba(139, 92, 246, 0.8));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             z-index: 0;
             opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-            filter: blur(20px);
+            transition: opacity 0.4s ease;
         }
-
-        .interactive-card:hover::before {
+        
+        .review-card:hover::before {
             opacity: 1;
         }
         
-        .interactive-card > * {
-            position: relative;
-            z-index: 1;
+        .review-image {
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
-        .review-content {
-            flex-grow: 1;
+        
+        .review-card:hover .review-image {
+            transform: scale(1.1);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 60%);
+        }
+        
+        .rating-star {
+            color: #fbbf24;
+            filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.5));
         }
     </style>
 </head>
-<body class="transition-colors duration-500">
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
 
     <div id="header-placeholder"></div>
+    
+    <!-- Floating Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="floating-blob w-96 h-96 bg-sky-500 top-1/3 left-10" style="animation-delay: 0s;"></div>
+        <div class="floating-blob w-80 h-80 bg-purple-500 bottom-1/3 right-20" style="animation-delay: -6s;"></div>
+        <div class="floating-blob w-72 h-72 bg-pink-500 top-2/3 right-1/3" style="animation-delay: -12s;"></div>
+    </div>
 
-    <!-- Page Specific Content -->
-    <div id="main-content" class="relative z-20 bg-stone-950 pt-32">
-        <section class="container mx-auto px-6 py-12">
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight text-center text-glow" data-aos="fade-up">My Reviews</h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">Latest Thoughts & Analyses. Here you'll find my in-depth thoughts on various tech, peripherals, and more.</p>
+    <!-- Page Content -->
+    <div id="main-content" class="relative z-20 pt-32 pb-24">
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 py-16">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h1 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight">
+                    My <span class="bg-gradient-to-r from-sky-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient">Reviews</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    In-depth analysis and honest thoughts on tech, peripherals, and hardware
+                </p>
+            </div>
         </section>
 
-        <section id="reviews-listing" class="container mx-auto px-6 py-16">
-            <div id="cards-wrapper" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Reviews Grid -->
+        <section class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Review Card 1 -->
-                <a href="spacetravel-review.html" class="interactive-card" data-aos="fade-up">
-                    <div class="relative">
-                        <img src="images/setup/reviews/spacetravels/moondrop_spacetravel_main.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x225/3b82f6/FFFFFF?text=Moondrop+Space+Travels';" alt="Moondrop Space Travels Thumbnail" class="w-full h-48 object-cover">
+                <!-- Review Card 1: Moondrop Space Travels -->
+                <a href="spacetravel-review.html" class="review-card group" data-aos="fade-up">
+                    <div class="relative overflow-hidden">
+                        <img src="images/setup/reviews/spacetravels/moondrop_spacetravel_main.jpg" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x360/0ea5e9/FFFFFF?text=Moondrop+Space+Travels';" 
+                             alt="Moondrop Space Travels" 
+                             class="review-image w-full">
+                        <div class="image-overlay"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-10">
+                            <div class="flex items-center gap-1 mb-2">
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6 flex flex-col review-content">
-                        <h3 class="text-xl font-bold text-white mb-2">Moondrop Space Travels</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Moondrop's Budget Hard Hitting TWS.</p>
-                        <p class="text-xs text-gray-500">Published: May 22, 2025 (Originally Made Oct 23 2023)</p>
+                    <div class="p-6 relative z-10 flex-grow flex flex-col">
+                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">
+                            Moondrop Space Travels
+                        </h3>
+                        <p class="text-gray-300 mb-4 flex-grow">
+                            Moondrop's budget hard-hitting TWS earbuds that deliver impressive sound quality.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                            <span class="text-sm text-gray-400">May 22, 2025</span>
+                            <span class="text-sky-400 font-semibold group-hover:translate-x-2 transition-transform">
+                                Read More →
+                            </span>
+                        </div>
                     </div>
                 </a>
 
-                <!-- Review Card 2 -->
-                <a href="7hzsonus-review.html" class="interactive-card" data-aos="fade-up" data-aos-delay="100">
-                     <div class="relative">
-                        <img src="images/setup/reviews/sonus/7hz_sonus_main.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x225/8b5cf6/FFFFFF?text=7hz+Sonus';" alt="7hz Sonus Thumbnail" class="w-full h-48 object-cover">
+                <!-- Review Card 2: 7hz Sonus -->
+                <a href="7hzsonus-review.html" class="review-card group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden">
+                        <img src="images/setup/reviews/sonus/7hz_sonus_main.jpg" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x360/8b5cf6/FFFFFF?text=7hz+Sonus';" 
+                             alt="7hz Sonus" 
+                             class="review-image w-full">
+                        <div class="image-overlay"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-10">
+                            <div class="flex items-center gap-1 mb-2">
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="rating-star w-5 h-5 opacity-50" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6 flex flex-col review-content">
-                        <h3 class="text-xl font-bold text-white mb-2">7hz Sonus</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">7hz Sonus, Is Truthear in trouble?</p>
-                        <p class="text-xs text-gray-500">Published: May 22, 2025 (Originally Made April 12 2024)</p>
+                    <div class="p-6 relative z-10 flex-grow flex flex-col">
+                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">
+                            7hz Sonus
+                        </h3>
+                        <p class="text-gray-300 mb-4 flex-grow">
+                            Is Truthear in trouble? A deep dive into 7hz's latest offering.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                            <span class="text-sm text-gray-400">May 22, 2025</span>
+                            <span class="text-sky-400 font-semibold group-hover:translate-x-2 transition-transform">
+                                Read More →
+                            </span>
+                        </div>
                     </div>
                 </a>
 
-                <!-- Review Card 3 -->
-                <a href="beanmouse-review.html" class="interactive-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative">
-                        <img src="images/setup/reviews/beanmouse/beanmouse_main.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x225/ec4899/FFFFFF?text=Beanmouse';" alt="CaffeinatedCustoms Beanmouse Thumbnail" class="w-full h-48 object-cover">
+                <!-- Review Card 3: Beanmouse -->
+                <a href="beanmouse-review.html" class="review-card group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden">
+                        <img src="images/setup/reviews/beanmouse/beanmouse_main.jpg" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x360/ec4899/FFFFFF?text=Beanmouse';" 
+                             alt="CaffeinatedCustoms Beanmouse" 
+                             class="review-image w-full">
+                        <div class="image-overlay"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-10">
+                            <div class="flex items-center gap-1 mb-2">
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="rating-star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6 flex flex-col review-content">
-                        <h3 class="text-xl font-bold text-white mb-2">CaffeinatedCustoms Beanmouse V2.1 / V2.2</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">A budget Fingertip mod for the Viper V2 Pro.</p>
-                        <p class="text-xs text-gray-500">Published: May 22, 2025 (Originally Made September 19th 2024)</p>
+                    <div class="p-6 relative z-10 flex-grow flex flex-col">
+                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">
+                            CaffeinatedCustoms Beanmouse
+                        </h3>
+                        <p class="text-gray-300 mb-4 flex-grow">
+                            A budget fingertip mod for the Viper V2 Pro that delivers impressive results.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                            <span class="text-sm text-gray-400">May 22, 2025</span>
+                            <span class="text-sky-400 font-semibold group-hover:translate-x-2 transition-transform">
+                                Read More →
+                            </span>
+                        </div>
                     </div>
                 </a>
 
-                <!-- TEMPLATE FOR NEW REVIEW -->
-                <!--
-                <a href="your-review-link.html" class="interactive-card" data-aos="fade-up">
-                    <div class="relative">
-                        <img src="path/to/your/image.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x225/1d4ed8/FFFFFF?text=New+Review';" alt="New Review Thumbnail" class="w-full h-48 object-cover">
-                    </div>
-                    <div class="p-6 flex flex-col review-content">
-                        <h3 class="text-xl font-bold text-white mb-2">Your New Review Title</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">A short, engaging description of your review goes here.</p>
-                        <p class="text-xs text-gray-500">Published: June 28, 2025</p>
-                    </div>
-                </a>
-                -->
+            </div>
+        </section>
 
+        <!-- More Reviews CTA -->
+        <section class="container mx-auto px-6 mt-24">
+            <div class="review-card p-12 text-center" data-aos="fade-up">
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                        More Reviews Coming Soon
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                        Got a product you'd like me to review? Or questions about any of these reviews?
+                    </p>
+                    <a href="contact.html" class="inline-block bg-gradient-to-r from-sky-500 to-purple-600 text-white font-bold py-4 px-10 rounded-full hover:shadow-2xl hover:shadow-sky-500/50 transition-all duration-300 transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                </div>
             </div>
         </section>
     </div>
@@ -133,85 +278,10 @@
 
     <script src="main.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load header and footer, then initialize scripts
-            const loadComponents = async () => {
-                try {
-                    const headerResponse = await fetch('header.html');
-                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
-                    const headerData = await headerResponse.text();
-                    document.getElementById('header-placeholder').innerHTML = headerData;
-
-                    const footerResponse = await fetch('footer.html');
-                    if (!footerResponse.ok) throw new Error('Failed to fetch footer');
-                    const footerData = await footerResponse.text();
-                    document.getElementById('footer-placeholder').innerHTML = footerData;
-                    
-                    initializePageScripts();
-
-                } catch (error) {
-                    console.error('Error loading components:', error);
-                }
-            };
-            
-            const initializePageScripts = () => {
-                AOS.init({
-                    duration: 800,
-                    once: true,
-                    offset: 50,
-                });
-
-                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (mobileMenuButton && mobileMenu) {
-                    mobileMenuButton.addEventListener('click', () => {
-                        mobileMenu.classList.toggle('hidden');
-                    });
-                }
-                
-                const discordID = 'theukgovernment';
-                const copyToClipboard = (text, button) => {
-                    const textarea = document.createElement('textarea');
-                    textarea.value = text;
-                    document.body.appendChild(textarea);
-                    textarea.select();
-                    try {
-                        document.execCommand('copy');
-                        const tooltip = document.createElement('span');
-                        tooltip.className = 'absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-auto min-w-max p-2 text-xs text-white bg-gray-800 rounded-md shadow-lg';
-                        tooltip.textContent = 'Copied!';
-                        button.appendChild(tooltip);
-                        setTimeout(() => {
-                           tooltip.remove();
-                        }, 1500);
-                    } catch (err) {
-                        console.error('Failed to copy: ', err);
-                    }
-                    document.body.removeChild(textarea);
-                };
-                
-                document.body.addEventListener('click', function(event){
-                    const copyButton = event.target.closest('#discord-copy-footer');
-                    if(copyButton){
-                        copyToClipboard(discordID, copyButton);
-                    }
-                });
-                
-                const cardsWrapper = document.getElementById('cards-wrapper');
-                if(cardsWrapper) {
-                    cardsWrapper.addEventListener('mousemove', e => {
-                        for(const card of document.getElementsByClassName('interactive-card')) {
-                            const rect = card.getBoundingClientRect(),
-                                  x = e.clientX - rect.left,
-                                  y = e.clientY - rect.top;
-                            card.style.setProperty('--x', `${x}px`);
-                            card.style.setProperty('--y', `${y}px`);
-                        }
-                    });
-                }
-            };
-            
-            loadComponents();
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
         });
     </script>
 </body>
