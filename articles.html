@@ -10,113 +10,95 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        .floating-blob {
+        .hero-blob {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.4;
-            animation: float 22s ease-in-out infinite;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
         }
         
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(50px, -60px) rotate(120deg); }
-            66% { transform: translate(-60px, 30px) rotate(240deg); }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-50px, 50px) scale(0.9); }
         }
         
         .article-card {
-            position: relative;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            background: linear-gradient(145deg, rgba(28, 25, 23, 0.7), rgba(12, 10, 9, 0.5));
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            height: 100%;
         }
         
-        .article-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(14, 165, 233, 0.4);
-            border-color: rgba(14, 165, 233, 0.5);
-        }
-        
-        .article-card::after {
+        .article-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #0ea5e9, #8b5cf6, #0ea5e9);
-            background-size: 200% 100%;
-            animation: shimmer 3s linear infinite;
+            inset: 0;
+            background: radial-gradient(600px circle at var(--x) var(--y), 
+                rgba(14, 165, 233, 0.15), 
+                rgba(139, 92, 246, 0.1), 
+                transparent 40%);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s;
         }
         
-        .article-card:hover::after {
+        .article-card:hover::before {
             opacity: 1;
         }
         
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(14, 165, 233, 0.3);
+            border-color: rgba(14, 165, 233, 0.3);
         }
         
-        .warning-banner {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.2));
-            border: 2px solid rgba(245, 158, 11, 0.4);
-            backdrop-filter: blur(16px);
-        }
-        
-        .tag {
-            background: rgba(14, 165, 233, 0.2);
-            border: 1px solid rgba(14, 165, 233, 0.3);
-            backdrop-filter: blur(8px);
+        .article-card > * {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
+<body class="bg-stone-950">
 
     <div id="header-placeholder"></div>
     
     <!-- Floating Background Elements -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="floating-blob w-96 h-96 bg-sky-500 top-1/4 left-10" style="animation-delay: 0s;"></div>
-        <div class="floating-blob w-80 h-80 bg-purple-500 top-1/2 right-20" style="animation-delay: -7s;"></div>
-        <div class="floating-blob w-72 h-72 bg-blue-500 bottom-1/4 left-1/3" style="animation-delay: -14s;"></div>
+        <div class="hero-blob w-96 h-96 bg-sky-500 top-1/4 left-10" style="animation-delay: 0s;"></div>
+        <div class="hero-blob w-80 h-80 bg-purple-500 top-1/2 right-20" style="animation-delay: -7s;"></div>
+        <div class="hero-blob w-72 h-72 bg-blue-500 bottom-1/4 left-1/3" style="animation-delay: -14s;"></div>
     </div>
 
     <!-- Page Content -->
     <div id="main-content" class="relative z-20 pt-32 pb-24">
         <!-- Hero Section -->
-        <section class="container mx-auto px-6 py-16">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h1 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight">
-                    My <span class="bg-gradient-to-r from-sky-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient">Articles</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    Thoughts, guides, and insights on tech, design, and everything in between
-                </p>
-            </div>
+        <section class="container mx-auto px-6 py-12">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight text-center" data-aos="fade-up">
+                My <span class="bg-gradient-to-r from-sky-400 to-purple-600 bg-clip-text text-transparent">Articles</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                Thoughts, guides, and insights on tech, design, and everything in between
+            </p>
         </section>
 
         <!-- Under Construction Banner -->
-        <section class="container mx-auto px-6 mb-16">
-            <div class="warning-banner p-6 rounded-2xl" data-aos="fade-up">
+        <section class="container mx-auto px-6 mb-12">
+            <div class="article-card rounded-2xl p-6" data-aos="fade-up">
                 <div class="flex items-center gap-4">
-                    <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold text-white mb-1">Under Construction</h3>
-                        <p class="text-gray-300">This section is currently being built. More articles coming soon!</p>
+                        <h3 class="text-xl font-bold text-white mb-1">Under Construction</h3>
+                        <p class="text-gray-400">This section is currently being built. More articles coming soon!</p>
                     </div>
                 </div>
             </div>
@@ -126,140 +108,128 @@
         <section class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Article Card 1 - Placeholder -->
-                <div class="article-card" data-aos="fade-up">
-                    <div class="relative z-10 p-8 flex-grow flex flex-col">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="tag px-3 py-1 rounded-full text-xs font-semibold text-sky-400">Guide</span>
-                            <span class="text-gray-400 text-sm">Coming Soon</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">
-                            Building Beautiful Web Experiences
-                        </h3>
-                        <p class="text-gray-300 leading-relaxed mb-6 flex-grow">
-                            A comprehensive guide to creating modern, engaging websites with stunning visual effects and smooth animations.
-                        </p>
-                        <div class="flex items-center gap-3 pt-4 border-t border-white/10">
-                            <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full"></div>
-                            <div>
-                                <div class="text-white font-semibold text-sm">Bepsi</div>
-                                <div class="text-gray-400 text-xs">5 min read</div>
-                            </div>
+                <!-- Article Card 1 -->
+                <div class="article-card rounded-2xl p-6" data-aos="fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 bg-sky-500/20 border border-sky-500/30 rounded-full text-xs font-semibold text-sky-400">Guide</span>
+                        <span class="text-gray-500 text-sm">Coming Soon</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">
+                        Building Beautiful Web Experiences
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-sm mb-4 flex-grow">
+                        A comprehensive guide to creating modern, engaging websites with stunning visual effects and smooth animations.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-8 h-8 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full"></div>
+                        <div class="text-xs">
+                            <div class="text-white font-semibold">Bepsi</div>
+                            <div class="text-gray-500">5 min read</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Article Card 2 - Placeholder -->
-                <div class="article-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative z-10 p-8 flex-grow flex flex-col">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="tag px-3 py-1 rounded-full text-xs font-semibold text-purple-400">Hardware</span>
-                            <span class="text-gray-400 text-sm">Coming Soon</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">
-                            The Ultimate Mechanical Keyboard Guide
-                        </h3>
-                        <p class="text-gray-300 leading-relaxed mb-6 flex-grow">
-                            Everything you need to know about switches, keycaps, and building your perfect custom keyboard.
-                        </p>
-                        <div class="flex items-center gap-3 pt-4 border-t border-white/10">
-                            <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full"></div>
-                            <div>
-                                <div class="text-white font-semibold text-sm">Bepsi</div>
-                                <div class="text-gray-400 text-xs">8 min read</div>
-                            </div>
+                <!-- Article Card 2 -->
+                <div class="article-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-xs font-semibold text-purple-400">Hardware</span>
+                        <span class="text-gray-500 text-sm">Coming Soon</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">
+                        The Ultimate Mechanical Keyboard Guide
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-sm mb-4 flex-grow">
+                        Everything you need to know about switches, keycaps, and building your perfect custom keyboard.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full"></div>
+                        <div class="text-xs">
+                            <div class="text-white font-semibold">Bepsi</div>
+                            <div class="text-gray-500">8 min read</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Article Card 3 - Placeholder -->
-                <div class="article-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative z-10 p-8 flex-grow flex flex-col">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="tag px-3 py-1 rounded-full text-xs font-semibold text-blue-400">Design</span>
-                            <span class="text-gray-400 text-sm">Coming Soon</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">
-                            Modern UI Design Principles
-                        </h3>
-                        <p class="text-gray-300 leading-relaxed mb-6 flex-grow">
-                            Learn the fundamentals of creating beautiful, user-friendly interfaces that users will love.
-                        </p>
-                        <div class="flex items-center gap-3 pt-4 border-t border-white/10">
-                            <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-full"></div>
-                            <div>
-                                <div class="text-white font-semibold text-sm">Bepsi</div>
-                                <div class="text-gray-400 text-xs">6 min read</div>
-                            </div>
+                <!-- Article Card 3 -->
+                <div class="article-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-xs font-semibold text-blue-400">Design</span>
+                        <span class="text-gray-500 text-sm">Coming Soon</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">
+                        Modern UI Design Principles
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-sm mb-4 flex-grow">
+                        Learn the fundamentals of creating beautiful, user-friendly interfaces that users will love.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full"></div>
+                        <div class="text-xs">
+                            <div class="text-white font-semibold">Bepsi</div>
+                            <div class="text-gray-500">6 min read</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Article Card 4 - Placeholder -->
-                <div class="article-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative z-10 p-8 flex-grow flex flex-col">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="tag px-3 py-1 rounded-full text-xs font-semibold text-emerald-400">Tutorial</span>
-                            <span class="text-gray-400 text-sm">Coming Soon</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">
-                            Setting Up Your Dev Environment
-                        </h3>
-                        <p class="text-gray-300 leading-relaxed mb-6 flex-grow">
-                            A step-by-step guide to configuring the perfect development setup for maximum productivity.
-                        </p>
-                        <div class="flex items-center gap-3 pt-4 border-t border-white/10">
-                            <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-green-600 rounded-full"></div>
-                            <div>
-                                <div class="text-white font-semibold text-sm">Bepsi</div>
-                                <div class="text-gray-400 text-xs">10 min read</div>
-                            </div>
+                <!-- Article Card 4 -->
+                <div class="article-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs font-semibold text-emerald-400">Tutorial</span>
+                        <span class="text-gray-500 text-sm">Coming Soon</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">
+                        Setting Up Your Dev Environment
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-sm mb-4 flex-grow">
+                        A step-by-step guide to configuring the perfect development setup for maximum productivity.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full"></div>
+                        <div class="text-xs">
+                            <div class="text-white font-semibold">Bepsi</div>
+                            <div class="text-gray-500">10 min read</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Article Card 5 - Placeholder -->
-                <div class="article-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="relative z-10 p-8 flex-grow flex flex-col">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="tag px-3 py-1 rounded-full text-xs font-semibold text-orange-400">Review</span>
-                            <span class="text-gray-400 text-sm">Coming Soon</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">
-                            Best Audio Gear for Audiophiles
-                        </h3>
-                        <p class="text-gray-300 leading-relaxed mb-6 flex-grow">
-                            My personal recommendations for headphones, DACs, and amps to elevate your listening experience.
-                        </p>
-                        <div class="flex items-center gap-3 pt-4 border-t border-white/10">
-                            <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-red-600 rounded-full"></div>
-                            <div>
-                                <div class="text-white font-semibold text-sm">Bepsi</div>
-                                <div class="text-gray-400 text-xs">7 min read</div>
-                            </div>
+                <!-- Article Card 5 -->
+                <div class="article-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 bg-orange-500/20 border border-orange-500/30 rounded-full text-xs font-semibold text-orange-400">Review</span>
+                        <span class="text-gray-500 text-sm">Coming Soon</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">
+                        Best Audio Gear for Audiophiles
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-sm mb-4 flex-grow">
+                        My personal recommendations for headphones, DACs, and amps to elevate your listening experience.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-full"></div>
+                        <div class="text-xs">
+                            <div class="text-white font-semibold">Bepsi</div>
+                            <div class="text-gray-500">7 min read</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Article Card 6 - Placeholder -->
-                <div class="article-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="relative z-10 p-8 flex-grow flex flex-col">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="tag px-3 py-1 rounded-full text-xs font-semibold text-pink-400">Opinion</span>
-                            <span class="text-gray-400 text-sm">Coming Soon</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">
-                            The Future of Web Development
-                        </h3>
-                        <p class="text-gray-300 leading-relaxed mb-6 flex-grow">
-                            My thoughts on emerging trends and technologies that will shape the future of the web.
-                        </p>
-                        <div class="flex items-center gap-3 pt-4 border-t border-white/10">
-                            <div class="w-10 h-10 bg-gradient-to-br from-pink-400 to-purple-600 rounded-full"></div>
-                            <div>
-                                <div class="text-white font-semibold text-sm">Bepsi</div>
-                                <div class="text-gray-400 text-xs">9 min read</div>
-                            </div>
+                <!-- Article Card 6 -->
+                <div class="article-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 bg-pink-500/20 border border-pink-500/30 rounded-full text-xs font-semibold text-pink-400">Opinion</span>
+                        <span class="text-gray-500 text-sm">Coming Soon</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">
+                        The Future of Web Development
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-sm mb-4 flex-grow">
+                        My thoughts on emerging trends and technologies that will shape the future of the web.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full"></div>
+                        <div class="text-xs">
+                            <div class="text-white font-semibold">Bepsi</div>
+                            <div class="text-gray-500">9 min read</div>
                         </div>
                     </div>
                 </div>
@@ -268,24 +238,22 @@
         </section>
 
         <!-- Newsletter CTA -->
-        <section class="container mx-auto px-6 mt-24">
-            <div class="article-card p-12 text-center" data-aos="fade-up">
-                <div class="relative z-10">
-                    <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                        </svg>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Stay Updated
-                    </h2>
-                    <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Get notified when new articles are published. No spam, just quality content.
-                    </p>
-                    <a href="contact.html" class="inline-block bg-gradient-to-r from-sky-500 to-purple-600 text-white font-bold py-4 px-10 rounded-full hover:shadow-2xl hover:shadow-sky-500/50 transition-all duration-300 transform hover:scale-105">
-                        Get In Touch
-                    </a>
+        <section class="container mx-auto px-6 mt-16">
+            <div class="article-card rounded-2xl p-12 text-center" data-aos="fade-up">
+                <div class="w-16 h-16 bg-gradient-to-br from-sky-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
                 </div>
+                <h2 class="text-3xl font-bold text-white mb-4">
+                    Stay Updated
+                </h2>
+                <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Get notified when new articles are published. No spam, just quality content.
+                </p>
+                <a href="contact.html" class="inline-block bg-gradient-to-r from-sky-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-xl hover:shadow-sky-500/50 transition-all duration-300 transform hover:scale-105">
+                    Get In Touch
+                </a>
             </div>
         </section>
     </div>
@@ -295,9 +263,20 @@
     <script src="main.js"></script>
     <script>
         AOS.init({
-            duration: 1000,
+            duration: 800,
             once: true,
-            offset: 100
+            offset: 50
+        });
+        
+        // Mouse tracking
+        document.addEventListener('mousemove', (e) => {
+            document.querySelectorAll('.article-card').forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
         });
     </script>
 </body>

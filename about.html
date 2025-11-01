@@ -1,240 +1,477 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html><!DOCTYPE html>
 
-<html lang="en" class="scroll-smooth"><html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 
-<head><head>
+<head><html lang="en" class="scroll-smooth"><html lang="en" class="scroll-smooth">
 
-    <meta charset="UTF-8">    <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><head><head>
 
-    <title>About Me - Bepsi</title>    <title>About Me - Bepsi</title>
+    <title>About Me - Bepsi</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>    <meta charset="UTF-8">    <meta charset="UTF-8">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <link rel="stylesheet" href="style.css">    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">    <title>About Me - Bepsi</title>    <title>About Me - Bepsi</title>
 
-    <style>    <style>
+    <style>
 
-        .floating-blob {        /* This keeps the glow effect consistent with the setup page */
-
-            position: absolute;        .interactive-card {
-
-            border-radius: 50%;            position: relative;
-
-            filter: blur(80px);            background: rgba(23, 23, 23, 0.6);
-
-            opacity: 0.5;            backdrop-filter: blur(12px);
-
-            animation: float 20s ease-in-out infinite;            -webkit-backdrop-filter: blur(12px);
-
-        }            border: 1px solid rgba(255, 255, 255, 0.1);
-
-                    border-radius: 1rem;
-
-        @keyframes float {            overflow: hidden;
-
-            0%, 100% { transform: translate(0, 0) scale(1); }            transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-            25% { transform: translate(50px, -50px) scale(1.1); }        }
-
-            50% { transform: translate(-30px, 30px) scale(0.9); }
-
-            75% { transform: translate(30px, 50px) scale(1.05); }        .interactive-card:hover {
-
-        }            transform: translateY(-5px);
-
-                    box-shadow: 0 20px 30px rgba(0,0,0,0.25);
-
-        .skill-card {        }
-
-            position: relative;
-
-            background: rgba(15, 23, 42, 0.6);        .interactive-card::before {
-
-            backdrop-filter: blur(24px);            content: '';
-
-            -webkit-backdrop-filter: blur(24px);            position: absolute;
-
-            border: 1px solid rgba(255, 255, 255, 0.1);            inset: 0;
-
-            border-radius: 1rem;            border-radius: inherit;
-
-            overflow: hidden;            padding: 1px;
-
-            transition: all 0.3s ease;            background: radial-gradient(600px at var(--x) var(--y), rgba(14, 165, 233, 0.7), rgba(139, 92, 246, 0.6), transparent 70%);
-
-        }            -webkit-mask: 
-
-                        linear-gradient(#fff 0 0) content-box, 
-
-        .skill-card:hover {                linear-gradient(#fff 0 0);
-
-            transform: translateY(-8px) scale(1.02);            -webkit-mask-composite: xor;
-
-            box-shadow: 0 25px 50px -12px rgba(14, 165, 233, 0.3);            mask-composite: exclude;
-
-            border-color: rgba(14, 165, 233, 0.4);            z-index: 0;
-
-        }            opacity: 0;
-
-                    transition: opacity 0.4s ease-in-out;
-
-        .skill-card::before {            filter: blur(20px);
-
-            content: '';        }
+        .hero-blob {    <script src="https://cdn.tailwindcss.com"></script>    <script src="https://cdn.tailwindcss.com"></script>
 
             position: absolute;
 
-            inset: 0;        .interactive-card:hover::before {
+            border-radius: 50%;    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-            border-radius: inherit;            opacity: 1;
+            filter: blur(100px);
 
-            padding: 2px;        }
+            opacity: 0.3;    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-            background: conic-gradient(from 180deg at 50% 50%,         
+            animation: float 20s ease-in-out infinite;
 
-                rgba(14, 165, 233, 0.8) 0deg,         .interactive-card > * {
+        }    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-                rgba(139, 92, 246, 0.8) 180deg,             position: relative;
+        
 
-                rgba(14, 165, 233, 0.8) 360deg);            z-index: 1;
+        @keyframes float {    <link rel="stylesheet" href="style.css">    <link rel="stylesheet" href="style.css">
 
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);        }
+            0%, 100% { transform: translate(0, 0) scale(1); }
 
-            -webkit-mask-composite: xor;    </style>
+            33% { transform: translate(50px, -50px) scale(1.1); }    <style>    <style>
 
-            mask-composite: exclude;</head>
+            66% { transform: translate(-50px, 50px) scale(0.9); }
 
-            z-index: 0;<body class="transition-colors duration-500">
+        }        .floating-blob {        /* This keeps the glow effect consistent with the setup page */
 
-            opacity: 0;
+        
 
-            transition: opacity 0.5s ease;    <div id="header-placeholder"></div>
+        .about-card {            position: absolute;        .interactive-card {
+
+            background: linear-gradient(145deg, rgba(28, 25, 23, 0.7), rgba(12, 10, 9, 0.5));
+
+            backdrop-filter: blur(20px);            border-radius: 50%;            position: relative;
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);            filter: blur(80px);            background: rgba(23, 23, 23, 0.6);
+
+            position: relative;
+
+            overflow: hidden;            opacity: 0.5;            backdrop-filter: blur(12px);
 
         }
 
-            <!-- Page Specific Content -->
+                    animation: float 20s ease-in-out infinite;            -webkit-backdrop-filter: blur(12px);
 
-        .skill-card:hover::before {    <div id="main-content" class="relative z-20 bg-stone-950 pt-32">
+        .about-card::before {
 
-            opacity: 1;        <section class="container mx-auto px-6 py-12">
+            content: '';        }            border: 1px solid rgba(255, 255, 255, 0.1);
 
-            animation: spin 3s linear infinite;            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight text-center text-glow" data-aos="fade-up">About Me</h1>
+            position: absolute;
 
-        }            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">A little more about the person behind the pixels.</p>
+            inset: 0;                    border-radius: 1rem;
 
-                </section>
+            background: radial-gradient(600px circle at var(--x) var(--y), 
 
-        @keyframes spin {
+                rgba(14, 165, 233, 0.15),         @keyframes float {            overflow: hidden;
 
-            100% { transform: rotate(360deg); }        <section id="about-details" class="container mx-auto px-6 py-16">
+                rgba(139, 92, 246, 0.1), 
 
-        }            <div id="cards-wrapper" class="space-y-8">
+                transparent 40%);            0%, 100% { transform: translate(0, 0) scale(1); }            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            opacity: 0;
+
+            transition: opacity 0.4s;            25% { transform: translate(50px, -50px) scale(1.1); }        }
+
+        }
+
+                    50% { transform: translate(-30px, 30px) scale(0.9); }
+
+        .about-card:hover::before {
+
+            opacity: 1;            75% { transform: translate(30px, 50px) scale(1.05); }        .interactive-card:hover {
+
+        }
+
+                }            transform: translateY(-5px);
+
+        .about-card:hover {
+
+            transform: translateY(-8px);                    box-shadow: 0 20px 30px rgba(0,0,0,0.25);
+
+            box-shadow: 0 20px 40px -12px rgba(14, 165, 233, 0.3);
+
+            border-color: rgba(14, 165, 233, 0.3);        .skill-card {        }
+
+        }
+
+                    position: relative;
+
+        .about-card > * {
+
+            position: relative;            background: rgba(15, 23, 42, 0.6);        .interactive-card::before {
+
+            z-index: 1;
+
+        }            backdrop-filter: blur(24px);            content: '';
+
+    </style>
+
+</head>            -webkit-backdrop-filter: blur(24px);            position: absolute;
+
+<body class="bg-stone-950">
+
+            border: 1px solid rgba(255, 255, 255, 0.1);            inset: 0;
+
+    <div id="header-placeholder"></div>
+
+            border-radius: 1rem;            border-radius: inherit;
+
+    <!-- Floating Background Elements -->
+
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">            overflow: hidden;            padding: 1px;
+
+        <div class="hero-blob w-96 h-96 bg-sky-500 top-20 left-10" style="animation-delay: 0s;"></div>
+
+        <div class="hero-blob w-80 h-80 bg-purple-500 bottom-40 right-20" style="animation-delay: -7s;"></div>            transition: all 0.3s ease;            background: radial-gradient(600px at var(--x) var(--y), rgba(14, 165, 233, 0.7), rgba(139, 92, 246, 0.6), transparent 70%);
+
+        <div class="hero-blob w-72 h-72 bg-blue-500 top-1/2 left-1/2" style="animation-delay: -14s;"></div>
+
+    </div>        }            -webkit-mask: 
+
+
+
+    <!-- Page Content -->                        linear-gradient(#fff 0 0) content-box, 
+
+    <div id="main-content" class="relative z-20 pt-32 pb-24">
+
+        <!-- Hero Section -->        .skill-card:hover {                linear-gradient(#fff 0 0);
+
+        <section class="container mx-auto px-6 py-12">
+
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight text-center" data-aos="fade-up">            transform: translateY(-8px) scale(1.02);            -webkit-mask-composite: xor;
+
+                About <span class="bg-gradient-to-r from-sky-400 to-purple-600 bg-clip-text text-transparent">Bepsi</span>
+
+            </h1>            box-shadow: 0 25px 50px -12px rgba(14, 165, 233, 0.3);            mask-composite: exclude;
+
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+
+                Developer, Creator, Hardware Enthusiast            border-color: rgba(14, 165, 233, 0.4);            z-index: 0;
+
+            </p>
+
+        </section>        }            opacity: 0;
+
+
+
+        <!-- Main About Card -->                    transition: opacity 0.4s ease-in-out;
+
+        <section class="container mx-auto px-6 mb-16">
+
+            <div class="about-card rounded-2xl p-8 md:p-12" data-aos="fade-up">        .skill-card::before {            filter: blur(20px);
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+
+                    <div class="md:col-span-1 flex justify-center">            content: '';        }
+
+                        <img src="https://placehold.co/400x400/1c1917/0ea5e9?text=Bepsi" 
+
+                             alt="Bepsi"             position: absolute;
+
+                             class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-2xl">
+
+                    </div>            inset: 0;        .interactive-card:hover::before {
+
+                    <div class="md:col-span-2 space-y-4">
+
+                        <h2 class="text-3xl md:text-4xl font-bold text-white">            border-radius: inherit;            opacity: 1;
+
+                            The Person Behind the Pixels
+
+                        </h2>            padding: 2px;        }
+
+                        <p class="text-gray-300 leading-relaxed">
+
+                            Welcome to my corner of the internet! I'm Bepsi, a passionate developer and creator who loves building beautiful, functional experiences on the web. This website is currently evolving, much like the projects I work on.            background: conic-gradient(from 180deg at 50% 50%,         
+
+                        </p>
+
+                        <p class="text-gray-300 leading-relaxed">                rgba(14, 165, 233, 0.8) 0deg,         .interactive-card > * {
+
+                            When I'm not coding, you'll find me exploring the latest in mechanical keyboards, high-fidelity audio, and PC hardware. I believe that great design extends beyond the screen—it's about creating a complete experience that engages all the senses.
+
+                        </p>                rgba(139, 92, 246, 0.8) 180deg,             position: relative;
 
                         
 
-        .profile-glow {                <!-- Main About Section -->
+                        <!-- Stats -->                rgba(14, 165, 233, 0.8) 360deg);            z-index: 1;
 
-            box-shadow: 0 0 60px rgba(14, 165, 233, 0.4),                <div class="interactive-card p-6 lg:p-8" data-aos="fade-up">
+                        <div class="grid grid-cols-3 gap-4 pt-6">
 
-                        0 0 100px rgba(139, 92, 246, 0.2);                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                            <div class="bg-gradient-to-br from-sky-500/20 to-blue-500/20 rounded-xl p-4 text-center border border-sky-500/30">            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);        }
 
-        }                        <div class="md:col-span-1">
+                                <div class="text-2xl md:text-3xl font-bold text-sky-400">5+</div>
 
-                                     <img src="https://placehold.co/400x400/111827/FFFFFF?text=Bepsi" alt="Bepsi" class="rounded-full w-48 h-48 mx-auto md:w-full md:h-auto md:rounded-lg object-cover">
+                                <div class="text-xs md:text-sm text-gray-400 mt-1">Years</div>            -webkit-mask-composite: xor;    </style>
 
-        .stat-badge {                        </div>
+                            </div>
 
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(139, 92, 246, 0.2));                        <div class="md:col-span-2">
+                            <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-4 text-center border border-purple-500/30">            mask-composite: exclude;</head>
 
-            backdrop-filter: blur(12px);                             <h2 class="text-3xl font-bold text-white mb-4">A Little More About Bepsi</h2>
+                                <div class="text-2xl md:text-3xl font-bold text-purple-400">20+</div>
 
-            border: 1px solid rgba(255, 255, 255, 0.1);                             <p class="text-gray-300 mb-4">This is currently a work in progress website, I'll just fill this in when I can be bothered to do so. I have a lot of projects and ideas in mind, but I just need to find the time to work on them.</p>
+                                <div class="text-xs md:text-sm text-gray-400 mt-1">Projects</div>            z-index: 0;<body class="transition-colors duration-500">
 
-        }                             <p class="text-gray-300">I hope you enjoy your stay here, and if you have any questions or suggestions, feel free to reach out!</p>
+                            </div>
 
-    </style>                        </div>
+                            <div class="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl p-4 text-center border border-blue-500/30">            opacity: 0;
 
-</head>                    </div>
+                                <div class="text-2xl md:text-3xl font-bold text-blue-400">∞</div>
 
-<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">                </div>
+                                <div class="text-xs md:text-sm text-gray-400 mt-1">Ideas</div>            transition: opacity 0.5s ease;    <div id="header-placeholder"></div>
+
+                            </div>
+
+                        </div>        }
+
+                    </div>
+
+                </div>            <!-- Page Specific Content -->
+
+            </div>
+
+        </section>        .skill-card:hover::before {    <div id="main-content" class="relative z-20 bg-stone-950 pt-32">
 
 
 
-    <div id="header-placeholder"></div>                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Goals & Interests -->            opacity: 1;        <section class="container mx-auto px-6 py-12">
 
-                        <!-- My Goals -->
+        <section class="container mx-auto px-6 mb-16">
 
-    <!-- Floating Background Elements -->                    <div class="interactive-card p-6 lg:p-8" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">            animation: spin 3s linear infinite;            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight text-center text-glow" data-aos="fade-up">About Me</h1>
 
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">                        <h3 class="text-2xl font-bold text-white mb-4">My Goals</h3>
+                <div class="about-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="floating-blob w-96 h-96 bg-sky-500 top-20 left-10" style="animation-delay: 0s;"></div>                        <p class="text-gray-400">My primary goal is to continuously learn and grow as a developer and creator. I aim to build projects that are not only functional and efficient but also aesthetically pleasing and enjoyable to use. In the long term, I'm passionate about exploring the intersection of web technology and interactive art.</p>
+                    <div class="flex items-start gap-4 mb-4">        }            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">A little more about the person behind the pixels.</p>
 
-        <div class="floating-blob w-80 h-80 bg-purple-500 top-40 right-20" style="animation-delay: -5s;"></div>                    </div>
+                        <div class="w-12 h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
 
-        <div class="floating-blob w-72 h-72 bg-blue-500 bottom-20 left-1/4" style="animation-delay: -10s;"></div>
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">                </section>
 
-    </div>                    <!-- Interests & Hobbies -->
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
 
-                    <div class="interactive-card p-6 lg:p-8" data-aos="fade-up" data-aos-delay="200">
+                            </svg>        @keyframes spin {
 
-    <!-- Page Content -->                         <h3 class="text-2xl font-bold text-white mb-4">Interests & Hobbies</h3>
+                        </div>
 
-    <div id="main-content" class="relative z-20 pt-32 pb-24">                        <p class="text-gray-400 mb-4">Beyond the screen, I have a deep interest in custom mechanical keyboards, high-fidelity audio, and PC hardware. I'm always tinkering with my setup to get the best possible experience.</p>
+                        <div>            100% { transform: rotate(360deg); }        <section id="about-details" class="container mx-auto px-6 py-16">
 
-        <!-- Hero Section -->                        <p class="text-gray-400">This passion for hardware often inspires my digital projects, pushing me to create things that are both technically sound and beautifully designed.</p>
+                            <h3 class="text-2xl font-bold text-white mb-3">My Goals</h3>
 
-        <section class="container mx-auto px-6 py-16">                    </div>
+                            <p class="text-gray-300 leading-relaxed">        }            <div id="cards-wrapper" class="space-y-8">
 
-            <div class="text-center mb-16" data-aos="fade-up">                </div>
+                                My primary goal is to continuously learn and grow as a developer and creator. I aim to build projects that are not only functional and efficient but also aesthetically pleasing and enjoyable to use.
 
-                <h1 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight">
+                            </p>                        
 
-                    About <span class="bg-gradient-to-r from-sky-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient">Bepsi</span>                <div class="interactive-card p-6 lg:p-8 text-center" data-aos="fade-up" data-aos-delay="300">
+                            <p class="text-gray-300 leading-relaxed mt-3">
 
-                </h1>                    <h3 class="text-2xl font-bold text-white mb-4">What You'll Find Here</h3>
+                                In the long term, I'm passionate about exploring the intersection of web technology and interactive art.        .profile-glow {                <!-- Main About Section -->
 
-                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">                    <p class="text-gray-400 max-w-2xl mx-auto mb-6">This site serves as a central hub for my work, thoughts, and discoveries. You'll find detailed write-ups of my projects, honest reviews of gear I use, and a collection of resources like spreadsheets and articles that I've found helpful. It's my personal slice of the internet to share what I'm passionate about.</p>
+                            </p>
 
-                    Developer, Creator, Hardware Enthusiast                     <a href="contact.html" class="inline-block bg-sky-500 text-white font-bold py-3 px-8 rounded-full hover:bg-sky-600 transition-all duration-300 transform hover:scale-105">Get In Touch</a>
+                        </div>            box-shadow: 0 0 60px rgba(14, 165, 233, 0.4),                <div class="interactive-card p-6 lg:p-8" data-aos="fade-up">
 
-                </p>                </div>
+                    </div>
 
-            </div>            </div>
+                </div>                        0 0 100px rgba(139, 92, 246, 0.2);                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
 
-        </section>        </section>
 
-    </div>
 
-        <!-- Main About Card -->
+                <div class="about-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">        }                        <div class="md:col-span-1">
 
-        <section class="container mx-auto px-6 mb-16">    <div id="footer-placeholder"></div>
+                    <div class="flex items-start gap-4 mb-4">
 
-            <div class="skill-card p-8 md:p-12" data-aos="fade-up">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">                                     <img src="https://placehold.co/400x400/111827/FFFFFF?text=Bepsi" alt="Bepsi" class="rounded-full w-48 h-48 mx-auto md:w-full md:h-auto md:rounded-lg object-cover">
 
-                <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">    <script src="main.js"></script>
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 
-                    <div class="md:col-span-1 flex justify-center">    <script>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>        .stat-badge {                        </div>
 
-                        <img src="https://placehold.co/400x400/0f172a/0ea5e9?text=Bepsi"         document.addEventListener('DOMContentLoaded', function() {
+                            </svg>
 
-                             alt="Bepsi"             // Load header and footer, then initialize scripts
+                        </div>            background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(139, 92, 246, 0.2));                        <div class="md:col-span-2">
 
-                             class="w-64 h-64 rounded-2xl object-cover profile-glow">            const loadComponents = async () => {
+                        <div>
 
-                    </div>                try {
+                            <h3 class="text-2xl font-bold text-white mb-3">Interests & Hobbies</h3>            backdrop-filter: blur(12px);                             <h2 class="text-3xl font-bold text-white mb-4">A Little More About Bepsi</h2>
 
-                    <div class="md:col-span-2 space-y-6">                    const headerResponse = await fetch('header.html');
+                            <p class="text-gray-300 leading-relaxed">
 
-                        <h2 class="text-4xl md:text-5xl font-bold text-white">                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
+                                Beyond the screen, I have a deep interest in custom mechanical keyboards, high-fidelity audio, and PC hardware. I'm always tinkering with my setup to get the best possible experience.            border: 1px solid rgba(255, 255, 255, 0.1);                             <p class="text-gray-300 mb-4">This is currently a work in progress website, I'll just fill this in when I can be bothered to do so. I have a lot of projects and ideas in mind, but I just need to find the time to work on them.</p>
+
+                            </p>
+
+                            <p class="text-gray-300 leading-relaxed mt-3">        }                             <p class="text-gray-300">I hope you enjoy your stay here, and if you have any questions or suggestions, feel free to reach out!</p>
+
+                                This passion for hardware often inspires my digital projects, pushing me to create things that are both technically sound and beautifully designed.
+
+                            </p>    </style>                        </div>
+
+                        </div>
+
+                    </div></head>                    </div>
+
+                </div>
+
+            </div><body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">                </div>
+
+        </section>
+
+
+
+        <!-- Skills -->
+
+        <section class="container mx-auto px-6 mb-16">    <div id="header-placeholder"></div>                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12" data-aos="fade-up">
+
+                What I Work With                        <!-- My Goals -->
+
+            </h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">    <!-- Floating Background Elements -->                    <div class="interactive-card p-6 lg:p-8" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="about-card rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="50">
+
+                    <div class="text-4xl mb-3">💻</div>    <div class="fixed inset-0 overflow-hidden pointer-events-none">                        <h3 class="text-2xl font-bold text-white mb-4">My Goals</h3>
+
+                    <h4 class="text-white font-semibold mb-1">Web Dev</h4>
+
+                    <p class="text-sm text-gray-400">HTML, CSS, JS</p>        <div class="floating-blob w-96 h-96 bg-sky-500 top-20 left-10" style="animation-delay: 0s;"></div>                        <p class="text-gray-400">My primary goal is to continuously learn and grow as a developer and creator. I aim to build projects that are not only functional and efficient but also aesthetically pleasing and enjoyable to use. In the long term, I'm passionate about exploring the intersection of web technology and interactive art.</p>
+
+                </div>
+
+                <div class="about-card rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="100">        <div class="floating-blob w-80 h-80 bg-purple-500 top-40 right-20" style="animation-delay: -5s;"></div>                    </div>
+
+                    <div class="text-4xl mb-3">🎨</div>
+
+                    <h4 class="text-white font-semibold mb-1">Design</h4>        <div class="floating-blob w-72 h-72 bg-blue-500 bottom-20 left-1/4" style="animation-delay: -10s;"></div>
+
+                    <p class="text-sm text-gray-400">UI/UX, Figma</p>
+
+                </div>    </div>                    <!-- Interests & Hobbies -->
+
+                <div class="about-card rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="150">
+
+                    <div class="text-4xl mb-3">⌨️</div>                    <div class="interactive-card p-6 lg:p-8" data-aos="fade-up" data-aos-delay="200">
+
+                    <h4 class="text-white font-semibold mb-1">Hardware</h4>
+
+                    <p class="text-sm text-gray-400">Keyboards, Audio</p>    <!-- Page Content -->                         <h3 class="text-2xl font-bold text-white mb-4">Interests & Hobbies</h3>
+
+                </div>
+
+                <div class="about-card rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">    <div id="main-content" class="relative z-20 pt-32 pb-24">                        <p class="text-gray-400 mb-4">Beyond the screen, I have a deep interest in custom mechanical keyboards, high-fidelity audio, and PC hardware. I'm always tinkering with my setup to get the best possible experience.</p>
+
+                    <div class="text-4xl mb-3">🚀</div>
+
+                    <h4 class="text-white font-semibold mb-1">Innovation</h4>        <!-- Hero Section -->                        <p class="text-gray-400">This passion for hardware often inspires my digital projects, pushing me to create things that are both technically sound and beautifully designed.</p>
+
+                    <p class="text-sm text-gray-400">Always Learning</p>
+
+                </div>        <section class="container mx-auto px-6 py-16">                    </div>
+
+            </div>
+
+        </section>            <div class="text-center mb-16" data-aos="fade-up">                </div>
+
+
+
+        <!-- CTA -->                <h1 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight">
+
+        <section class="container mx-auto px-6">
+
+            <div class="about-card rounded-2xl p-12 text-center" data-aos="fade-up">                    About <span class="bg-gradient-to-r from-sky-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient">Bepsi</span>                <div class="interactive-card p-6 lg:p-8 text-center" data-aos="fade-up" data-aos-delay="300">
+
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+
+                    Let's Create Something Amazing                </h1>                    <h3 class="text-2xl font-bold text-white mb-4">What You'll Find Here</h3>
+
+                </h2>
+
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">                    <p class="text-gray-400 max-w-2xl mx-auto mb-6">This site serves as a central hub for my work, thoughts, and discoveries. You'll find detailed write-ups of my projects, honest reviews of gear I use, and a collection of resources like spreadsheets and articles that I've found helpful. It's my personal slice of the internet to share what I'm passionate about.</p>
+
+                    Got a project in mind? Want to collaborate? Feel free to reach out!
+
+                </p>                    Developer, Creator, Hardware Enthusiast                     <a href="contact.html" class="inline-block bg-sky-500 text-white font-bold py-3 px-8 rounded-full hover:bg-sky-600 transition-all duration-300 transform hover:scale-105">Get In Touch</a>
+
+                <a href="contact.html" class="inline-block bg-gradient-to-r from-sky-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-xl hover:shadow-sky-500/50 transition-all duration-300 transform hover:scale-105">
+
+                    Get In Touch                </p>                </div>
+
+                </a>
+
+            </div>            </div>            </div>
+
+        </section>
+
+    </div>        </section>        </section>
+
+
+
+    <div id="footer-placeholder"></div>    </div>
+
+
+
+    <script src="main.js"></script>        <!-- Main About Card -->
+
+    <script>
+
+        AOS.init({        <section class="container mx-auto px-6 mb-16">    <div id="footer-placeholder"></div>
+
+            duration: 800,
+
+            once: true,            <div class="skill-card p-8 md:p-12" data-aos="fade-up">
+
+            offset: 50
+
+        });                <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">    <script src="main.js"></script>
+
+        
+
+        // Mouse tracking                    <div class="md:col-span-1 flex justify-center">    <script>
+
+        document.addEventListener('mousemove', (e) => {
+
+            document.querySelectorAll('.about-card').forEach(card => {                        <img src="https://placehold.co/400x400/0f172a/0ea5e9?text=Bepsi"         document.addEventListener('DOMContentLoaded', function() {
+
+                const rect = card.getBoundingClientRect();
+
+                const x = e.clientX - rect.left;                             alt="Bepsi"             // Load header and footer, then initialize scripts
+
+                const y = e.clientY - rect.top;
+
+                card.style.setProperty('--x', `${x}px`);                             class="w-64 h-64 rounded-2xl object-cover profile-glow">            const loadComponents = async () => {
+
+                card.style.setProperty('--y', `${y}px`);
+
+            });                    </div>                try {
+
+        });
+
+    </script>                    <div class="md:col-span-2 space-y-6">                    const headerResponse = await fetch('header.html');
+
+</body>
+
+</html>                        <h2 class="text-4xl md:text-5xl font-bold text-white">                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
+
 
                             The Person Behind the Pixels                    const headerData = await headerResponse.text();
 
