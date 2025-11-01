@@ -455,6 +455,18 @@
             once: true,
             offset: 100
         });
+        
+        // Mouse tracking for cards
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.skill-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
+        });
     </script>
 </body>
 </html>
