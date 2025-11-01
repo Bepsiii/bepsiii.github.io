@@ -36,6 +36,29 @@ document.addEventListener('DOMContentLoaded', function () {
             mobileMenuButton.dataset.listenerAttached = 'true'; // Mark as attached
         }
         
+        // Close mobile menu when clicking on a link
+        if (mobileMenu && !mobileMenu.dataset.linksListenerAttached) {
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            mobileMenu.dataset.linksListenerAttached = 'true';
+        }
+        
+        // Close mobile menu when clicking outside
+        if (mobileMenu && !document.dataset.outsideClickAttached) {
+            document.addEventListener('click', (event) => {
+                if (!mobileMenu.contains(event.target) && 
+                    !mobileMenuButton.contains(event.target) && 
+                    !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+            document.dataset.outsideClickAttached = 'true';
+        }
+        
         // --- Discord Copy Logic ---
         const discordID = 'theukgovernment';
         // We select the tooltip here, assuming one tooltip is shared.

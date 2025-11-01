@@ -93,6 +93,21 @@ body {
     line-height: 1.2;
 }
 
+/* ===== Animations ===== */
+@keyframes gradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+}
+
 .glass-effect {
     background: rgba(28, 25, 23, 0.4);
     backdrop-filter: blur(24px);
@@ -416,4 +431,227 @@ body {
 .social-link:hover {
     color: var(--color-primary-light);
     transform: translateY(-3px);
+}
+
+/* ===== Mobile Responsiveness ===== */
+@media (max-width: 768px) {
+    /* Hero Section Mobile Adjustments */
+    #home {
+        min-height: 100vh;
+        padding: 1rem 0;
+    }
+    
+    #hero-text h1 {
+        font-size: 2.5rem !important; /* Reduce from text-9xl */
+        line-height: 1.1;
+    }
+    
+    #hero-text p {
+        font-size: 1.125rem !important; /* Reduce from text-3xl */
+        line-height: 1.5;
+    }
+    
+    #hero-text .inline-flex {
+        padding: 0.5rem 1rem;
+    }
+    
+    #hero-text a.group,
+    #hero-text button.group {
+        padding: 0.875rem 1.75rem;
+        font-size: 1rem;
+    }
+    
+    #hero-text .flex.items-center.gap-5 {
+        gap: 0.75rem;
+    }
+    
+    #hero-text .w-16 {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    
+    /* About Section Mobile */
+    #about h2 {
+        font-size: 2.5rem !important; /* Reduce from text-7xl */
+        line-height: 1.1;
+    }
+    
+    #about h3 {
+        font-size: 1.875rem !important; /* Reduce from text-5xl */
+        line-height: 1.2;
+    }
+    
+    #about p {
+        font-size: 1rem !important;
+    }
+    
+    /* Projects Section Mobile */
+    #projects h2 {
+        font-size: 2.25rem !important;
+    }
+    
+    /* Section Padding Mobile */
+    section {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+    
+    /* Stat Badges Mobile */
+    .stat-badge {
+        padding: 1rem;
+    }
+    
+    .stat-badge .text-3xl {
+        font-size: 1.5rem;
+    }
+    
+    /* Setup Cards Mobile */
+    .setup-card {
+        padding: 1.5rem !important;
+    }
+    
+    /* Feature Cards Mobile */
+    .project-card {
+        padding: 1.25rem;
+    }
+    
+    /* Container Padding Mobile */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Text Glow Reduce */
+    .text-glow {
+        text-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+    }
+    
+    /* Badge Sizes */
+    .inline-flex.items-center.gap-2 {
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .inline-flex svg {
+        width: 1rem;
+        height: 1rem;
+    }
+    
+    /* Category Headers Mobile */
+    .category-header h2,
+    .inline-flex h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Grid Adjustments */
+    .grid {
+        gap: 1rem !important;
+    }
+    
+    /* Button Text Size */
+    button, a.group {
+        font-size: 0.875rem;
+    }
+    
+    /* Icon Sizes */
+    .w-14 {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .w-12 {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .w-8 {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    .w-7 {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Extra Small Screens */
+    #hero-text h1 {
+        font-size: 2rem !important;
+        margin-bottom: 1.5rem;
+    }
+    
+    #hero-text p {
+        font-size: 1rem !important;
+        margin-bottom: 2rem;
+    }
+    
+    #about h2 {
+        font-size: 2rem !important;
+    }
+    
+    #about h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .stat-badge .text-3xl {
+        font-size: 1.25rem;
+    }
+    
+    .setup-card {
+        padding: 1rem !important;
+    }
+    
+    /* Stack elements vertically */
+    .flex-col {
+        gap: 1rem;
+    }
+    
+    /* Reduce large top padding on mobile */
+    .pt-40 {
+        padding-top: 6rem !important;
+    }
+    
+    .pb-32 {
+        padding-bottom: 3rem !important;
+    }
+    
+    /* Spec rows mobile */
+    .spec-row {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    
+    .spec-row dt {
+        font-size: 0.75rem;
+    }
+    
+    .spec-row dd {
+        font-size: 0.875rem;
+    }
+}
+
+/* Fix header mobile menu container */
+#mobile-menu {
+    transition: all 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+}
+
+#mobile-menu:not(.hidden) {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Improve touch targets on mobile */
+@media (hover: none) {
+    .nav-link,
+    button,
+    a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
