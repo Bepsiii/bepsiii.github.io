@@ -5,212 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reviews - Bepsi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        .hero-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.3;
-            animation: float 20s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(50px, -50px) scale(1.1); }
-            66% { transform: translate(-50px, 50px) scale(0.9); }
-        }
-        
-        .review-card {
-            background: linear-gradient(145deg, rgba(28, 25, 23, 0.7), rgba(12, 10, 9, 0.5));
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* This keeps the glow effect consistent with other pages */
+        .interactive-card {
             position: relative;
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
         }
-        
-        .review-card::before {
+
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.25);
+        }
+
+        .interactive-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(600px circle at var(--x) var(--y), 
-                rgba(14, 165, 233, 0.15), 
-                rgba(139, 92, 246, 0.1), 
-                transparent 40%);
+            border-radius: inherit;
+            padding: 1px;
+            background: radial-gradient(600px at var(--x) var(--y), rgba(14, 165, 233, 0.7), rgba(139, 92, 246, 0.6), transparent 70%);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: 0;
             opacity: 0;
-            transition: opacity 0.4s;
+            transition: opacity 0.4s ease-in-out;
+            filter: blur(20px);
         }
-        
-        .review-card:hover::before {
+
+        .interactive-card:hover::before {
             opacity: 1;
         }
         
-        .review-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -12px rgba(14, 165, 233, 0.3);
-            border-color: rgba(14, 165, 233, 0.3);
-        }
-        
-        .review-card > * {
+        .interactive-card > * {
             position: relative;
             z-index: 1;
         }
-        
-        .review-image {
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        
-        .review-card:hover .review-image {
-            transform: scale(1.05);
+        .review-content {
+            flex-grow: 1;
         }
     </style>
 </head>
-<body class="bg-stone-950">
+<body class="transition-colors duration-500">
 
     <div id="header-placeholder"></div>
-    
-    <!-- Floating Background Elements -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="hero-blob w-96 h-96 bg-sky-500 top-1/3 left-10" style="animation-delay: 0s;"></div>
-        <div class="hero-blob w-80 h-80 bg-purple-500 bottom-1/3 right-20" style="animation-delay: -7s;"></div>
-        <div class="hero-blob w-72 h-72 bg-pink-500 top-2/3 right-1/3" style="animation-delay: -14s;"></div>
-    </div>
 
-    <!-- Page Content -->
-    <div id="main-content" class="relative z-20 pt-32 pb-24">
-        <!-- Hero Section -->
+    <!-- Page Specific Content -->
+    <div id="main-content" class="relative z-20 bg-stone-950 pt-32">
         <section class="container mx-auto px-6 py-12">
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight text-center" data-aos="fade-up">
-                My <span class="bg-gradient-to-r from-sky-400 to-purple-600 bg-clip-text text-transparent">Reviews</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-                In-depth analysis and honest thoughts on tech, peripherals, and hardware
-            </p>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight text-center text-glow" data-aos="fade-up">My Reviews</h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">Latest Thoughts & Analyses. Here you'll find my in-depth thoughts on various tech, peripherals, and more.</p>
         </section>
 
-        <!-- Reviews Grid -->
-        <section class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section id="reviews-listing" class="container mx-auto px-6 py-16">
+            <div id="cards-wrapper" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Review Card 1: Moondrop Space Travels -->
-                <a href="spacetravel-review.html" class="review-card rounded-2xl overflow-hidden group" data-aos="fade-up">
-                    <div class="relative overflow-hidden">
-                        <img src="images/setup/reviews/spacetravels/moondrop_spacetravel_main.jpg" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x300/1c1917/0ea5e9?text=Moondrop+Space+Travels';" 
-                             alt="Moondrop Space Travels" 
-                             class="review-image w-full">
-                        <div class="absolute top-4 left-4 flex items-center gap-1">
-                            <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                            </svg>
-                            <span class="text-white text-sm font-bold">4.0/5</span>
-                        </div>
+                <!-- Review Card 1 -->
+                <a href="spacetravel-review.html" class="interactive-card" data-aos="fade-up">
+                    <div class="relative">
+                        <img src="images/setup/reviews/spacetravels/moondrop_spacetravel_main.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x225/3b82f6/FFFFFF?text=Moondrop+Space+Travels';" alt="Moondrop Space Travels Thumbnail" class="w-full h-48 object-cover">
                     </div>
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">
-                            Moondrop Space Travels
-                        </h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
-                            Moondrop's budget hard-hitting TWS earbuds that deliver impressive sound quality.
-                        </p>
-                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                            <span class="text-xs text-gray-500">May 22, 2025</span>
-                            <span class="text-sky-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
-                                Read →
-                            </span>
-                        </div>
+                    <div class="p-6 flex flex-col review-content">
+                        <h3 class="text-xl font-bold text-white mb-2">Moondrop Space Travels</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Moondrop's Budget Hard Hitting TWS.</p>
+                        <p class="text-xs text-gray-500">Published: May 22, 2025 (Originally Made Oct 23 2023)</p>
                     </div>
                 </a>
 
-                <!-- Review Card 2: 7hz Sonus -->
-                <a href="7hzsonus-review.html" class="review-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative overflow-hidden">
-                        <img src="images/setup/reviews/sonus/7hz_sonus_main.jpg" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x300/1c1917/8b5cf6?text=7hz+Sonus';" 
-                             alt="7hz Sonus" 
-                             class="review-image w-full">
-                        <div class="absolute top-4 left-4 flex items-center gap-1">
-                            <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                            </svg>
-                            <span class="text-white text-sm font-bold">4.5/5</span>
-                        </div>
+                <!-- Review Card 2 -->
+                <a href="7hzsonus-review.html" class="interactive-card" data-aos="fade-up" data-aos-delay="100">
+                     <div class="relative">
+                        <img src="images/setup/reviews/sonus/7hz_sonus_main.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x225/8b5cf6/FFFFFF?text=7hz+Sonus';" alt="7hz Sonus Thumbnail" class="w-full h-48 object-cover">
                     </div>
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">
-                            7hz Sonus
-                        </h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
-                            Is Truthear in trouble? A deep dive into 7hz's latest offering.
-                        </p>
-                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                            <span class="text-xs text-gray-500">May 22, 2025</span>
-                            <span class="text-sky-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
-                                Read →
-                            </span>
-                        </div>
+                    <div class="p-6 flex flex-col review-content">
+                        <h3 class="text-xl font-bold text-white mb-2">7hz Sonus</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">7hz Sonus, Is Truthear in trouble?</p>
+                        <p class="text-xs text-gray-500">Published: May 22, 2025 (Originally Made April 12 2024)</p>
                     </div>
                 </a>
 
-                <!-- Review Card 3: Beanmouse -->
-                <a href="beanmouse-review.html" class="review-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative overflow-hidden">
-                        <img src="images/setup/reviews/beanmouse/beanmouse_main.jpg" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x300/1c1917/ec4899?text=Beanmouse';" 
-                             alt="CaffeinatedCustoms Beanmouse" 
-                             class="review-image w-full">
-                        <div class="absolute top-4 left-4 flex items-center gap-1">
-                            <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                            </svg>
-                            <span class="text-white text-sm font-bold">4.0/5</span>
-                        </div>
+                <!-- Review Card 3 -->
+                <a href="beanmouse-review.html" class="interactive-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="images/setup/reviews/beanmouse/beanmouse_main.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x225/ec4899/FFFFFF?text=Beanmouse';" alt="CaffeinatedCustoms Beanmouse Thumbnail" class="w-full h-48 object-cover">
                     </div>
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">
-                            CaffeinatedCustoms Beanmouse
-                        </h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
-                            A budget fingertip mod for the Viper V2 Pro that delivers impressive results.
-                        </p>
-                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                            <span class="text-xs text-gray-500">May 22, 2025</span>
-                            <span class="text-sky-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
-                                Read →
-                            </span>
-                        </div>
+                    <div class="p-6 flex flex-col review-content">
+                        <h3 class="text-xl font-bold text-white mb-2">CaffeinatedCustoms Beanmouse V2.1 / V2.2</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">A budget Fingertip mod for the Viper V2 Pro.</p>
+                        <p class="text-xs text-gray-500">Published: May 22, 2025 (Originally Made September 19th 2024)</p>
                     </div>
                 </a>
 
-            </div>
-        </section>
-
-        <!-- More Reviews CTA -->
-        <section class="container mx-auto px-6 mt-16">
-            <div class="review-card rounded-2xl p-12 text-center" data-aos="fade-up">
-                <div class="w-16 h-16 bg-gradient-to-br from-sky-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                    </svg>
-                </div>
-                <h2 class="text-3xl font-bold text-white mb-4">
-                    More Reviews Coming Soon
-                </h2>
-                <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-                    Got a product you'd like me to review? Or questions about any of these reviews?
-                </p>
-                <a href="contact.html" class="inline-block bg-gradient-to-r from-sky-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-xl hover:shadow-sky-500/50 transition-all duration-300 transform hover:scale-105">
-                    Get In Touch
+                <!-- TEMPLATE FOR NEW REVIEW -->
+                <!--
+                <a href="your-review-link.html" class="interactive-card" data-aos="fade-up">
+                    <div class="relative">
+                        <img src="path/to/your/image.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x225/1d4ed8/FFFFFF?text=New+Review';" alt="New Review Thumbnail" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6 flex flex-col review-content">
+                        <h3 class="text-xl font-bold text-white mb-2">Your New Review Title</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">A short, engaging description of your review goes here.</p>
+                        <p class="text-xs text-gray-500">Published: June 28, 2025</p>
+                    </div>
                 </a>
+                -->
+
             </div>
         </section>
     </div>
@@ -218,23 +132,7 @@
     <div id="footer-placeholder"></div>
 
     <script src="main.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 50
-        });
-        
-        // Mouse tracking
-        document.addEventListener('mousemove', (e) => {
-            document.querySelectorAll('.review-card').forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--x', `${x}px`);
-                card.style.setProperty('--y', `${y}px`);
-            });
-        });
-    </script>
+    <script>        AOS.init({            duration: 800,            once: true,            offset: 50        });        const cardsWrapper = document.getElementById('cards-wrapper');        if(cardsWrapper) {            cardsWrapper.addEventListener('mousemove', e => {                for(const card of document.getElementsByClassName('interactive-card')) {                    const rect = card.getBoundingClientRect(),                          x = e.clientX - rect.left,                          y = e.clientY - rect.top;                    card.style.setProperty('--x', `${x}px`);                    card.style.setProperty('--y', `${y}px`);                }            });        }    </script>
 </body>
 </html>
+

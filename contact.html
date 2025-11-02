@@ -5,193 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me - Bepsi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        .hero-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.3;
-            animation: float 20s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(50px, -50px) scale(1.1); }
-            66% { transform: translate(-50px, 50px) scale(0.9); }
-        }
-        
-        .contact-card {
-            background: linear-gradient(145deg, rgba(28, 25, 23, 0.7), rgba(12, 10, 9, 0.5));
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* This keeps the glow effect consistent with other pages */
+        .interactive-card {
             position: relative;
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        .contact-card::before {
+
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.25);
+        }
+
+        .interactive-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(600px circle at var(--x) var(--y), 
-                rgba(14, 165, 233, 0.15), 
-                rgba(139, 92, 246, 0.1), 
-                transparent 40%);
+            border-radius: inherit;
+            padding: 1px;
+            background: radial-gradient(600px at var(--x) var(--y), rgba(14, 165, 233, 0.7), rgba(139, 92, 246, 0.6), transparent 70%);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: 0;
             opacity: 0;
-            transition: opacity 0.4s;
+            transition: opacity 0.4s ease-in-out;
+            filter: blur(20px);
         }
-        
-        .contact-card:hover::before {
+
+        .interactive-card:hover::before {
             opacity: 1;
         }
         
-        .contact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -12px rgba(14, 165, 233, 0.3);
-            border-color: rgba(14, 165, 233, 0.3);
-        }
-        
-        .contact-card > * {
+        .interactive-card > * {
             position: relative;
             z-index: 1;
         }
-        
-        .form-input {
-            background: rgba(28, 25, 23, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            transition: all 0.3s ease;
-        }
-        
-        .form-input:focus {
-            background: rgba(28, 25, 23, 0.7);
-            border-color: rgba(14, 165, 233, 0.5);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
-        }
     </style>
 </head>
-<body class="bg-stone-950">
+<body class="transition-colors duration-500">
 
     <div id="header-placeholder"></div>
-    
-    <!-- Floating Background Elements -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="hero-blob w-96 h-96 bg-sky-500 top-20 right-10" style="animation-delay: 0s;"></div>
-        <div class="hero-blob w-80 h-80 bg-purple-500 bottom-40 left-20" style="animation-delay: -7s;"></div>
-        <div class="hero-blob w-72 h-72 bg-blue-500 top-1/2 right-1/4" style="animation-delay: -14s;"></div>
-    </div>
 
-    <!-- Page Content -->
-    <div id="main-content" class="relative z-20 pt-32 pb-24">
-        <!-- Hero Section -->
+    <!-- Page Specific Content -->
+    <div id="main-content" class="relative z-20 bg-stone-950 pt-32">
         <section class="container mx-auto px-6 py-12">
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight text-center" data-aos="fade-up">
-                Get In <span class="bg-gradient-to-r from-sky-400 to-purple-600 bg-clip-text text-transparent">Touch</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-                Have a question, project idea, or just want to say hi? I'd love to hear from you.
-            </p>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight text-center text-glow" data-aos="fade-up">Contact Me</h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">Have a question, a project idea, or just want to say hi? I'd love to hear from you.</p>
         </section>
 
-        <!-- Contact Section -->
-        <section class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <section id="contact-details" class="container mx-auto px-6 py-16">
+            <div id="cards-wrapper" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
                 <!-- Contact Form -->
-                <div class="lg:col-span-2 contact-card rounded-2xl p-8 md:p-12" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Send a Message</h2>
-                    <form id="contactForm" action="https://formspree.io/f/xldnazyg" method="POST" class="space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-semibold text-gray-300 mb-2">Full Name</label>
-                                <input type="text" id="name" name="name" required 
-                                       class="form-input w-full rounded-xl px-4 py-3 text-white placeholder-gray-500">
+                <div class="interactive-card lg:col-span-2" data-aos="fade-up">
+                    <div class="p-6 lg:p-8">
+                        <h2 class="text-3xl font-bold text-white mb-6">Send a Message</h2>
+                        <!-- Form action updated with your endpoint -->
+                        <form id="contactForm" action="https://formspree.io/f/xldnazyg" method="POST">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                                    <input type="text" id="name" name="name" required class="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                                    <input type="email" id="email" name="email" required class="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject" required class="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="6" required class="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-semibold text-gray-300 mb-2">Email Address</label>
-                                <input type="email" id="email" name="email" required 
-                                       class="form-input w-full rounded-xl px-4 py-3 text-white placeholder-gray-500">
+                                <button type="submit" class="w-full bg-sky-500 text-white font-bold py-3 px-8 rounded-full hover:bg-sky-600 transition-all duration-300 transform hover:scale-105">Send Message</button>
+                            </div>
+                        </form>
+                         <div id="form-status" class="mt-4 text-center font-semibold" aria-live="polite"></div>
+                    </div>
+                </div>
+
+                <!-- Other Ways to Connect -->
+                <div class="interactive-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6 lg:p-8">
+                        <h3 class="text-2xl font-bold text-white mb-6">Other Ways to Connect</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-semibold text-white">Direct Email</h4>
+                                <a href="mailto:ascentgaminggears@gmail.com" class="text-sky-400 hover:underline break-all">ascentgaminggears@gmail.com</a>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white">Discord</h4>
+                                <p class="text-gray-400 mb-2">Click to copy my username.</p>
+                                 <button id="discord-copy" class="w-full flex items-center justify-center p-3 bg-gray-800/50 border border-gray-600 rounded-lg hover:bg-gray-700/50 transition-colors relative group">
+                                    <svg class="w-6 h-6 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.54 0c1.356 0 2.46 1.104 2.46 2.472v19.056c0 1.368-1.104 2.472-2.46 2.472h-15.08c-1.356 0-2.46-1.104-2.46-2.472v-19.056c0-1.368 1.104-2.472 2.46-2.472h15.08zm-2.883 8.247c-1.428-.804-2.65-1.29-3.432-1.428.324-.324.564-.72.72-1.152.156-.432.228-.9.216-1.368-.012-.468-.132-.912-.36-1.32-.228-.408-.54-.756-.924-1.032-.384-.276-.84-.468-1.32-.576-.48-.108-.984-.12-1.464-.036-.48.084-.936.264-1.356.528-.42.264-.792.612-1.092 1.032-.3.42-.516.9-.636 1.428-.12.528-.144 1.08-.072 1.62.072.54.24.1.044.492.204.408.492.156.324.288.588.24.432.408.3.264.192.192-.012.012-.036.012-.048.012h-.012s-.012 0-.012 0c-2.304.624-3.924 2.016-4.596 3.516-.672 1.5-.948 3.036-.828 4.548.12 1.512.636 2.94 1.524 4.236.888 1.296 2.112 2.328 3.588 3.036.24.12.504.216.792.288.288.072.576.12.876.144h.024c.06 0 .12 0 .18-.012.06-.012.12-.012.168-.024.144-.024.288-.06.42-.108.132-.048.264-.108.384-.18.12-.072.24-.156.348-.252.108-.096.204-.204.3-.324.084-.12.168-.24.24-.372.072-.132.132-.276.192-.42.06-.144.108-.3.156-.456.048-.156.084-.324.12-.492.036-.168.06-.348.084-.528.024-.18.036-.36.048-.552.012-.192.012-.384.012-.576v-.012c0-.024 0-.036-.012-.06v-.012c-.012-.192-.024-.396-.048-.588-.024-.192-.048-.384-.084-.576-.036-.192-.084-.372-.132-.552-.048-.18-.108-.348-.168-.516-.06-.168-.132-.324-.204-.48-.072-.156-.156-.3-.24-.444-.084-.144-.18-.276-.288-.408-.108-.132-.228-.252-.36-.36-.132-.108-.276-.204-.42-.288-.144-.084-.3-.156-.456-.216-.156-.06-.312-.108-.48-.144-.168-.036-.336-.06-.504-.072-.168-.012-.336-.024-.504-.024h-1.392c-.168 0-.336.012-.504.024-.168.012-.336.036-.504.072-.168.036-.324.084-.48.144-.156.06-.3.132-.456.216-.144.084-.288.18-.42.288-.132.108-.252.228-.36.36-.108.132-.204.276-.288.408-.084.144-.168.3-.24.444-.072-.156-.132.324-.204.48-.06.168-.12.348-.168.516-.048.18-.096.36-.132.552-.036-.192-.06.384-.084.576-.024-.192-.048.396-.048.588v.012c0 .024-.012.048-.012.06v.012c.012.192.012.384.012.576.012.192.024.372.048.552.024.18.048.36.084.528.036.168.072.348.12.492.048.156.096.312.156.456.06.144.12.288.192.42.072.132.156.264.24.372.084-.108.18.228.3.324.108.096.228.18.348.252.12.072.252.132.384.18.132.048.276.084.42.108.144.036.288.06.42.084h.168c.06.012.12.012.18.024.06.012.12.012.18.012h.024c.3-.024.588-.072.876-.144.288-.072.552-.168.792-.288 1.476-.708 2.7-1.74 3.588-3.036.888-1.296 1.404-2.724 1.524-4.236.12-1.512-.156-3.048-.828-4.548-.672-1.5-2.292-2.892-4.596-3.516h-.012s-.012 0-.012 0c0-.012-.024-.012-.036-.012.108-.096.192-.204.264-.324.072-.12.132-.24.192-.372s.108-.264.156-.408.084-.288.108-.432c.024-.144.036-.288.036-.432.012-.144.012-.288.012-.432z"/></svg>
+                                    <span class="text-white">theukgovernment</span>
+                                    <span id="copy-tooltip-contact" class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden w-auto min-w-max p-2 text-xs text-white bg-gray-800 rounded-md shadow-lg">Copied!</span>
+                                </button>
                             </div>
                         </div>
-                        <div>
-                            <label for="subject" class="block text-sm font-semibold text-gray-300 mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" required 
-                                   class="form-input w-full rounded-xl px-4 py-3 text-white placeholder-gray-500">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-semibold text-gray-300 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="6" required 
-                                      class="form-input w-full rounded-xl px-4 py-3 text-white placeholder-gray-500 resize-none"></textarea>
-                        </div>
-                        <button type="submit" 
-                                class="w-full bg-gradient-to-r from-sky-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-xl hover:shadow-sky-500/50 transition-all duration-300 transform hover:scale-105">
-                            Send Message
-                        </button>
-                    </form>
-                    <div id="form-status" class="mt-6 text-center font-semibold" aria-live="polite"></div>
-                </div>
-
-                <!-- Contact Info Sidebar -->
-                <div class="space-y-6">
-                    <!-- Quick Contact -->
-                    <div class="contact-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-12 h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Quick Contact</h3>
-                        <p class="text-gray-400 text-sm mb-3">Prefer email? Feel free to reach out directly.</p>
-                        <a href="mailto:contact@bepsi.dev" class="text-sky-400 hover:text-sky-300 transition-colors text-sm font-semibold">
-                            contact@bepsi.dev
-                        </a>
-                    </div>
-
-                    <!-- Social Links -->
-                    <div class="contact-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="text-xl font-bold text-white mb-4">Connect</h3>
-                        <div class="space-y-3">
-                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all">
-                                <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
-                                    </svg>
-                                </div>
-                                <div class="text-sm">
-                                    <div class="text-white font-semibold">Discord</div>
-                                    <div class="text-gray-400">theukgovernment</div>
-                                </div>
-                            </a>
-                            
-                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all">
-                                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                    </svg>
-                                </div>
-                                <div class="text-sm">
-                                    <div class="text-white font-semibold">GitHub</div>
-                                    <div class="text-gray-400">@Bepsiii</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Response Time -->
-                    <div class="contact-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="flex items-center gap-2 mb-2">
-                            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                            <span class="text-white font-semibold text-sm">Usually responds within 24h</span>
-                        </div>
-                        <p class="text-gray-400 text-xs">
-                            I try to respond to all messages as quickly as possible. Thanks for your patience!
-                        </p>
                     </div>
                 </div>
+
             </div>
         </section>
     </div>
@@ -206,50 +137,58 @@
             offset: 50
         });
 
-        // Mouse tracking
-        document.addEventListener('mousemove', (e) => {
-            document.querySelectorAll('.contact-card').forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--x', `${x}px`);
-                card.style.setProperty('--y', `${y}px`);
+        // Card mouse tracking effect
+        const cardsWrapper = document.getElementById('cards-wrapper');
+        if(cardsWrapper) {
+            cardsWrapper.addEventListener('mousemove', e => {
+                for(const card of document.getElementsByClassName('interactive-card')) {
+                    const rect = card.getBoundingClientRect(),
+                          x = e.clientX - rect.left,
+                          y = e.clientY - rect.top;
+                    card.style.setProperty('--x', `${x}px`);
+                    card.style.setProperty('--y', `${y}px`);
+                }
             });
-        });
+        }
 
-        // Form submission
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('contactForm');
-            const formStatus = document.getElementById('form-status');
-
-            if (form) {
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    formStatus.textContent = 'Sending...';
-                    formStatus.className = 'mt-6 text-center font-semibold text-sky-400';
-
-                    try {
-                        const response = await fetch(form.action, {
-                            method: 'POST',
-                            body: new FormData(form),
-                            headers: { 'Accept': 'application/json' }
-                        });
-
-                        if (response.ok) {
-                            formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
-                            formStatus.className = 'mt-6 text-center font-semibold text-green-400';
-                            form.reset();
-                        } else {
-                            throw new Error('Form submission failed');
+        // Contact Form Submission
+        const form = document.getElementById('contactForm');
+        const formStatus = document.getElementById('form-status');
+        if (form) {
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const data = new FormData(form);
+                formStatus.textContent = 'Sending...';
+                formStatus.style.color = '#60a5fa'; // sky-400
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
                         }
-                    } catch (error) {
-                        formStatus.textContent = 'Oops! There was a problem. Please try again.';
-                        formStatus.className = 'mt-6 text-center font-semibold text-red-400';
+                    });
+
+                    if (response.ok) {
+                        formStatus.textContent = "Message sent successfully!";
+                        formStatus.style.color = '#34d399'; // green-400
+                        form.reset();
+                    } else {
+                        const responseData = await response.json();
+                        if (Object.hasOwn(responseData, 'errors')) {
+                            formStatus.textContent = responseData["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            formStatus.textContent = "Oops! There was a problem submitting your form.";
+                        }
+                        formStatus.style.color = '#f87171'; // red-400
                     }
-                });
-            }
-        });
+                } catch (error) {
+                    formStatus.textContent = "Oops! There was a problem submitting your form.";
+                    formStatus.style.color = '#f87171';
+                }
+            });
+        }
     </script>
 </body>
 </html>
