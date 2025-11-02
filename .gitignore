@@ -1,0 +1,36 @@
+# Dependencies
+/node_modules
+/bower_components
+
+# Build artifacts
+/dist
+/build
+/out
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor directories
+.vscode
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+
+# Other
+"New Text Document.txt"

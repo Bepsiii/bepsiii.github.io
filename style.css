@@ -1,0 +1,206 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0c0a09;
+    color: #E5E7EB;
+}
+
+.section-title {
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+.glass-effect {
+    background: rgba(17, 24, 39, 0.3);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.container-glow {
+    position: relative;
+}
+
+.container-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1rem; /* Match the container's border-radius */
+    padding: 1px;
+    background: linear-gradient(145deg, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0) 50%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.container-glow:hover::before {
+    background: linear-gradient(145deg, rgba(56, 189, 248, 0.4), rgba(56, 189, 248, 0.1) 70%);
+}
+
+
+.project-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(56, 189, 248, 0.5);
+}
+
+.resource-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.resource-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(56, 189, 248, 0.5);
+}
+
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+.tech-tag {
+    /* Note: The @apply directive is a TailwindCSS feature that only works during a build process. 
+       For this simple setup, you'd replace this with standard CSS or use the classes directly in your HTML.
+       I'm replacing it with the resulting CSS for you. */
+    background-color: rgba(56, 189, 248, 0.1);
+    color: #7dd3fc; /* sky-300 */
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    border-radius: 9999px;
+}
+
+.resource-card .resource-icon-wrapper {
+    transition: transform 0.3s ease;
+}
+.resource-card:hover .resource-icon-wrapper {
+    transform: scale(1.1);
+}
+
+.text-glow {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.parallax-element {
+    will-change: transform;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    color: #d1d5db;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Logo styles */
+.h-8 {
+    height: 2rem;
+}
+
+.w-auto {
+    width: auto;
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+    color: #d1d5db; /* text-gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+    color: #38bdf8; /* text-sky-400 */
+}
+
+.donate-button {
+    background-color: #0ea5e9; /* bg-sky-500 */
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    transition: all 0.3s ease;
+}
+
+.donate-button:hover {
+    background-color: #0284c7; /* hover:bg-sky-600 */
+    transform: scale(1.05);
+}
+
+.footer-link {
+    color: #9ca3af; /* text-gray-400 */
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #38bdf8; /* text-sky-400 */
+}
+
+.footer-style {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-style:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(56, 189, 248, 0.5);
+}
+
+.social-link {
+    color: #9ca3af; /* text-gray-400 */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+    color: #38bdf8; /* text-sky-400 */
+    transform: scale(1.1);
+}
