@@ -138,6 +138,88 @@
     <div id="footer-placeholder"></div>
 
     <script src="main.js"></script>
-    <script>        AOS.init({            duration: 800,            once: true,            offset: 50        });        const cardsWrapper = document.getElementById('cards-wrapper');        if(cardsWrapper) {            cardsWrapper.addEventListener('mousemove', e => {                for(const card of document.getElementsByClassName('interactive-card')) {                    const rect = card.getBoundingClientRect(),                          x = e.clientX - rect.left,                          y = e.clientY - rect.top;                    card.style.setProperty('--x', `${x}px`);                    card.style.setProperty('--y', `${y}px`);                }            });        }    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header and footer, then initialize scripts
+            const loadComponents = async () => {
+                try {
+                    const headerResponse = await fetch('header.html');
+                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
+                    const headerData = await headerResponse.text();
+                    document.getElementById('header-placeholder').innerHTML = headerData;
+
+                    const footerResponse = await fetch('footer.html');
+                    if (!footerResponse.ok) throw new Error('Failed to fetch footer');
+                    const footerData = await footerResponse.text();
+                    document.getElementById('footer-placeholder').innerHTML = footerData;
+                    
+                    // Now that the DOM is updated, initialize all scripts
+                    initializePageScripts();
+
+                } catch (error) {
+                    console.error('Error loading components:', error);
+                }
+            };
+            
+            const initializePageScripts = () => {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 50,
+                });
+
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenuButton && mobileMenu) {
+                    mobileMenuButton.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+                }
+                
+                const discordID = 'theukgovernment';
+                const copyToClipboard = (text, button) => {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    try {
+                        document.execCommand('copy');
+                        const tooltip = document.createElement('span');
+                        tooltip.className = 'absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-auto min-w-max p-2 text-xs text-white bg-gray-800 rounded-md shadow-lg';
+                        tooltip.textContent = 'Copied!';
+                        button.appendChild(tooltip);
+                        setTimeout(() => {
+                           tooltip.remove();
+                        }, 1500);
+                    } catch (err) {
+                        console.error('Failed to copy: ', err);
+                    }
+                    document.body.removeChild(textarea);
+                };
+                
+                document.body.addEventListener('click', function(event){
+                    const copyButton = event.target.closest('#discord-copy-footer');
+                    if(copyButton){
+                        copyToClipboard(discordID, copyButton);
+                    }
+                });
+                
+                const cardsWrapper = document.getElementById('cards-wrapper');
+                if(cardsWrapper) {
+                    cardsWrapper.addEventListener('mousemove', e => {
+                        for(const card of document.getElementsByClassName('interactive-card')) {
+                            const rect = card.getBoundingClientRect(),
+                                  x = e.clientX - rect.left,
+                                  y = e.clientY - rect.top;
+                            card.style.setProperty('--x', `${x}px`);
+                            card.style.setProperty('--y', `${y}px`);
+                        }
+                    });
+                }
+            };
+            
+            loadComponents();
+        });
+    </script>
 </body>
 </html>

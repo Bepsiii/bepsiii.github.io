@@ -131,64 +131,129 @@
 
     <script src="main.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 50
-        });
-
-        // Card mouse tracking effect
-        const cardsWrapper = document.getElementById('cards-wrapper');
-        if(cardsWrapper) {
-            cardsWrapper.addEventListener('mousemove', e => {
-                for(const card of document.getElementsByClassName('interactive-card')) {
-                    const rect = card.getBoundingClientRect(),
-                          x = e.clientX - rect.left,
-                          y = e.clientY - rect.top;
-                    card.style.setProperty('--x', `${x}px`);
-                    card.style.setProperty('--y', `${y}px`);
-                }
-            });
-        }
-
-        // Contact Form Submission
-        const form = document.getElementById('contactForm');
-        const formStatus = document.getElementById('form-status');
-        if (form) {
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const data = new FormData(form);
-                formStatus.textContent = 'Sending...';
-                formStatus.style.color = '#60a5fa'; // sky-400
-                
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header and footer, then initialize scripts
+            const loadComponents = async () => {
                 try {
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: data,
-                        headers: {
-                            'Accept': 'application/json'
+                    const headerResponse = await fetch('header.html');
+                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
+                    const headerData = await headerResponse.text();
+                    document.getElementById('header-placeholder').innerHTML = headerData;
+
+                    const footerResponse = await fetch('footer.html');
+                    if (!footerResponse.ok) throw new Error('Failed to fetch footer');
+                    const footerData = await footerResponse.text();
+                    document.getElementById('footer-placeholder').innerHTML = footerData;
+                    
+                    initializePageScripts();
+
+                } catch (error) {
+                    console.error('Error loading components:', error);
+                }
+            };
+            
+            const initializePageScripts = () => {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 50,
+                });
+
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenuButton && mobileMenu) {
+                    mobileMenuButton.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+                }
+                
+                const discordID = 'theukgovernment';
+                const copyToClipboard = (text, button, tooltipId) => {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    try {
+                        document.execCommand('copy');
+                        const tooltip = document.getElementById(tooltipId);
+                        if(tooltip) {
+                           tooltip.classList.remove('hidden');
+                           setTimeout(() => {
+                               tooltip.classList.add('hidden');
+                           }, 1500);
+                        }
+                    } catch (err) {
+                        console.error('Failed to copy: ', err);
+                    }
+                    document.body.removeChild(textarea);
+                };
+                
+                document.body.addEventListener('click', function(event){
+                    let copyButton = event.target.closest('#discord-copy');
+                    if (copyButton) {
+                        copyToClipboard(discordID, copyButton, 'copy-tooltip-contact');
+                    }
+                    copyButton = event.target.closest('#discord-copy-footer');
+                    if(copyButton){
+                        copyToClipboard(discordID, copyButton, 'copy-tooltip'); // Assuming a tooltip in footer has this id
+                    }
+                });
+                
+                const cardsWrapper = document.getElementById('cards-wrapper');
+                if(cardsWrapper) {
+                    cardsWrapper.addEventListener('mousemove', e => {
+                        for(const card of document.getElementsByClassName('interactive-card')) {
+                            const rect = card.getBoundingClientRect(),
+                                  x = e.clientX - rect.left,
+                                  y = e.clientY - rect.top;
+                            card.style.setProperty('--x', `${x}px`);
+                            card.style.setProperty('--y', `${y}px`);
                         }
                     });
-
-                    if (response.ok) {
-                        formStatus.textContent = "Message sent successfully!";
-                        formStatus.style.color = '#34d399'; // green-400
-                        form.reset();
-                    } else {
-                        const responseData = await response.json();
-                        if (Object.hasOwn(responseData, 'errors')) {
-                            formStatus.textContent = responseData["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            formStatus.textContent = "Oops! There was a problem submitting your form.";
-                        }
-                        formStatus.style.color = '#f87171'; // red-400
-                    }
-                } catch (error) {
-                    formStatus.textContent = "Oops! There was a problem submitting your form.";
-                    formStatus.style.color = '#f87171';
                 }
-            });
-        }
+
+                // Contact Form Submission
+                const form = document.getElementById('contactForm');
+                const formStatus = document.getElementById('form-status');
+                if (form) {
+                    form.addEventListener('submit', async function(e) {
+                        e.preventDefault();
+                        const data = new FormData(form);
+                        formStatus.textContent = 'Sending...';
+                        formStatus.style.color = '#e5e7eb';
+                        
+                        try {
+                            const response = await fetch(form.action, {
+                                method: form.method,
+                                body: data,
+                                headers: {
+                                    'Accept': 'application/json'
+                                }
+                            });
+
+                            if (response.ok) {
+                                formStatus.textContent = "Message sent successfully!";
+                                formStatus.style.color = '#34d399'; // green-400
+                                form.reset();
+                            } else {
+                                const responseData = await response.json();
+                                if (Object.hasOwn(responseData, 'errors')) {
+                                    formStatus.textContent = responseData["errors"].map(error => error["message"]).join(", ");
+                                } else {
+                                    formStatus.textContent = "Oops! There was a problem submitting your form.";
+                                }
+                                formStatus.style.color = '#f87171'; // red-400
+                            }
+                        } catch (error) {
+                            formStatus.textContent = "Oops! There was a problem submitting your form.";
+                             formStatus.style.color = '#f87171';
+                        }
+                    });
+                }
+            };
+            
+            loadComponents();
+        });
     </script>
 </body>
 </html>
