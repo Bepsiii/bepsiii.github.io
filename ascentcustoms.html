@@ -62,66 +62,157 @@
 
     <!-- Page Specific Content -->
     <div id="main-content" class="relative z-20 bg-stone-950 pt-32">
-        <section class="container mx-auto px-6 py-12">
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight text-center text-glow" data-aos="fade-up">Project: AscentCustoms</h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">Crafting the Next Generation of 3D Printed Mice.</p>
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-fuchsia-500/20 to-stone-950"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-fuchsia-500/30 via-transparent to-transparent"></div>
+            
+            <div class="container relative mx-auto px-6 py-24 md:py-32">
+                <div class="text-center max-w-4xl mx-auto">
+                    <div class="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 mb-6" data-aos="fade-down">
+                        <span class="text-sm font-semibold text-violet-400">Featured Project</span>
+                    </div>
+                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight" data-aos="fade-up">
+                        <span class="bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent">AscentCustoms</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                        Crafting the Next Generation of 3D Printed Mice.
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <section id="ascentcustoms-details" class="container mx-auto px-6 py-16">
+        <section id="ascentcustoms-details" class="container mx-auto px-6 py-16 md:py-24">
             <div id="cards-wrapper" class="space-y-8">
                 
                 <!-- Introduction Section -->
-                <div class="interactive-card p-6 lg:p-8" data-aos="fade-up">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                        <div class="lg:pr-8">
-                            <h2 class="text-3xl font-bold text-white mb-4">The Mission</h2>
-                            <p class="text-gray-300 leading-relaxed">
+                <div class="interactive-card p-8 lg:p-12" data-aos="fade-up">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <div class="space-y-4">
+                            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-600 shadow-lg shadow-violet-500/50 mb-4">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">The Mission</h2>
+                            <p class="text-lg text-gray-300 leading-relaxed">
                                 AscentCustoms is a passion project born from a desire to push the boundaries of personalized gaming peripherals. The core mission is to design and develop high-performance, ergonomic, and customizable 3D printed mice tailored to individual user preferences and play styles.
                             </p>
                         </div>
-                        <img src="images/slide1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/111827/FFFFFF?text=AscentCustoms+Showcase';" alt="AscentCustoms Project Image" class="rounded-lg object-cover w-full h-full">
+                        <div class="relative group">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+                            <img src="images/slide1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/111827/FFFFFF?text=AscentCustoms+Showcase';" alt="AscentCustoms Project Image" class="relative rounded-2xl object-cover w-full h-full">
+                        </div>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- The Vision -->
-                    <div class="interactive-card p-6 lg:p-8 lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
-                        <h3 class="text-2xl font-bold text-white mb-4">The Vision</h3>
-                        <p class="text-gray-400">
+                    <div class="interactive-card p-8 lg:p-10 lg:col-span-2 group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mb-6">
+                            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-fuchsia-600 shadow-lg shadow-fuchsia-500/50 group-hover:shadow-fuchsia-500/70 transition-shadow duration-300">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-3xl font-bold text-white mb-4">The Vision</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed">
                             In a market often dominated by one-size-fits-all solutions, I aim to provide a truly bespoke experience. By leveraging the flexibility of 3D printing, I can iterate on designs rapidly, incorporate unique ergonomic features, and offer a level of customization that traditional manufacturing cannot easily achieve. This includes variations in shape, size, weight, button placement, and even material textures.
                         </p>
                     </div>
 
                     <!-- Key Features -->
-                    <div class="interactive-card p-6 lg:p-8" data-aos="fade-up" data-aos-delay="200">
-                         <h3 class="text-2xl font-bold text-white mb-4">Key Features</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-2">
-                            <li>Ergonomic, Lightweight Design</li>
-                            <li>High-Performance Internals</li>
-                            <li>Modular Components</li>
-                            <li>Community-Driven Development</li>
-                             <li>Uses Industry Standard Hardware</li>
+                    <div class="interactive-card p-8 lg:p-10 group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="mb-6">
+                            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500 to-sky-600 shadow-lg shadow-sky-500/50 group-hover:shadow-sky-500/70 transition-shadow duration-300">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                         <h3 class="text-3xl font-bold text-white mb-6">Key Features</h3>
+                        <ul class="space-y-3 text-gray-300 text-lg">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-violet-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Ergonomic, Lightweight Design
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-violet-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                High-Performance Internals
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-violet-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Modular Components
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-violet-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Community-Driven Development
+                            </li>
+                             <li class="flex items-start">
+                                <svg class="w-6 h-6 text-violet-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Uses Industry Standard Hardware
+                            </li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                      <!-- Current Status -->
-                    <div class="interactive-card p-6 lg:p-8 lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
-                        <h3 class="text-2xl font-bold text-white mb-4">Current Status</h3>
-                        <p class="text-gray-400 mb-4">
+                    <div class="interactive-card p-8 lg:p-10 lg:col-span-2 group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mb-6">
+                            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 shadow-lg shadow-emerald-500/50 group-hover:shadow-emerald-500/70 transition-shadow duration-300">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-3xl font-bold text-white mb-4">Current Status</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-4">
                             AscentCustoms is currently in the early stages. We are actively working on the MC0, a hyper-lightweight shell based off of the Razer Viper V2 Pro Internals.
                         </p>
-                         <p class="text-gray-400">
-                            For the latest sneak peeks and development updates, be sure to follow our progress on <a href="https://x.com/ascentcustoms" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">X (formerly Twitter)</a>.
+                         <p class="text-gray-300 text-lg leading-relaxed">
+                            For the latest sneak peeks and development updates, be sure to follow our progress on <a href="https://x.com/ascentcustoms" target="_blank" rel="noopener noreferrer" class="text-violet-400 hover:text-violet-300 underline decoration-violet-400/30 hover:decoration-violet-300 transition-colors font-medium">X (formerly Twitter)</a>.
                         </p>
                     </div>
                     <!-- Where to Find Us -->
-                    <div class="interactive-card p-6 lg:p-8" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="text-2xl font-bold text-white mb-4">Where to Find Us</h3>
+                    <div class="interactive-card p-8 lg:p-10 group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="mb-6">
+                            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 shadow-lg shadow-orange-500/50 group-hover:shadow-orange-500/70 transition-shadow duration-300">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-3xl font-bold text-white mb-6">Where to Find Us</h3>
                         <ul class="space-y-4">
-                            <li><a href="https://www.ebay.co.uk/usr/ascentcustoms" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-300 hover:text-sky-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/></svg>eBay Store</a></li>
-                             <li><a href="https://www.etsy.com/shop/AscentCustoms" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-300 hover:text-sky-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12.56 12.5H11.5a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-3"/></svg>Etsy Shop</a></li>
+                            <li>
+                                <a href="https://www.ebay.co.uk/usr/ascentcustoms" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-300 hover:text-violet-400 transition-colors group/link">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-stone-800/50 mr-3 group-hover/link:bg-violet-500/10 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/></svg>
+                                    </div>
+                                    <span class="text-lg font-medium">eBay Store</span>
+                                </a>
+                            </li>
+                             <li>
+                                <a href="https://www.etsy.com/shop/AscentCustoms" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-300 hover:text-violet-400 transition-colors group/link">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-stone-800/50 mr-3 group-hover/link:bg-violet-500/10 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12.56 12.5H11.5a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-3"/></svg>
+                                    </div>
+                                    <span class="text-lg font-medium">Etsy Shop</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
