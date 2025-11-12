@@ -356,5 +356,42 @@
     
     <!-- Main JavaScript -->
     <script src="./main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header and footer, then initialize scripts
+            const loadComponents = async () => {
+                try {
+                    const headerResponse = await fetch('header.html');
+                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
+                    const headerData = await headerResponse.text();
+                    document.getElementById('header-placeholder').innerHTML = headerData;
+
+                    const footerResponse = await fetch('footer.html');
+                    if (!footerResponse.ok) throw new Error('Failed to fetch footer');
+                    const footerData = await footerResponse.text();
+                    document.getElementById('footer-placeholder').innerHTML = footerData;
+                    
+                    // Now that the DOM is updated, initialize all scripts
+                    if (typeof initializeFeatures === 'function') {
+                        initializeFeatures();
+                    }
+
+                    // Initialize AOS
+                    if (typeof AOS !== 'undefined') {
+                        AOS.init({
+                            duration: 800,
+                            once: true,
+                            offset: 50,
+                        });
+                    }
+
+                } catch (error) {
+                    console.error('Error loading components:', error);
+                }
+            };
+
+            loadComponents();
+        });
+    </script>
 </body>
 </html>
