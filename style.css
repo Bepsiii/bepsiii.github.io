@@ -314,7 +314,7 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    top: calc(100% + 0.5rem);
+    top: 100%;
     right: 0;
     min-width: 180px;
     background: rgba(20, 20, 20, 0.95);
@@ -325,17 +325,22 @@ body {
     box-shadow: var(--shadow-xl);
     z-index: 50;
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(12px);
     transition: all var(--transition-base);
     pointer-events: none;
 }
 
 .dropdown:hover .dropdown-content,
-.dropdown-content:hover {
+.dropdown:focus-within .dropdown-content {
     display: block;
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+}
+
+.dropdown:hover > button svg,
+.dropdown:focus-within > button svg {
+    transform: rotate(180deg);
 }
 
 .dropdown-content a {
