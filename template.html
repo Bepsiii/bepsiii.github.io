@@ -16,7 +16,7 @@
 </head>
 <body class="transition-colors duration-500">
 
-    <header-placeholder></header-placeholder>
+    <div id="header-placeholder"></div>
 
     <main class="relative z-20 bg-stone-950 pt-40 pb-20">
         <div class="container mx-auto px-6">
@@ -36,9 +36,52 @@
         </div>
     </main>
     
-    <footer-placeholder></footer-placeholder>
+    <div id="footer-placeholder"></div>
 
     <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const initPage = () => {
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 800,
+                        once: true,
+                        offset: 50,
+                    });
+                }
+            };
+
+            const loadComponents = async () => {
+                try {
+                    const [headerResponse, footerResponse] = await Promise.all([
+                        fetch('header.html'),
+                        fetch('footer.html')
+                    ]);
+
+                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
+                    if (!footerResponse.ok) throw new Error('Failed to fetch footer');
+
+                    const headerData = await headerResponse.text();
+                    const footerData = await footerResponse.text();
+
+                    document.getElementById('header-placeholder').innerHTML = headerData;
+                    document.getElementById('footer-placeholder').innerHTML = footerData;
+
+                    if (typeof initializeFeatures === 'function') {
+                        initializeFeatures();
+                    }
+
+                    initPage();
+                } catch (error) {
+                    console.error('Error loading components:', error);
+                    initPage();
+                }
+            };
+
+            initPage();
+            loadComponents();
+        });
+    </script>
 
 </body>
 </html>
