@@ -92,23 +92,8 @@ const initScrollHeader = () => {
     const header = document.getElementById('header');
     if (!header) return;
     const handleScroll = throttleRAF(() => {
-        const scrollY = window.scrollY;
-        const nav = header.querySelector('nav');
-        if (scrollY > 50) {
-            header.classList.add('scrolled');
-            if (nav) {
-                nav.style.background = 'rgba(10, 10, 10, 0.95)';
-                nav.style.backdropFilter = 'blur(40px)';
-                nav.style.borderBottom = '1px solid rgba(14, 165, 233, 0.2)';
-            }
-        } else {
-            header.classList.remove('scrolled');
-            if (nav) {
-                nav.style.background = '';
-                nav.style.backdropFilter = '';
-                nav.style.borderBottom = '';
-            }
-        }
+        const shouldCondense = window.scrollY > 48;
+        header.classList.toggle('scrolled', shouldCondense);
     });
     window.addEventListener('scroll', handleScroll, { passive: true });
 };
