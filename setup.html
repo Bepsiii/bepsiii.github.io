@@ -3,590 +3,445 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Setup - Bepsi</title>
+    <meta name="description" content="Explore the full breakdown of Bepsi's battlestation, peripherals, and audio gear.">
+    <title>My Setup | Bepsi</title>
+    <base href="/">
+
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <style>
-        :root {
-            --setup-panel: rgba(10, 13, 20, 0.82);
-            --setup-border: rgba(148, 163, 184, 0.16);
-            --setup-highlight: rgba(79, 132, 255, 0.4);
-            --setup-muted: rgba(148, 163, 184, 0.65);
-        }
 
-        body {
-            font-family: var(--font-body, 'Manrope', 'Segoe UI', sans-serif);
-            background: var(--color-bg-primary, #020617);
-            color: var(--color-text-secondary, #d1d5db);
-        }
-
-        .setup-hero {
-            position: relative;
-            overflow: hidden;
-            padding-top: 8rem;
-            padding-bottom: 4rem;
-        }
-
-        .setup-hero__glow {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 18% 15%, rgba(79, 132, 255, 0.45), transparent 40%),
-                        radial-gradient(circle at 80% -10%, rgba(6, 182, 212, 0.3), transparent 45%),
-                        linear-gradient(180deg, rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.6));
-            filter: blur(18px);
-            opacity: 0.9;
-            pointer-events: none;
-        }
-
-        .hero-grid {
-            position: relative;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            padding: 0.35rem 0.85rem;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.65);
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            color: var(--color-text-primary, #f8fafc);
-        }
-
-        .hero-heading {
-            font-size: clamp(2.8rem, 5vw, 4.5rem);
-            line-height: 1.05;
-            letter-spacing: -0.04em;
-            color: var(--color-text-primary, #f8fafc);
-        }
-
-        .hero-copy p.lead {
-            font-size: 1.1rem;
-            color: var(--color-text-muted, #94a3b8);
-            margin-top: 1.25rem;
-        }
-
-        .hero-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-        }
-
-        .hero-badge {
-            padding: 0.45rem 1rem;
-            border-radius: 999px;
-            background: rgba(148, 163, 184, 0.12);
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .hero-primary,
-        .hero-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.85rem 1.6rem;
-            border-radius: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-decoration: none;
-        }
-
-        .hero-primary {
-            background: linear-gradient(120deg, rgba(79, 132, 255, 0.95), rgba(139, 92, 246, 0.9));
-            color: #fff;
-            box-shadow: 0 20px 40px rgba(79, 132, 255, 0.35);
-        }
-
-        .hero-primary:hover {
-            transform: translateY(-2px);
-        }
-
-        .hero-secondary {
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            color: var(--color-text-primary, #f8fafc);
-            background: rgba(15, 23, 42, 0.2);
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1rem;
-            margin-top: 2.5rem;
-        }
-
-        .stat-tile {
-            padding: 1.2rem;
-            border-radius: 1.25rem;
-            background: rgba(15, 23, 42, 0.35);
-            border: 1px solid rgba(148, 163, 184, 0.18);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        }
-
-        .stat-tile p {
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.7rem;
-            color: var(--setup-muted);
-        }
-
-        .stat-tile h3 {
-            font-size: 1.9rem;
-            font-family: var(--font-heading, 'Space Grotesk', 'Segoe UI', sans-serif);
-            color: var(--color-text-primary, #f8fafc);
-        }
-
-        .hero-scene {
-            position: relative;
-            border-radius: 1.75rem;
-            padding: 1rem;
-            background: rgba(2, 6, 23, 0.65);
-            border: 1px solid rgba(148, 163, 184, 0.18);
-            box-shadow: 0 35px 60px rgba(5, 8, 20, 0.6);
-            overflow: hidden;
-        }
-
-        #setup-scene {
-            width: 100%;
-            height: min(520px, 70vh);
-            border-radius: 1.25rem;
-            display: block;
-        }
-
-        .scene-floating-card {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0.85rem 1.25rem;
-            border-radius: 1rem;
-            background: rgba(15, 23, 42, 0.75);
-            border: 1px solid rgba(148, 163, 184, 0.35);
-            box-shadow: 0 20px 35px rgba(15, 23, 42, 0.55);
-            text-align: center;
-            width: calc(100% - 3rem);
-        }
-
-        .setup-section {
-            position: relative;
-            padding: 4rem 0;
-        }
-
-        .section-label {
-            font-size: 0.8rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--setup-muted);
-        }
-
-        .section-heading {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--color-text-primary, #f8fafc);
-            font-family: var(--font-heading, 'Space Grotesk', 'Segoe UI', sans-serif);
-        }
-
-        .section-description {
-            max-width: 700px;
-            color: var(--color-text-muted, #94a3b8);
-        }
-
-        .spec-grid {
-            margin-top: 2.5rem;
-        }
-
-        .interactive-card {
-            position: relative;
-            background: var(--setup-panel);
-            border: 1px solid var(--setup-border);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            box-shadow: 0 25px 50px rgba(5, 8, 20, 0.35);
-            overflow: hidden;
-        }
-
-        .interactive-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(79, 132, 255, 0.3), transparent 55%);
-            opacity: 0;
-            transition: opacity 0.35s ease;
-            pointer-events: none;
-        }
-
-        .interactive-card:hover::after {
-            opacity: 1;
-        }
-
-        .card-pill {
-            display: inline-flex;
-            padding: 0.3rem 0.85rem;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            color: var(--setup-muted);
-        }
-
-        .spec-card h3 {
-            margin-top: 1rem;
-            font-size: 1.75rem;
-            color: var(--color-text-primary, #f8fafc);
-        }
-
-        .spec-card p {
-            color: var(--color-text-muted, #94a3b8);
-        }
-
-        .spec-list {
-            display: grid;
-            gap: 0.85rem;
-            margin-top: 1.6rem;
-        }
-
-        .spec-list div {
-            display: flex;
-            justify-content: space-between;
-            gap: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .spec-list dt {
-            color: var(--setup-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 0.75rem;
-        }
-
-        .spec-list dd {
-            color: var(--color-text-primary, #f8fafc);
-            text-align: right;
-        }
-
-        .peripheral-card h4 {
-            font-size: 1.5rem;
-            color: var(--color-text-primary, #f8fafc);
-        }
-
-        .peripheral-card ul {
-            margin-top: 1rem;
-            list-style: none;
-            padding: 0;
-            display: grid;
-            gap: 0.35rem;
-        }
-
-        .peripheral-card ul li {
-            padding: 0.55rem 0.85rem;
-            border-radius: 0.9rem;
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(148, 163, 184, 0.12);
-        }
-
-        .stacked-list {
-            margin-top: 1.25rem;
-            list-style: none;
-            padding: 0;
-            display: grid;
-            gap: 0.9rem;
-        }
-
-        .stacked-list li {
-            padding: 1rem 1.1rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(148, 163, 184, 0.15);
-            background: rgba(15, 23, 42, 0.35);
-        }
-
-        .stacked-list span {
-            display: block;
-            font-size: 0.9rem;
-            color: var(--setup-muted);
-        }
-
-        .signal-banner {
-            margin-top: 2.5rem;
-            padding: 1.5rem 2rem;
-            border-radius: 1.2rem;
-            border: 1px dashed rgba(94, 234, 212, 0.4);
-            background: rgba(8, 47, 73, 0.4);
-            color: #e0f2fe;
-        }
-
-        .audio-grid {
-            margin-top: 2.5rem;
-        }
-
-        .audio-card ul li {
-            border-radius: 0.85rem;
-            border: 1px solid rgba(148, 163, 184, 0.15);
-            padding: 0.55rem 0.85rem;
-            background: rgba(15, 23, 42, 0.35);
-        }
-
-        .micro-callout {
-            margin-top: 1.5rem;
-            padding: 1.25rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            background: rgba(15, 23, 42, 0.45);
-        }
-
-        @media (max-width: 640px) {
-            .hero-actions {
-                flex-direction: column;
-            }
-
-            .spec-list div {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .spec-list dd {
-                text-align: left;
-            }
-
-            .scene-floating-card {
-                position: relative;
-                transform: none;
-                left: 0;
-                bottom: 0;
-                margin-top: 1rem;
-                width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body class="bg-slate-950 text-slate-100">
     <div id="header-placeholder"></div>
 
     <main id="main-content" class="relative z-20">
         <section class="setup-hero">
-            <div class="setup-hero__glow" aria-hidden="true"></div>
-            <div class="container mx-auto px-6 relative">
-                <div class="hero-grid">
-                    <div class="hero-copy" data-aos="fade-up">
-                        <span class="hero-eyebrow">Hardware & Flow</span>
-                        <h1 class="hero-heading mt-6">Immersive setup engineered for play, work, and late-night experiments.</h1>
-                        <p class="lead">Every component is tuned for low-latency aim training, buttery creative workflows, and silent overnight renders. This is the sandbox where reviews are drafted and new ideas ship.</p>
-                        <div class="hero-badges">
-                            <span class="hero-badge">Latency Obsessed</span>
-                            <span class="hero-badge">Dual-Boot Ready</span>
-                            <span class="hero-badge">Stream Safe</span>
+            <div class="hero-cosmic-layer" aria-hidden="true">
+                <div class="hero-orbit"></div>
+                <div class="hero-orbit"></div>
+                <div class="hero-orbit"></div>
+                <div class="hero-sparkles"></div>
+            </div>
+            <div class="hero-inner" data-aos="fade-up">
+                <span class="hero-pill">Hardware & Gear</span>
+                <h1 class="hero-title">My <span>Setup</span></h1>
+                <p class="hero-lead">
+                    The gear behind the scenes. A curated list of the hardware and peripherals that power my work,
+                    gaming, and creative projects.
+                </p>
+                <div class="hero-badge-row">
+                    <span class="hero-badge">Desk + Battlestation</span>
+                    <span class="hero-badge">Peripherals</span>
+                    <span class="hero-badge">Audio Chain</span>
+                    <span class="hero-badge">Other Hardware</span>
+                </div>
+                <div class="hero-divider"></div>
+            </div>
+        </section>
+
+        <section class="setup-section" data-aos="fade-in" data-parallax-parent>
+            <div class="container mx-auto px-6">
+                <div class="split-grid">
+                    <figure class="photo-panel" data-depth="0.25">
+                        <img
+                            src="images/setup/setup1.png"
+                            onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Desktop';"
+                            alt="Desktop tower photo"
+                        >
+                    </figure>
+                    <div class="content-panel">
+                        <div class="section-label">Desktop tower</div>
+                        <div class="max-w-3xl interactive-card" data-aos="fade-up">
+                            <span class="card-ribbon">Tower</span>
+                            <h3 class="text-4xl font-bold mb-6 flex items-center gap-4">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="32"
+                                    height="32"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="text-sky-400"
+                                >
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                    <line x1="8" y1="21" x2="16" y2="21" />
+                                    <line x1="12" y1="17" x2="12" y2="21" />
+                                </svg>
+                                Desktop
+                            </h3>
+                            <dl class="space-y-3 text-lg">
+                                <div>
+                                    <dt>CPU</dt>
+                                    <dd>Intel Core i7 12700KF</dd>
+                                </div>
+                                <div>
+                                    <dt>AIO</dt>
+                                    <dd>Arctic Freezer II 240mm</dd>
+                                </div>
+                                <div>
+                                    <dt>Mobo</dt>
+                                    <dd>ASRock B660M Pro RS</dd>
+                                </div>
+                                <div>
+                                    <dt>RAM</dt>
+                                    <dd>2 × 16GB DDR4 3600MHz</dd>
+                                </div>
+                                <div>
+                                    <dt>GPU</dt>
+                                    <dd>ASUS TUF RX 6800 OC</dd>
+                                </div>
+                                <div class="flex flex-col text-right sm:flex-row sm:items-baseline sm:text-left">
+                                    <dt class="text-left sm:text-right sm:pr-4 shrink-0">Storage</dt>
+                                    <dd>1TB SN570 · 500GB Kioxia · 960GB Lexar NQ · 4TB HDD</dd>
+                                </div>
+                                <div>
+                                    <dt>Case</dt>
+                                    <dd>Lian Li A3 M-ATX</dd>
+                                </div>
+                                <div>
+                                    <dt>PSU</dt>
+                                    <dd>Corsair RM750x 750W</dd>
+                                </div>
+                            </dl>
                         </div>
-                        <div class="hero-actions">
-                            <a href="#core-machines" class="hero-primary">See the stack</a>
-                            <a href="https://ko-fi.com/bepsiiiiii" class="hero-secondary" target="_blank" rel="noopener">Support the lab</a>
-                        </div>
-                        <div class="hero-stats">
-                            <div class="stat-tile">
-                                <p>Average FPS</p>
-                                <h3>360+</h3>
-                                <span>Valorant + CS2 tuned</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="setup-section" data-aos="fade-in" data-parallax-parent>
+            <div class="container mx-auto px-6">
+                <div class="split-grid">
+                    <figure class="photo-panel" data-depth="0.3">
+                        <img
+                            src="images/setup/XM2@2x.png"
+                            onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Peripherals';"
+                            alt="Peripherals photo"
+                        >
+                    </figure>
+                    <div class="content-panel">
+                        <div class="section-label">Peripherals arsenal</div>
+                        <div class="details-grid" id="cards-wrapper">
+                            <div class="interactive-card" data-aos="fade-right">
+                                <span class="card-ribbon">Input</span>
+                                <h3 class="text-3xl font-bold flex items-center gap-3 mb-6">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="28"
+                                        height="28"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-sky-400"
+                                    >
+                                        <path d="M22 2H2v14h20V2z" />
+                                        <path d="M12 16v6" />
+                                        <path d="M8 22h8" />
+                                    </svg>
+                                    Mice & Mousepads
+                                </h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="text-xl font-semibold mb-3">Mice</h4>
+                                        <ul>
+                                            <li>Zowie ZA13-C</li>
+                                            <li>Razer Viper V2 Pro</li>
+                                            <li>Scyrox V8</li>
+                                            <li>Lamzu Inca</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-semibold mb-3">Mousepads</h4>
+                                        <ul>
+                                            <li>Skypad 3.0 XL (Glass)</li>
+                                            <li>InfinityMice Speed V2</li>
+                                            <li>Puretrak P-51 Mustang</li>
+                                            <li>Padsmith Crucible V2</li>
+                                            <li>Matrova Vein Custom</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="stat-tile">
-                                <p>Uptime</p>
-                                <h3>87%</h3>
-                                <span>Week over week productivity</span>
-                            </div>
-                            <div class="stat-tile">
-                                <p>Storage Pool</p>
-                                <h3>6.4 TB</h3>
-                                <span>Fast NVMe + bulk HDD</span>
+                            <div class="interactive-card" data-aos="fade-left">
+                                <span class="card-ribbon alt">Keebs</span>
+                                <h3 class="text-3xl font-bold flex items-center gap-3 mb-6">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="28"
+                                        height="28"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-sky-400"
+                                    >
+                                        <rect x="2" y="7" width="20" height="15" rx="2" ry="2" />
+                                        <path d="M17 2v4M7 2v4M2 12h20" />
+                                    </svg>
+                                    Keyboards
+                                </h3>
+                                <div class="keyboard-list">
+                                    <details class="group" open>
+                                        <summary>
+                                            ENVKB 65m
+                                            <span class="group-open:rotate-90 transition-transform duration-200">▸</span>
+                                        </summary>
+                                        <div>Switches: Kang White V2 · Keycaps: Alfei WOB</div>
+                                    </details>
+                                    <details class="group">
+                                        <summary>
+                                            ENVKB MCRO
+                                            <span class="group-open:rotate-90 transition-transform duration-200">▸</span>
+                                        </summary>
+                                        <div>Switches: Boba U4 Tactile · Keycaps: Alfei WOB</div>
+                                    </details>
+                                    <details class="group">
+                                        <summary>
+                                            Tester68
+                                            <span class="group-open:rotate-90 transition-transform duration-200">▸</span>
+                                        </summary>
+                                        <div>Switches: Gateron Blue · Keycaps: GMK Cyan</div>
+                                    </details>
+                                    <details class="group">
+                                        <summary>
+                                            "BumAss Sayo"
+                                            <span class="group-open:rotate-90 transition-transform duration-200">▸</span>
+                                        </summary>
+                                        <div>Switches: Wuque Studio Flux HE · Case: Tofu60</div>
+                                    </details>
+                                    <details class="group">
+                                        <summary>
+                                            Everglide SU75 Pro
+                                            <span class="group-open:rotate-90 transition-transform duration-200">▸</span>
+                                        </summary>
+                                        <div>Switches: Everglide Skyline · Base: Everglide SU75 Pro</div>
+                                    </details>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="hero-scene" data-aos="fade-left">
-                        <canvas id="setup-scene" aria-label="3D render of the setup components"></canvas>
-                        <div class="scene-floating-card">
-                            <p class="text-xs uppercase tracking-[0.3em] text-slate-300">Currently rendering</p>
-                            <h4 class="text-lg font-semibold text-white">Intel i7 · RX 6800 OC</h4>
-                            <span class="text-sm text-slate-400">Custom-cooled battlestation</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="setup-section" data-aos="fade-in" data-parallax-parent>
+            <div class="container mx-auto px-6">
+                <div class="split-grid">
+                    <figure class="photo-panel" data-depth="0.22">
+                        <img
+                            src="images/setup/section4.jpg"
+                            onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Audio';"
+                            alt="Audio gear photo"
+                        >
+                    </figure>
+                    <div class="content-panel">
+                        <div class="section-label">Audio command center</div>
+                        <div class="details-grid large" id="cards-wrapper">
+                            <div class="interactive-card" data-aos="fade-up" data-aos-delay="100">
+                                <span class="card-ribbon">Cans</span>
+                                <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="28"
+                                        height="28"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-sky-400"
+                                    >
+                                        <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path d="M19 12H5" />
+                                        <path d="M19 8H5" />
+                                        <path d="M19 16H5" />
+                                    </svg>
+                                    Headphones
+                                </h3>
+                                <ul>
+                                    <li>Sony MDR-MV1</li>
+                                    <li>Apple AirPods Pro 3rd Gen</li>
+                                    <li>Sennheiser HD 580</li>
+                                    <li>Ziigaat Odyssey</li>
+                                </ul>
+                            </div>
+                            <div class="interactive-card" data-aos="fade-up" data-aos-delay="200">
+                                <span class="card-ribbon alt">Monitors</span>
+                                <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="28"
+                                        height="28"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-sky-400"
+                                    >
+                                        <path d="M12 2 2 7l10 5 10-5-10-5Z" />
+                                        <path d="m2 17 10 5 10-5" />
+                                        <path d="m2 12 10 5 10-5" />
+                                    </svg>
+                                    Speakers & Amps
+                                </h3>
+                                <ul>
+                                    <li>Kali Audio LP-8 v2</li>
+                                    <li>Tannoy TS2.10 Sub</li>
+                                    <li>Topping DX5 II</li>
+                                    <li>Arturia Minifuse 1</li>
+                                    <li>Dongles (JA11, CX31993)</li>
+                                </ul>
+                            </div>
+                            <div class="interactive-card" data-aos="fade-up" data-aos-delay="300">
+                                <span class="card-ribbon">Voice</span>
+                                <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="28"
+                                        height="28"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-sky-400"
+                                    >
+                                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                        <path d="M12 19v4" />
+                                        <path d="M8 23h8" />
+                                    </svg>
+                                    Microphone
+                                </h3>
+                                <div class="bg-slate-900/50 border border-slate-500/30 rounded-xl p-5 mt-2">
+                                    <p class="text-lg font-semibold text-white">SE Electronics V7</p>
+                                    <p class="text-sm text-slate-300 mt-2">
+                                        Dynamic stage mic tuned for crisp streams and clean Discord calls.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="core-machines" class="setup-section">
+        <section class="setup-section" data-aos="fade-in" data-parallax-parent>
             <div class="container mx-auto px-6">
-                <div class="space-y-3" data-aos="fade-up">
-                    <span class="section-label">Core Machines</span>
-                    <h2 class="section-heading">Prime stack that powers everything.</h2>
-                    <p class="section-description">From the water-cooled desktop to the travel-ready MacBook Pro and the ever-running homelab node, every tier has a job and a redundant fallback.</p>
-                </div>
-                <div class="spec-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-                    <article class="spec-card interactive-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="flex items-center gap-2">
-                            <span class="card-pill">Battlestation</span>
-                            <span class="card-pill">Primary</span>
+                <div class="split-grid">
+                    <figure class="photo-panel" data-depth="0.28">
+                        <img
+                            src="images/setup/section6.png"
+                            onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Other+Hardware';"
+                            alt="Other hardware photo"
+                        >
+                    </figure>
+                    <div class="content-panel">
+                        <div class="section-label">Portables & lab</div>
+                        <div class="details-grid" id="cards-wrapper">
+                            <div class="interactive-card" data-aos="fade-right">
+                                <span class="card-ribbon">Mobile</span>
+                                <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="28"
+                                        height="28"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-sky-400"
+                                    >
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                        <line x1="2" y1="17" x2="22" y2="17" />
+                                    </svg>
+                                    Laptop
+                                </h3>
+                                <dl class="space-y-3 text-lg">
+                                    <div>
+                                        <dt>Model</dt>
+                                        <dd>2023 MacBook Pro 14"</dd>
+                                    </div>
+                                    <div>
+                                        <dt>CPU</dt>
+                                        <dd>Apple M2 Pro 10c</dd>
+                                    </div>
+                                    <div>
+                                        <dt>RAM</dt>
+                                        <dd>16GB</dd>
+                                    </div>
+                                    <div class="flex flex-col text-left sm:flex-row sm:items-baseline sm:gap-4">
+                                        <dt>Screen</dt>
+                                        <dd>14.2" Mini-LED IPS · 1600 nits</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                            <div class="interactive-card" data-aos="fade-left">
+                                <span class="card-ribbon alt">Lab</span>
+                                <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="28"
+                                        height="28"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-sky-400"
+                                    >
+                                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                                        <path d="M6 6h.01" />
+                                        <path d="M6 18h.01" />
+                                    </svg>
+                                    Server
+                                </h3>
+                                <dl class="space-y-3 text-lg">
+                                    <div>
+                                        <dt>Model</dt>
+                                        <dd>Dell Optiplex 3040</dd>
+                                    </div>
+                                    <div>
+                                        <dt>CPU</dt>
+                                        <dd>Intel Core i5-6600</dd>
+                                    </div>
+                                    <div>
+                                        <dt>RAM</dt>
+                                        <dd>16GB DDR3L HyperX</dd>
+                                    </div>
+                                    <div class="flex flex-col text-left sm:flex-row sm:items-baseline sm:gap-4">
+                                        <dt>Storage</dt>
+                                        <dd>240GB SSD · 2TB HDD</dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <h3>Core Tower</h3>
-                        <p>Daily driver for gaming, editing, scripting benchmarks, and capturing footage.</p>
-                        <dl class="spec-list">
-                            <div><dt>CPU</dt><dd>Intel Core i7 12700KF</dd></div>
-                            <div><dt>Cooling</dt><dd>Arctic Freezer II 240mm AIO</dd></div>
-                            <div><dt>Motherboard</dt><dd>ASRock B660M Pro RS</dd></div>
-                            <div><dt>RAM</dt><dd>32GB DDR4 3600MHz (2×16GB)</dd></div>
-                            <div><dt>GPU</dt><dd>ASUS TUF Radeon RX 6800 OC</dd></div>
-                            <div><dt>Storage</dt><dd>1TB SN570 · 500GB Kioxia · 960GB Lexar NQ · 4TB HDD</dd></div>
-                            <div><dt>Case</dt><dd>Lian Li A3 mATX</dd></div>
-                            <div><dt>PSU</dt><dd>Corsair RM750x 750W</dd></div>
-                        </dl>
-                    </article>
-
-                    <article class="spec-card interactive-card" data-aos="fade-up" data-aos-delay="150">
-                        <div class="flex items-center gap-2">
-                            <span class="card-pill">Mobile Studio</span>
-                            <span class="card-pill">Hybrid</span>
-                        </div>
-                        <h3>MacBook Pro 14″ (2023)</h3>
-                        <p>On-the-go editing rig with insane battery life for writing and color work.</p>
-                        <dl class="spec-list">
-                            <div><dt>Model</dt><dd>M2 Pro · 14.2″ Mini-LED</dd></div>
-                            <div><dt>CPU</dt><dd>10-core Apple M2 Pro</dd></div>
-                            <div><dt>RAM</dt><dd>16GB Unified</dd></div>
-                            <div><dt>Storage</dt><dd>Internal NVMe + external SSD vault</dd></div>
-                            <div><dt>Display</dt><dd>1600 nits · ProMotion 120Hz</dd></div>
-                        </dl>
-                    </article>
-
-                    <article class="spec-card interactive-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="flex items-center gap-2">
-                            <span class="card-pill">Homelab Node</span>
-                            <span class="card-pill">Always On</span>
-                        </div>
-                        <h3>Dell Optiplex 3040</h3>
-                        <p>Self-hosted services, remote backups, and experiment sandbox.</p>
-                        <dl class="spec-list">
-                            <div><dt>CPU</dt><dd>Intel Core i5-6600</dd></div>
-                            <div><dt>RAM</dt><dd>16GB DDR3L HyperX</dd></div>
-                            <div><dt>Storage</dt><dd>240GB SSD · 2TB HDD</dd></div>
-                            <div><dt>Network</dt><dd>1Gb ethernet, WireGuard</dd></div>
-                            <div><dt>Use Cases</dt><dd>Backups, monitoring, Docker lab</dd></div>
-                        </dl>
-                    </article>
-                </div>
-                <div class="signal-banner interactive-card" data-aos="fade-up" data-aos-delay="250">
-                    <p class="text-lg font-semibold text-cyan-100">Redundant automation keeps reviews flowing even during long render queues. The homelab mirrors project files nightly so experiments never stall.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="setup-section bg-[rgba(2,6,23,0.6)]">
-            <div class="container mx-auto px-6">
-                <div class="space-y-3" data-aos="fade-up">
-                    <span class="section-label">Input Arsenal</span>
-                    <h2 class="section-heading">Precision gear for flicks, edits, and hotkeys.</h2>
-                    <p class="section-description">Curated mice, surfaces, and keyboards help reviews stay honest—if it survives in this lineup, it’s battle-tested.</p>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
-                    <article class="peripheral-card interactive-card" data-aos="fade-up" data-aos-delay="100">
-                        <h4>Mice</h4>
-                        <ul>
-                            <li>Zowie ZA13-C</li>
-                            <li>Razer Viper V2 Pro</li>
-                            <li>Scyrox V8</li>
-                            <li>Lamzu Inca</li>
-                        </ul>
-                        <h4 class="mt-8">Mousepads</h4>
-                        <ul>
-                            <li>Skypad 3.0 XL (Glass)</li>
-                            <li>InfinityMice Speed V2</li>
-                            <li>Puretrak P-51 Mustang</li>
-                            <li>Padsmith Crucible V2</li>
-                            <li>Matrova Vein Custom</li>
-                        </ul>
-                    </article>
-
-                    <article class="peripheral-card interactive-card" data-aos="fade-up" data-aos-delay="150">
-                        <h4>Keyboard Lab</h4>
-                        <ul class="stacked-list">
-                            <li>
-                                <strong>ENVKB 65m</strong>
-                                <span>Kang White V2 · Alfei WOB caps</span>
-                            </li>
-                            <li>
-                                <strong>ENVKB MCRO</strong>
-                                <span>Boba U4 Tactile · Alfei WOB caps</span>
-                            </li>
-                            <li>
-                                <strong>Tester68</strong>
-                                <span>Gateron Blue · GMK Cyan</span>
-                            </li>
-                            <li>
-                                <strong>“BumAss Sayo”</strong>
-                                <span>Wuque Studio Flux HE · Tofu60 housing</span>
-                            </li>
-                            <li>
-                                <strong>Everglide SU75 Pro</strong>
-                                <span>Everglide Skyline switches</span>
-                            </li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="setup-section">
-            <div class="container mx-auto px-6">
-                <div class="space-y-3" data-aos="fade-up">
-                    <span class="section-label">Audio & Monitoring</span>
-                    <h2 class="section-heading">Reference-grade listening + broadcast clarity.</h2>
-                    <p class="section-description">Monitoring chains double as review benches so impressions stay consistent from glass pads to hi-fi sessions.</p>
-                </div>
-                <div class="audio-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <article class="peripheral-card interactive-card audio-card" data-aos="fade-up" data-aos-delay="100">
-                        <h4>Headphones</h4>
-                        <ul class="mt-4">
-                            <li>Sony MDR-MV1</li>
-                            <li>Apple AirPods Pro (3rd Gen)</li>
-                            <li>Sennheiser HD 580</li>
-                            <li>Ziigaat Odyssey</li>
-                        </ul>
-                    </article>
-
-                    <article class="peripheral-card interactive-card audio-card" data-aos="fade-up" data-aos-delay="150">
-                        <h4>Speakers & Amps</h4>
-                        <ul class="mt-4">
-                            <li>Kali Audio LP-8 v2</li>
-                            <li>Tannoy TS2.10 Sub</li>
-                            <li>Topping DX5 II</li>
-                            <li>Arturia Minifuse 1</li>
-                            <li>Dongles: JA11 + CX31993</li>
-                        </ul>
-                    </article>
-
-                    <article class="peripheral-card interactive-card audio-card" data-aos="fade-up" data-aos-delay="200">
-                        <h4>Microphone Chain</h4>
-                        <div class="micro-callout">
-                            <p class="text-base font-semibold text-white">SE Electronics V7</p>
-                            <p class="text-sm text-slate-300 mt-2">Dynamic stage mic tuned for broadcast clarity and off-axis rejection during long Discord calls.</p>
-                        </div>
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -600,6 +455,7 @@
             const initInteractiveHighlights = () => {
                 const cards = document.querySelectorAll('.interactive-card');
                 if (!cards.length) return;
+
                 document.addEventListener('mousemove', (event) => {
                     cards.forEach((card) => {
                         const rect = card.getBoundingClientRect();
@@ -611,12 +467,44 @@
                 });
             };
 
+            const initParallaxLayers = () => {
+                const sections = document.querySelectorAll('[data-parallax-parent]');
+                if (!sections.length) return;
+
+                let ticking = false;
+                const updateParallax = () => {
+                    sections.forEach((section) => {
+                        const rect = section.getBoundingClientRect();
+                        const progress = rect.top / window.innerHeight;
+                        const targets = section.querySelectorAll('[data-depth]');
+                        targets.forEach((element) => {
+                            const depth = parseFloat(element.dataset.depth || '0.2');
+                            const offset = progress * depth * -80;
+                            element.style.setProperty('--parallax-y', `${offset}px`);
+                        });
+                    });
+                    ticking = false;
+                };
+
+                updateParallax();
+
+                const handleScroll = () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(updateParallax);
+                        ticking = true;
+                    }
+                };
+
+                window.addEventListener('scroll', handleScroll);
+                window.addEventListener('resize', handleScroll);
+            };
+
             const initializePageScripts = () => {
                 if (window.AOS) {
                     AOS.init({
                         duration: 1000,
                         once: true,
-                        offset: 200,
+                        offset: 250,
                     });
                 }
 
@@ -633,16 +521,19 @@
                     textarea.value = text;
                     document.body.appendChild(textarea);
                     textarea.select();
+
                     try {
                         document.execCommand('copy');
                         const tooltip = document.createElement('span');
-                        tooltip.className = 'absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-auto min-w-max p-2 text-xs text-white bg-gray-800 rounded-md shadow-lg';
+                        tooltip.className =
+                            'absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-auto min-w-max p-2 text-xs text-white bg-gray-800 rounded-md shadow-lg';
                         tooltip.textContent = 'Copied!';
                         button.appendChild(tooltip);
                         setTimeout(() => tooltip.remove(), 1500);
                     } catch (err) {
                         console.error('Failed to copy: ', err);
                     }
+
                     document.body.removeChild(textarea);
                 };
 
@@ -655,16 +546,17 @@
                 });
 
                 initInteractiveHighlights();
+                initParallaxLayers();
             };
 
             const loadComponents = async () => {
                 try {
-                    const headerResponse = await fetch('./header.html');
+                    const headerResponse = await fetch('/header.html');
                     if (!headerResponse.ok) throw new Error('Failed to fetch header');
                     const headerData = await headerResponse.text();
                     document.getElementById('header-placeholder').innerHTML = headerData;
 
-                    const footerResponse = await fetch('./footer.html');
+                    const footerResponse = await fetch('/footer.html');
                     if (!footerResponse.ok) throw new Error('Failed to fetch footer');
                     const footerData = await footerResponse.text();
                     document.getElementById('footer-placeholder').innerHTML = footerData;
@@ -677,103 +569,6 @@
 
             loadComponents();
         });
-    </script>
-
-    <script type="module">
-        import * as THREE from 'https://unpkg.com/three@0.155.0/build/three.module.js';
-
-        const initSetupScene = () => {
-            const canvas = document.getElementById('setup-scene');
-            if (!canvas) return;
-
-            const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
-            camera.position.set(0, 0, 10);
-
-            const resizeRenderer = () => {
-                const width = canvas.clientWidth;
-                const height = canvas.clientHeight;
-                const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-                renderer.setPixelRatio(pixelRatio);
-                renderer.setSize(width, height, false);
-                camera.aspect = width / height;
-                camera.updateProjectionMatrix();
-            };
-
-            resizeRenderer();
-
-            scene.add(new THREE.AmbientLight(0xffffff, 0.75));
-
-            const spotlight = new THREE.SpotLight(0x7dd3fc, 1.2, 30, Math.PI / 4, 0.6, 1.2);
-            spotlight.position.set(8, 10, 8);
-            scene.add(spotlight);
-
-            const rimLight = new THREE.DirectionalLight(0x8b5cf6, 0.8);
-            rimLight.position.set(-6, -3, 5);
-            scene.add(rimLight);
-
-            const group = new THREE.Group();
-            scene.add(group);
-
-            const shapes = [
-                { geometry: new THREE.BoxGeometry(3.2, 1.5, 0.4), color: 0x4f83ff, position: [0, -0.2, 0], rotation: [0.35, 0.4, 0.1] },
-                { geometry: new THREE.CylinderGeometry(0.95, 0.95, 0.5, 48), color: 0x22d3ee, position: [-1.9, -1.2, 0.8], rotation: [Math.PI / 2, 0, 0.2] },
-                { geometry: new THREE.TorusGeometry(1.8, 0.15, 32, 120), color: 0xa855f7, position: [2.1, 0.6, -0.3], rotation: [0.2, Math.PI / 4, 0.1] },
-                { geometry: new THREE.OctahedronGeometry(0.9), color: 0xf472b6, position: [0.4, 1.8, 0.4], rotation: [0.4, 0.2, 0.6] }
-            ];
-
-            shapes.forEach((shape, index) => {
-                const material = new THREE.MeshStandardMaterial({
-                    color: shape.color,
-                    metalness: 0.55,
-                    roughness: 0.25,
-                    emissive: shape.color,
-                    emissiveIntensity: 0.1 + index * 0.1
-                });
-                const mesh = new THREE.Mesh(shape.geometry, material);
-                mesh.position.set(...shape.position);
-                mesh.rotation.set(...shape.rotation);
-                mesh.userData = { float: 0.4 + index * 0.2, phase: index * 0.8 };
-                group.add(mesh);
-            });
-
-            const floor = new THREE.Mesh(
-                new THREE.CircleGeometry(3.8, 64),
-                new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.08 })
-            );
-            floor.rotation.x = -Math.PI / 2;
-            floor.position.y = -2.6;
-            group.add(floor);
-
-            const ring = new THREE.Mesh(
-                new THREE.TorusGeometry(3.2, 0.05, 32, 180),
-                new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.15 })
-            );
-            ring.rotation.x = Math.PI / 2;
-            group.add(ring);
-
-            const animate = (time) => {
-                const seconds = time * 0.001;
-                group.rotation.y = seconds * 0.15;
-
-                group.children.forEach((child) => {
-                    if (!child.userData.float) return;
-                    const { float, phase } = child.userData;
-                    child.position.y = Math.sin(seconds * 1.3 + phase) * float;
-                    child.rotation.x += 0.002;
-                    child.rotation.z += 0.0015;
-                });
-
-                renderer.render(scene, camera);
-                requestAnimationFrame(animate);
-            };
-
-            window.addEventListener('resize', resizeRenderer);
-            requestAnimationFrame(animate);
-        };
-
-        window.addEventListener('load', initSetupScene);
     </script>
 </body>
 </html>
