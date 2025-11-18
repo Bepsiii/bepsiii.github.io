@@ -3,308 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: AscentCustoms - Bepsi</title>
+    <title>AscentCustoms - Bepsi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* This keeps the glow effect consistent with other pages */
-        .interactive-card {
-            position: relative;
-            background: rgba(23, 23, 23, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%; /* Ensure cards are same height */
-        }
-
-        .interactive-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.25);
-        }
-
-        .interactive-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            padding: 1px;
-            background: radial-gradient(600px at var(--x) var(--y), rgba(14, 165, 233, 0.7), rgba(139, 92, 246, 0.6), transparent 70%);
-            -webkit-mask: 
-                linear-gradient(#fff 0 0) content-box, 
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-            filter: blur(20px);
-        }
-
-        .interactive-card:hover::before {
-            opacity: 1;
-        }
-        
-        .interactive-card > * {
-            position: relative;
-            z-index: 1;
-        }
-    </style>
 </head>
-<body class="transition-colors duration-500">
+<body class="selection:bg-violet-500 selection:text-white">
     <div class="scanlines"></div>
+    <div class="noise-bg"></div>
     <div id="header-placeholder"></div>
 
-    <!-- Page Specific Content -->
-    <div id="main-content" class="relative z-20 bg-stone-950 pt-32">
-        <!-- Hero Section -->
-        <section class="relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-fuchsia-500/20 to-stone-950"></div>
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-fuchsia-500/30 via-transparent to-transparent"></div>
-            
-            <div class="container relative mx-auto px-6 py-24 md:py-32">
-                <div class="text-center max-w-4xl mx-auto">
-                    <div class="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 mb-6" data-aos="fade-down">
-                        <span class="text-sm font-semibold text-violet-400">Featured Project</span>
-                    </div>
-                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight" data-aos="fade-up">
-                        <span class="bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent">AscentCustoms</span>
-                    </h1>
-                    <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-                        Crafting the Next Generation of 3D Printed Mice.
-                    </p>
+    <div class="relative z-20 pt-32 pb-20">
+        <!-- Hero -->
+        <section class="container mx-auto px-6 mb-20">
+             <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-block px-4 py-1 rounded-full border border-violet-500/30 bg-violet-500/10 mb-6" data-aos="fade-down">
+                    <span class="text-xs font-mono text-violet-300">/// PROJECT_FILE</span>
                 </div>
+                <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tighter" data-aos="fade-up">
+                    Ascent<span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-500">Customs</span>
+                </h1>
+                <p class="text-xl text-gray-400" data-aos="fade-up" data-aos-delay="100">
+                    Crafting the Next Generation of 3D Printed Mice.
+                </p>
             </div>
         </section>
 
-        <section id="ascentcustoms-details" class="container mx-auto px-6 py-16 md:py-24">
-            <div id="cards-wrapper" class="space-y-8">
-                
-                <!-- Introduction Section -->
-                <div class="interactive-card p-8 lg:p-12 tech-border" data-aos="fade-up">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                        <div class="space-y-4">
-                            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-600 shadow-lg shadow-violet-500/50 mb-4">
-                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                            <h2 class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">The Mission</h2>
-                            <p class="text-lg text-gray-300 leading-relaxed">
-                                AscentCustoms is a passion project born from a desire to push the boundaries of personalized gaming peripherals. The core mission is to design and develop high-performance, ergonomic, and customizable 3D printed mice tailored to individual user preferences and play styles.
-                            </p>
-                        </div>
-                        <div class="relative group">
-                            <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
-                            <img src="images/slide1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/111827/FFFFFF?text=AscentCustoms+Showcase';" alt="AscentCustoms Project Image" class="relative rounded-2xl object-cover w-full h-full">
-                        </div>
-                    </div>
+        <section class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="interactive-card p-8 lg:p-12" data-aos="fade-right">
+                    <h2 class="text-3xl font-bold text-white mb-4">The Mission</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        AscentCustoms is a passion project born from a desire to push the boundaries of personalized gaming peripherals. The core mission is to design and develop high-performance, ergonomic, and customizable 3D printed mice.
+                    </p>
                 </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- The Vision -->
-                    <div class="interactive-card p-8 lg:p-10 lg:col-span-2 group" data-aos="fade-up" data-aos-delay="100">
-                        <div class="mb-6">
-                            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-fuchsia-600 shadow-lg shadow-fuchsia-500/50 group-hover:shadow-fuchsia-500/70 transition-shadow duration-300">
-                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <h3 class="text-3xl font-bold text-white mb-4">The Vision</h3>
-                        <p class="text-gray-300 text-lg leading-relaxed">
-                            In a market often dominated by one-size-fits-all solutions, I aim to provide a truly bespoke experience. By leveraging the flexibility of 3D printing, I can iterate on designs rapidly, incorporate unique ergonomic features, and offer a level of customization that traditional manufacturing cannot easily achieve. This includes variations in shape, size, weight, button placement, and even material textures.
-                        </p>
-                    </div>
-
-                    <!-- Key Features -->
-                    <div class="interactive-card p-8 lg:p-10 group" data-aos="fade-up" data-aos-delay="200">
-                        <div class="mb-6">
-                            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500 to-sky-600 shadow-lg shadow-sky-500/50 group-hover:shadow-sky-500/70 transition-shadow duration-300">
-                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                         <h3 class="text-3xl font-bold text-white mb-6">Key Features</h3>
-                        <ul class="space-y-3 text-gray-300 text-lg">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-violet-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Ergonomic, Lightweight Design
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-violet-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                High-Performance Internals
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-violet-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Modular Components
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-violet-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Community-Driven Development
-                            </li>
-                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-violet-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Uses Industry Standard Hardware
-                            </li>
-                        </ul>
-                    </div>
+                <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl" data-aos="fade-left">
+                     <img src="images/slide1.jpg" onerror="this.src='https://placehold.co/800x600/111/FFF?text=Prototype'" class="w-full h-full object-cover">
                 </div>
+            </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                     <!-- Current Status -->
-                    <div class="interactive-card p-8 lg:p-10 lg:col-span-2 group" data-aos="fade-up" data-aos-delay="100">
-                        <div class="mb-6">
-                            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 shadow-lg shadow-emerald-500/50 group-hover:shadow-emerald-500/70 transition-shadow duration-300">
-                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <h3 class="text-3xl font-bold text-white mb-4">Current Status</h3>
-                        <p class="text-gray-300 text-lg leading-relaxed mb-4">
-                            AscentCustoms is currently in the early stages. We are actively working on the MC0, a hyper-lightweight shell based off of the Razer Viper V2 Pro Internals.
-                        </p>
-                         <p class="text-gray-300 text-lg leading-relaxed">
-                            For the latest sneak peeks and development updates, be sure to follow our progress on <a href="https://x.com/ascentcustoms" target="_blank" rel="noopener noreferrer" class="text-violet-400 hover:text-violet-300 underline decoration-violet-400/30 hover:decoration-violet-300 transition-colors font-medium">X (formerly Twitter)</a>.
-                        </p>
-                    </div>
-                    <!-- Where to Find Us -->
-                    <div class="interactive-card p-8 lg:p-10 group" data-aos="fade-up" data-aos-delay="200">
-                        <div class="mb-6">
-                            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 shadow-lg shadow-orange-500/50 group-hover:shadow-orange-500/70 transition-shadow duration-300">
-                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <h3 class="text-3xl font-bold text-white mb-6">Where to Find Us</h3>
-                        <ul class="space-y-4">
-                            <li>
-                                <a href="https://www.ebay.co.uk/usr/ascentcustoms" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-300 hover:text-violet-400 transition-colors group/link">
-                                    <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-stone-800/50 mr-3 group-hover/link:bg-violet-500/10 transition-colors">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/></svg>
-                                    </div>
-                                    <span class="text-lg font-medium">eBay Store</span>
-                                </a>
-                            </li>
-                             <li>
-                                <a href="https://www.etsy.com/shop/AscentCustoms" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-300 hover:text-violet-400 transition-colors group/link">
-                                    <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-stone-800/50 mr-3 group-hover/link:bg-violet-500/10 transition-colors">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12.56 12.5H11.5a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-3"/></svg>
-                                    </div>
-                                    <span class="text-lg font-medium">Etsy Shop</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <div class="interactive-card p-8" data-aos="fade-up">
+                    <h3 class="text-xl font-bold text-white mb-2 text-violet-400">01. Lightweight</h3>
+                    <p class="text-gray-400 text-sm">Ergonomic designs optimized for weight reduction without sacrificing structural integrity.</p>
                 </div>
+                <div class="interactive-card p-8" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold text-white mb-2 text-violet-400">02. Modular</h3>
+                    <p class="text-gray-400 text-sm">Components designed to be swapped, modified, and repaired easily.</p>
+                </div>
+                <div class="interactive-card p-8" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-white mb-2 text-violet-400">03. Standard</h3>
+                    <p class="text-gray-400 text-sm">Utilizes industry standard hardware (Razer Viper V2 Pro internals) for top-tier sensor performance.</p>
+                </div>
+            </div>
 
+            <div class="interactive-card p-8 text-center" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-white mb-4">Current Status</h3>
+                <p class="text-gray-300 mb-6">Working on the MC0, a hyper-lightweight shell.</p>
+                <a href="https://x.com/ascentcustoms" target="_blank" class="inline-block px-8 py-3 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-lg transition-all">Follow Updates</a>
             </div>
         </section>
     </div>
 
     <div id="footer-placeholder"></div>
-
     <script src="main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load header and footer, then initialize scripts
-            const loadComponents = async () => {
-                try {
-                    const headerResponse = await fetch('header.html');
-                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
-                    const headerData = await headerResponse.text();
-                    document.getElementById('header-placeholder').innerHTML = headerData;
-
-                    const footerResponse = await fetch('footer.html');
-                    if (!footerResponse.ok) throw new Error('Failed to fetch footer');
-                    const footerData = await footerResponse.text();
-                    document.getElementById('footer-placeholder').innerHTML = footerData;
-                    
-                    initializePageScripts();
-
-                } catch (error) {
-                    console.error('Error loading components:', error);
-                }
-            };
-            
-            const initializePageScripts = () => {
-                AOS.init({
-                    duration: 800,
-                    once: true,
-                    offset: 50,
-                });
-
-                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (mobileMenuButton && mobileMenu) {
-                    mobileMenuButton.addEventListener('click', () => {
-                        mobileMenu.classList.toggle('hidden');
-                    });
-                }
-                
-                const discordID = 'theukgovernment';
-                const copyToClipboard = (text, button) => {
-                    const textarea = document.createElement('textarea');
-                    textarea.value = text;
-                    document.body.appendChild(textarea);
-                    textarea.select();
-                    try {
-                        document.execCommand('copy');
-                        const tooltip = document.createElement('span');
-                        tooltip.className = 'absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-auto min-w-max p-2 text-xs text-white bg-gray-800 rounded-md shadow-lg';
-                        tooltip.textContent = 'Copied!';
-                        button.appendChild(tooltip);
-                        setTimeout(() => {
-                           tooltip.remove();
-                        }, 1500);
-                    } catch (err) {
-                        console.error('Failed to copy: ', err);
-                    }
-                    document.body.removeChild(textarea);
-                };
-                
-                document.body.addEventListener('click', function(event){
-                    const copyButton = event.target.closest('#discord-copy-footer');
-                    if(copyButton){
-                        copyToClipboard(discordID, copyButton);
-                    }
-                });
-                
-                const cardsWrapper = document.getElementById('cards-wrapper');
-                if(cardsWrapper) {
-                    cardsWrapper.addEventListener('mousemove', e => {
-                        for(const card of document.getElementsByClassName('interactive-card')) {
-                            const rect = card.getBoundingClientRect(),
-                                  x = e.clientX - rect.left,
-                                  y = e.clientY - rect.top;
-                            card.style.setProperty('--x', `${x}px`);
-                            card.style.setProperty('--y', `${y}px`);
-                        }
-                    });
-                }
-            };
-            
-            loadComponents();
-        });
-    </script>
 </body>
 </html>

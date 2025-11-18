@@ -3,167 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Bottleneck Calculator | Bepsi</title>
-    
+    <title>Bottleneck Calculator - Bepsi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="transition-colors duration-500">
+<body class="selection:bg-orange-500 selection:text-white">
     <div class="scanlines"></div>
+    <div class="noise-bg"></div>
     <div id="header-placeholder"></div>
 
-    <main class="relative z-20 bg-stone-950 pt-32">
-        <!-- Hero Section -->
-        <section class="relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-red-500/20 to-stone-950"></div>
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-500/30 via-transparent to-transparent"></div>
-            
-            <div class="container relative mx-auto px-6 py-24 md:py-32">
-                <div class="text-center max-w-4xl mx-auto">
-                    <div class="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 mb-6" data-aos="fade-down">
-                        <span class="text-sm font-semibold text-orange-400">System Analysis Tool</span>
+    <div class="relative z-20 pt-32 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <div class="inline-block px-4 py-1 rounded-full border border-orange-500/30 bg-orange-500/10 mb-6" data-aos="fade-down">
+                    <span class="text-xs font-mono text-orange-300">/// ANALYSIS_TOOL</span>
+                </div>
+                <h1 class="text-5xl font-bold text-white mb-4">Bottleneck Calculator</h1>
+                <p class="text-gray-400">Is your system balanced? Let's check.</p>
+            </div>
+
+            <div class="interactive-card p-8 lg:p-12" data-aos="fade-up">
+                <form id="bottleneck-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-mono text-gray-500 mb-2">CPU</label>
+                            <input type="text" class="w-full p-3 rounded-lg" placeholder="e.g., Intel i7-12700K">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-500 mb-2">GPU</label>
+                            <input type="text" class="w-full p-3 rounded-lg" placeholder="e.g., RTX 4070">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-500 mb-2">RAM (GB)</label>
+                            <input type="number" class="w-full p-3 rounded-lg" placeholder="16">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-500 mb-2">RESOLUTION</label>
+                            <select class="w-full p-3 rounded-lg">
+                                <option>1080p</option>
+                                <option>1440p</option>
+                                <option>4K</option>
+                            </select>
+                        </div>
                     </div>
-                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight" data-aos="fade-up">
-                        Bottleneck <span class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Calculator</span>
-                    </h1>
-                    <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-                        Answer the questions below to determine if your system has a bottleneck.
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg text-white font-bold hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all">CALCULATE</button>
+                </form>
+            </div>
+
+            <div id="result" class="hidden mt-8 interactive-card p-8 border-emerald-500/30">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-emerald-400 mb-4">Good News!</h2>
+                    <p class="text-gray-300">
+                        You shouldn't worry about bottlenecks. Just enjoy your PC! Modern components are generally well-balanced.
                     </p>
                 </div>
             </div>
-        </section>
-        
-        <section class="container mx-auto px-6 pb-24">
-            <div class="max-w-4xl mx-auto">
-                <div class="glass-effect-strong rounded-2xl p-8 lg:p-12 tech-border" data-aos="fade-up" data-aos-delay="200">
-                    <form id="bottleneck-form" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="cpu" class="block text-sm font-semibold text-gray-300 mb-2">CPU</label>
-                                <input type="text" id="cpu" name="cpu" placeholder="e.g., Intel i7-12700K" class="w-full bg-stone-900/50 border border-stone-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200">
-                            </div>
-                            <div>
-                                <label for="gpu" class="block text-sm font-semibold text-gray-300 mb-2">GPU</label>
-                                <input type="text" id="gpu" name="gpu" placeholder="e.g., RTX 4070" class="w-full bg-stone-900/50 border border-stone-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200">
-                            </div>
-                            <div>
-                                <label for="ram" class="block text-sm font-semibold text-gray-300 mb-2">RAM (in GB)</label>
-                                <input type="number" id="ram" name="ram" placeholder="16" class="w-full bg-stone-900/50 border border-stone-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200">
-                            </div>
-                            <div>
-                                <label for="storage" class="block text-sm font-semibold text-gray-300 mb-2">Storage Type</label>
-                                <select id="storage" name="storage" class="w-full bg-stone-900/50 border border-stone-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200">
-                                    <option>HDD</option>
-                                    <option>SSD</option>
-                                    <option>NVMe SSD</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="resolution" class="block text-sm font-semibold text-gray-300 mb-2">Monitor Resolution</label>
-                                <select id="resolution" name="resolution" class="w-full bg-stone-900/50 border border-stone-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200">
-                                    <option>1080p</option>
-                                    <option>1440p</option>
-                                    <option>4K</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="games" class="block text-sm font-semibold text-gray-300 mb-2">What games do you play?</label>
-                                <input type="text" id="games" name="games" placeholder="e.g., Cyberpunk 2077, CS2" class="w-full bg-stone-900/50 border border-stone-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200">
-                            </div>
-                        </div>
-                        <div class="text-center pt-4">
-                            <button type="submit" class="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-12 rounded-xl hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 transform hover:scale-105">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
-                                <span>Calculate</span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                
-                <div id="result" class="hidden mt-8">
-                    <div class="glass-effect-strong rounded-2xl p-8 lg:p-12 border-2 border-emerald-500/30" data-aos="fade-up">
-                        <div class="text-center">
-                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 shadow-lg shadow-emerald-500/50 mb-6">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <h2 class="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-6">Good News!</h2>
-                            <p class="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
-                                You shouldn't worry about bottlenecks. Just enjoy your PC! Modern components are generally well-balanced, and performance is influenced by a wide range of factors including game optimization, driver versions, and background processes. Instead of focusing on a single "bottleneck," it's more productive to ensure your system is well-maintained and optimized for the games and applications you use most.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <div id="footer-placeholder"></div>
+        </div>
+    </div>
 
+    <div id="footer-placeholder"></div>
     <script src="main.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const initPage = () => {
-                const form = document.getElementById('bottleneck-form');
-                const result = document.getElementById('result');
-                if (form && !form.dataset.initialized) {
-                    form.addEventListener('submit', (event) => {
-                        event.preventDefault();
-                        if (result) {
-                            result.classList.remove('hidden');
-                        }
-                    });
-                    form.dataset.initialized = 'true';
-                }
-                if (typeof AOS !== 'undefined') {
-                    AOS.init({
-                        duration: 800,
-                        once: true,
-                        offset: 50,
-                    });
-                }
-            };
-
-            const loadComponents = async () => {
-                try {
-                    const [headerResponse, footerResponse] = await Promise.all([
-                        fetch('header.html'),
-                        fetch('footer.html')
-                    ]);
-
-                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
-                    if (!footerResponse.ok) throw new Error('Failed to fetch footer');
-
-                    const headerData = await headerResponse.text();
-                    const footerData = await footerResponse.text();
-
-                    document.getElementById('header-placeholder').innerHTML = headerData;
-                    document.getElementById('footer-placeholder').innerHTML = footerData;
-
-                    if (typeof initializeFeatures === 'function') {
-                        initializeFeatures();
-                    }
-
-                    initPage();
-                } catch (error) {
-                    console.error('Error loading components:', error);
-                    initPage();
-                }
-            };
-
-            initPage();
-            loadComponents();
+        document.getElementById('bottleneck-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('result').classList.remove('hidden');
         });
     </script>
-
 </body>
 </html>
