@@ -20,14 +20,14 @@
             <!-- Three.js Container -->
             <div id="hero-canvas-container"></div>
             
-            <!-- Bright Glow Orbs behind text -->
-            <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[100px] pointer-events-none animate-pulse"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none animate-pulse" style="animation-delay: 2s;"></div>
+            <!-- Glow Orbs (Reduced blur for more contrast) -->
+            <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-sky-500/10 rounded-full blur-[80px] pointer-events-none animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[80px] pointer-events-none animate-pulse" style="animation-delay: 2s;"></div>
 
             <div class="container relative mx-auto px-6 z-10 text-center">
-                <div class="inline-flex items-center justify-center px-4 py-1.5 mb-8 rounded-full border border-sky-400/30 bg-sky-500/10 backdrop-blur-md shadow-[0_0_15px_rgba(56,189,248,0.3)]" data-aos="fade-down">
-                    <span class="w-2 h-2 bg-sky-400 rounded-full animate-pulse mr-2"></span>
-                    <span class="text-xs font-mono text-sky-300 tracking-widest uppercase font-bold">System Online</span>
+                <div class="inline-flex items-center justify-center px-4 py-1.5 mb-8 rounded-full border border-sky-400/50 bg-sky-900/30 backdrop-blur-md shadow-[0_0_20px_rgba(56,189,248,0.4)]" data-aos="fade-down">
+                    <span class="w-2 h-2 bg-sky-400 rounded-full animate-pulse mr-2 shadow-[0_0_10px_#38bdf8]"></span>
+                    <span class="text-xs font-mono text-sky-200 tracking-widest uppercase font-bold">System Online</span>
                 </div>
 
                 <h1 class="text-6xl md:text-8xl font-bold mb-8 tracking-tighter" data-aos="fade-up">
@@ -35,18 +35,18 @@
                     <span class="block text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 text-glow">&amp; Design</span>
                 </h1>
 
-                <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto mb-12 leading-relaxed font-light" data-aos="fade-up" data-aos-delay="100">
                     Welcome to my corner of the web. I'm <span class="text-sky-400 font-bold">Bepsi</span>, and this is where I share my journey, projects, and resources.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-5 justify-center items-center" data-aos="fade-up" data-aos-delay="200">
-                    <a href="#projects" class="group relative px-8 py-4 bg-white text-slate-900 font-bold text-lg rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
+                    <a href="#projects" class="group relative px-8 py-4 bg-white text-black font-bold text-lg rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.5)]">
                         <span class="relative z-10 flex items-center gap-2">
                             View My Work
                             <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </span>
                     </a>
-                    <a href="about.html" class="px-8 py-4 border border-white/20 text-white font-medium text-lg rounded-xl hover:bg-white/10 hover:border-white/40 transition-all backdrop-blur-sm">
+                    <a href="about.html" class="px-8 py-4 border border-white/30 text-white font-medium text-lg rounded-xl hover:bg-white/10 hover:border-white/60 transition-all backdrop-blur-sm">
                         About Me
                     </a>
                 </div>
@@ -54,11 +54,11 @@
         </section>
 
         <!-- PROJECTS SECTION -->
-        <section id="projects" class="py-24 relative bg-slate-900/50">
+        <section id="projects" class="py-24 relative bg-black/20">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-6">
                     <div>
-                        <div class="text-sm font-mono text-sky-400 mb-2 tracking-widest">/// PORTFOLIO</div>
+                        <div class="text-sm font-mono text-sky-400 mb-2 tracking-widest font-bold">/// PORTFOLIO</div>
                         <h2 class="text-4xl md:text-5xl font-bold text-white">Featured Works</h2>
                     </div>
                     <p class="text-slate-400 mt-4 md:mt-0 max-w-md text-right">Selected projects and resources I've built or curated.</p>
@@ -68,12 +68,12 @@
                     <!-- Project 1: AscentCustoms -->
                     <a href="ascentcustoms.html" class="interactive-card group block h-[500px]" data-aos="fade-up">
                         <div class="relative h-full w-full p-1">
-                            <div class="absolute inset-0 bg-slate-800 rounded-xl overflow-hidden">
-                                <img src="images/slide1.jpg" onerror="this.src='https://placehold.co/800x1000/0f172a/FFF?text=AscentCustoms'" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                            <div class="absolute inset-0 bg-[#020617] rounded-xl overflow-hidden">
+                                <img src="images/slide1.jpg" onerror="this.src='https://placehold.co/800x1000/020617/FFF?text=AscentCustoms'" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-80">
                             </div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent p-10 flex flex-col justify-end">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent p-10 flex flex-col justify-end">
                                 <div class="mb-2 inline-flex">
-                                    <span class="px-3 py-1 text-xs font-bold border border-sky-500/40 bg-sky-500/20 text-sky-300 rounded-full backdrop-blur-md">FEATURED PROJECT</span>
+                                    <span class="px-3 py-1 text-xs font-bold border border-sky-500/50 bg-sky-500/20 text-sky-300 rounded-full backdrop-blur-md shadow-[0_0_10px_rgba(56,189,248,0.2)]">FEATURED PROJECT</span>
                                 </div>
                                 <h3 class="text-4xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">AscentCustoms</h3>
                                 <p class="text-slate-300 text-lg mb-4">Crafting the Next Generation of 3D Printed Mice.</p>
@@ -86,25 +86,25 @@
                          <!-- Resource: Setup -->
                          <a href="setup.html" class="interactive-card block p-10 group" data-aos="fade-up" data-aos-delay="100">
                             <div class="flex justify-between items-start mb-8">
-                                <div class="p-4 bg-purple-500/20 rounded-2xl text-purple-400 border border-purple-500/30 shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+                                <div class="p-4 bg-purple-500/10 rounded-2xl text-purple-400 border border-purple-500/40 shadow-[0_0_20px_rgba(168,85,247,0.2)]">
                                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                                 </div>
                                 <svg class="w-6 h-6 text-slate-500 group-hover:text-white transition-colors -rotate-45 group-hover:rotate-0 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </div>
                             <h3 class="text-3xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">My Setup</h3>
-                            <p class="text-slate-400 text-lg">A full breakdown of my battlestation, audio gear, and peripherals.</p>
+                            <p class="text-slate-300 text-lg">A full breakdown of my battlestation, audio gear, and peripherals.</p>
                         </a>
 
                         <!-- Resource: Library -->
                         <a href="resources1.html" class="interactive-card block p-10 group" data-aos="fade-up" data-aos-delay="200">
                             <div class="flex justify-between items-start mb-8">
-                                <div class="p-4 bg-emerald-500/20 rounded-2xl text-emerald-400 border border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+                                <div class="p-4 bg-emerald-500/10 rounded-2xl text-emerald-400 border border-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
                                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                                 </div>
                                 <svg class="w-6 h-6 text-slate-500 group-hover:text-white transition-colors -rotate-45 group-hover:rotate-0 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </div>
                             <h3 class="text-3xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Resource Library</h3>
-                            <p class="text-slate-400 text-lg">Curated spreadsheets, tools, and community data.</p>
+                            <p class="text-slate-300 text-lg">Curated spreadsheets, tools, and community data.</p>
                         </a>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-8" data-aos="fade-up">Have an idea?</h2>
                 <p class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Whether you want to collaborate or just talk tech, I'm always open for a chat.</p>
                 <div data-aos="fade-up" data-aos-delay="200">
-                    <a href="contact.html" class="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-sky-500 to-purple-600 hover:from-sky-400 hover:to-purple-500 text-white font-bold text-xl rounded-full shadow-[0_0_40px_rgba(14,165,233,0.3)] hover:shadow-[0_0_60px_rgba(14,165,233,0.5)] transition-all hover:-translate-y-1">
+                    <a href="contact.html" class="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-sky-500 to-purple-600 hover:from-sky-400 hover:to-purple-500 text-white font-bold text-xl rounded-full shadow-[0_0_40px_rgba(14,165,233,0.3)] hover:shadow-[0_0_60px_rgba(14,165,233,0.5)] transition-all hover:-translate-y-1 border border-white/20">
                         Let's Connect
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
