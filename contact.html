@@ -11,62 +11,88 @@
 </head>
 <body class="selection:bg-sky-500 selection:text-white">
     <div class="scanlines"></div>
-    <div class="noise-bg"></div>
     <div id="header-placeholder"></div>
 
     <div class="relative z-20 pt-32 pb-20">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div data-aos="fade-right">
-                    <div class="inline-block px-4 py-1 rounded-full border border-sky-500/30 bg-sky-500/10 mb-6">
-                        <span class="text-xs font-mono text-sky-300">/// COMMS_OPEN</span>
-                    </div>
-                    <h1 class="text-5xl font-bold text-white mb-6">Let's Talk</h1>
-                    <p class="text-gray-400 text-lg mb-8">
-                        Have a question about a project? Want to collaborate on something cool? Just want to say hi?
-                    </p>
-                    
-                    <div class="space-y-4">
-                         <button data-copy="theukgovernment" class="interactive-card p-4 w-full flex items-center gap-4 group hover:border-sky-500/50">
-                            <div class="p-2 bg-sky-500/20 rounded-lg text-sky-400">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                            </div>
-                            <div class="text-left">
-                                <div class="text-xs text-gray-500 font-mono">DISCORD</div>
-                                <div class="text-white font-bold">theukgovernment</div>
-                            </div>
-                            <div class="tooltip hidden ml-auto text-xs bg-sky-500 text-white px-2 py-1 rounded">Copied!</div>
-                        </button>
-
-                        <a href="mailto:ascentgaminggears@gmail.com" class="interactive-card p-4 w-full flex items-center gap-4 group hover:border-sky-500/50">
-                            <div class="p-2 bg-purple-500/20 rounded-lg text-purple-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            </div>
-                            <div class="text-left">
-                                <div class="text-xs text-gray-500 font-mono">EMAIL</div>
-                                <div class="text-white font-bold">ascentgaminggears@gmail.com</div>
-                            </div>
-                        </a>
-                    </div>
+            <div class="text-center max-w-4xl mx-auto mb-20">
+                 <div class="inline-block px-4 py-1 rounded-full border border-sky-500/30 bg-sky-500/10 mb-6" data-aos="fade-down">
+                    <span class="text-xs font-mono text-sky-300 tracking-widest">/// COMMS_OPEN</span>
                 </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight" data-aos="fade-up">
+                    Contact <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500">Me</span>
+                </h1>
+                 <p class="text-xl text-slate-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Have a question, a project idea, or just want to say hi? I'd love to hear from you.
+                </p>
+            </div>
 
-                <div class="interactive-card p-8" data-aos="fade-left">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Contact Form -->
+                <div class="lg:col-span-2 interactive-card p-8 lg:p-12" data-aos="fade-right">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-white mb-2">Send a Message</h2>
+                        <p class="text-slate-400">Fill out the form below and I'll get back to you as soon as possible.</p>
+                    </div>
+                    
                     <form action="https://formspree.io/f/xldnazyg" method="POST" class="space-y-6">
-                        <div>
-                            <label class="block text-xs font-mono text-gray-500 mb-2">NAME</label>
-                            <input type="text" name="name" class="w-full p-3 rounded-lg text-white" placeholder="John Doe">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-mono text-slate-500 mb-2 uppercase font-bold">Full Name</label>
+                                <input type="text" name="name" required class="w-full p-4 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-sky-500" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-slate-500 mb-2 uppercase font-bold">Email Address</label>
+                                <input type="email" name="email" required class="w-full p-4 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-sky-500" placeholder="john@example.com">
+                            </div>
                         </div>
                         <div>
-                            <label class="block text-xs font-mono text-gray-500 mb-2">EMAIL</label>
-                            <input type="email" name="email" class="w-full p-3 rounded-lg text-white" placeholder="john@example.com">
+                            <label class="block text-xs font-mono text-slate-500 mb-2 uppercase font-bold">Subject</label>
+                            <input type="text" name="subject" required class="w-full p-4 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-sky-500" placeholder="What's this about?">
                         </div>
                         <div>
-                            <label class="block text-xs font-mono text-gray-500 mb-2">MESSAGE</label>
-                            <textarea name="message" rows="5" class="w-full p-3 rounded-lg text-white" placeholder="Your message here..."></textarea>
+                            <label class="block text-xs font-mono text-slate-500 mb-2 uppercase font-bold">Message</label>
+                            <textarea name="message" rows="6" required class="w-full p-4 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-sky-500" placeholder="Your message..."></textarea>
                         </div>
-                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-sky-500 to-purple-600 rounded-lg text-white font-bold hover:shadow-[0_0_20px_rgba(14,165,233,0.4)] transition-all">SEND TRANSMISSION</button>
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-sky-500 to-purple-600 hover:from-sky-400 hover:to-purple-500 text-white font-bold text-lg rounded-xl shadow-lg shadow-sky-500/20 transition-all transform hover:-translate-y-1">
+                            SEND TRANSMISSION
+                        </button>
                     </form>
                 </div>
+
+                <!-- Sidebar Info -->
+                <div class="space-y-6" data-aos="fade-left" data-aos-delay="200">
+                    
+                    <!-- Discord Card -->
+                    <button data-copy="theukgovernment" class="interactive-card p-8 w-full text-left group cursor-pointer">
+                        <div class="flex items-center gap-4 mb-4">
+                             <div class="p-3 bg-indigo-500/20 rounded-xl text-indigo-400"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/></svg></div>
+                            <h3 class="text-xl font-bold text-white">Discord</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-2">Click to copy username</p>
+                        <div class="text-white font-mono bg-black/30 p-2 rounded border border-white/10 text-center group-hover:border-indigo-500/50 transition-colors relative">
+                            theukgovernment
+                            <div class="tooltip hidden absolute -top-8 left-1/2 -translate-x-1/2 text-xs bg-indigo-500 text-white font-bold px-2 py-1 rounded">Copied!</div>
+                        </div>
+                    </button>
+
+                    <!-- Email Card -->
+                    <a href="mailto:ascentgaminggears@gmail.com" class="interactive-card p-8 block hover:border-sky-500/50 group">
+                         <div class="flex items-center gap-4 mb-4">
+                             <div class="p-3 bg-sky-500/20 rounded-xl text-sky-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                            <h3 class="text-xl font-bold text-white">Email</h3>
+                        </div>
+                        <p class="text-white font-bold break-all">ascentgaminggears@gmail.com</p>
+                    </a>
+
+                    <!-- Response Time -->
+                    <div class="interactive-card p-8">
+                        <h4 class="text-lg font-bold text-white mb-2">Response Time</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">I typically respond within 24-48 hours. For urgent matters, Discord is usually the fastest way to reach me.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

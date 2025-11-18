@@ -1,73 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 :root {
-    --bg-dark: #050505;
-    --primary: #0ea5e9;   /* Sky Blue */
-    --secondary: #8b5cf6; /* Violet */
-    --accent: #ec4899;    /* Pink */
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-surface: rgba(20, 20, 20, 0.4);
+    /* Brighter Dark Mode Base */
+    --bg-core: #0f172a; /* Slate 900 */
+    --bg-glass: rgba(30, 41, 59, 0.6); /* Lighter Slate */
+    
+    /* Neon Accents */
+    --primary: #38bdf8;   /* Sky 400 */
+    --secondary: #a855f7; /* Purple 500 */
+    --accent: #f472b6;    /* Pink 400 */
+    
     --font-body: 'Manrope', sans-serif;
     --font-display: 'Space Grotesk', sans-serif;
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: #e5e5e5;
+    background-color: var(--bg-core);
+    color: #f1f5f9;
     font-family: var(--font-body);
     overflow-x: hidden;
+    /* Subtle background gradient for brightness */
+    background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%);
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
-/* --- Visual Noise & Scanlines --- */
+/* --- Scanlines (Cleaner, less opacity) --- */
 .scanlines {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.05));
     background-size: 100% 4px;
     z-index: 9999;
-    opacity: 0.6;
+    opacity: 0.3; /* Reduced from 0.6 */
 }
 
-.noise-bg {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9998;
-    opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-/* --- Liquid Glass Card System (Spotlight Effect) --- */
+/* --- Liquid Glass Card --- */
 .interactive-card {
     position: relative;
-    background: rgba(20, 20, 20, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-/* The Glow Spotlight */
+/* Spotlight Glow Logic */
 .interactive-card::before {
     content: "";
     position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
+    inset: 0;
     background: radial-gradient(
         800px circle at var(--mouse-x) var(--mouse-y), 
-        rgba(255, 255, 255, 0.04),
+        rgba(56, 189, 248, 0.1), /* Brighter Blue Glow */
         transparent 40%
     );
     z-index: 0;
@@ -76,17 +69,14 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: none;
 }
 
-/* The Border Glow */
+/* Border Highlight Logic */
 .interactive-card::after {
     content: "";
     position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
+    inset: 0;
     background: radial-gradient(
         600px circle at var(--mouse-x) var(--mouse-y), 
-        rgba(14, 165, 233, 0.3),
+        rgba(56, 189, 248, 0.6),
         transparent 40%
     );
     z-index: 0;
@@ -100,49 +90,50 @@ h1, h2, h3, h4, h5, h6 {
     mask-composite: exclude;
 }
 
-.interactive-card:hover { transform: translateY(-4px); }
+.interactive-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -10px rgba(56, 189, 248, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+}
 .interactive-card:hover::before, .interactive-card:hover::after { opacity: 1; }
-
 .interactive-card > * { position: relative; z-index: 1; }
 
-/* --- Tech/Wireframe Accents --- */
-.tech-border {
-    border-left: 2px solid var(--primary);
-}
-
-.text-glow { text-shadow: 0 0 20px rgba(14, 165, 233, 0.5); }
+/* --- Typography & Accents --- */
+.text-glow { text-shadow: 0 0 30px rgba(56, 189, 248, 0.6); }
 
 .gradient-text {
-    background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+    background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+.tech-border-l { border-left: 3px solid var(--primary); padding-left: 1rem; }
+
+/* --- Navigation --- */
 .nav-glass {
-    background: rgba(5, 5, 5, 0.7);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
 }
 
-/* --- 3D Container --- */
+/* --- Three.js Canvas --- */
 #hero-canvas-container {
     position: absolute;
     inset: 0;
     z-index: 0;
-    opacity: 0.6;
-    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-    pointer-events: none;
+    opacity: 0.8;
 }
 
-/* --- Form Styling --- */
+/* --- Utility --- */
 input, textarea, select {
-    background: rgba(0,0,0,0.3) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
     color: white !important;
-    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
 }
 input:focus, textarea:focus, select:focus {
     border-color: var(--primary) !important;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
     outline: none;
-    box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
 }
