@@ -9,20 +9,20 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
+<body class="selection:bg-[var(--primary)] selection:text-black">
     <div class="scanlines"></div>
     <div id="header-placeholder"></div>
 
     <div class="relative z-20 pt-32 pb-20">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-4xl mx-auto mb-20">
-                <div class="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 mb-6" data-aos="fade-down">
-                    <span class="text-xs font-mono text-blue-300 tracking-widest">/// HARDWARE_CONFIG</span>
+                <div class="inline-block px-4 py-1 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 mb-6" data-aos="fade-down">
+                    <span class="text-xs font-mono text-[var(--primary)] tracking-widest font-bold">/// HARDWARE_CONFIG</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight" data-aos="fade-up">
-                    My <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Setup</span>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight font-[Syne] uppercase" data-aos="fade-up">
+                    My <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)]">Setup</span>
                 </h1>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-xl text-[var(--text-muted)] max-w-3xl mx-auto font-[Outfit]" data-aos="fade-up" data-aos-delay="100">
                     The gear behind the scenes. A curated list of the hardware and peripherals that power my work, gaming, and creative projects.
                 </p>
             </div>
@@ -30,23 +30,23 @@
             <!-- Desktop Section -->
             <div class="mb-24" data-aos="fade-up">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-900/20 group">
-                        <img src="images/setup/setup1.png" onerror="this.src='https://placehold.co/1920x1080/0f172a/FFFFFF?text=Desktop'" class="w-full h-auto transition-transform duration-500 group-hover:scale-105">
+                    <div class="relative rounded-2xl overflow-hidden border border-[var(--glass-border)] shadow-2xl shadow-[var(--secondary)]/20 group">
+                        <img src="images/setup/setup1.png" onerror="this.src='https://placehold.co/1920x1080/0f172a/FFFFFF?text=Desktop'" class="w-full h-auto transition-transform duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0">
                     </div>
                     <div class="interactive-card p-8 lg:p-10">
                          <div class="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
-                             <div class="p-3 bg-blue-500/20 rounded-lg text-blue-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
-                            <h3 class="text-3xl font-bold text-white">Desktop Tower</h3>
+                             <div class="p-3 bg-[var(--primary)]/20 rounded-lg text-[var(--primary)]"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                            <h3 class="text-3xl font-bold text-white font-[Syne] uppercase">Desktop Tower</h3>
                         </div>
-                        <dl class="space-y-4 text-lg">
+                        <dl class="space-y-4 text-lg font-[Outfit]">
                             <div class="flex justify-between items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 rounded transition-colors">
-                                <dt class="text-blue-400 font-bold font-mono text-sm">CPU</dt> <dd class="text-slate-200 font-medium">Intel Core i7 12700KF</dd>
+                                <dt class="text-[var(--primary)] font-bold font-mono text-sm">CPU</dt> <dd class="text-slate-200 font-medium">Intel Core i7 12700KF</dd>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 rounded transition-colors">
-                                <dt class="text-blue-400 font-bold font-mono text-sm">COOLING</dt> <dd class="text-slate-200 font-medium">Arctic Freezer II 240mm</dd>
+                                <dt class="text-[var(--primary)] font-bold font-mono text-sm">COOLING</dt> <dd class="text-slate-200 font-medium">Arctic Freezer II 240mm</dd>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 rounded transition-colors">
-                                <dt class="text-blue-400 font-bold font-mono text-sm">GPU</dt> <dd class="text-slate-200 font-medium">ASUS TUF RX 6800 OC</dd>
+                                <dt class="text-[var(--primary)] font-bold font-mono text-sm">GPU</dt> <dd class="text-slate-200 font-medium">ASUS TUF RX 6800 OC</dd>
                             </div>
                              <div class="flex justify-between items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 rounded transition-colors">
                                 <dt class="text-blue-400 font-bold font-mono text-sm">MOBO</dt> <dd class="text-slate-200 font-medium">ASRock B660M Pro RS</dd>
