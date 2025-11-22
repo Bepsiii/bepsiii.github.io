@@ -9,174 +9,304 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="selection:bg-[var(--primary)] selection:text-black">
+<body class="selection:bg-blue-500 selection:text-white bg-[#09090b]">
     <div class="scanlines"></div>
+    
+    <!-- Background Gradients -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px]"></div>
+    </div>
+
     <div id="header-placeholder"></div>
 
-    <div class="relative z-20 pt-32 pb-20">
+    <main class="relative z-10 pt-32 pb-24">
         <div class="container mx-auto px-6">
-            <div class="text-center max-w-4xl mx-auto mb-20">
-                <div class="inline-block px-4 py-1 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 mb-6" data-aos="fade-down">
-                    <span class="text-xs font-mono text-[var(--primary)] tracking-widest font-bold">/// HARDWARE_CONFIG</span>
-                </div>
-                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight font-[Syne] uppercase" data-aos="fade-up">
-                    My <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)]">Setup</span>
-                </h1>
-                <p class="text-xl text-[var(--text-muted)] max-w-3xl mx-auto font-[Outfit]" data-aos="fade-up" data-aos-delay="100">
-                    The gear behind the scenes. A curated list of the hardware and peripherals that power my work, gaming, and creative projects.
-                </p>
-            </div>
-
-            <!-- Desktop Section -->
-            <div class="mb-24" data-aos="fade-up">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div class="relative rounded-2xl overflow-hidden border border-[var(--glass-border)] shadow-2xl shadow-[var(--secondary)]/20 group">
-                        <img src="images/setup/setup1.png" onerror="this.src='https://placehold.co/1920x1080/0f172a/FFFFFF?text=Desktop'" class="w-full h-auto transition-transform duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0">
+            
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-down">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono mb-4">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                        </span>
+                        SYSTEM_STATUS: ONLINE
                     </div>
-                    <div class="interactive-card p-8 lg:p-10">
-                         <div class="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
-                             <div class="p-3 bg-[var(--primary)]/20 rounded-lg text-[var(--primary)]"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
-                            <h3 class="text-3xl font-bold text-white font-[Syne] uppercase">Desktop Tower</h3>
-                        </div>
-                        <dl class="space-y-4 text-lg font-[Outfit]">
-                            <div class="flex justify-between items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 rounded transition-colors">
-                                <dt class="text-[var(--primary)] font-bold font-mono text-sm">CPU</dt> <dd class="text-slate-200 font-medium">Intel Core i7 12700KF</dd>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 rounded transition-colors">
-                                <dt class="text-[var(--primary)] font-bold font-mono text-sm">COOLING</dt> <dd class="text-slate-200 font-medium">Arctic Freezer II 240mm</dd>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 rounded transition-colors">
-                                <dt class="text-[var(--primary)] font-bold font-mono text-sm">GPU</dt> <dd class="text-slate-200 font-medium">ASUS TUF RX 6800 OC</dd>
-                            </div>
-                             <div class="flex justify-between items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 rounded transition-colors">
-                                <dt class="text-blue-400 font-bold font-mono text-sm">MOBO</dt> <dd class="text-slate-200 font-medium">ASRock B660M Pro RS</dd>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 rounded transition-colors">
-                                <dt class="text-blue-400 font-bold font-mono text-sm">RAM</dt> <dd class="text-slate-200 font-medium">32GB DDR4 3600MHz</dd>
-                            </div>
-                             <div class="flex justify-between items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 rounded transition-colors">
-                                <dt class="text-blue-400 font-bold font-mono text-sm">CASE</dt> <dd class="text-slate-200 font-medium">Lian Li A3 M-ATX</dd>
-                            </div>
-                             <div class="flex justify-between items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 rounded transition-colors">
-                                <dt class="text-blue-400 font-bold font-mono text-sm">PSU</dt> <dd class="text-slate-200 font-medium">Corsair RM750x 750W</dd>
-                            </div>
-                            <div class="py-2 px-2">
-                                <dt class="text-blue-400 font-bold font-mono text-sm mb-1">STORAGE</dt> 
-                                <dd class="text-slate-300 text-sm">1TB SN570 · 500GB Kioxia · 960GB Lexar NQ · 4TB HDD</dd>
-                            </div>
-                        </dl>
+                    <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-4">
+                        Setup <span class="text-gray-600">Config</span>
+                    </h1>
+                    <p class="text-gray-400 max-w-xl text-lg">
+                        The hardware arsenal. Optimized for development, gaming, and creative workflows.
+                    </p>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="flex gap-8 text-right hidden md:flex">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider font-bold mb-1">Platform</div>
+                        <div class="text-white font-mono">Windows 11</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider font-bold mb-1">Uptime</div>
+                        <div class="text-white font-mono">99.9%</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Peripherals Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24" data-aos="fade-up">
-                <div class="order-2 lg:order-1 space-y-8">
-                    <!-- Mice -->
-                    <div class="interactive-card p-8">
-                        <div class="flex items-center gap-3 mb-6">
-                             <div class="p-2 bg-purple-500/20 rounded-lg text-purple-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                            <h3 class="text-2xl font-bold text-white">Mice & Pads</h3>
+            <!-- Main Grid (Bento Box Style) -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                
+                <!-- 1. Main PC (Span 8) -->
+                <div class="md:col-span-8 group relative rounded-3xl overflow-hidden border border-white/5 bg-[#121214]/50 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-500" data-aos="fade-up">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10"></div>
+                    <img src="images/setup/setup1.png" onerror="this.src='https://placehold.co/1920x1080/121214/FFFFFF?text=Battlestation'" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700">
+                    
+                    <div class="relative z-20 p-8 h-full flex flex-col justify-end min-h-[400px]">
+                        <div class="mb-auto">
+                            <span class="px-3 py-1 rounded-lg bg-white/10 backdrop-blur-md text-xs font-bold text-white border border-white/10">MAIN RIG</span>
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="text-sm font-bold text-purple-400 font-mono mb-3 tracking-wider">MICE</h4>
-                                <ul class="space-y-2 text-slate-300">
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span> Zowie ZA13-C</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span> Razer Viper V2 Pro</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span> Scyrox V8</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span> Lamzu Inca</li>
-                                </ul>
+                        
+                        <h2 class="text-3xl font-bold text-white mb-6">The Workstation</h2>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                            <div class="bg-black/40 backdrop-blur-md p-3 rounded-xl border border-white/5">
+                                <div class="text-blue-400 text-xs font-bold mb-1">CPU</div>
+                                <div class="text-white font-medium">i7 12700KF</div>
                             </div>
-                            <div>
-                                <h4 class="text-sm font-bold text-purple-400 font-mono mb-3 tracking-wider">PADS</h4>
-                                <ul class="space-y-2 text-slate-300">
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span> Skypad 3.0 XL (Glass)</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span> InfinityMice Speed V2</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span> Puretrak P-51 Mustang</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span> Padsmith Crucible V2</li>
-                                </ul>
+                            <div class="bg-black/40 backdrop-blur-md p-3 rounded-xl border border-white/5">
+                                <div class="text-blue-400 text-xs font-bold mb-1">GPU</div>
+                                <div class="text-white font-medium">RX 6800 OC</div>
+                            </div>
+                            <div class="bg-black/40 backdrop-blur-md p-3 rounded-xl border border-white/5">
+                                <div class="text-blue-400 text-xs font-bold mb-1">RAM</div>
+                                <div class="text-white font-medium">32GB 3600</div>
+                            </div>
+                            <div class="bg-black/40 backdrop-blur-md p-3 rounded-xl border border-white/5">
+                                <div class="text-blue-400 text-xs font-bold mb-1">CASE</div>
+                                <div class="text-white font-medium">Lian Li A3</div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Keyboards -->
-                    <div class="interactive-card p-8">
-                        <div class="flex items-center gap-3 mb-6">
-                             <div class="p-2 bg-purple-500/20 rounded-lg text-purple-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2" ry="2" /><path d="M17 2v4M7 2v4M2 12h20" /></svg></div>
-                            <h3 class="text-2xl font-bold text-white">Keyboards</h3>
+                <!-- 2. Detailed Specs List (Span 4) -->
+                <div class="md:col-span-4 rounded-3xl border border-white/5 bg-[#121214]/80 backdrop-blur-md p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                        Component List
+                    </h3>
+                    <div class="space-y-3 overflow-y-auto pr-2 custom-scrollbar flex-1">
+                        <div class="flex justify-between items-center py-2 border-b border-white/5">
+                            <span class="text-gray-500 text-xs uppercase font-bold">Cooler</span>
+                            <span class="text-gray-300 text-sm text-right">Arctic Freezer II 240</span>
                         </div>
-                         <ul class="space-y-4 text-slate-300">
-                            <li class="bg-white/5 p-3 rounded-lg">
-                                <div class="font-bold text-white">ENVKB 65m</div>
-                                <div class="text-sm text-purple-300">Kang White V2 Switches · Alfei WOB Keycaps</div>
-                            </li>
-                            <li class="bg-white/5 p-3 rounded-lg">
-                                <div class="font-bold text-white">"BumAss Sayo"</div>
-                                <div class="text-sm text-purple-300">Wuque Studio Flux HE · Tofu60 Case</div>
-                            </li>
-                            <li class="bg-white/5 p-3 rounded-lg">
-                                <div class="font-bold text-white">Everglide SU75 Pro</div>
-                                <div class="text-sm text-purple-300">Everglide Skyline Switches</div>
-                            </li>
-                        </ul>
+                        <div class="flex justify-between items-center py-2 border-b border-white/5">
+                            <span class="text-gray-500 text-xs uppercase font-bold">Mobo</span>
+                            <span class="text-gray-300 text-sm text-right">ASRock B660M Pro RS</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/5">
+                            <span class="text-gray-500 text-xs uppercase font-bold">PSU</span>
+                            <span class="text-gray-300 text-sm text-right">Corsair RM750x</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/5">
+                            <span class="text-gray-500 text-xs uppercase font-bold">NVMe</span>
+                            <span class="text-gray-300 text-sm text-right">1TB WD SN570</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/5">
+                            <span class="text-gray-500 text-xs uppercase font-bold">SSD</span>
+                            <span class="text-gray-300 text-sm text-right">960GB Lexar NQ</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/5">
+                            <span class="text-gray-500 text-xs uppercase font-bold">HDD</span>
+                            <span class="text-gray-300 text-sm text-right">4TB Archive</span>
+                        </div>
                     </div>
                 </div>
-                <div class="order-1 lg:order-2 relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                     <img src="images/setup/XM2@2x.png" onerror="this.src='https://placehold.co/1920x1080/111/FFF?text=Peripherals'" class="w-full h-full object-cover opacity-90">
-                </div>
-            </div>
 
-            <!-- Audio Section -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24" data-aos="fade-up">
-                 <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                    <img src="images/setup/section4.jpg" onerror="this.src='https://placehold.co/1920x1080/111/FFF?text=Audio'" class="w-full h-full object-cover opacity-90">
-                </div>
-                <div class="interactive-card p-8">
-                    <div class="flex items-center gap-3 mb-8">
-                         <div class="p-2 bg-cyan-500/20 rounded-lg text-cyan-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><path d="M12 19v4" /><path d="M8 23h8" /></svg></div>
-                        <h3 class="text-3xl font-bold text-white">Audio</h3>
+                <!-- 3. Peripherals (Span 6) -->
+                <div class="md:col-span-6 rounded-3xl border border-white/5 bg-[#121214]/60 backdrop-blur-md p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2 bg-blue-500/10 rounded-lg text-blue-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Input Devices</h3>
                     </div>
                     
-                    <div class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                         <div>
-                            <h4 class="text-sm font-bold text-cyan-400 font-mono mb-2">HEADPHONES</h4>
-                            <p class="text-slate-300">Sony MDR-MV1, Apple AirPods Pro 3rd Gen, Sennheiser HD 580, Ziigaat Odyssey</p>
+                            <h4 class="text-xs font-bold text-gray-500 uppercase mb-3 tracking-wider">Mice Rotation</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2 text-gray-300 text-sm group cursor-default">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:scale-150 transition-transform"></span>
+                                    Zowie ZA13-C
+                                </li>
+                                <li class="flex items-center gap-2 text-gray-300 text-sm group cursor-default">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-500 transition-colors"></span>
+                                    Razer Viper V2 Pro
+                                </li>
+                                <li class="flex items-center gap-2 text-gray-300 text-sm group cursor-default">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-500 transition-colors"></span>
+                                    Scyrox V8
+                                </li>
+                                <li class="flex items-center gap-2 text-gray-300 text-sm group cursor-default">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-500 transition-colors"></span>
+                                    Lamzu Inca
+                                </li>
+                            </ul>
                         </div>
                         <div>
-                            <h4 class="text-sm font-bold text-cyan-400 font-mono mb-2">SPEAKERS & AMPS</h4>
-                            <p class="text-slate-300">Kali Audio LP-8 v2, Tannoy TS2.10 Sub, Topping DX5 II, Arturia Minifuse 1</p>
-                        </div>
-                         <div class="p-4 bg-cyan-500/10 border border-cyan-500/20 rounded-lg">
-                            <h4 class="text-sm font-bold text-cyan-400 font-mono mb-1">MICROPHONE</h4>
-                            <p class="text-white font-bold">SE Electronics V7</p>
-                            <p class="text-xs text-slate-400 mt-1">Dynamic stage mic tuned for crisp streams and clean Discord calls.</p>
+                            <h4 class="text-xs font-bold text-gray-500 uppercase mb-3 tracking-wider">Surfaces</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2 text-gray-300 text-sm group cursor-default">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:scale-150 transition-transform"></span>
+                                    Skypad 3.0 XL
+                                </li>
+                                <li class="flex items-center gap-2 text-gray-300 text-sm group cursor-default">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-500 transition-colors"></span>
+                                    InfinityMice Speed V2
+                                </li>
+                                <li class="flex items-center gap-2 text-gray-300 text-sm group cursor-default">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-500 transition-colors"></span>
+                                    Padsmith Crucible V2
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-             <!-- Portables -->
-             <div class="interactive-card p-8" data-aos="fade-up">
-                <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                    <span class="text-emerald-400">///</span> Portables & Lab
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="text-xl font-bold text-white mb-2">Laptop</h4>
-                        <p class="text-emerald-400 font-mono text-sm mb-1">2023 MacBook Pro 14"</p>
-                        <p class="text-slate-300 text-sm">Apple M2 Pro 10c · 16GB RAM · 14.2" Mini-LED IPS (1600 nits)</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-bold text-white mb-2">Server</h4>
-                        <p class="text-emerald-400 font-mono text-sm mb-1">Dell Optiplex 3040</p>
-                        <p class="text-slate-300 text-sm">Intel Core i5-6600 · 16GB DDR3L · 240GB SSD + 2TB HDD</p>
-                    </div>
-                </div>
-             </div>
 
+                <!-- 4. Keyboards (Span 6) -->
+                <div class="md:col-span-6 rounded-3xl border border-white/5 bg-[#121214]/60 backdrop-blur-md p-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2 bg-indigo-500/10 rounded-lg text-indigo-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2" ry="2" /><path d="M17 2v4M7 2v4M2 12h20" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Keebs</h3>
+                    </div>
+
+                    <div class="grid gap-4">
+                        <div class="group p-4 rounded-xl bg-white/5 border border-white/5 hover:border-indigo-500/30 transition-colors">
+                            <div class="flex justify-between items-start mb-1">
+                                <strong class="text-white font-medium">ENVKB 65m</strong>
+                                <span class="text-[10px] font-bold bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded">DAILY</span>
+                            </div>
+                            <div class="text-xs text-gray-400 font-mono">Kang White V2 // Alfei WOB</div>
+                        </div>
+                        <div class="group p-4 rounded-xl bg-white/5 border border-white/5 hover:border-indigo-500/30 transition-colors">
+                            <div class="flex justify-between items-start mb-1">
+                                <strong class="text-white font-medium">"BumAss Sayo"</strong>
+                                <span class="text-[10px] font-bold bg-gray-700/50 text-gray-400 px-2 py-0.5 rounded">GAMING</span>
+                            </div>
+                            <div class="text-xs text-gray-400 font-mono">Wuque Flux HE // Tofu60</div>
+                        </div>
+                        <div class="group p-4 rounded-xl bg-white/5 border border-white/5 hover:border-indigo-500/30 transition-colors">
+                            <div class="flex justify-between items-start mb-1">
+                                <strong class="text-white font-medium">Everglide SU75 Pro</strong>
+                            </div>
+                            <div class="text-xs text-gray-400 font-mono">Everglide Skyline</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Audio (Span 12) -->
+                <div class="md:col-span-12 rounded-3xl border border-white/5 bg-gradient-to-br from-[#121214]/80 to-[#09090b]/80 backdrop-blur-md p-8 relative overflow-hidden" data-aos="fade-up">
+                    <!-- Decorative Wave -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
+
+                    <div class="relative z-10 flex flex-col md:flex-row gap-12">
+                        <div class="md:w-1/3">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><path d="M12 19v4" /><path d="M8 23h8" /></svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Audio Chain</h3>
+                                    <p class="text-sm text-gray-500">High fidelity monitoring & capture.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/10">
+                                <div class="text-xs font-bold text-emerald-500 uppercase mb-2">Signal Path</div>
+                                <div class="flex items-center gap-2 text-sm text-gray-300 font-mono">
+                                    <span>PC</span>
+                                    <span class="text-gray-600">→</span>
+                                    <span>Topping DX5</span>
+                                    <span class="text-gray-600">→</span>
+                                    <span>Kali LP-8</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-xs font-bold text-gray-500 uppercase mb-4 border-b border-white/5 pb-2">Monitoring</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex justify-between text-sm">
+                                        <span class="text-white">Sony MDR-MV1</span>
+                                        <span class="text-gray-500 text-xs">Open Back</span>
+                                    </li>
+                                    <li class="flex justify-between text-sm">
+                                        <span class="text-white">Sennheiser HD 580</span>
+                                        <span class="text-gray-500 text-xs">Reference</span>
+                                    </li>
+                                    <li class="flex justify-between text-sm">
+                                        <span class="text-white">Kali Audio LP-8 v2</span>
+                                        <span class="text-gray-500 text-xs">Monitors</span>
+                                    </li>
+                                    <li class="flex justify-between text-sm">
+                                        <span class="text-white">Tannoy TS2.10</span>
+                                        <span class="text-gray-500 text-xs">Subwoofer</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-gray-500 uppercase mb-4 border-b border-white/5 pb-2">Interface & Input</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex justify-between text-sm">
+                                        <span class="text-white">Topping DX5 II</span>
+                                        <span class="text-gray-500 text-xs">DAC/Amp</span>
+                                    </li>
+                                    <li class="flex justify-between text-sm">
+                                        <span class="text-white">Arturia Minifuse 1</span>
+                                        <span class="text-gray-500 text-xs">Interface</span>
+                                    </li>
+                                    <li class="flex justify-between text-sm">
+                                        <span class="text-white">SE Electronics V7</span>
+                                        <span class="text-gray-500 text-xs">Mic</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Lab / Other (Span 12) -->
+                <div class="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="rounded-3xl border border-white/5 bg-[#121214]/60 backdrop-blur-md p-6 flex items-center gap-4 hover:bg-white/5 transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div>
+                            <div class="text-xs text-blue-400 font-bold uppercase">Mobile Workstation</div>
+                            <div class="text-white font-bold text-lg">MacBook Pro 14"</div>
+                            <div class="text-gray-500 text-sm">M2 Pro / 16GB / Mini-LED</div>
+                        </div>
+                    </div>
+                    <div class="rounded-3xl border border-white/5 bg-[#121214]/60 backdrop-blur-md p-6 flex items-center gap-4 hover:bg-white/5 transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                        </div>
+                        <div>
+                            <div class="text-xs text-blue-400 font-bold uppercase">Home Server</div>
+                            <div class="text-white font-bold text-lg">Dell Optiplex 3040</div>
+                            <div class="text-gray-500 text-sm">i5-6600 / 16GB / Proxmox</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
+    </main>
 
     <div id="footer-placeholder"></div>
     <script src="main.js"></script>

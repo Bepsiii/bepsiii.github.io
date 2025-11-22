@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    // 1. Load Header/Footer dynamically
+    await initApp();
+});
+
+async function initApp() {
+    // 1. Load Header/Footer
     const loadComponents = async () => {
         try {
             const headerRes = await fetch('header.html');
@@ -13,96 +17,94 @@ document.addEventListener('DOMContentLoaded', async function() {
     };
     await loadComponents();
 
-    // 2. Initialize Scroll Animations
+    // 2. Initialize Animations
     if (typeof AOS !== 'undefined') {
-        AOS.init({ duration: 800, once: true, offset: 50, easing: 'ease-out-cubic' });
+        AOS.init({ 
+            duration: 800, 
+            once: true, 
+            offset: 40,
+            easing: 'cubic-bezier(0.25, 1, 0.5, 1)'
+        });
     }
 
-    // 3. Initialize 3D Animation (Only if container exists)
-    if(document.getElementById('hero-canvas-container')) initThreeJS();
+    // 3. Initialize 3D Background
+    // if(document.getElementById('hero-canvas-container')) initThreeJS();
     
-    // 4. Initialize Card Spotlight
-    initSpotlight();
-    
-    // 5. Initialize Resource Filtering (if on resources page)
+    // 4. Resource Filter
     initResourceFilter();
-});
+}
 
 function initializeUI() {
-    // Mobile Menu Toggle
     const btn = document.getElementById('mobile-menu-button');
     const menu = document.getElementById('mobile-menu');
     if(btn && menu) {
-        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
     }
 
-    // Discord Copy to Clipboard
+    // Discord Copy
     document.body.addEventListener('click', (e) => {
         const btn = e.target.closest('[data-copy]');
         if(btn) {
             navigator.clipboard.writeText(btn.getAttribute('data-copy'));
             const tooltip = btn.querySelector('.tooltip');
             if(tooltip) {
-                tooltip.classList.remove('hidden');
-                setTimeout(() => tooltip.classList.add('hidden'), 2000);
+                tooltip.classList.remove('opacity-0');
+                setTimeout(() => tooltip.classList.add('opacity-0'), 2000);
             }
         }
     });
 }
 
-// Mouse tracking for liquid cards
-function initSpotlight() {
-    document.addEventListener('mousemove', (e) => {
-        const cards = document.querySelectorAll('.interactive-card');
-        cards.forEach(card => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        });
-    });
-}
-
-// Resource Page Filter Logic
 function initResourceFilter() {
-    const filterContainer = document.getElementById('filter-container');
-    if(!filterContainer) return;
+    const container = document.getElementById('filter-container');
+    if(!container) return;
 
-    const buttons = filterContainer.querySelectorAll('.filter-btn');
+    // Use the new class name
+    const buttons = container.querySelectorAll('.resource-filter-btn');
     const items = document.querySelectorAll('.resource-item');
 
+    console.log(`Found ${buttons.length} filter buttons and ${items.length} resource items.`);
+
     buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active from all
+        btn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default button behavior
+            
+            // Toggle active state
             buttons.forEach(b => b.classList.remove('active'));
-            // Add active to clicked
             btn.classList.add('active');
             
-            const filterValue = btn.getAttribute('data-filter');
+            const filter = btn.getAttribute('data-filter');
+            console.log(`Filtering by: ${filter}`);
 
             items.forEach(item => {
-                if(filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                const category = item.getAttribute('data-category');
+                if(filter === 'all' || category === filter) {
                     item.classList.remove('hidden');
-                    // Re-trigger AOS animation
-                    item.classList.remove('aos-animate');
-                    setTimeout(() => item.classList.add('aos-animate'), 50);
+                    // Small delay to allow display:block to apply before animating
+                    setTimeout(() => item.classList.add('aos-animate'), 10);
                 } else {
                     item.classList.add('hidden');
+                    item.classList.remove('aos-animate');
                 }
             });
+            
+            // Refresh AOS layout if needed
+            if(typeof AOS !== 'undefined') setTimeout(() => AOS.refresh(), 100);
         });
     });
 }
 
-// Three.js Wireframe Landscape
+// Three.js: Deep Sea Mesh (Slow & Calm) - DEPRECATED (Replaced by background-animation.js)
+/*
 function initThreeJS() {
     if (typeof THREE === 'undefined') return;
     
     const container = document.getElementById('hero-canvas-container');
     const scene = new THREE.Scene();
-    
-    // Camera setup
+    scene.fog = new THREE.Fog(0x09090b, 10, 60); // Matches bg-body
+
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 30;
     camera.position.y = 10;
@@ -112,65 +114,44 @@ function initThreeJS() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    // Create the Wireframe Grid
-    const geometry = new THREE.PlaneGeometry(150, 150, 40, 40);
+    // Geometry: Dense Plane
+    const geometry = new THREE.PlaneGeometry(120, 120, 50, 50);
+    
+    // Material: Wireframe with Navy Blue
     const material = new THREE.MeshBasicMaterial({ 
-        color: 0x38bdf8, // Sky Blue
+        color: 0x3b82f6, // Navy Blue
         wireframe: true, 
         transparent: true, 
-        opacity: 0.2 
+        opacity: 0.15
     });
     
     const plane = new THREE.Mesh(geometry, material);
     plane.rotation.x = -Math.PI / 2;
-    plane.position.y = -8;
+    plane.position.y = -12;
     scene.add(plane);
 
-    // Add some floating particles
-    const particlesGeo = new THREE.BufferGeometry();
-    const particlesCount = 400;
-    const posArray = new Float32Array(particlesCount * 3);
-    
-    for(let i = 0; i < particlesCount * 3; i++) {
-        posArray[i] = (Math.random() - 0.5) * 100;
-    }
-    particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    const particlesMat = new THREE.PointsMaterial({
-        size: 0.15,
-        color: 0xa855f7, // Purple
-        transparent: true,
-        opacity: 0.8
-    });
-    const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
-    scene.add(particlesMesh);
-
     let time = 0;
-    
     const animate = () => {
         requestAnimationFrame(animate);
-        time += 0.003;
+        time += 0.002; // Very slow movement
         
-        // Animate Grid Waves
         const positions = plane.geometry.attributes.position.array;
         for(let i=0; i<positions.length; i+=3) {
             const x = positions[i];
             const y = positions[i+1];
-            // Z is Up/Down in Plane geometry after rotation
-            positions[i+2] = Math.sin(x/8 + time) * 2 + Math.cos(y/8 + time) * 2;
+            // Gentle rolling hills
+            positions[i+2] = Math.sin(x/15 + time) * 3 + Math.cos(y/15 + time) * 3;
         }
         plane.geometry.attributes.position.needsUpdate = true;
-
-        // Rotate Particles
-        particlesMesh.rotation.y = time * 0.05;
-
+        
         renderer.render(scene, camera);
     };
     animate();
 
-    // Handle Resize
     window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
 }
+*/
