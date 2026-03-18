@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Main Pages -->
+    <url>
+        <loc>https://bepsi.dev/</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://bepsi.dev/about</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bepsi.dev/contact</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bepsi.dev/setup</loc>
+        <lastmod>2026-03-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Hub Pages -->
+    <url>
+        <loc>https://bepsi.dev/reviews</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://bepsi.dev/articles</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://bepsi.dev/bottleneck</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bepsi.dev/resources1</loc>
+        <lastmod>2025-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Review Pages -->
+    <url>
+        <loc>https://bepsi.dev/7hzsonus-review</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://bepsi.dev/beanmouse-review</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://bepsi.dev/geekoma5pro-review</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://bepsi.dev/spacetravel-review</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Custom Works Pages -->
+    <url>
+        <loc>https://bepsi.dev/ascentcustoms</loc>
+        <lastmod>2025-12-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+</urlset>

@@ -157,11 +157,15 @@ input, textarea, select {
     padding: 1rem;
     color: white;
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 input:focus, textarea:focus, select:focus {
     border-color: var(--accent-navy);
     background-color: var(--bg-card-hover);
+}
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 2px solid var(--accent-navy);
+    outline-offset: 2px;
 }
 
 /* --- Utilities --- */

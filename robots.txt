@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Exclude component logic files from search results
+Disallow: /header.html
+Disallow: /footer.html
+Disallow: /template.html
+Disallow: /404.html
+
+# Provide the sitemap location to web crawlers
+Sitemap: https://bepsi.dev/sitemap.xml

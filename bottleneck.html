@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Answer the questions below to determine if your system has a bottleneck.">
+    <meta name="author" content="Bepsi">
+    <meta property="og:title" content="Bottleneck Calculator - Bepsi">
+    <meta property="og:description" content="Answer the questions below to determine if your system has a bottleneck.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://placehold.co/1200x630/18181b/FFFFFF?text=Bottleneck+Calculator">
     <title>Bottleneck Calculator - Bepsi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -24,36 +30,36 @@
                 <form id="bottleneck-form" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">CPU Model</label>
-                            <input type="text" class="w-full" placeholder="e.g., Intel i7-12700K">
+                            <label for="cpu-model" class="block text-xs font-bold text-gray-500 mb-2 uppercase">CPU Model</label>
+                            <input type="text" id="cpu-model" class="w-full" placeholder="e.g., Intel i7-12700K">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">GPU Model</label>
-                            <input type="text" class="w-full" placeholder="e.g., RTX 4070">
+                            <label for="gpu-model" class="block text-xs font-bold text-gray-500 mb-2 uppercase">GPU Model</label>
+                            <input type="text" id="gpu-model" class="w-full" placeholder="e.g., RTX 4070">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">RAM (GB)</label>
-                            <input type="number" class="w-full" placeholder="16">
+                            <label for="ram-capacity" class="block text-xs font-bold text-gray-500 mb-2 uppercase">RAM (GB)</label>
+                            <input type="number" id="ram-capacity" class="w-full" placeholder="16">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">Storage Type</label>
-                            <select class="w-full">
+                            <label for="storage-type" class="block text-xs font-bold text-gray-500 mb-2 uppercase">Storage Type</label>
+                            <select id="storage-type" class="w-full">
                                 <option>HDD</option>
                                 <option>SSD</option>
                                 <option>NVMe SSD</option>
                             </select>
                         </div>
                          <div>
-                            <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">Monitor Resolution</label>
-                            <select class="w-full">
+                            <label for="monitor-resolution" class="block text-xs font-bold text-gray-500 mb-2 uppercase">Monitor Resolution</label>
+                            <select id="monitor-resolution" class="w-full">
                                 <option>1080p</option>
                                 <option>1440p</option>
                                 <option>4K</option>
                             </select>
                         </div>
                          <div>
-                            <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">Target Games</label>
-                            <input type="text" class="w-full" placeholder="e.g. Cyberpunk 2077, CS2">
+                            <label for="target-games" class="block text-xs font-bold text-gray-500 mb-2 uppercase">Target Games</label>
+                            <input type="text" id="target-games" class="w-full" placeholder="e.g. Cyberpunk 2077, CS2">
                         </div>
                     </div>
                     <button type="submit" class="btn-navy w-full justify-center py-4 text-lg">Calculate</button>
@@ -79,7 +85,65 @@
     <script>
         document.getElementById('bottleneck-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            document.getElementById('result').classList.remove('hidden');
+            
+            const cpu = document.getElementById('cpu-model').value.toLowerCase();
+            const gpu = document.getElementById('gpu-model').value.toLowerCase();
+            const ram = parseInt(document.getElementById('ram-capacity').value) || 0;
+            const storage = document.getElementById('storage-type').value;
+            const resolution = document.getElementById('monitor-resolution').value;
+            
+            let isSevere = false;
+            let advice = [];
+            
+            // Basic checks for severe bottlenecks
+            if (ram > 0 && ram < 16) {
+                isSevere = true;
+                advice.push("Having less than 16GB of RAM can cause severe stuttering in modern games. Consider upgrading your RAM.");
+            }
+            if (storage === 'HDD') {
+                isSevere = true;
+                advice.push("Using an HDD for modern games leads to very long load times and potential texture streaming issues. An SSD is highly recommended.");
+            }
+            if (cpu && gpu) {
+                // Extremely basic mismatch logic
+                const isLowEndCpu = cpu.match(/i3|ryzen 3|pentium|celeron/);
+                const isHighEndGpu = gpu.match(/rtx (3080|3090|4070|4080|4090)|rx (6800|6900|7800|7900)/);
+                
+                if (isLowEndCpu && isHighEndGpu && resolution === '1080p') {
+                    isSevere = true;
+                    advice.push("Pairing an entry-level CPU with a high-end GPU at 1080p will likely result in a severe CPU bottleneck. Your GPU won't be fully utilized.");
+                }
+            }
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.classList.remove('hidden');
+            
+            if (isSevere) {
+                resultDiv.className = 'mt-8 soft-card p-10 border-l-4 border-red-500';
+                resultDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="inline-block p-4 bg-red-500/10 rounded-full text-red-500 mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white mb-4">Significant Bottleneck Detected</h2>
+                    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-4">Based on your input, we found some potential issues:</p>
+                    <ul class="text-red-400 text-left list-disc list-inside max-w-xl mx-auto space-y-2">
+                        ${advice.map(msg => `<li>${msg}</li>`).join('')}
+                    </ul>
+                </div>`;
+            } else {
+                resultDiv.className = 'mt-8 soft-card p-10 border-l-4 border-green-500';
+                resultDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="inline-block p-4 bg-green-500/10 rounded-full text-green-500 mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white mb-4">Good News!</h2>
+                    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                        You shouldn't worry about severe bottlenecks. Just enjoy your PC! Modern components are generally well-balanced, and performance is influenced by a wide range of factors including game optimization, driver versions, and background processes.
+                    </p>
+                </div>`;
+            }
         });
     </script>
 </body>
