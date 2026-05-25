@@ -1,30 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-    /* Palette: Matte Void & Navy */
-    --bg-body: #09090b;       /* Zinc 950 - Solid */
-    --bg-card: #121214;       /* Slightly lighter solid for cards */
-    --bg-card-hover: #18181b;
+    /* Palette: Deep Void & Electric Blue/Indigo */
+    --bg-body: #030303;       /* Deeper void black for rich contrast */
+    --bg-card: rgba(10, 10, 12, 0.45); 
+    --bg-card-hover: rgba(14, 14, 18, 0.7);
     
-    /* Navy Accents */
-    --accent-navy: #3b82f6;   /* Blue 500 */
-    --accent-navy-dark: #1d4ed8;
-    --accent-text: #60a5fa;
+    /* Cyber/Neon Highlights */
+    --accent-navy: #3b82f6;      /* Blue 500 */
+    --accent-navy-dark: #1d4ed8; /* Blue 700 */
+    --accent-cyan: #06b6d4;      /* Cyan 500 */
+    --accent-violet: #6366f1;    /* Indigo 500 */
+    --accent-text: #60a5fa;      /* Blue 400 */
     
-    /* Text */
-    --text-main: #f4f4f5;
-    --text-muted: #a1a1aa;
+    /* Text Specs */
+    --text-main: #f4f4f5;        /* Zinc 100 */
+    --text-muted: #a1a1aa;       /* Zinc 400 */
+    --text-dark: #71717a;        /* Zinc 500 */
     
-    /* UI */
-    --border-subtle: #27272a; /* Zinc 800 */
+    /* Borders & Rounding */
+    --border-subtle: rgba(255, 255, 255, 0.05); /* Soft white */
+    --border-hover: rgba(255, 255, 255, 0.15);
     --radius-lg: 16px;
     --radius-xl: 24px;
     
     --font-main: 'Plus Jakarta Sans', sans-serif;
+    --font-headings: 'Space Grotesk', var(--font-main);
 }
 
 /* --- Base Reset --- */
-* { box-sizing: border-box; }
+* { 
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) var(--bg-body);
+}
 
 body {
     background-color: var(--bg-body);
@@ -33,141 +48,328 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accessibility */
+:focus-visible {
+    outline: 2px solid var(--accent-navy);
+    outline-offset: 4px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-body);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.16);
 }
 
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: white;
 }
 
-a { color: inherit; text-decoration: none; transition: 0.2s; }
+a { 
+    color: inherit; 
+    text-decoration: none; 
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+}
 
-/* --- Scanlines (Very Subtle Texture) --- */
+/* --- Background Grid & Glows --- */
+.bg-grid-pattern {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 100%);
+    opacity: 0.95;
+}
+
+.glow-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    -webkit-filter: blur(120px);
+    pointer-events: none;
+    opacity: 0.1;
+    z-index: 0;
+    mix-blend-mode: screen;
+    animation: blob-float 20s infinite alternate ease-in-out;
+}
+
+@keyframes blob-float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -60px) scale(1.1); }
+}
+
+/* --- Scanlines (Very Subtle Aesthetic Texture) --- */
 .scanlines {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.02) 50%, rgba(0,0,0,0.02));
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0.08));
     background-size: 100% 4px;
     z-index: 9999;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
-/* --- The "Soft Card" --- */
+/* --- The Premium Glass Card with Dynamic Float Parallax --- */
 .soft-card {
-    background-color: var(--bg-card);
+    background: var(--bg-card);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     padding: 2rem;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                background 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
     position: relative;
-    z-index: 1;
+    z-index: 10;
+    overflow: hidden;
 }
 
 .soft-card:hover {
-    background-color: var(--bg-card-hover);
-    border-color: #3f3f46;
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-6px) scale(1.005);
+    /* Dynamic drop-shadow casting away from cursor, plus a static glow */
+    box-shadow: var(--shadow-x, 0px) var(--shadow-y, 25px) 60px -15px rgba(0, 0, 0, 0.85),
+                0 0 40px -5px rgba(59, 130, 246, 0.15);
 }
 
-/* --- Buttons --- */
+/* Radial Hover Glowing Border Spotlight */
+.glow-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px; /* Border thickness */
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.22) 0%,
+        rgba(59, 130, 246, 0.15) 40%,
+        transparent 80%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.glow-card:hover::before {
+    opacity: 1;
+}
+
+/* Custom 2D Parallax Content Float */
+.float-card {
+    will-change: transform;
+}
+
+.float-content {
+    /* Driven dynamically by JS variables for smooth organic floating */
+    transform: translate(var(--parallax-x, 0px), var(--parallax-y, 0px));
+    transition: transform 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+}
+
+.float-card:not(:hover) .float-content {
+    transform: translate(0px, 0px);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Premium Buttons --- */
 .btn-navy {
-    background-color: var(--accent-navy);
+    position: relative;
+    background: linear-gradient(135deg, var(--accent-navy) 0%, var(--accent-navy-dark) 100%);
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.75rem;
     border-radius: 999px;
     font-weight: 600;
     font-size: 0.9rem;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+    z-index: 10;
+}
+
+.btn-navy::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
 }
 
 .btn-navy:hover {
-    background-color: var(--accent-navy-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.45);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.btn-navy:hover::after {
+    transform: translateX(100%);
 }
 
 .btn-outline {
-    background: transparent;
-    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: var(--text-main);
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.75rem;
     border-radius: 999px;
     font-weight: 600;
     font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10;
 }
 
 .btn-outline:hover {
-    border-color: var(--text-muted);
-    background-color: rgba(255,255,255,0.03);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* --- Navigation --- */
-/* Glassmorphism handled in HTML via Tailwind */
-
-/* --- Filters (Resources) --- */
+/* --- Filter controls (Library) --- */
 .filter-btn {
     padding: 0.5rem 1.25rem;
     border-radius: 999px;
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-muted);
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     cursor: pointer;
-    transition: all 0.2s;
-}
-.filter-btn:hover {
-    color: white;
-    border-color: var(--text-muted);
-}
-.filter-btn.active {
-    background-color: var(--accent-navy);
-    color: white;
-    border-color: var(--accent-navy);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- Three.js Container --- */
+.filter-btn:hover {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--accent-navy) 0%, var(--accent-navy-dark) 100%);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
+}
+
+/* --- Three.js Canvas Styling --- */
 #hero-canvas-container {
     position: absolute;
     inset: 0;
     z-index: 0;
-    opacity: 0.3; /* Subtle background motion */
+    opacity: 0.45; /* Rich canvas visualization */
     pointer-events: none;
 }
 
-/* --- Form Elements --- */
+/* --- Form Fields & Focus Glows --- */
 input, textarea, select {
     width: 100%;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
     border-radius: 12px;
     padding: 1rem;
     color: white;
     outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
+
 input:focus, textarea:focus, select:focus {
-    border-color: var(--accent-navy);
-    background-color: var(--bg-card-hover);
+    border-color: var(--accent-navy) !important;
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15) !important;
 }
-input:focus-visible, textarea:focus-visible, select:focus-visible {
-    outline: 2px solid var(--accent-navy);
-    outline-offset: 2px;
+
+/* --- Text Gradient Clipping Utility --- */
+.text-gradient {
+    background: linear-gradient(135deg, #ffffff 10%, #a1a1aa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan-indigo {
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-navy) 50%, var(--accent-violet) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* --- Utilities --- */
 .resource-item.hidden { display: none; }
 .text-navy { color: var(--accent-navy); }
+
+/* --- Mobile / Touchscreen Adjustments & Responsive scaling --- */
+@media (max-width: 768px) {
+    .soft-card {
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 2.75rem !important;
+        line-height: 1.1 !important;
+    }
+    h2 {
+        font-size: 2rem !important;
+    }
+    .btn-navy, .btn-outline {
+        width: 100%;
+        padding: 0.85rem 1.5rem;
+    }
+}
+
+/* Disable Hover effects on touchscreen systems */
+@media (hover: none) {
+    .soft-card:hover, .float-card:hover {
+        transform: none !important;
+        box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5) !important;
+        background: var(--bg-card) !important;
+        border-color: var(--border-subtle) !important;
+    }
+    .btn-navy:hover, .btn-outline:hover {
+        transform: none !important;
+        box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2) !important;
+    }
+    .glow-card::before {
+        display: none !important; /* Hide glowing border light tracking mouse */
+    }
+    .float-content {
+        transform: none !important;
+    }
+}

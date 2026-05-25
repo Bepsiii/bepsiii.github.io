@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>404 Not Found | Bepsi</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
     <link rel="stylesheet" href="/style.css">
 </head>
-<body class="transition-colors duration-500 bg-stone-950 text-gray-300">
+<body class="selection:bg-blue-500 selection:text-white">
+    <div class="scanlines"></div>
+    
+    <!-- Background Layer System -->
+    <div class="bg-grid-pattern"></div>
+    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
+    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
+    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
 
     <div id="header-placeholder"></div>
 
-    <main class="relative z-20 pt-40 pb-20 min-h-[70vh] flex flex-col justify-center items-center text-center">
+    <main class="relative z-10 pt-40 pb-20 min-h-[70vh] flex flex-col justify-center items-center text-center">
         <div class="container mx-auto px-6" data-aos="fade-up">
-            <h1 class="text-7xl font-bold text-blue-400 mb-6 font-mono">
-                Error 404
+            <h1 class="text-7xl md:text-8xl font-extrabold text-blue-400 mb-6 font-mono leading-none tracking-tight">
+                Error <span class="text-gradient-cyan-indigo">404</span>
             </h1>
-            <h2 class="text-3xl font-bold text-white mb-4">Dead Socket.</h2>
-            <div class="max-w-xl mx-auto text-lg space-y-6 text-gray-400 mb-10">
+            <h2 class="text-3xl font-extrabold text-white mb-4">Dead Socket.</h2>
+            <div class="max-w-xl mx-auto text-lg text-gray-400 mb-10 leading-relaxed font-medium">
                 <p>
                     Looks like the page you are trying to visit has been unplugged or doesn't exist. Let's redirect that bandwidth back to safety.
                 </p>
             </div>
-            <a href="/" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg outline-none transition-colors border border-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.6)]">
+            <a href="/" class="btn-navy py-3 px-8 text-base">
                 Return Home
             </a>
         </div>
@@ -43,16 +46,17 @@
             const initPage = () => {
                 if (typeof AOS !== 'undefined') {
                     AOS.init({
-                        duration: 800,
+                        duration: 900,
                         once: true,
-                        offset: 50,
+                        offset: 40,
+                        easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
                     });
                 }
             };
 
             const loadComponents = async () => {
                 try {
-                    // Use absolute paths for 404 since it might be triggered from any subdirectory like /reviews/something/that/does/not/exist
+                    // Use absolute paths for 404 since it might be triggered from any subdirectory like /reviews/something
                     const [headerResponse, footerResponse] = await Promise.all([
                         fetch('/header.html'),
                         fetch('/footer.html')
@@ -67,9 +71,11 @@
                     document.getElementById('header-placeholder').innerHTML = headerData;
                     document.getElementById('footer-placeholder').innerHTML = footerData;
 
-                    if (typeof initializeFeatures === 'function') {
-                        initializeFeatures();
-                    }
+                    // Initialize main features once components are in DOM
+                    if (typeof initializeUI === 'function') initializeUI();
+                    if (typeof initNavbarScroll === 'function') initNavbarScroll();
+                    if (typeof initGlowCards === 'function') initGlowCards();
+                    if (typeof initFloatCards === 'function') initFloatCards();
 
                     initPage();
                 } catch (error) {
@@ -78,10 +84,8 @@
                 }
             };
 
-            initPage();
             loadComponents();
         });
     </script>
-
 </body>
 </html>

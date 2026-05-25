@@ -22,25 +22,31 @@
     <div class="scanlines"></div>
     <div id="header-placeholder"></div>
 
-    <main>
+    <!-- Background Layer System -->
+    <div class="bg-grid-pattern"></div>
+    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
+    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
+    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
+
+    <main class="relative z-10">
         <!-- HERO SECTION -->
         <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-            <!-- Three.js Background -->
+            <!-- Three.js Backdrop Canvas -->
             <div id="hero-canvas-container" class="absolute inset-0 z-0"></div>
             
             <div class="container relative mx-auto px-6 z-10 text-center">
-                <div class="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20" data-aos="fade-down">
-                    <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
-                    <span class="text-xs font-semibold tracking-wide uppercase">System Online</span>
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 backdrop-blur-md" data-aos="fade-down">
+                    <span class="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></span>
+                    <span class="text-[10px] font-bold tracking-widest uppercase">System Active</span>
                 </div>
 
-                <h1 class="text-6xl md:text-8xl font-bold mb-6 tracking-tight text-white" data-aos="fade-up">
+                <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight text-white leading-none" data-aos="fade-up">
                     Exploring Tech <br />
-                    <span class="text-gray-500">&amp; Design</span>
+                    <span class="text-gradient-cyan-indigo">&amp; Design</span>
                 </h1>
 
-                <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 font-medium" data-aos="fade-up" data-aos-delay="100">
-                    Welcome to my digital workspace. I'm <span class="text-white">Bepsi</span>, and this is where I archive my projects, resources, and hardware obsession.
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                    Welcome to my digital workspace. I'm <span class="text-white font-semibold">Bepsi</span>, and this is where I archive my projects, resources, and hardware obsession.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="200">
@@ -55,51 +61,84 @@
         </section>
 
         <!-- PROJECTS SECTION -->
-        <section id="projects" class="py-24 relative">
+        <section id="projects" class="py-28 relative">
             <div class="container mx-auto px-6">
-                <div class="flex justify-between items-end mb-12">
+                <div class="flex justify-between items-end mb-16" data-aos="fade-up">
                     <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Featured Works</h2>
-                        <p class="text-gray-500">A selection of projects and resources.</p>
+                        <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-1 block">Selections</span>
+                        <h2 class="text-4xl font-extrabold text-white tracking-tight">Featured Works</h2>
+                        <p class="text-gray-400 text-sm mt-1">A selection of projects and resources.</p>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Project 1 -->
-                    <a href="ascentcustoms.html" class="soft-card group p-0 overflow-hidden h-[450px]" data-aos="fade-up">
-                        <div class="relative h-full w-full">
-                            <img src="images/slide1.jpg" onerror="this.src='https://placehold.co/800x600/18181b/FFF?text=Ascent'" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent p-8 flex flex-col justify-end">
-                                <span class="text-blue-400 text-xs font-bold uppercase tracking-wider mb-1">Featured Project</span>
-                                <h3 class="text-3xl font-bold text-white mb-1">AscentCustoms</h3>
-                                <p class="text-gray-300 text-sm">Next Gen 3D Printed Mice</p>
+                <!-- 3-Column Mathematically Nested Bento Grid (500px High-Height Alignment) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1: AscentCustoms (Span 2x2) -->
+                    <a href="ascentcustoms.html" class="soft-card glow-card float-card group p-0 overflow-hidden md:col-span-2 md:row-span-2 h-[500px]" data-aos="fade-up">
+                        <div class="float-content relative h-full w-full">
+                            <img src="images/slide1.jpg" onerror="this.src='https://placehold.co/800x600/18181b/FFF?text=Ascent'" alt="AscentCustoms" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-75 group-hover:opacity-100">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent p-8 flex flex-col justify-end">
+                                <span class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-1.5">Featured Project</span>
+                                <h3 class="text-3xl font-extrabold text-white mb-1.5">AscentCustoms</h3>
+                                <p class="text-gray-300 text-sm">Next Gen 3D Printed Gaming Mice</p>
                             </div>
                         </div>
                     </a>
 
-                    <div class="grid grid-rows-2 gap-6">
-                         <a href="setup.html" class="soft-card group p-8 justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Card 2: My Setup (Span 1x1, Height 236px) -->
+                    <a href="setup.html" class="soft-card glow-card float-card p-6 justify-between group md:col-span-1 h-[236px]" data-aos="fade-up" data-aos-delay="100">
+                        <div class="float-content flex flex-col h-full justify-between">
                             <div>
-                                <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 mb-4">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                <div class="w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl flex items-center justify-center text-indigo-400 mb-4 shadow-lg shadow-indigo-500/5 group-hover:scale-105 transition-transform duration-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                                 </div>
-                                <h3 class="text-2xl font-bold text-white">My Setup</h3>
-                                <p class="text-gray-500 mt-2">Detailed breakdown of my battlestation and audio gear.</p>
+                                <h3 class="text-xl font-bold text-white tracking-tight">My Setup</h3>
+                                <p class="text-gray-400 text-xs mt-1.5 leading-relaxed">Detailed breakdown of my gaming battlestation and reference audio gear.</p>
                             </div>
-                            <div class="flex items-center text-sm font-bold text-white">View Specs <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></div>
-                        </a>
+                            <div class="flex items-center text-xs font-bold text-white gap-1 mt-4 group-hover:text-blue-400 transition-colors">
+                                View Specs <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </div>
+                        </div>
+                    </a>
 
-                        <a href="resources1.html" class="soft-card group p-8 justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Card 3: Resource Library (Span 1x1, Height 236px) -->
+                    <a href="resources1.html" class="soft-card glow-card float-card p-6 justify-between group md:col-span-1 h-[236px]" data-aos="fade-up" data-aos-delay="200">
+                        <div class="float-content flex flex-col h-full justify-between">
                             <div>
-                                <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 mb-4">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                                <div class="w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-400 mb-4 shadow-lg shadow-emerald-500/5 group-hover:scale-105 transition-transform duration-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                                 </div>
-                                <h3 class="text-2xl font-bold text-white">Resource Library</h3>
-                                <p class="text-gray-500 mt-2">Curated spreadsheets, tools, and community data.</p>
+                                <h3 class="text-xl font-bold text-white tracking-tight">Resource Library</h3>
+                                <p class="text-gray-400 text-xs mt-1.5 leading-relaxed">Curated spreadsheets, benchmarking tools, and public datasets.</p>
                             </div>
-                            <div class="flex items-center text-sm font-bold text-white">Browse Library <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></div>
-                        </a>
-                    </div>
+                            <div class="flex items-center text-xs font-bold text-white gap-1 mt-4 group-hover:text-blue-400 transition-colors">
+                                Browse Library <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Card 4: Reviews Hub (Span 3x1 Asymmetric Row Base) -->
+                    <a href="reviews.html" class="soft-card glow-card float-card p-8 group md:col-span-3 min-h-[180px] justify-between relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                        <div class="float-content flex flex-col md:flex-row justify-between items-center gap-8 h-full w-full relative z-10">
+                            <div class="max-w-xl text-left">
+                                <div class="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center text-blue-400 mb-4 shadow-lg shadow-blue-500/5 group-hover:scale-105 transition-transform duration-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.907c.961 0 1.36 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.77-.57-.372-1.81.587-1.81h4.907a1 1 0 00.95-.69l1.519-4.674z"></path></svg>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white tracking-tight">Hardware Evaluations</h3>
+                                <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                    Unbiased, in-depth breakdowns of premium IEMs, mini PCs, custom mouse shell mods, and surface performance metrics.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 justify-center md:justify-end max-w-sm">
+                                <span class="px-3.5 py-1.5 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[10px] text-gray-400 font-bold uppercase tracking-widest">Moondrop Space Travel</span>
+                                <span class="px-3.5 py-1.5 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[10px] text-gray-400 font-bold uppercase tracking-widest">7Hz Sonus</span>
+                                <span class="px-3.5 py-1.5 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[10px] text-gray-400 font-bold uppercase tracking-widest">GEEKOM A5 Pro</span>
+                                <span class="px-3.5 py-1.5 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[10px] text-gray-400 font-bold uppercase tracking-widest">ZA13 Mod</span>
+                            </div>
+                        </div>
+                    </a>
+
                 </div>
             </div>
         </section>

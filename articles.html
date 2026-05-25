@@ -16,28 +16,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="selection:bg-blue-500 selection:text-white">
+    <div class="scanlines"></div>
+    
+    <!-- Background Layer System -->
+    <div class="bg-grid-pattern"></div>
+    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
+    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
+    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
+
     <div id="header-placeholder"></div>
 
-    <div class="relative z-20 pt-32 pb-20">
+    <main class="relative z-10 pt-32 pb-24">
         <div class="container mx-auto px-6">
             <!-- Hero -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-blue-500 font-bold text-sm tracking-wider uppercase mb-2 block">Writings</span>
-                <h1 class="text-5xl font-bold text-white mb-6">Articles</h1>
-                <p class="text-xl text-gray-400">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
+                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Writings</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-none">
+                    My <span class="text-gradient-cyan-indigo">Articles</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed">
                     Thoughts, Guides & Musings. Dive into a collection of articles covering various topics, from tech insights and guides to personal reflections.
                 </p>
             </div>
 
             <!-- Warning Strip -->
             <div class="max-w-4xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-                <div class="soft-card p-6 flex items-center gap-4 border-l-4 border-yellow-500 bg-[#1a160a]">
-                    <div class="text-yellow-500">
+                <div class="soft-card p-6 flex flex-row items-center gap-5 border border-yellow-500/20 bg-yellow-500/[0.02]">
+                    <div class="text-yellow-500 bg-yellow-500/10 p-3 rounded-2xl shrink-0">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                     </div>
                     <div>
-                        <h3 class="text-white font-bold">Under Construction</h3>
-                        <p class="text-gray-400 text-sm">This page is a work in progress. More articles will be added soon!</p>
+                        <h3 class="text-white font-bold mb-1">Under Construction</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">This page is a work in progress. More articles will be added soon!</p>
                     </div>
                 </div>
             </div>
@@ -46,53 +56,65 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Article Card 1 -->
-                <a href="#" class="soft-card group p-0 overflow-hidden" data-aos="fade-up">
-                    <div class="h-48 w-full bg-[#18181b] flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#3f3f46 1px, transparent 1px); background-size: 20px 20px;"></div>
-                        <span class="text-gray-600 font-mono text-sm">Image Placeholder</span>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Placeholder Article 1</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">This is a placeholder for a future article. Check back soon for more content!</p>
-                        <div class="mt-auto pt-4 border-t border-[#27272a]">
-                            <span class="text-xs font-bold bg-[#27272a] text-gray-400 px-2 py-1 rounded">Coming Soon</span>
+                <a href="#" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up">
+                    <div class="float-content flex flex-col h-full w-full">
+                        <div class="h-48 w-full bg-[#121214] flex items-center justify-center relative overflow-hidden border-b border-white/5">
+                            <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(var(--accent-navy) 1px, transparent 1px); background-size: 20px 20px;"></div>
+                            <span class="text-gray-500 font-mono text-xs uppercase tracking-widest">Image Placeholder</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Placeholder Article 1</h3>
+                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">This is a placeholder for a future article. Check back soon for more content!</p>
+                            </div>
+                            <div class="pt-4 border-t border-white/5">
+                                <span class="text-[10px] font-bold bg-white/5 border border-white/5 text-gray-400 px-2.5 py-1 rounded-md uppercase tracking-widest">Coming Soon</span>
+                            </div>
                         </div>
                     </div>
                 </a>
 
                 <!-- Article Card 2 -->
-                <a href="#" class="soft-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-48 w-full bg-[#18181b] flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#3f3f46 1px, transparent 1px); background-size: 20px 20px;"></div>
-                        <span class="text-gray-600 font-mono text-sm">Image Placeholder</span>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Placeholder Article 2</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">This is a placeholder for a future article. Check back soon for more content!</p>
-                        <div class="mt-auto pt-4 border-t border-[#27272a]">
-                            <span class="text-xs font-bold bg-[#27272a] text-gray-400 px-2 py-1 rounded">Coming Soon</span>
+                <a href="#" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="float-content flex flex-col h-full w-full">
+                        <div class="h-48 w-full bg-[#121214] flex items-center justify-center relative overflow-hidden border-b border-white/5">
+                            <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(var(--accent-navy) 1px, transparent 1px); background-size: 20px 20px;"></div>
+                            <span class="text-gray-500 font-mono text-xs uppercase tracking-widest">Image Placeholder</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Placeholder Article 2</h3>
+                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">This is a placeholder for a future article. Check back soon for more content!</p>
+                            </div>
+                            <div class="pt-4 border-t border-white/5">
+                                <span class="text-[10px] font-bold bg-white/5 border border-white/5 text-gray-400 px-2.5 py-1 rounded-md uppercase tracking-widest">Coming Soon</span>
+                            </div>
                         </div>
                     </div>
                 </a>
 
                 <!-- Article Card 3 -->
-                <a href="#" class="soft-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-48 w-full bg-[#18181b] flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#3f3f46 1px, transparent 1px); background-size: 20px 20px;"></div>
-                        <span class="text-gray-600 font-mono text-sm">Image Placeholder</span>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Placeholder Article 3</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">This is a placeholder for a future article. Check back soon for more content!</p>
-                        <div class="mt-auto pt-4 border-t border-[#27272a]">
-                            <span class="text-xs font-bold bg-[#27272a] text-gray-400 px-2 py-1 rounded">Coming Soon</span>
+                <a href="#" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="float-content flex flex-col h-full w-full">
+                        <div class="h-48 w-full bg-[#121214] flex items-center justify-center relative overflow-hidden border-b border-white/5">
+                            <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(var(--accent-navy) 1px, transparent 1px); background-size: 20px 20px;"></div>
+                            <span class="text-gray-500 font-mono text-xs uppercase tracking-widest">Image Placeholder</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Placeholder Article 3</h3>
+                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">This is a placeholder for a future article. Check back soon for more content!</p>
+                            </div>
+                            <div class="pt-4 border-t border-white/5">
+                                <span class="text-[10px] font-bold bg-white/5 border border-white/5 text-gray-400 px-2.5 py-1 rounded-md uppercase tracking-widest">Coming Soon</span>
+                            </div>
                         </div>
                     </div>
                 </a>
 
             </div>
         </div>
-    </div>
+    </main>
 
     <div id="footer-placeholder"></div>
     <script src="main.js"></script>

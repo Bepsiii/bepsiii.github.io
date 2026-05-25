@@ -10,84 +10,140 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="selection:bg-blue-500 selection:text-white">
+    <div class="scanlines"></div>
     <div id="header-placeholder"></div>
 
-    <div class="relative z-20 pt-32 pb-20">
+    <!-- Background Layer System -->
+    <div class="bg-grid-pattern"></div>
+    <div class="glow-blob bg-blue-500/10 w-[500px] h-[500px] -top-30 -left-30"></div>
+    <div class="glow-blob bg-indigo-500/8 w-[600px] h-[600px] bottom-10 right-10"></div>
+
+    <div class="relative z-10 pt-36 pb-20">
         <div class="container mx-auto px-6">
-            <!-- Hero -->
+            <!-- Hero Header -->
             <div class="text-center max-w-4xl mx-auto mb-20">
-                <span class="text-blue-500 font-bold text-sm tracking-wider uppercase mb-2 block">Featured Project</span>
-                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight" data-aos="fade-up">
+                <span class="text-blue-500 font-bold text-xs tracking-widest uppercase mb-2 block" data-aos="fade-down">Featured Project</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-none" data-aos="fade-up">
                     AscentCustoms
                 </h1>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Crafting the Next Generation of 3D Printed Mice.
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-medium leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                    Crafting the Next Generation of 3D Printed Gaming Mice.
                 </p>
             </div>
 
-            <!-- Mission Section -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <div class="soft-card p-8 lg:p-12" data-aos="fade-right">
-                    <h2 class="text-3xl font-bold text-white mb-4">The Mission</h2>
-                    <p class="text-gray-400 leading-relaxed text-lg">
-                        AscentCustoms is a passion project born from a desire to push the boundaries of personalized gaming peripherals. The core mission is to design and develop high-performance, ergonomic, and customizable 3D printed mice tailored to individual user preferences and play styles.
-                    </p>
-                </div>
-                 <div class="rounded-2xl overflow-hidden border border-[#27272a] shadow-2xl group" data-aos="fade-left">
-                    <img src="images/slide1.jpg" onerror="this.src='https://placehold.co/800x600/18181b/FFF?text=Prototype'" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
-            </div>
+            <!-- Asymmetrical Sticky Split-View Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Left Column: Sticky Visual Showcase -->
+                <div class="lg:sticky lg:top-28 space-y-8" data-aos="fade-right">
+                    <!-- Image Showcase Container -->
+                    <div class="soft-card glow-card float-card p-0 overflow-hidden rounded-2xl border border-white/[0.08] shadow-2xl relative group h-[400px] lg:h-[500px]">
+                        <div class="float-content relative h-full w-full">
+                            <div class="absolute -inset-1.5 bg-gradient-to-tr from-blue-500/20 to-cyan-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <img src="images/slide1.jpg" onerror="this.src='https://placehold.co/800x600/18181b/FFF?text=Prototype'" alt="AscentCustoms Prototype" class="w-full h-full object-cover relative transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-8 flex flex-col justify-end">
+                                <span class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-1 block">Hardware Showcase</span>
+                                <h3 class="text-2xl font-extrabold text-white">MC0 Concept Prototype</h3>
+                                <p class="text-gray-300 text-xs mt-1">Surgical precision ergonomics. Hyper-lightweight shell design.</p>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Details Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-                <div class="soft-card lg:col-span-2" data-aos="fade-up">
-                    <h3 class="text-2xl font-bold text-white mb-4">The Vision</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        In a market often dominated by one-size-fits-all solutions, I aim to provide a truly bespoke experience. By leveraging the flexibility of 3D printing, I can iterate on designs rapidly, incorporate unique ergonomic features, and offer a level of customization that traditional manufacturing cannot easily achieve. This includes variations in shape, size, weight, button placement, and even material textures.
-                    </p>
+                    <!-- Highlight Metrics Dashboard -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-5 rounded-2xl bg-white/[0.01] border border-white/[0.03] text-center">
+                            <span class="text-xs text-gray-400 block mb-1">Target Weight</span>
+                            <span class="text-3xl font-extrabold text-white tracking-tight">&lt; 45g</span>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white/[0.01] border border-white/[0.03] text-center">
+                            <span class="text-xs text-gray-400 block mb-1">Compatibility</span>
+                            <span class="text-3xl font-extrabold text-white tracking-tight">Viper V2 Pro</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="soft-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-xl font-bold text-white mb-4">Key Features</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-center gap-2"><span class="text-blue-500">•</span> Ergonomic Design</li>
-                        <li class="flex items-center gap-2"><span class="text-blue-500">•</span> High-Performance Internals</li>
-                        <li class="flex items-center gap-2"><span class="text-blue-500">•</span> Modular Components</li>
-                        <li class="flex items-center gap-2"><span class="text-blue-500">•</span> Community-Driven</li>
-                         <li class="flex items-center gap-2"><span class="text-blue-500">•</span> Industry Standard Hardware</li>
-                    </ul>
-                </div>
-            </div>
 
-            <!-- Status & Links -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="soft-card lg:col-span-2" data-aos="fade-up">
-                     <h3 class="text-2xl font-bold text-white mb-4">Current Status</h3>
-                     <p class="text-gray-400 text-lg leading-relaxed mb-4">
-                        AscentCustoms is currently in the early stages. We are actively working on the <strong>MC0</strong>, a hyper-lightweight shell based off of the Razer Viper V2 Pro Internals.
-                    </p>
-                    <p class="text-gray-400 text-lg">
-                        For the latest sneak peeks and development updates, be sure to follow our progress on <a href="https://x.com/ascentcustoms" target="_blank" class="text-blue-400 hover:text-blue-300 underline decoration-blue-500/30 underline-offset-4">X (Twitter)</a>.
-                    </p>
-                </div>
-                 <div class="soft-card" data-aos="fade-up" data-aos-delay="100">
-                     <h3 class="text-xl font-bold text-white mb-4">Where to Find Us</h3>
-                     <ul class="space-y-4">
-                        <li>
-                            <a href="https://www.ebay.co.uk/usr/ascentcustoms" class="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors p-3 bg-[#18181b] rounded-lg">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/></svg>
-                                <span class="font-bold">eBay Store</span>
-                            </a>
-                        </li>
-                         <li>
-                            <a href="https://www.etsy.com/shop/AscentCustoms" class="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors p-3 bg-[#18181b] rounded-lg">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/></svg>
-                                <span class="font-bold">Etsy Shop</span>
-                            </a>
-                        </li>
-                     </ul>
-                </div>
-            </div>
+                <!-- Right Column: Scrollable Content & Spec details -->
+                <div class="space-y-8" data-aos="fade-left">
+                    
+                    <!-- Objective & The Mission -->
+                    <div class="soft-card glow-card float-card p-8 lg:p-10">
+                        <div class="float-content space-y-4">
+                            <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-1 block">Objective</span>
+                            <h2 class="text-3xl font-extrabold text-white tracking-tight">The Mission</h2>
+                            <p class="text-gray-400 leading-relaxed text-base font-medium">
+                                AscentCustoms is a passion project born from a desire to push the boundaries of personalized gaming peripherals. The core mission is to design and develop high-performance, ergonomic, and customizable 3D printed mice tailored to individual user preferences and play styles.
+                            </p>
+                        </div>
+                    </div>
 
+                    <!-- Vision & Features -->
+                    <div class="soft-card glow-card float-card p-8 lg:p-10">
+                        <div class="float-content space-y-6">
+                            <h3 class="text-2xl font-bold text-white tracking-tight">The Vision</h3>
+                            <p class="text-gray-400 leading-relaxed font-medium">
+                                In a market often dominated by one-size-fits-all solutions, I aim to provide a truly bespoke experience. By leveraging the flexibility of 3D printing, I can iterate on designs rapidly, incorporate unique ergonomic features, and offer a level of customization that traditional manufacturing cannot easily achieve. This includes variations in shape, size, weight, button placement, and even material textures.
+                            </p>
+                            
+                            <div class="border-t border-white/[0.05] pt-6">
+                                <h4 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Key Shell Features</h4>
+                                <ul class="space-y-3.5 text-gray-300 font-medium">
+                                    <li class="flex items-center gap-3 text-sm">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-lg shadow-blue-500/50 animate-pulse"></span> Ergonomic Design
+                                    </li>
+                                    <li class="flex items-center gap-3 text-sm">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-lg shadow-blue-500/50 animate-pulse"></span> High-Performance Internals
+                                    </li>
+                                    <li class="flex items-center gap-3 text-sm">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-lg shadow-blue-500/50 animate-pulse"></span> Modular Components
+                                    </li>
+                                    <li class="flex items-center gap-3 text-sm">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-lg shadow-blue-500/50 animate-pulse"></span> Community-Driven
+                                    </li>
+                                    <li class="flex items-center gap-3 text-sm">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-lg shadow-blue-500/50 animate-pulse"></span> Industry Standard Hardware
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Status & Market Hub -->
+                    <div class="soft-card glow-card float-card p-8 lg:p-10">
+                        <div class="float-content space-y-6">
+                            <h3 class="text-2xl font-bold text-white tracking-tight">Current Status</h3>
+                            <p class="text-gray-400 text-base leading-relaxed font-medium">
+                                AscentCustoms is currently in the early stages. We are actively working on the <strong class="text-white font-bold">MC0</strong>, a hyper-lightweight shell based off of the Razer Viper V2 Pro Internals.
+                            </p>
+                            <p class="text-gray-400 text-sm font-medium leading-relaxed">
+                                For the latest sneak peeks and development updates, be sure to follow our progress on <a href="https://x.com/ascentcustoms" target="_blank" class="text-blue-400 hover:text-blue-300 font-semibold underline decoration-blue-500/30 underline-offset-4 transition-colors">X (Twitter)</a>.
+                            </p>
+
+                            <div class="border-t border-white/[0.05] pt-6 space-y-4">
+                                <h4 class="text-sm font-bold uppercase tracking-widest text-gray-400">Where to Find Us</h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <a href="https://www.ebay.co.uk/usr/ascentcustoms" target="_blank" class="flex items-center justify-between text-gray-300 hover:text-white transition-all p-4 bg-white/[0.02] border border-white/[0.05] rounded-xl hover:border-blue-500/30 hover:bg-blue-500/10 group">
+                                        <div class="flex items-center gap-3">
+                                            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                                            <span class="font-bold text-xs tracking-wider uppercase">eBay Store</span>
+                                        </div>
+                                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-gray-500 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                    </a>
+                                    
+                                    <a href="https://www.etsy.com/shop/AscentCustoms" target="_blank" class="flex items-center justify-between text-gray-300 hover:text-white transition-all p-4 bg-white/[0.02] border border-white/[0.05] rounded-xl hover:border-indigo-500/30 hover:bg-indigo-500/10 group">
+                                        <div class="flex items-center gap-3">
+                                            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/></svg>
+                                            <span class="font-bold text-xs tracking-wider uppercase">Etsy Shop</span>
+                                        </div>
+                                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-gray-500 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
     </div>
 

@@ -10,77 +10,106 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="selection:bg-blue-500 selection:text-white">
+    <div class="scanlines"></div>
+    
+    <!-- Background Layer System -->
+    <div class="bg-grid-pattern"></div>
+    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
+    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
+    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
+
     <div id="header-placeholder"></div>
 
-    <div class="relative z-20 pt-32 pb-20">
+    <main class="relative z-10 pt-32 pb-24">
         <article class="container mx-auto px-6 max-w-4xl">
-            <nav aria-label="breadcrumb" class="text-sm text-gray-400 mb-6">
+            <nav aria-label="breadcrumb" class="text-sm text-gray-400 mb-6" data-aos="fade-down">
                 <a href="index.html" class="hover:text-white transition-colors">Home</a> / 
                 <a href="reviews.html" class="hover:text-white transition-colors">Reviews</a> / 
                 <span class="text-white">BeanMouse Small V2.1</span>
             </nav>
-            <header class="text-center mb-16">
-                <span class="text-blue-500 font-bold text-sm tracking-wider uppercase mb-2 block">Review</span>
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4" data-aos="fade-up">BeanMouse Small V2.1</h1>
-                <h2 class="text-xl text-gray-400 font-medium" data-aos="fade-up" data-aos-delay="100">A Fingertip Grip Contender for the Viper V2 Pro.</h2>
-                <p class="text-sm text-gray-500 mt-4">Published: September 19, 2024</p>
+            <header class="text-center mb-16" data-aos="fade-down">
+                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Review</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-none tracking-tight">BeanMouse Small V2.1</h1>
+                <h2 class="text-xl text-gray-400 font-medium">A Fingertip Grip Contender for the Viper V2 Pro.</h2>
+                <p class="text-xs text-gray-500 mt-4 tracking-wider uppercase font-semibold">Published: September 19, 2024</p>
             </header>
 
             <div class="space-y-8">
-                <div class="soft-card" data-aos="fade-up">
-                    <div class="p-4 bg-[#1a160a] border-l-4 border-yellow-500 mb-8 text-sm text-yellow-500">
-                        <strong>Disclaimer:</strong> These units were printed on my own printer and the print quality does not reflect the product you will get if you buy from CC. (D’s printer of which being 10x better than my own!). Whilst I use PLA on my units, D prints in PETG-CF which is a better filament for structural components and therefore mice.
-                    </div>
-                     <h3 class="text-2xl font-bold text-white mb-6">Overview</h3>
-                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
-                        The BeanMouse V2.½.2 is a completely custom designed fingertip grip style shell made to work with the Razer Viper V2 Pro internals. Coming in at 40 AUD, it's by far one of the most cost-effective shells you can get for the VV2P. It's a shell made to be comfortable for a wider range of people, whether you have larger or smaller hands, or even if you are left-handed.
-                    </p>
-                     <div class="rounded-xl overflow-hidden border border-[#27272a]">
-                        <img src="images/setup/reviews/beanmouse/beanmouse_main.jpg" class="w-full" alt="BeanMouse Main View">
-                    </div>
-                </div>
-
-                <div class="soft-card" data-aos="fade-up">
-                     <h3 class="text-2xl font-bold text-white mb-6">Performance</h3>
-                     <p class="text-gray-400 text-lg leading-relaxed">
-                        Performance, not much to say. It's a Razer Viper V2 Pro. It has a great implementation of a 3950 sensor with Razer's own custom branded Raesha optical switches. The sensor position on the BeanMouse puts it in line with your thumb, making for a responsive experience. Although a further forward sensor would make this better, that's simply not possible since it's a PCB made for a different mouse.
-                     </p>
-                </div>
-
-                <div class="soft-card" data-aos="fade-up">
-                    <h3 class="text-2xl font-bold text-white mb-8">Shape & Design Breakdown</h3>
-                    
-                    <div class="space-y-8">
-                        <div>
-                            <h4 class="text-lg font-bold text-white mb-2">Thumb Groove / Rest</h4>
-                            <p class="text-gray-400">The thumb groove, to put it simply, is one of the shape's best features. With the comfort groove at the top of the thumb groove, it makes for an excellent experience and allows for a much more natural grip style, much more relaxed compared to other shells. The small variant of the BeanMouse I have been testing could benefit largely from a slightly larger thumb groove, especially towards the front of the groove. Using the small with larger hands like mine means that my thumb does go over the rest and sometimes drags on the pad; a simple extension of the bottom part would go a long way, with this being a non-issue on the large.</p>
-                             <img src="images/setup/reviews/beanmouse/beanmouse_thumb_groove.jpg" class="w-full rounded-xl border border-[#27272a] mt-4" alt="BeanMouse Thumb Groove">
+                <!-- Overview -->
+                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
+                    <div class="float-content">
+                        <div class="p-5 border border-yellow-500/20 bg-yellow-500/[0.02] rounded-2xl flex flex-row items-center gap-4 text-sm text-yellow-500 mb-8 leading-relaxed">
+                            <div class="text-yellow-500 bg-yellow-500/10 p-2.5 rounded-xl shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            </div>
+                            <div>
+                                <strong>Disclaimer:</strong> These units were printed on my own printer and the print quality does not reflect the product you will get if you buy from CC. (D’s printer of which being 10x better than my own!). Whilst I use PLA on my units, D prints in PETG-CF which is a better filament for structural components and therefore mice.
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="text-lg font-bold text-white mb-2">Click Design</h4>
-                            <p class="text-gray-400">At first, the click design was more of an issue to me than it is now. However, after using it for a week or so, it's easily one of the better/best out there, especially on this shape of mouse. The main comparison being Optimum Tech's ZeroMouse. The click design on the BeanMouse has 0 pre or post-travel which, in my opinion, makes for one of the nicest optical implementations on accident.</p>
-                        </div>
-                         <div>
-                            <h4 class="text-lg font-bold text-white mb-2">Right Wall / Finger Support</h4>
-                            <p class="text-gray-400">The right wall/support is great since it doesn't have designated grip points but instead opts for a universal solution. This part is angled outwards to the mouse and lets you get a firmer grip on the shell. The comfort grooves give a great resting place for the ring and pinky; however, with my grip style, I had an issue with the rear end being too flared out / too long and it digging into my lower pinky.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-bold text-white mb-2">General Design & Build</h4>
-                            <p class="text-gray-400">Honestly, not much to say here apart from its structurally sound and I had zero build issues on both the small and the revised large (when printed correctly).</p>
-                             <img src="images/setup/reviews/beanmouse/beanmouse_overall_shape.jpg" class="w-full rounded-xl border border-[#27272a] mt-4" alt="BeanMouse Overall Shape">
+                         <h3 class="text-2xl font-bold text-white mb-6">Overview</h3>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            The BeanMouse V2.½.2 is a completely custom designed fingertip grip style shell made to work with the Razer Viper V2 Pro internals. Coming in at 40 AUD, it's by far one of the most cost-effective shells you can get for the VV2P. It's a shell made to be comfortable for a wider range of people, whether you have larger or smaller hands, or even if you are left-handed.
+                        </p>
+                         <div class="rounded-xl overflow-hidden border border-white/5 shadow-md">
+                            <img src="images/setup/reviews/beanmouse/beanmouse_main.jpg" class="w-full" alt="BeanMouse Main View">
                         </div>
                     </div>
                 </div>
 
-                <div class="soft-card p-12 text-center" data-aos="fade-up">
-                    <h3 class="text-2xl font-bold text-white mb-4">Final Thoughts & Value</h3>
-                    <p class="text-gray-400 mb-8 text-lg max-w-2xl mx-auto">
-                        For 40 USD, this is incredible value, especially with the competition on the market. I'm excited to see where D takes this shape and any new mice he may cook up. This is a great shape for anyone looking to try a dedicated fingertip mouse, and with how cheap Viper V2 Pros can be on eBay, you can easily have yourself the best fingertip mouse under 70 USD.
-                    </p>
-                    <div class="inline-flex flex-col items-center">
-                        <span class="text-xs text-blue-500 font-bold tracking-widest uppercase mb-2">Verdict</span>
-                        <div class="text-2xl font-bold text-white">
-                            Highly Recommended
+                <!-- Performance -->
+                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
+                    <div class="float-content">
+                         <h3 class="text-2xl font-bold text-white mb-6">Performance</h3>
+                         <p class="text-gray-400 text-lg leading-relaxed">
+                            Performance, not much to say. It's a Razer Viper V2 Pro. It has a great implementation of a 3950 sensor with Razer's own custom branded Raesha optical switches. The sensor position on the BeanMouse puts it in line with your thumb, making for a responsive experience. Although a further forward sensor would make this better, that's simply not possible since it's a PCB made for a different mouse.
+                         </p>
+                    </div>
+                </div>
+
+                <!-- Shape Breakdown -->
+                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
+                    <div class="float-content">
+                        <h3 class="text-2xl font-bold text-white mb-8">Shape & Design Breakdown</h3>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="text-lg font-bold text-white mb-2">Thumb Groove / Rest</h4>
+                                <p class="text-gray-400 leading-relaxed mb-4">The thumb groove, to put it simply, is one of the shape's best features. With the comfort groove at the top of the thumb groove, it makes for an excellent experience and allows for a much more natural grip style, much more relaxed compared to other shells. The small variant of the BeanMouse I have been testing could benefit largely from a slightly larger thumb groove, especially towards the front of the groove. Using the small with larger hands like mine means that my thumb does go over the rest and sometimes drags on the pad; a simple extension of the bottom part would go a long way, with this being a non-issue on the large.</p>
+                                 <div class="rounded-xl overflow-hidden border border-white/5 shadow-md mt-4">
+                                     <img src="images/setup/reviews/beanmouse/beanmouse_thumb_groove.jpg" class="w-full" alt="BeanMouse Thumb Groove">
+                                 </div>
+                            </div>
+                            <div class="border-t border-white/5 pt-6">
+                                <h4 class="text-lg font-bold text-white mb-2">Click Design</h4>
+                                <p class="text-gray-400 leading-relaxed">At first, the click design was more of an issue to me than it is now. However, after using it for a week or so, it's easily one of the better/best out there, especially on this shape of mouse. The main comparison being Optimum Tech's ZeroMouse. The click design on the BeanMouse has 0 pre or post-travel which, in my opinion, makes for one of the nicest optical implementations on accident.</p>
+                            </div>
+                             <div class="border-t border-white/5 pt-6">
+                                <h4 class="text-lg font-bold text-white mb-2">Right Wall / Finger Support</h4>
+                                <p class="text-gray-400 leading-relaxed">The right wall/support is great since it doesn't have designated grip points but instead opts for a universal solution. This part is angled outwards to the mouse and lets you get a firmer grip on the shell. The comfort grooves give a great resting place for the ring and pinky; however, with my grip style, I had an issue with the rear end being too flared out / too long and it digging into my lower pinky.</p>
+                            </div>
+                            <div class="border-t border-white/5 pt-6">
+                                <h4 class="text-lg font-bold text-white mb-2">General Design & Build</h4>
+                                <p class="text-gray-400 leading-relaxed mb-4">Honestly, not much to say here apart from its structurally sound and I had zero build issues on both the small and the revised large (when printed correctly).</p>
+                                 <div class="rounded-xl overflow-hidden border border-white/5 shadow-md mt-4">
+                                     <img src="images/setup/reviews/beanmouse/beanmouse_overall_shape.jpg" class="w-full" alt="BeanMouse Overall Shape">
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Thoughts -->
+                <div class="soft-card glow-card float-card p-12 text-center group" data-aos="fade-up">
+                    <div class="float-content">
+                        <h3 class="text-2xl font-bold text-white mb-6">Final Thoughts & Value</h3>
+                        <p class="text-gray-400 mb-8 text-lg max-w-2xl mx-auto leading-relaxed">
+                            For 40 USD, this is incredible value, especially with the competition on the market. I'm excited to see where D takes this shape and any new mice he may cook up. This is a great shape for anyone looking to try a dedicated fingertip mouse, and with how cheap Viper V2 Pros can be on eBay, you can easily have yourself the best fingertip mouse under 70 USD.
+                        </p>
+                        <div class="inline-flex flex-col items-center">
+                            <span class="text-xs text-blue-400 font-bold tracking-widest uppercase mb-3">Verdict</span>
+                            <div class="text-2xl font-extrabold text-white bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-3 rounded-2xl shadow-lg shadow-blue-500/20 border border-blue-400/20">
+                                Highly Recommended
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,7 +119,7 @@
                  <a href="reviews.html" class="btn-outline">&larr; Back to Reviews</a>
             </div>
         </article>
-    </div>
+    </main>
 
     <div id="footer-placeholder"></div>
     <script src="main.js"></script>
