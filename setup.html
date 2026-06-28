@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,11 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="selection:bg-blue-500 selection:text-white">
     <div class="scanlines"></div>
     <div id="header-placeholder"></div>
-    
+
     <!-- Background Layer System -->
     <div class="bg-grid-pattern"></div>
     <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-30 -left-30"></div>
@@ -20,14 +22,16 @@
 
     <main class="relative z-10 pt-36 pb-24">
         <div class="container mx-auto px-6">
-            
+
             <!-- Header -->
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-down">
                 <div>
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold tracking-widest uppercase mb-4 backdrop-blur-md">
+                    <div
+                        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold tracking-widest uppercase mb-4 backdrop-blur-md">
                         <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                         </span>
                         Status: Active
                     </div>
@@ -35,10 +39,10 @@
                         Setup <span class="text-gradient-cyan-indigo">Config</span>
                     </h1>
                     <p class="text-gray-400 max-w-xl text-lg font-medium leading-relaxed">
-                        Optimized for bullying Beyerdynamic owners. 
+                        Optimized for bullying Beyerdynamic owners.
                     </p>
                 </div>
-                
+
                 <!-- Quick Stats -->
                 <div class="flex gap-8 text-right hidden md:flex">
                     <div>
@@ -54,58 +58,85 @@
 
             <!-- Bento Box Grid Layout -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                
+
                 <!-- 1. Main PC Workstation (Span 8) -->
-                <div class="md:col-span-8 soft-card glow-card float-card group p-0 relative overflow-hidden min-h-[420px]" data-aos="fade-up">
+                <div class="md:col-span-8 soft-card glow-card float-card group p-0 relative overflow-hidden min-h-[420px]"
+                    data-aos="fade-up">
                     <div class="float-content relative h-full w-full">
-                        <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/50 to-transparent z-10"></div>
-                        <img src="images/setup/section1.webp" onerror="this.src='https://placehold.co/1920x1080/121214/FFFFFF?text=Battlestation'" alt="The Workstation" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700">
-                        
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/50 to-transparent z-10">
+                        </div>
+                        <img src="images/setup/section1.webp"
+                            onerror="this.src='https://placehold.co/1920x1080/121214/FFFFFF?text=Battlestation'"
+                            alt="The Workstation"
+                            class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700">
+
                         <div class="relative z-20 p-8 h-full flex flex-col justify-end min-h-[420px]">
                             <div class="mb-auto">
-                                <span class="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-[10px] font-bold text-white border border-white/10 tracking-widest uppercase shadow">MAIN RIG</span>
+                                <span
+                                    class="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-[10px] font-bold text-white border border-white/10 tracking-widest uppercase shadow">MAIN
+                                    RIG</span>
                             </div>
-                            
+
                             <h2 class="text-3xl font-extrabold text-white mb-6 tracking-tight">The Workstation</h2>
-                            
+
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-                                <div class="bg-black/70 backdrop-blur-md p-5 rounded-2xl border border-white/[0.06] hover:border-blue-500/30 shadow-lg flex flex-col justify-between transition-all duration-300">
+                                <div
+                                    class="bg-black/70 backdrop-blur-md p-5 rounded-2xl border border-white/[0.06] hover:border-blue-500/30 shadow-lg flex flex-col justify-between transition-all duration-300">
                                     <div>
-                                        <div class="text-blue-400 text-[10px] font-bold mb-1.5 tracking-wider uppercase">CPU</div>
+                                        <div
+                                            class="text-blue-400 text-[10px] font-bold mb-1.5 tracking-wider uppercase">
+                                            CPU</div>
                                         <div class="text-white font-extrabold text-base">i7 12700KF</div>
                                     </div>
                                     <div class="mt-4 pt-3 border-t border-white/[0.05] text-left">
-                                        <div class="text-[9px] text-gray-500 uppercase tracking-widest font-extrabold mb-0.5">Power Limit</div>
+                                        <div
+                                            class="text-[9px] text-gray-500 uppercase tracking-widest font-extrabold mb-0.5">
+                                            Power Limit</div>
                                         <div class="text-gray-300 font-mono text-xs">240W</div>
                                     </div>
                                 </div>
-                                <div class="bg-black/70 backdrop-blur-md p-5 rounded-2xl border border-white/[0.06] hover:border-cyan-500/30 shadow-lg flex flex-col justify-between transition-all duration-300">
+                                <div
+                                    class="bg-black/70 backdrop-blur-md p-5 rounded-2xl border border-white/[0.06] hover:border-cyan-500/30 shadow-lg flex flex-col justify-between transition-all duration-300">
                                     <div>
-                                        <div class="text-cyan-400 text-[10px] font-bold mb-1.5 tracking-wider uppercase">GPU</div>
+                                        <div
+                                            class="text-cyan-400 text-[10px] font-bold mb-1.5 tracking-wider uppercase">
+                                            GPU</div>
                                         <div class="text-white font-extrabold text-base">RX 6800 OC</div>
                                     </div>
                                     <div class="mt-4 pt-3 border-t border-white/[0.05] text-left">
-                                        <div class="text-[9px] text-gray-500 uppercase tracking-widest font-extrabold mb-0.5">VRAM</div>
+                                        <div
+                                            class="text-[9px] text-gray-500 uppercase tracking-widest font-extrabold mb-0.5">
+                                            VRAM</div>
                                         <div class="text-gray-300 font-mono text-xs">16GB GDDR6</div>
                                     </div>
                                 </div>
-                                <div class="bg-black/70 backdrop-blur-md p-5 rounded-2xl border border-white/[0.06] hover:border-indigo-500/30 shadow-lg flex flex-col justify-between transition-all duration-300">
+                                <div
+                                    class="bg-black/70 backdrop-blur-md p-5 rounded-2xl border border-white/[0.06] hover:border-indigo-500/30 shadow-lg flex flex-col justify-between transition-all duration-300">
                                     <div>
-                                        <div class="text-indigo-400 text-[10px] font-bold mb-1.5 tracking-wider uppercase">RAM</div>
+                                        <div
+                                            class="text-indigo-400 text-[10px] font-bold mb-1.5 tracking-wider uppercase">
+                                            RAM</div>
                                         <div class="text-white font-extrabold text-base">32GB 3600</div>
                                     </div>
                                     <div class="mt-4 pt-3 border-t border-white/[0.05] text-left">
-                                        <div class="text-[9px] text-gray-500 uppercase tracking-widest font-extrabold mb-0.5">Type & Speed</div>
+                                        <div
+                                            class="text-[9px] text-gray-500 uppercase tracking-widest font-extrabold mb-0.5">
+                                            Type & Speed</div>
                                         <div class="text-gray-300 font-mono text-xs">DDR4 Dual Ch</div>
                                     </div>
                                 </div>
-                                <div class="bg-black/70 backdrop-blur-md p-5 rounded-2xl border border-white/[0.06] hover:border-purple-500/30 shadow-lg flex flex-col justify-between transition-all duration-300">
+                                <div
+                                    class="bg-black/70 backdrop-blur-md p-5 rounded-2xl border border-white/[0.06] hover:border-purple-500/30 shadow-lg flex flex-col justify-between transition-all duration-300">
                                     <div>
-                                        <div class="text-purple-400 text-[10px] font-bold mb-1.5 tracking-wider uppercase">CASE</div>
+                                        <div
+                                            class="text-purple-400 text-[10px] font-bold mb-1.5 tracking-wider uppercase">
+                                            CASE</div>
                                         <div class="text-white font-extrabold text-base">Lian Li A3</div>
                                     </div>
                                     <div class="mt-4 pt-3 border-t border-white/[0.05] text-left">
-                                        <div class="text-[9px] text-gray-500 uppercase tracking-widest font-extrabold mb-0.5">Form Factor</div>
+                                        <div
+                                            class="text-[9px] text-gray-500 uppercase tracking-widest font-extrabold mb-0.5">
+                                            Form Factor</div>
                                         <div class="text-gray-300 font-mono text-xs">26L Micro-ATX</div>
                                     </div>
                                 </div>
@@ -115,82 +146,130 @@
                 </div>
 
                 <!-- 2. Detailed Specs List (Span 4) -->
-                <div class="md:col-span-4 soft-card glow-card float-card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                <div class="md:col-span-4 soft-card glow-card float-card p-6 flex flex-col" data-aos="fade-up"
+                    data-aos-delay="100">
                     <div class="float-content flex flex-col h-full">
                         <h3 class="text-lg font-bold text-white mb-5 flex items-center gap-2 tracking-tight">
-                            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z">
+                                </path>
+                            </svg>
                             Component Specs
                         </h3>
-                        
+
                         <!-- High Fidelity Spec Blocks Table -->
                         <div class="space-y-3 overflow-y-auto pr-1 flex-1 scroll-smooth">
-                            <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
-                                <span class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">Cooler</span>
-                                <span class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">Arctic Freezer II 240</span>
+                            <div
+                                class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
+                                <span
+                                    class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">Cooler</span>
+                                <span
+                                    class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">Arctic
+                                    Freezer II 240</span>
                             </div>
-                            <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
-                                <span class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">Mobo</span>
-                                <span class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">ASRock B660M Pro RS</span>
+                            <div
+                                class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
+                                <span
+                                    class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">Mobo</span>
+                                <span
+                                    class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">ASRock
+                                    B660M Pro RS</span>
                             </div>
-                            <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
-                                <span class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">PSU</span>
-                                <span class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">Corsair RM750x</span>
+                            <div
+                                class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
+                                <span
+                                    class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">PSU</span>
+                                <span
+                                    class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">Corsair
+                                    RM750x</span>
                             </div>
-                            <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
-                                <span class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">NVMe</span>
-                                <span class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">1TB WD SN570</span>
+                            <div
+                                class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
+                                <span
+                                    class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">NVMe</span>
+                                <span
+                                    class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">1TB
+                                    WD SN570</span>
                             </div>
-                            <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
-                                <span class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">SSD</span>
-                                <span class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">960GB Lexar NQ</span>
+                            <div
+                                class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
+                                <span
+                                    class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">SSD</span>
+                                <span
+                                    class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">960GB
+                                    Lexar NQ</span>
                             </div>
-                            <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
-                                <span class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">HDD</span>
-                                <span class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">4TB Archive</span>
+                            <div
+                                class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex justify-between items-center group/spec hover:bg-white/[0.04] transition-all">
+                                <span
+                                    class="text-gray-500 text-[10px] uppercase font-extrabold tracking-wider">HDD</span>
+                                <span
+                                    class="text-gray-300 text-xs font-semibold text-right group-hover/spec:text-blue-400 transition-colors">4TB
+                                    Archive</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- 3. Mice (Span 6) -->
-                <div class="md:col-span-6 soft-card glow-card float-card p-8 justify-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="md:col-span-6 soft-card glow-card float-card p-8 justify-center" data-aos="fade-up"
+                    data-aos-delay="200">
                     <div class="float-content">
                         <div class="flex items-center gap-3 mb-6">
                             <div class="p-2.5 bg-blue-500/10 border border-blue-500/20 rounded-xl text-blue-400">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122">
+                                    </path>
+                                </svg>
                             </div>
                             <h3 class="text-xl font-bold text-white tracking-tight">Mice &amp; Surfaces</h3>
                         </div>
-                        
+
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                             <div class="space-y-4">
-                                <h4 class="text-[10px] font-extrabold text-gray-500 uppercase tracking-widest mb-3">Mice Rotation</h4>
+                                <h4 class="text-[10px] font-extrabold text-gray-500 uppercase tracking-widest mb-3">Mice
+                                    Rotation</h4>
                                 <div class="space-y-3">
-                                    <div class="flex justify-between items-center p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-blue-500/20 hover:bg-white/[0.04] transition-all duration-300">
+                                    <div
+                                        class="flex justify-between items-center p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-blue-500/20 hover:bg-white/[0.04] transition-all duration-300">
                                         <span class="text-xs text-gray-200 font-bold">Razer Viper V2 Pro</span>
-                                        <span class="px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[9px] text-blue-400 font-extrabold tracking-widest uppercase">Primary</span>
+                                        <span
+                                            class="px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[9px] text-blue-400 font-extrabold tracking-widest uppercase">Primary</span>
                                     </div>
-                                    <div class="flex justify-between items-center p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/20 hover:bg-white/[0.04] transition-all duration-300">
+                                    <div
+                                        class="flex justify-between items-center p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/20 hover:bg-white/[0.04] transition-all duration-300">
                                         <span class="text-xs text-gray-200 font-bold">Zowie ZA13-C &amp; B</span>
-                                        <span class="px-2.5 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[9px] text-indigo-400 font-extrabold tracking-widest uppercase">Secondary</span>
+                                        <span
+                                            class="px-2.5 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[9px] text-indigo-400 font-extrabold tracking-widest uppercase">Secondary</span>
                                     </div>
-                                    <div class="flex justify-between items-center p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300">
+                                    <div
+                                        class="flex justify-between items-center p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300">
                                         <span class="text-xs text-gray-200 font-bold">WLMouse BeastX Pro Mini</span>
-                                        <span class="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[9px] text-gray-400 font-extrabold tracking-widest uppercase">Reserve</span>
+                                        <span
+                                            class="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[9px] text-gray-400 font-extrabold tracking-widest uppercase">Reserve</span>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="space-y-4">
-                                <h4 class="text-[10px] font-extrabold text-gray-500 uppercase tracking-widest mb-3">Surfaces Speed</h4>
+                                <h4 class="text-[10px] font-extrabold text-gray-500 uppercase tracking-widest mb-3">
+                                    Surfaces Speed</h4>
                                 <div class="space-y-3">
-                                    <div class="flex justify-between items-center p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-cyan-500/20 hover:bg-white/[0.04] transition-all duration-300">
+                                    <div
+                                        class="flex justify-between items-center p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-cyan-500/20 hover:bg-white/[0.04] transition-all duration-300">
                                         <span class="text-xs text-gray-200 font-bold">Matrova Vein 490 x 420</span>
-                                        <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[9px] text-cyan-400 font-extrabold tracking-widest uppercase">Control-Hybrid</span>
+                                        <span
+                                            class="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[9px] text-cyan-400 font-extrabold tracking-widest uppercase">Control-Hybrid</span>
                                     </div>
-                                    <div class="flex justify-between items-center p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-blue-500/20 hover:bg-white/[0.04] transition-all duration-300">
+                                    <div
+                                        class="flex justify-between items-center p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-blue-500/20 hover:bg-white/[0.04] transition-all duration-300">
                                         <span class="text-xs text-gray-200 font-bold">Puretrak P51 Mustang</span>
-                                        <span class="px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[9px] text-blue-400 font-extrabold tracking-widest uppercase">Speed-Control</span>
+                                        <span
+                                            class="px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[9px] text-blue-400 font-extrabold tracking-widest uppercase">Speed-Control</span>
                                     </div>
                                 </div>
                             </div>
@@ -199,54 +278,78 @@
                 </div>
 
                 <!-- 4. Keyboards (Span 6) -->
-                <div class="md:col-span-6 soft-card glow-card float-card p-8 justify-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="md:col-span-6 soft-card glow-card float-card p-8 justify-center" data-aos="fade-up"
+                    data-aos-delay="300">
                     <div class="float-content">
                         <div class="flex items-center gap-3 mb-6">
                             <div class="p-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-400">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2" ry="2" /><path d="M17 2v4M7 2v4M2 12h20" /></svg>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <rect x="2" y="7" width="20" height="15" rx="2" ry="2" />
+                                    <path d="M17 2v4M7 2v4M2 12h20" />
+                                </svg>
                             </div>
                             <h3 class="text-xl font-bold text-white tracking-tight">Keyboard Inventory</h3>
                         </div>
 
                         <div class="grid gap-4">
-                            <div class="group p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/30 hover:bg-indigo-500/[0.02] transition-all duration-300 flex justify-between items-center">
+                            <div
+                                class="group p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/30 hover:bg-indigo-500/[0.02] transition-all duration-300 flex justify-between items-center">
                                 <div>
                                     <strong class="text-white font-bold text-sm tracking-tight">ENVKB 65m</strong>
-                                    <div class="text-[11px] text-gray-400 font-mono mt-1">Kang White V2 // Alfei WOB</div>
+                                    <div class="text-[11px] text-gray-400 font-mono mt-1">Kang White V2 // Alfei WOB
+                                    </div>
                                 </div>
-                                <span class="text-[9px] font-extrabold bg-indigo-500/15 text-indigo-300 border border-indigo-500/20 px-2.5 py-1 rounded-full tracking-widest uppercase">GRAIL</span>
+                                <span
+                                    class="text-[9px] font-extrabold bg-indigo-500/15 text-indigo-300 border border-indigo-500/20 px-2.5 py-1 rounded-full tracking-widest uppercase">GRAIL</span>
                             </div>
-                            <div class="group p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/30 hover:bg-indigo-500/[0.02] transition-all duration-300 flex justify-between items-center">
+                            <div
+                                class="group p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/30 hover:bg-indigo-500/[0.02] transition-all duration-300 flex justify-between items-center">
                                 <div>
-                                    <strong class="text-white font-bold text-sm tracking-tight">Geonworks Venom + Frog</strong>
-                                    <div class="text-[11px] text-gray-400 font-mono mt-1">Frog Mini Legerra // TTC Flip KOM // KKB OHM</div>
+                                    <strong class="text-white font-bold text-sm tracking-tight">Geonworks Venom +
+                                        Frog</strong>
+                                    <div class="text-[11px] text-gray-400 font-mono mt-1">Frog Mini Legerra // TTC Flip
+                                        KOM // KKB OHM</div>
                                 </div>
-                                <span class="text-[9px] font-extrabold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20 px-2.5 py-1 rounded-full tracking-widest uppercase">DAILY</span>
+                                <span
+                                    class="text-[9px] font-extrabold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20 px-2.5 py-1 rounded-full tracking-widest uppercase">DAILY</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- 5. Audio Chain (Span 12) -->
-                <div class="md:col-span-12 soft-card glow-card float-card p-8 relative overflow-hidden" data-aos="fade-up">
+                <div class="md:col-span-12 soft-card glow-card float-card p-8 relative overflow-hidden"
+                    data-aos="fade-up">
                     <div class="float-content">
                         <!-- Decorative glow blob inside audio card -->
-                        <div class="absolute -top-12 -right-12 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none z-0"></div>
+                        <div
+                            class="absolute -top-12 -right-12 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none z-0">
+                        </div>
 
                         <div class="relative z-10 flex flex-col lg:flex-row gap-12">
-                            <div class="lg:w-1/3 flex flex-col justify-center">
+                            <div class="lg:w-1/4 flex flex-col justify-center">
                                 <div class="flex items-center gap-3 mb-6">
-                                    <div class="p-2.5 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-400">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><path d="M12 19v4" /><path d="M8 23h8" /></svg>
+                                    <div
+                                        class="p-2.5 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                                            viewBox="0 0 24 24">
+                                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                            <path d="M12 19v4" />
+                                            <path d="M8 23h8" />
+                                        </svg>
                                     </div>
                                     <div>
                                         <h3 class="text-xl font-bold text-white tracking-tight">Audio Chain</h3>
                                         <p class="text-xs text-gray-500 font-medium">Optimised for Hi-Res listening.</p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] shadow-inner">
-                                    <div class="text-[9px] font-extrabold text-emerald-500 uppercase mb-3.5 tracking-wider">Signal Path</div>
+                                    <div
+                                        class="text-[9px] font-extrabold text-emerald-500 uppercase mb-3.5 tracking-wider">
+                                        Signal Path</div>
                                     <div class="flex flex-wrap items-center gap-2 text-xs text-gray-300 font-mono">
                                         <span class="font-semibold text-white">PC</span>
                                         <span class="text-gray-600 text-xxs font-bold">→</span>
@@ -259,62 +362,114 @@
                                 </div>
                             </div>
 
-                            <div class="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                            <div class="lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                                 <!-- Col 1: Monitoring -->
                                 <div>
-                                    <h4 class="text-[10px] font-extrabold text-gray-500 uppercase mb-4 border-b border-white/[0.05] pb-2 tracking-wider">Monitoring</h4>
+                                    <h4
+                                        class="text-[10px] font-extrabold text-gray-500 uppercase mb-4 border-b border-white/[0.05] pb-2 tracking-wider">
+                                        Monitoring</h4>
                                     <ul class="space-y-3.5">
-                                        <li class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
-                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Sennheiser HD 580</span>
-                                            <span class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Reference</span>
+                                        <li
+                                            class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
+                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Sennheiser HD
+                                                580</span>
+                                            <span
+                                                class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Reference</span>
                                         </li>
-                                        <li class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
-                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Sennheiser HD 480 Pro</span>
-                                            <span class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Comfort</span>
+                                        <li
+                                            class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
+                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Sennheiser HD
+                                                480 Pro</span>
+                                            <span
+                                                class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Comfort</span>
                                         </li>
-                                        <li class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
-                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Softears Volume S</span>
-                                            <span class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">IEM</span>
+                                        <li
+                                            class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
+                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Softears
+                                                Volume S</span>
+                                            <span
+                                                class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">IEM</span>
                                         </li>
-                                        <li class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
-                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Kali Audio LP-8 v2</span>
-                                            <span class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Monitors</span>
+                                        <li
+                                            class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
+                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Kali Audio
+                                                LP-8 v2</span>
+                                            <span
+                                                class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Monitors</span>
                                         </li>
-                                        <li class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
-                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Tannoy TS2.10</span>
-                                            <span class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Sub</span>
+                                        <li
+                                            class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
+                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Tannoy
+                                                TS2.10</span>
+                                            <span
+                                                class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Sub</span>
                                         </li>
                                     </ul>
                                 </div>
                                 <!-- Col 2: Interface & Input -->
                                 <div>
-                                    <h4 class="text-[10px] font-extrabold text-gray-500 uppercase mb-4 border-b border-white/[0.05] pb-2 tracking-wider">Interface &amp; Input</h4>
+                                    <h4
+                                        class="text-[10px] font-extrabold text-gray-500 uppercase mb-4 border-b border-white/[0.05] pb-2 tracking-wider">
+                                        Interface &amp; Input</h4>
                                     <ul class="space-y-3.5">
-                                        <li class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
-                                            <span class="text-gray-200 group-hover/item:text-emerald-400">FIIO K15</span>
-                                            <span class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">DAC/Amp</span>
+                                        <li
+                                            class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
+                                            <span class="text-gray-200 group-hover/item:text-emerald-400">FIIO
+                                                K15</span>
+                                            <span
+                                                class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">DAC/Amp</span>
                                         </li>
-                                        <li class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
-                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Marantz MPM1000U</span>
-                                            <span class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Mic</span>
+                                        <li
+                                            class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
+                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Marantz
+                                                MPM1000U</span>
+                                            <span
+                                                class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Mic</span>
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- Col 3: Portable -->
+                                <!-- Col 3: Tube Amp -->
                                 <div>
-                                    <h4 class="text-[10px] font-extrabold text-gray-500 uppercase mb-4 border-b border-white/[0.05] pb-2 tracking-wider">Portable</h4>
+                                    <h4
+                                        class="text-[10px] font-extrabold text-gray-500 uppercase mb-4 border-b border-white/[0.05] pb-2 tracking-wider">
+                                        Tube Amp</h4>
                                     <ul class="space-y-3.5">
-                                        <li class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
-                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Bose QC Ultra 2</span>
-                                            <span class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">ANC</span>
+                                        <li
+                                            class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
+                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Schiit Vali
+                                                2</span>
+                                            <span
+                                                class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Tube
+                                                Amp</span>
                                         </li>
-                                        <li class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
-                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Technics AZ100</span>
-                                            <span class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">TWS</span>
+                                    </ul>
+                                </div>
+                                <!-- Col 4: Portable -->
+                                <div>
+                                    <h4
+                                        class="text-[10px] font-extrabold text-gray-500 uppercase mb-4 border-b border-white/[0.05] pb-2 tracking-wider">
+                                        Portable</h4>
+                                    <ul class="space-y-3.5">
+                                        <li
+                                            class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
+                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Bose QC Ultra
+                                                2</span>
+                                            <span
+                                                class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">ANC</span>
                                         </li>
-                                        <li class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
-                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Nothing Phone (1)</span>
-                                            <span class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">DAP</span>
+                                        <li
+                                            class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
+                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Sony
+                                                WF-1000XM6</span>
+                                            <span
+                                                class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">TWS</span>
+                                        </li>
+                                        <li
+                                            class="flex justify-between text-xs font-medium group/item hover:text-emerald-400 transition-colors">
+                                            <span class="text-gray-200 group-hover/item:text-emerald-400">Nothing Phone
+                                                (1)</span>
+                                            <span
+                                                class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">DAP</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -328,25 +483,42 @@
                     <!-- Laptop specs -->
                     <div class="soft-card glow-card float-card p-6 flex items-center gap-5" data-aos="fade-up">
                         <div class="float-content flex items-center gap-5 w-full">
-                            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shadow shadow-blue-500/10">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shadow shadow-blue-500/10">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
                             </div>
                             <div class="flex-1">
-                                <div class="text-[9px] text-blue-400 font-extrabold uppercase tracking-widest mb-0.5">Primary Laptop</div>
-                                <div class="text-white font-extrabold text-base tracking-tight">MSI Prestige 13 A1M</div>
-                                <div class="text-gray-500 text-xs mt-1 font-medium">Ultra 7 155H (16c20t) / 32GB / 1TB / OLED</div>
+                                <div class="text-[9px] text-blue-400 font-extrabold uppercase tracking-widest mb-0.5">
+                                    Primary Laptop</div>
+                                <div class="text-white font-extrabold text-base tracking-tight">MSI Prestige 13 A1M
+                                </div>
+                                <div class="text-gray-500 text-xs mt-1 font-medium">Ultra 7 155H (16c20t) / 32GB / 1TB /
+                                    OLED</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Server specs -->
-                    <div class="soft-card glow-card float-card p-6 flex items-center gap-5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="soft-card glow-card float-card p-6 flex items-center gap-5" data-aos="fade-up"
+                        data-aos-delay="100">
                         <div class="float-content flex items-center gap-5 w-full">
-                            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shadow shadow-indigo-500/10">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shadow shadow-indigo-500/10">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01">
+                                    </path>
+                                </svg>
                             </div>
                             <div class="flex-1">
-                                <div class="text-[9px] text-indigo-400 font-extrabold uppercase tracking-widest mb-0.5">Home Server</div>
+                                <div class="text-[9px] text-indigo-400 font-extrabold uppercase tracking-widest mb-0.5">
+                                    Home Server</div>
                                 <div class="text-white font-extrabold text-base tracking-tight">Geekom A5 Pro 2026</div>
                                 <div class="text-gray-500 text-xs mt-1 font-medium">7530u, 16gb, Win 11 Pro</div>
                             </div>
@@ -361,4 +533,5 @@
     <div id="footer-placeholder"></div>
     <script src="main.js"></script>
 </body>
+
 </html>
