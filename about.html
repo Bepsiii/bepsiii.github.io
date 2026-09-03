@@ -10,6 +10,12 @@
     <meta property="og:type" content="profile">
     <meta property="og:image" content="https://placehold.co/1200x630/18181b/FFFFFF?text=About+Bepsi">
     <title>About Me - Bepsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="preload" href="header.html" as="fetch" crossorigin>
+    <link rel="preload" href="footer.html" as="fetch" crossorigin>
+    <link rel="icon" type="image/png" href="images/website-logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -24,7 +30,7 @@
     <div class="glow-blob bg-blue-500/10 w-[500px] h-[500px] -top-30 -left-30"></div>
     <div class="glow-blob bg-indigo-500/8 w-[600px] h-[600px] bottom-10 right-10"></div>
 
-    <div class="relative z-10 pt-36 pb-20">
+    <main id="main-content" class="relative z-10 pt-36 pb-20">
         <div class="container mx-auto px-6">
             <!-- Header section -->
             <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
@@ -62,13 +68,12 @@
                                     <span class="font-medium">Location:</span>
                                     <span class="text-gray-400 ml-auto">Digital Frontier</span>
                                 </div>
-                                <div class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.02] border border-white/[0.05] text-sm text-gray-300">
-                                    <span class="text-indigo-400">⚡</span>
-                                    <span class="font-medium">Status:</span>
-                                    <span class="text-gray-400 ml-auto flex items-center gap-1.5">
-                                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                                        Active / Designing
+                                <div class="flex items-center justify-between px-4 py-3 rounded-xl bg-white/[0.02] border border-white/[0.05] text-sm text-gray-300">
+                                    <span class="flex items-center gap-2">
+                                        <span class="text-purple-400">👾</span>
+                                        <span class="font-medium">Discord:</span>
                                     </span>
+                                    <span class="text-xs font-mono text-cyan-400">theukgovernment</span>
                                 </div>
                                 <a href="contact.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.02] border border-white/[0.05] text-sm text-gray-300 hover:bg-white/[0.06] hover:border-white/[0.12] transition-colors w-full">
                                     <span class="text-cyan-400">✉️</span>
@@ -172,27 +177,27 @@
                         </div>
                     </div>
 
-                    <!-- Call To Action (CTA) block -->
-                    <div class="soft-card glow-card float-card p-8 lg:p-10 text-center">
-                        <div class="float-content space-y-6">
-                            <h3 class="text-2xl font-extrabold text-white tracking-tight">What You'll Find Here</h3>
-                            <p class="text-gray-400 text-base leading-relaxed font-medium max-w-xl mx-auto">
-                                This site serves as a central hub for my work, thoughts, and discoveries. You'll find detailed write-ups of my projects, honest reviews of gear I use, and a collection of resources like spreadsheets and articles that I've found helpful.
-                            </p>
-                            <div>
-                                <a href="contact.html" class="btn-navy">
-                                    Get In Touch
-                                </a>
+                        <!-- Call To Action (CTA) block -->
+                        <div class="soft-card glow-card float-card p-8 lg:p-10 text-center">
+                            <div class="float-content space-y-6">
+                                <h3 class="text-2xl font-extrabold text-white tracking-tight">What You'll Find Here</h3>
+                                <p class="text-gray-400 text-base leading-relaxed font-medium max-w-xl mx-auto">
+                                    This site serves as a central hub for my work, thoughts, and discoveries. You'll find detailed write-ups of my projects, honest reviews of gear I use, and a collection of resources like spreadsheets and articles that I've found helpful.
+                                </p>
+                                <div>
+                                    <a href="contact.html" class="btn-navy">
+                                        Get In Touch
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                 </div>
 
             </div>
 
         </div>
-    </div>
+    </main>
 
     <div id="footer-placeholder"></div>
     <script src="main.js"></script>

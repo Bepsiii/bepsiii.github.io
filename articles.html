@@ -10,6 +10,12 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://placehold.co/1200x630/18181b/FFFFFF?text=Articles">
     <title>Articles - Bepsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="preload" href="header.html" as="fetch" crossorigin>
+    <link rel="preload" href="footer.html" as="fetch" crossorigin>
+    <link rel="icon" type="image/png" href="images/website-logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -26,91 +32,79 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="relative z-10 pt-32 pb-24">
+    <main id="main-content" class="relative z-10 pt-32 pb-24">
         <div class="container mx-auto px-6">
             <!-- Hero -->
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
                 <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Writings</span>
                 <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-none">
-                    My <span class="text-gradient-cyan-indigo">Articles</span>
+                    Tech <span class="text-gradient-cyan-indigo">Articles</span>
                 </h1>
                 <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed">
-                    Thoughts, Guides & Musings. Dive into a collection of articles covering various topics, from tech insights and guides to personal reflections.
+                    Thoughts, Guides &amp; Musings on custom hardware, 3D printing ergonomics, and audio engineering.
                 </p>
             </div>
 
             <!-- Warning Strip -->
             <div class="max-w-4xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-                <div class="soft-card p-6 flex flex-row items-center gap-5 border border-yellow-500/20 bg-yellow-500/[0.02]">
-                    <div class="text-yellow-500 bg-yellow-500/10 p-3 rounded-2xl shrink-0">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                <div class="soft-card p-6 flex flex-row items-center gap-5 border border-blue-500/20 bg-blue-500/[0.02]">
+                    <div class="text-blue-400 bg-blue-500/10 p-3 rounded-2xl shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
                     </div>
                     <div>
-                        <h3 class="text-white font-bold mb-1">Under Construction</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">This page is a work in progress. More articles will be added soon!</p>
+                        <h3 class="text-white font-bold mb-1">Editorial Drafts in Progress</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Comprehensive guides on mouse shell 3D printing and IEM impedance matching are currently being authored.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Articles Grid -->
+            <!-- Articles Grid with Feature 6 Skeleton Preview States -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Article Card 1 -->
-                <a href="#" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up">
-                    <div class="float-content flex flex-col h-full w-full">
-                        <div class="h-48 w-full bg-[#121214] flex items-center justify-center relative overflow-hidden border-b border-white/5">
-                            <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(var(--accent-navy) 1px, transparent 1px); background-size: 20px 20px;"></div>
-                            <span class="text-gray-500 font-mono text-xs uppercase tracking-widest">Image Placeholder</span>
+                <div class="soft-card glow-card float-card p-6 flex flex-col justify-between" data-aos="fade-up">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 text-[10px] font-bold uppercase tracking-wider">Hardware Modding</span>
+                            <span class="text-[10px] text-gray-500 font-mono">10 min read</span>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Placeholder Article 1</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">This is a placeholder for a future article. Check back soon for more content!</p>
-                            </div>
-                            <div class="pt-4 border-t border-white/5">
-                                <span class="text-[10px] font-bold bg-white/5 border border-white/5 text-gray-400 px-2.5 py-1 rounded-md uppercase tracking-widest">Coming Soon</span>
-                            </div>
-                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">3D Printed Mouse Ergonomics</h3>
+                        <p class="text-gray-400 text-xs mb-4 leading-relaxed">How shell curvature and center-of-gravity modifications improve aim consistency and reduce wrist fatigue.</p>
                     </div>
-                </a>
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <span class="text-[10px] font-bold bg-white/5 text-gray-400 px-2.5 py-1 rounded uppercase tracking-widest">Coming Soon</span>
+                    </div>
+                </div>
 
                 <!-- Article Card 2 -->
-                <a href="#" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="float-content flex flex-col h-full w-full">
-                        <div class="h-48 w-full bg-[#121214] flex items-center justify-center relative overflow-hidden border-b border-white/5">
-                            <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(var(--accent-navy) 1px, transparent 1px); background-size: 20px 20px;"></div>
-                            <span class="text-gray-500 font-mono text-xs uppercase tracking-widest">Image Placeholder</span>
+                <div class="soft-card glow-card float-card p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-[10px] font-bold uppercase tracking-wider">Acoustics</span>
+                            <span class="text-[10px] text-gray-500 font-mono">8 min read</span>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Placeholder Article 2</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">This is a placeholder for a future article. Check back soon for more content!</p>
-                            </div>
-                            <div class="pt-4 border-t border-white/5">
-                                <span class="text-[10px] font-bold bg-white/5 border border-white/5 text-gray-400 px-2.5 py-1 rounded-md uppercase tracking-widest">Coming Soon</span>
-                            </div>
-                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">The Truth About IEM Damping</h3>
+                        <p class="text-gray-400 text-xs mb-4 leading-relaxed">Understanding acoustic filters, nozzle resonance peaks, and how tip materials alter frequency response.</p>
                     </div>
-                </a>
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <span class="text-[10px] font-bold bg-white/5 text-gray-400 px-2.5 py-1 rounded uppercase tracking-widest">Coming Soon</span>
+                    </div>
+                </div>
 
                 <!-- Article Card 3 -->
-                <a href="#" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="float-content flex flex-col h-full w-full">
-                        <div class="h-48 w-full bg-[#121214] flex items-center justify-center relative overflow-hidden border-b border-white/5">
-                            <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(var(--accent-navy) 1px, transparent 1px); background-size: 20px 20px;"></div>
-                            <span class="text-gray-500 font-mono text-xs uppercase tracking-widest">Image Placeholder</span>
+                <div class="soft-card glow-card float-card p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 text-[10px] font-bold uppercase tracking-wider">PC Hardware</span>
+                            <span class="text-[10px] text-gray-500 font-mono">12 min read</span>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Placeholder Article 3</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">This is a placeholder for a future article. Check back soon for more content!</p>
-                            </div>
-                            <div class="pt-4 border-t border-white/5">
-                                <span class="text-[10px] font-bold bg-white/5 border border-white/5 text-gray-400 px-2.5 py-1 rounded-md uppercase tracking-widest">Coming Soon</span>
-                            </div>
-                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Micro-ATX vs Mini-ITX</h3>
+                        <p class="text-gray-400 text-xs mb-4 leading-relaxed">Why compact mATX enclosures like the Lian Li A3 offer superior thermal and acoustic performance.</p>
                     </div>
-                </a>
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <span class="text-[10px] font-bold bg-white/5 text-gray-400 px-2.5 py-1 rounded uppercase tracking-widest">Coming Soon</span>
+                    </div>
+                </div>
 
             </div>
         </div>

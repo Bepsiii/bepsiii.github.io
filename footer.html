@@ -1,44 +1,48 @@
-<footer class="relative mt-32 border-t border-white/[0.06] bg-[#030303]/40 backdrop-blur-md overflow-hidden">
+<footer class="relative mt-32 backdrop-blur-md overflow-hidden" style="background: color-mix(in srgb, var(--bg-body) 40%, transparent); border-top: 1px solid var(--border-subtle);">
     <!-- Ambient Corner Glow in Footer -->
     <div class="absolute right-0 bottom-0 w-80 h-80 rounded-full bg-blue-500/5 blur-[80px] pointer-events-none z-0"></div>
     <div class="absolute left-0 bottom-0 w-80 h-80 rounded-full bg-indigo-500/5 blur-[80px] pointer-events-none z-0"></div>
 
     <div class="container relative mx-auto px-6 py-14 z-10">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-white/[0.05] pb-10">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 pb-10" style="border-bottom: 1px solid var(--border-subtle);">
             
             <div class="text-center md:text-left">
                 <div class="flex items-center gap-2 justify-center md:justify-start mb-3">
                     <img src="images/website-logo.png" alt="Logo" class="h-7 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300">
                 </div>
-                <p class="text-gray-400 text-xs leading-relaxed max-w-sm">
+                <p class="text-xs leading-relaxed max-w-sm" style="color: var(--text-muted);">
                     Digital Craftsman &amp; Tech Enthusiast. <br>Archiving creations, custom hardware, and curated resources.
                 </p>
             </div>
 
             <!-- Social Links with Color Glows -->
             <div class="flex gap-4">
-                <a href="https://x.com/Bepsi_Bottle" target="_blank" aria-label="X (Twitter)" class="p-2.5 rounded-full bg-white/[0.02] border border-white/[0.05] text-gray-400 hover:text-white hover:border-[#1da1f2]/30 hover:bg-[#1da1f2]/10 transition-all duration-300">
+                <a href="https://x.com/Bepsi_Bottle" target="_blank" aria-label="X (Twitter)" class="p-2.5 rounded-full transition-all duration-300 hover:text-white hover:border-[#1da1f2]/30 hover:bg-[#1da1f2]/10" style="background: var(--bg-badge); border: 1px solid var(--border-subtle); color: var(--text-muted);">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
-                <button data-copy="theukgovernment" aria-label="Discord Username" class="p-2.5 rounded-full bg-white/[0.02] border border-white/[0.05] text-gray-400 hover:text-white hover:border-[#5865f2]/30 hover:bg-[#5865f2]/10 transition-all duration-300 relative group">
+                <button type="button" data-copy="theukgovernment" title="Copy Discord: theukgovernment" aria-label="Copy Discord username theukgovernment" class="p-2.5 rounded-full transition-all duration-300 hover:text-white hover:border-[#5865f2]/30 hover:bg-[#5865f2]/10 cursor-pointer" style="background: var(--bg-badge); border: 1px solid var(--border-subtle); color: var(--text-muted);">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                    <span class="tooltip opacity-0 absolute -top-9 left-1/2 -translate-x-1/2 text-[10px] font-bold bg-[#5865f2] text-white px-2 py-0.5 rounded shadow transition-opacity duration-300">Copied!</span>
                 </button>
-                <a href="mailto:contact@bepsi.dev" aria-label="Send Email" class="p-2.5 rounded-full bg-white/[0.02] border border-white/[0.05] text-gray-400 hover:text-white hover:border-[#10b981]/30 hover:bg-[#10b981]/10 transition-all duration-300">
+                <a href="mailto:sandra@blowyournanstitscleanoff.shop" aria-label="Send Email" class="p-2.5 rounded-full transition-all duration-300 hover:text-white hover:border-[#10b981]/30 hover:bg-[#10b981]/10" style="background: var(--bg-badge); border: 1px solid var(--border-subtle); color: var(--text-muted);">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 </a>
-            </div>        </div>
+            </div>
+        </div>
 
         <div class="mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-[11px] text-gray-500 font-medium">&copy; <span id="current-year"></span> Bepsi. All rights reserved.</p>
+            <div class="flex items-center gap-3">
+                <p class="text-[11px] font-medium" style="color: var(--text-dark);">&copy; <span id="current-year">2026</span> Bepsi. All rights reserved.</p>
+                <span style="color: var(--border-subtle);">&bull;</span>
+                <button type="button" data-reopen-cookie-banner class="text-[11px] underline transition-colors" style="color: var(--text-dark);">Cookie Preferences</button>
+            </div>
             
             <div class="flex items-center gap-6">
-                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-[11px] text-gray-500 hover:text-white font-medium flex items-center gap-1.5 transition-colors">
+                <button type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-[11px] font-medium flex items-center gap-1.5 transition-colors hover:text-white" style="color: var(--text-dark);">
                     Back to Top <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
                 </button>
-                <a href="https://ko-fi.com/bepsiiiiii" target="_blank" class="text-[11px] font-semibold text-gray-400 hover:text-[#ff5e5b] flex items-center gap-1 transition-colors duration-300">
+                <a href="https://ko-fi.com/bepsiiiiii" target="_blank" class="text-[11px] font-semibold flex items-center gap-1 transition-colors duration-300 hover:text-[#ff5e5b]" style="color: var(--text-muted);">
                     <svg class="w-4 h-4 text-[#ff5e5b]" fill="currentColor" viewBox="0 0 24 24"><path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723S0 4.605 0 5.417V17.83s.723.812 1.446.812h12.18s1.446.04 1.446-1.584c0 0 3.328.325 5.856-1.583 2.531-1.91 3.824-3.567 3.824-3.567s.148-1.583-.871-2.964zm-5.02 5.03c-1.393.754-3.218.423-3.218.423V7.202h3.218s2.518-.113 2.518 3.107c0 3.224-2.518 3.669-2.518 3.669z"/></svg>
-                    Support Server Costs
+                    Support on Ko-fi
                 </a>
             </div>
         </div>
@@ -49,8 +53,4 @@
     if(document.getElementById('current-year')) {
         document.getElementById('current-year').textContent = new Date().getFullYear();
     }
-</script>                Support on Ko-fi
-            </a>
-        </div>
-    </div>
-</footer>
+</script>

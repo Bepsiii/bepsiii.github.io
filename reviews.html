@@ -10,6 +10,12 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://placehold.co/1200x630/18181b/FFFFFF?text=Reviews">
     <title>Reviews - Bepsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="preload" href="header.html" as="fetch" crossorigin>
+    <link rel="preload" href="footer.html" as="fetch" crossorigin>
+    <link rel="icon" type="image/png" href="images/website-logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -26,24 +32,32 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="relative z-10 pt-32 pb-24">
+    <main id="main-content" class="relative z-10 pt-32 pb-24">
         <div class="container mx-auto px-6">
-             <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-down">
-                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Opinions</span>
+             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
+                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Evaluations</span>
                 <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-none">
-                    My <span class="text-gradient-cyan-indigo">Reviews</span>
+                    Hardware <span class="text-gradient-cyan-indigo">Reviews</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed">
-                    In-depth thoughts on tech and peripherals.
+                <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed mb-8">
+                    In-depth, unsponsored thoughts on IEMs, mini PCs, custom mouse mods, and gaming peripherals.
                 </p>
+
+                <!-- Filter Category Badges -->
+                <div class="flex flex-wrap justify-center gap-2">
+                    <button type="button" data-review-filter="all" class="filter-btn px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-bold tracking-wider uppercase active">All Categories (4)</button>
+                    <button type="button" data-review-filter="iem" class="filter-btn px-4 py-1.5 rounded-full bg-white/[0.02] hover:bg-white/[0.06] text-gray-400 hover:text-white border border-white/[0.06] text-xs font-semibold tracking-wider transition-all">IEMs &amp; Audio (2)</button>
+                    <button type="button" data-review-filter="minipc" class="filter-btn px-4 py-1.5 rounded-full bg-white/[0.02] hover:bg-white/[0.06] text-gray-400 hover:text-white border border-white/[0.06] text-xs font-semibold tracking-wider transition-all">Mini PCs (1)</button>
+                    <button type="button" data-review-filter="mousemod" class="filter-btn px-4 py-1.5 rounded-full bg-white/[0.02] hover:bg-white/[0.06] text-gray-400 hover:text-white border border-white/[0.06] text-xs font-semibold tracking-wider transition-all">Mouse Mods (1)</button>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Review 0 -->
-                <a href="geekoma5pro-review.html" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up">
+                <a href="geekoma5pro-review.html" data-review-card data-category="minipc" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up">
                     <div class="float-content flex flex-col h-full w-full">
                         <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/geekoma5pro/cover.png" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=GEEKOM+A5+Pro'" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+                            <img src="images/setup/reviews/geekoma5pro/cover.png" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=GEEKOM+A5+Pro'" alt="GEEKOM A5 Pro" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
                             <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">Mini PC</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow justify-between">
@@ -57,27 +71,27 @@
                 </a>
 
                 <!-- Review 1 -->
-                <a href="spacetravel-review.html" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up">
+                <a href="spacetravel-review.html" data-review-card data-category="iem" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="float-content flex flex-col h-full w-full">
                         <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/spacetravels/moondrop_spacetravel_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=Moondrop'" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">IEMs</div>
+                            <img src="images/setup/reviews/spacetravels/moondrop_spacetravel_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=Space+Travel'" alt="Moondrop Space Travel" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+                            <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">TWS</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow justify-between">
                             <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Moondrop Space Travels</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">Budget Hard Hitting TWS.</p>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Moondrop Space Travel</h3>
+                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">Sub-$25 ANC earbuds with reference tuning.</p>
                             </div>
-                            <div class="text-[10px] text-gray-500 font-bold tracking-wider uppercase">May 22, 2025</div>
+                            <div class="text-[10px] text-gray-500 font-bold tracking-wider uppercase">Oct 12, 2024</div>
                         </div>
                     </div>
                 </a>
 
                  <!-- Review 2 -->
-                <a href="7hzsonus-review.html" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <a href="7hzsonus-review.html" data-review-card data-category="iem" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="150">
                     <div class="float-content flex flex-col h-full w-full">
                         <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/sonus/7hz_sonus_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=7Hz'" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+                            <img src="images/setup/reviews/sonus/7hz_sonus_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=7Hz'" alt="7Hz Sonus" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
                             <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">IEMs</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow justify-between">
@@ -91,10 +105,10 @@
                 </a>
 
                  <!-- Review 3 -->
-                <a href="beanmouse-review.html" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <a href="beanmouse-review.html" data-review-card data-category="mousemod" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
                     <div class="float-content flex flex-col h-full w-full">
                         <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/beanmouse/beanmouse_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=Bean'" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+                            <img src="images/setup/reviews/beanmouse/beanmouse_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=Bean'" alt="Beanmouse V2.1" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
                             <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">MOD</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow justify-between">

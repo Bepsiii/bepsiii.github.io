@@ -1,34 +1,132 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+/* ==========================================================================
+   1. Design Tokens & Theme Variables (Dark / Light Mode)
+   ========================================================================== */
+:root,
+[data-theme="dark"] {
+    --bg-body: #030303;
+    --bg-surface: #0a0a0c;
+    --bg-card: rgba(10, 10, 12, 0.65);
+    --bg-card-hover: rgba(18, 18, 24, 0.85);
+    --bg-input: rgba(255, 255, 255, 0.03);
+    --bg-input-focus: rgba(255, 255, 255, 0.06);
+    --bg-overlay: rgba(0, 0, 0, 0.75);
+    --bg-modal: rgba(10, 10, 14, 0.95);
+    --bg-badge: rgba(255, 255, 255, 0.05);
 
-:root {
-    /* Palette: Deep Void & Electric Blue/Indigo */
-    --bg-body: #030303;       /* Deeper void black for rich contrast */
-    --bg-card: rgba(10, 10, 12, 0.45); 
-    --bg-card-hover: rgba(14, 14, 18, 0.7);
-    
-    /* Cyber/Neon Highlights */
-    --accent-navy: #3b82f6;      /* Blue 500 */
-    --accent-navy-dark: #1d4ed8; /* Blue 700 */
-    --accent-cyan: #06b6d4;      /* Cyan 500 */
-    --accent-violet: #6366f1;    /* Indigo 500 */
-    --accent-text: #60a5fa;      /* Blue 400 */
-    
-    /* Text Specs */
-    --text-main: #f4f4f5;        /* Zinc 100 */
-    --text-muted: #a1a1aa;       /* Zinc 400 */
-    --text-dark: #71717a;        /* Zinc 500 */
-    
-    /* Borders & Rounding */
-    --border-subtle: rgba(255, 255, 255, 0.05); /* Soft white */
-    --border-hover: rgba(255, 255, 255, 0.15);
-    --radius-lg: 16px;
-    --radius-xl: 24px;
-    
-    --font-main: 'Plus Jakarta Sans', sans-serif;
-    --font-headings: 'Space Grotesk', var(--font-main);
+    /* Accents */
+    --accent-navy: #3b82f6;       /* Blue 500 */
+    --accent-navy-dark: #1d4ed8;  /* Blue 700 */
+    --accent-cyan: #06b6d4;       /* Cyan 500 */
+    --accent-violet: #6366f1;     /* Indigo 500 */
+    --accent-text: #60a5fa;       /* Blue 400 */
+    --accent-glow: rgba(59, 130, 246, 0.25);
+
+    /* Text */
+    --text-main: #f4f4f5;         /* Zinc 100 */
+    --text-heading: #ffffff;
+    --text-muted: #a1a1aa;        /* Zinc 400 */
+    --text-dark: #71717a;         /* Zinc 500 */
+
+    /* Borders */
+    --border-subtle: rgba(255, 255, 255, 0.07);
+    --border-hover: rgba(255, 255, 255, 0.18);
+    --border-focus: #3b82f6;
+
+    /* Semantic States */
+    --color-success: #10b981;
+    --color-success-bg: rgba(16, 185, 129, 0.12);
+    --color-danger: #ef4444;
+    --color-danger-bg: rgba(239, 68, 68, 0.12);
+    --color-warning: #f59e0b;
+
+    /* Skeletons */
+    --skeleton-base: rgba(255, 255, 255, 0.05);
+    --skeleton-highlight: rgba(255, 255, 255, 0.12);
+
+    /* Shadows */
+    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+    --shadow-dropdown: 0 20px 40px -15px rgba(0, 0, 0, 0.9);
+
+    /* Grid & Scanlines */
+    --grid-dot-color: rgba(255, 255, 255, 0.03);
+    --scanline-opacity: 0.25;
+
+    color-scheme: dark;
 }
 
-/* --- Base Reset --- */
+[data-theme="light"] {
+    --bg-body: #f8fafc;           /* Slate 50 */
+    --bg-surface: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --bg-card-hover: #ffffff;
+    --bg-input: #ffffff;
+    --bg-input-focus: #ffffff;
+    --bg-overlay: rgba(15, 23, 42, 0.45);
+    --bg-modal: rgba(255, 255, 255, 0.98);
+    --bg-badge: rgba(0, 0, 0, 0.05);
+
+    /* Accents */
+    --accent-navy: #2563eb;       /* Blue 600 */
+    --accent-navy-dark: #1d4ed8;  /* Blue 700 */
+    --accent-cyan: #0284c7;       /* Cyan 600 */
+    --accent-violet: #4f46e5;     /* Indigo 600 */
+    --accent-text: #2563eb;       /* Blue 600 */
+    --accent-glow: rgba(37, 99, 235, 0.18);
+
+    /* Text */
+    --text-main: #1e293b;         /* Slate 800 */
+    --text-heading: #0f172a;      /* Slate 900 */
+    --text-muted: #64748b;        /* Slate 500 */
+    --text-dark: #94a3b8;         /* Slate 400 */
+
+    /* Borders */
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(0, 0, 0, 0.18);
+    --border-focus: #2563eb;
+
+    /* Semantic States */
+    --color-success: #059669;
+    --color-success-bg: rgba(5, 150, 105, 0.1);
+    --color-danger: #dc2626;
+    --color-danger-bg: rgba(220, 38, 38, 0.1);
+    --color-warning: #d97706;
+
+    /* Skeletons */
+    --skeleton-base: rgba(0, 0, 0, 0.06);
+    --skeleton-highlight: rgba(0, 0, 0, 0.12);
+
+    /* Shadows */
+    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+    --shadow-dropdown: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+
+    /* Grid & Scanlines */
+    --grid-dot-color: rgba(0, 0, 0, 0.04);
+    --scanline-opacity: 0.05;
+
+    color-scheme: light;
+}
+
+:root {
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+    --font-headings: 'Space Grotesk', var(--font-main);
+    --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Theme Transition Safety */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, fill 0.3s ease, stroke 0.3s ease !important;
+}
+
+/* ==========================================================================
+   2. Base Reset & Typography
+   ========================================================================= */
 * { 
     box-sizing: border-box; 
     margin: 0;
@@ -38,7 +136,7 @@
 html {
     scroll-behavior: smooth;
     scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.15) var(--bg-body);
+    scrollbar-color: var(--border-hover) var(--bg-body);
 }
 
 body {
@@ -53,17 +151,31 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Accessibility */
+/* Accessibility Focus Ring */
 :focus-visible {
     outline: 2px solid var(--accent-navy);
-    outline-offset: 4px;
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
 }
 
-/* Custom Scrollbar */
+/* Screen Reader Only Utility */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Scrollbars */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -72,34 +184,98 @@ body {
     background: var(--bg-body);
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--border-hover);
     border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.16);
+    background: var(--accent-navy);
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-headings);
     font-weight: 700;
     letter-spacing: -0.03em;
-    color: white;
+    color: var(--text-heading);
 }
 
 a { 
     color: inherit; 
     text-decoration: none; 
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+    transition: var(--transition-smooth); 
 }
 
-/* --- Background Grid & Glows --- */
+/* ==========================================================================
+   3. Feature 12: Skip to Content Link
+   ========================================================================== */
+.skip-link {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    background: var(--accent-navy);
+    color: #ffffff !important;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    top: 0;
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   4. Feature 8: Scroll Progress Bar
+   ========================================================================== */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-navy), var(--accent-violet));
+    z-index: 9999;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px var(--accent-glow);
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   5. Feature 11: Sticky Smart Header & Navbar
+   ========================================================================== */
+#navbar {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                padding 0.3s ease, 
+                opacity 0.3s ease;
+}
+
+#navbar.header-hidden {
+    transform: translate(-50%, -130%) !important;
+}
+
+#navbar.header-scrolled .navbar-glass {
+    background: var(--bg-card) !important;
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-color: var(--border-hover) !important;
+    box-shadow: var(--shadow-dropdown) !important;
+}
+
+/* ==========================================================================
+   6. Background System: Grid, Scanlines & Glows
+   ========================================================================== */
 .bg-grid-pattern {
     position: fixed;
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background-image: 
-        radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-image: radial-gradient(var(--grid-dot-color) 1px, transparent 1px);
     background-size: 24px 24px;
     mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 100%);
     -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 100%);
@@ -109,57 +285,70 @@ a {
 .glow-blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px);
-    -webkit-filter: blur(120px);
+    filter: blur(80px);
+    -webkit-filter: blur(80px);
     pointer-events: none;
     opacity: 0.1;
     z-index: 0;
     mix-blend-mode: screen;
-    animation: blob-float 20s infinite alternate ease-in-out;
+    /* Static transform instead of animated — saves continuous GPU compositing */
+    transform: translate(20px, -30px) scale(1.05);
 }
 
-@keyframes blob-float {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(40px, -60px) scale(1.1); }
+[data-theme="light"] .glow-blob {
+    opacity: 0.15;
+    mix-blend-mode: multiply;
 }
 
-/* --- Scanlines (Very Subtle Aesthetic Texture) --- */
+/* Scanlines disabled by default for performance (full-screen repaint layer).
+   Add class "scanlines-enabled" to body to re-enable. */
 .scanlines {
     position: fixed;
     inset: 0;
     pointer-events: none;
     background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0.08));
     background-size: 100% 4px;
-    z-index: 9999;
-    opacity: 0.3;
+    z-index: 9990;
+    opacity: 0;
+    display: none;
 }
 
-/* --- The Premium Glass Card with Dynamic Float Parallax --- */
+.scanlines-enabled .scanlines {
+    display: block;
+    opacity: var(--scanline-opacity);
+}
+
+/* ==========================================================================
+   7. Premium Cards & Parallax Glass Engine (Features 7 & Micro-Interactions)
+   ========================================================================== */
 .soft-card {
     background: var(--bg-card);
-    backdrop-filter: blur(28px) saturate(160%);
-    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     padding: 2rem;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                background 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.4s ease, 
+                border-color 0.4s ease, 
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
     position: relative;
     z-index: 10;
     overflow: hidden;
+    contain: layout style;
 }
 
 .soft-card:hover {
     background: var(--bg-card-hover);
     border-color: var(--border-hover);
-    transform: translateY(-6px) scale(1.005);
-    /* Dynamic drop-shadow casting away from cursor, plus a static glow */
-    box-shadow: var(--shadow-x, 0px) var(--shadow-y, 25px) 60px -15px rgba(0, 0, 0, 0.85),
-                0 0 40px -5px rgba(59, 130, 246, 0.15);
+    transform: translateY(-4px) scale(1.004);
+    box-shadow: var(--shadow-x, 0px) var(--shadow-y, 20px) 50px -15px var(--accent-glow), var(--shadow-card);
+}
+
+.soft-card:active {
+    transform: translateY(-2px) scale(0.995);
 }
 
 /* Radial Hover Glowing Border Spotlight */
@@ -168,11 +357,11 @@ a {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    padding: 1.5px; /* Border thickness */
+    padding: 1.5px;
     background: radial-gradient(
-        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(255, 255, 255, 0.22) 0%,
-        rgba(59, 130, 246, 0.15) 40%,
+        250px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.3) 0%,
+        var(--accent-glow) 40%,
         transparent 80%
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -181,20 +370,19 @@ a {
     pointer-events: none;
     z-index: 2;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.4s ease;
+    will-change: opacity;
 }
 
 .glow-card:hover::before {
     opacity: 1;
 }
 
-/* Custom 2D Parallax Content Float */
 .float-card {
     will-change: transform;
 }
 
 .float-content {
-    /* Driven dynamically by JS variables for smooth organic floating */
     transform: translate(var(--parallax-x, 0px), var(--parallax-y, 0px));
     transition: transform 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
     will-change: transform;
@@ -202,26 +390,29 @@ a {
 
 .float-card:not(:hover) .float-content {
     transform: translate(0px, 0px);
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- Premium Buttons --- */
+/* ==========================================================================
+   8. Buttons & Micro-Interactions (Feature 7)
+   ========================================================================== */
 .btn-navy {
     position: relative;
     background: linear-gradient(135deg, var(--accent-navy) 0%, var(--accent-navy-dark) 100%);
-    color: white;
+    color: #ffffff !important;
     padding: 0.75rem 1.75rem;
     border-radius: 999px;
     font-weight: 600;
     font-size: 0.9rem;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: var(--transition-smooth);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 4px 20px var(--accent-glow);
+    cursor: pointer;
     z-index: 10;
 }
 
@@ -229,24 +420,28 @@ a {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
     transform: translateX(-100%);
     transition: transform 0.6s ease;
 }
 
 .btn-navy:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.45);
-    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 25px var(--accent-glow);
+    border-color: rgba(255, 255, 255, 0.25);
 }
 
 .btn-navy:hover::after {
     transform: translateX(100%);
 }
 
+.btn-navy:active {
+    transform: translateY(0) scale(0.98);
+}
+
 .btn-outline {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--bg-badge);
+    border: 1px solid var(--border-subtle);
     color: var(--text-main);
     padding: 0.75rem 1.75rem;
     border-radius: 999px;
@@ -255,73 +450,547 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    gap: 0.5rem;
+    transition: var(--transition-smooth);
+    cursor: pointer;
     z-index: 10;
 }
 
 .btn-outline:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+    color: var(--text-heading);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-card);
 }
 
-/* --- Filter controls (Library) --- */
-.filter-btn {
-    padding: 0.5rem 1.25rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;
+.btn-outline:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.btn-danger {
+    background: var(--color-danger);
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.45);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   9. Feature 1 & Theme Toggle Button
+   ========================================================================== */
+.theme-toggle-btn {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-badge);
+    border: 1px solid var(--border-subtle);
     color: var(--text-muted);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: var(--transition-smooth);
+    overflow: hidden;
 }
 
-.filter-btn:hover {
-    color: white;
-    border-color: rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.05);
+.theme-toggle-btn:hover {
+    color: var(--text-heading);
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+    transform: scale(1.05);
 }
 
-.filter-btn.active {
-    background: linear-gradient(135deg, var(--accent-navy) 0%, var(--accent-navy-dark) 100%);
-    color: white;
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
+.theme-toggle-btn svg {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
-/* --- Three.js Canvas Styling --- */
-#hero-canvas-container {
-    position: absolute;
+[data-theme="dark"] .sun-icon {
+    display: block;
+}
+[data-theme="dark"] .moon-icon {
+    display: none;
+}
+[data-theme="light"] .sun-icon {
+    display: none;
+}
+[data-theme="light"] .moon-icon {
+    display: block;
+}
+
+/* ==========================================================================
+   10. Feature 3: Site Search Modal (Command Palette)
+   ========================================================================== */
+.search-backdrop {
+    position: fixed;
     inset: 0;
-    z-index: 0;
-    opacity: 0.45; /* Rich canvas visualization */
+    background: var(--bg-overlay);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 9998;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10vh 1rem 2rem 1rem;
+    opacity: 0;
     pointer-events: none;
+    transition: opacity 0.25s ease;
 }
 
-/* --- Form Fields & Focus Glows --- */
+.search-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-dialog {
+    width: 100%;
+    max-width: 640px;
+    background: var(--bg-modal);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
+    transform: scale(0.95) translateY(-10px);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+.search-backdrop.active .search-dialog {
+    transform: scale(1) translateY(0);
+}
+
+.search-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.search-input-field {
+    width: 100%;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.5rem 0 !important;
+    font-size: 1.1rem;
+    color: var(--text-heading) !important;
+    outline: none !important;
+}
+
+.search-results-list {
+    max-height: 380px;
+    overflow-y: auto;
+    padding: 0.75rem;
+    list-style: none;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+    border: 1px solid transparent;
+}
+
+.search-result-item:hover,
+.search-result-item.selected {
+    background: var(--bg-badge);
+    border-color: var(--border-subtle);
+    transform: translateX(3px);
+}
+
+.search-result-item.selected {
+    border-color: var(--accent-navy);
+    background: var(--accent-glow);
+}
+
+.search-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: var(--bg-badge);
+}
+
+.kbd-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.15rem 0.45rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-family: monospace;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   11. Feature 4: Back to Top Floating Button
+   ========================================================================== */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-hover);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(20px) scale(0.85);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+    z-index: 900;
+}
+
+.back-to-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.back-to-top-btn:hover {
+    color: var(--accent-navy);
+    border-color: var(--accent-navy);
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 15px 30px var(--accent-glow);
+}
+
+/* ==========================================================================
+   12. Feature 5: Accessible Mobile Menu & Hamburger Animation
+   ========================================================================== */
+.mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-overlay);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9991;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 10;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-main);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+}
+
+.hamburger-btn.is-active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger-btn.is-active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger-btn.is-active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   13. Feature 2: Cookie Consent Banner
+   ========================================================================== */
+.cookie-banner {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(150%);
+    width: calc(100% - 2rem);
+    max-width: 520px;
+    background: var(--bg-card);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-xl);
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.4s;
+}
+
+.cookie-banner.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+
+
+
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   15. Feature 9: One-Click Copy Tooltip & Feedback
+   ========================================================================== */
+.copy-btn {
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.copy-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: var(--accent-navy);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.copy-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px;
+    border-style: solid;
+    border-color: var(--accent-navy) transparent transparent transparent;
+}
+
+.copy-btn.copied .copy-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.copy-btn .icon-check {
+    display: none;
+}
+.copy-btn.copied .icon-copy {
+    display: none;
+}
+.copy-btn.copied .icon-check {
+    display: inline-block;
+    color: var(--color-success);
+}
+
+/* ==========================================================================
+   16. Feature 13: Password Visibility Toggle
+   ========================================================================== */
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.password-input-wrapper input {
+    padding-right: 3rem !important;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 0.75rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 0.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s ease;
+}
+
+.password-toggle-btn:hover {
+    color: var(--text-heading);
+}
+
+/* ==========================================================================
+   17. Feature 15 & 16: Form Validation, Error & Success States
+   ========================================================================== */
+.form-group {
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
 input, textarea, select {
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.02) !important;
-    border: 1px solid rgba(255, 255, 255, 0.06) !important;
-    border-radius: 12px;
-    padding: 1rem;
-    color: white;
+    background-color: var(--bg-input) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+    color: var(--text-main);
     outline: none;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
 }
 
 input:focus, textarea:focus, select:focus {
-    border-color: var(--accent-navy) !important;
-    background-color: rgba(255, 255, 255, 0.04) !important;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15) !important;
+    border-color: var(--border-focus) !important;
+    background-color: var(--bg-input-focus) !important;
+    box-shadow: 0 0 0 3px var(--accent-glow) !important;
 }
 
-/* --- Text Gradient Clipping Utility --- */
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border-color: var(--color-danger) !important;
+    box-shadow: 0 0 0 3px var(--color-danger-bg) !important;
+    animation: field-shake 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes field-shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-3px, 0, 0); }
+    40%, 60% { transform: translate3d(3px, 0, 0); }
+}
+
+.form-error-msg {
+    display: none;
+    color: var(--color-danger);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.35rem;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.form-group.has-error .form-error-msg {
+    display: flex;
+}
+
+.form-success-card {
+    display: none;
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: var(--radius-lg);
+    background: var(--color-success-bg);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.form-success-card.active {
+    display: block;
+}
+
+/* ==========================================================================
+   18. Feature 17: Accessible Confirmation Dialog Modals
+   ========================================================================== */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-overlay);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-dialog {
+    width: 100%;
+    max-width: 480px;
+    background: var(--bg-modal);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9);
+    transform: scale(0.92) translateY(10px);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.active .modal-dialog {
+    transform: scale(1) translateY(0);
+}
+
+
+
+/* ==========================================================================
+   22. Text Gradients & Utilities
+   ========================================================================== */
 .text-gradient {
-    background: linear-gradient(135deg, #ffffff 10%, #a1a1aa 100%);
+    background: linear-gradient(135deg, var(--text-heading) 10%, var(--text-muted) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -332,11 +1001,87 @@ input:focus, textarea:focus, select:focus {
     -webkit-text-fill-color: transparent;
 }
 
-/* --- Utilities --- */
 .resource-item.hidden { display: none; }
 .text-navy { color: var(--accent-navy); }
 
-/* --- Mobile / Touchscreen Adjustments & Responsive scaling --- */
+/* ==========================================================================
+   23. Feature 10: Print Stylesheet (@media print)
+   ========================================================================== */
+@media print {
+    @page {
+        margin: 1.5cm;
+    }
+
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        filter: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt;
+        line-height: 1.5;
+    }
+
+    /* Hide non-printable navigation, interactive, and floating elements */
+    #navbar,
+    #mobile-menu,
+    .mobile-backdrop,
+    #footer-placeholder footer,
+    .scroll-progress-bar,
+    .scanlines,
+    .bg-grid-pattern,
+    .glow-blob,
+    #hero-canvas-container,
+    .back-to-top-btn,
+    .floating-contact-widget,
+    .cookie-banner,
+    .search-backdrop,
+    .modal-backdrop,
+    .skip-link,
+    .btn-navy,
+    .btn-outline,
+    .theme-toggle-btn {
+        display: none !important;
+    }
+
+    /* Card adjustments for print */
+    .soft-card {
+        border: 1px solid #d1d5db !important;
+        page-break-inside: avoid;
+        margin-bottom: 1.5rem !important;
+        padding: 1.25rem !important;
+    }
+
+    /* Expand all accordions in print */
+    .accordion-panel {
+        grid-template-rows: 1fr !important;
+    }
+    .accordion-content {
+        padding: 0.5rem 0 !important;
+    }
+
+    /* Print hyperlinks explicitly where relevant */
+    a[href^="http"]:not(.no-print-url)::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #555555 !important;
+    }
+
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+    }
+}
+
+/* ==========================================================================
+   24. Responsive & Touch Screen Adjustments
+   ========================================================================== */
 @media (max-width: 768px) {
     .soft-card {
         padding: 1.5rem;
@@ -352,24 +1097,161 @@ input:focus, textarea:focus, select:focus {
         width: 100%;
         padding: 0.85rem 1.5rem;
     }
+    .floating-contact-widget {
+        right: 4.8rem;
+        bottom: 1.5rem;
+    }
+    .back-to-top-btn {
+        right: 1.5rem;
+        bottom: 1.5rem;
+    }
 }
 
-/* Disable Hover effects on touchscreen systems */
 @media (hover: none) {
     .soft-card:hover, .float-card:hover {
         transform: none !important;
-        box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5) !important;
+        box-shadow: var(--shadow-card) !important;
         background: var(--bg-card) !important;
         border-color: var(--border-subtle) !important;
     }
     .btn-navy:hover, .btn-outline:hover {
         transform: none !important;
-        box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2) !important;
     }
     .glow-card::before {
-        display: none !important; /* Hide glowing border light tracking mouse */
+        display: none !important;
     }
     .float-content {
         transform: none !important;
     }
 }
+
+/* ==========================================================================
+   25. Active Navigation & Header Enhancements
+   ========================================================================== */
+.nav-link-item.active {
+    color: var(--text-heading) !important;
+    background: color-mix(in srgb, var(--accent-navy) 20%, transparent) !important;
+    border: 1px solid color-mix(in srgb, var(--accent-navy) 40%, transparent);
+    box-shadow: 0 0 16px -2px var(--accent-glow);
+}
+
+.mobile-nav-item.active {
+    color: var(--text-heading) !important;
+    background: color-mix(in srgb, var(--accent-navy) 22%, transparent) !important;
+    border: 1px solid var(--accent-navy);
+    font-weight: 700;
+}
+
+/* Search Shortcut Badge */
+.search-shortcut-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1rem 0.35rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-family: monospace;
+    color: var(--text-muted);
+    margin-left: 0.35rem;
+}
+
+/* ==========================================================================
+   26. Toast Notification Engine
+   ========================================================================== */
+.bepsi-toast-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 10001;
+    pointer-events: none;
+    max-width: calc(100vw - 2rem);
+}
+
+.bepsi-toast {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.7rem 1.25rem;
+    background: var(--bg-modal);
+    border: 1px solid var(--border-hover);
+    color: var(--text-heading);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6), 0 0 20px -3px var(--accent-glow);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bepsi-toast.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.bepsi-toast svg {
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   27. Interactive Filters & Card States
+   ========================================================================== */
+.filter-btn {
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-btn:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background: color-mix(in srgb, var(--accent-navy) 25%, transparent) !important;
+    color: #ffffff !important;
+    border-color: var(--accent-navy) !important;
+    box-shadow: 0 0 15px -3px var(--accent-glow);
+}
+
+.filterable-card {
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filterable-card.is-filtered-out {
+    display: none !important;
+}
+
+/* Setup ScrollSpy active jump pill */
+.setup-jump-link.active {
+    background: color-mix(in srgb, var(--accent-navy) 25%, transparent) !important;
+    border-color: var(--accent-navy) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 15px -3px var(--accent-glow);
+}
+
+/* Search Query Highlight & Empty State */
+.search-highlight {
+    background: rgba(59, 130, 246, 0.35);
+    color: #ffffff;
+    border-radius: 2px;
+    padding: 0 2px;
+}
+
+.filter-empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    border: 1px dashed var(--border-subtle);
+}
+

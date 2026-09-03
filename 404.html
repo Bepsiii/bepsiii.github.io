@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 Not Found | Bepsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="preload" href="/header.html" as="fetch" crossorigin>
+    <link rel="preload" href="/footer.html" as="fetch" crossorigin>
+    <link rel="icon" type="image/png" href="/images/website-logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="/style.css">
@@ -21,7 +26,7 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="relative z-10 pt-40 pb-20 min-h-[70vh] flex flex-col justify-center items-center text-center">
+    <main id="main-content" class="relative z-10 pt-40 pb-20 min-h-[70vh] flex flex-col justify-center items-center text-center">
         <div class="container mx-auto px-6" data-aos="fade-up">
             <h1 class="text-7xl md:text-8xl font-extrabold text-blue-400 mb-6 font-mono leading-none tracking-tight">
                 Error <span class="text-gradient-cyan-indigo">404</span>
@@ -32,60 +37,19 @@
                     Looks like the page you are trying to visit has been unplugged or doesn't exist. Let's redirect that bandwidth back to safety.
                 </p>
             </div>
-            <a href="/" class="btn-navy py-3 px-8 text-base">
-                Return Home
-            </a>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/index.html" class="btn-navy py-3 px-8 text-base">
+                    Return Home
+                </a>
+                <button type="button" data-search-trigger class="btn-outline py-3 px-6 text-sm">
+                    Search Site
+                </button>
+            </div>
         </div>
     </main>
     
     <div id="footer-placeholder"></div>
 
     <script src="/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const initPage = () => {
-                if (typeof AOS !== 'undefined') {
-                    AOS.init({
-                        duration: 900,
-                        once: true,
-                        offset: 40,
-                        easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
-                    });
-                }
-            };
-
-            const loadComponents = async () => {
-                try {
-                    // Use absolute paths for 404 since it might be triggered from any subdirectory like /reviews/something
-                    const [headerResponse, footerResponse] = await Promise.all([
-                        fetch('/header.html'),
-                        fetch('/footer.html')
-                    ]);
-
-                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
-                    if (!footerResponse.ok) throw new Error('Failed to fetch footer');
-
-                    const headerData = await headerResponse.text();
-                    const footerData = await footerResponse.text();
-
-                    document.getElementById('header-placeholder').innerHTML = headerData;
-                    document.getElementById('footer-placeholder').innerHTML = footerData;
-
-                    // Initialize main features once components are in DOM
-                    if (typeof initializeUI === 'function') initializeUI();
-                    if (typeof initNavbarScroll === 'function') initNavbarScroll();
-                    if (typeof initGlowCards === 'function') initGlowCards();
-                    if (typeof initFloatCards === 'function') initFloatCards();
-
-                    initPage();
-                } catch (error) {
-                    console.error('Error loading components:', error);
-                    initPage();
-                }
-            };
-
-            loadComponents();
-        });
-    </script>
 </body>
 </html>

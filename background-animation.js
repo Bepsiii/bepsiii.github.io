@@ -16,12 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio to 2 for performance
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // Capped at 1.5 for performance (was 2)
+
     container.appendChild(renderer.domElement);
 
-    // --- Terrain (Highly Refined Wireframe Grid) ---
-    // Width, Height, SegmentsW, SegmentsH
-    const planeGeometry = new THREE.PlaneGeometry(100, 100, 72, 72);
+    // --- Terrain (Optimized Wireframe Grid) ---
+    // Reduced segments from 72×72 to 48×48 (55% fewer vertices)
+    const planeGeometry = new THREE.PlaneGeometry(100, 100, 48, 48);
     
     // Store original positions for multi-layered wave calculations
     const planeOriginalPositions = planeGeometry.attributes.position.array.slice();
@@ -39,9 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
     planeMesh.position.y = -6;
     scene.add(planeMesh);
 
-    // --- High-Density Dual-Tone Particles (Floating Digital Dust) ---
+    // --- Optimized Dual-Tone Particles (Floating Digital Dust) ---
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 2200; // Increased density for premium visual volume
+    const particlesCount = 1400; // Reduced from 2200 (still dense enough)
     const posArray = new Float32Array(particlesCount * 3);
     const colorsArray = new Float32Array(particlesCount * 3);
     const randomArray = new Float32Array(particlesCount); 
@@ -96,8 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Interactive Coordinates & Mouse Parallax ---
     let mouseX = 0;
     let mouseY = 0;
-    let targetX = 0;
-    let targetY = 0;
 
     let windowHalfX = container.clientWidth / 2;
     let windowHalfY = container.clientHeight / 2;
@@ -108,27 +107,66 @@ document.addEventListener('DOMContentLoaded', () => {
         mouseY = (event.clientY - windowHalfY);
     }, { passive: true });
 
+    // --- Visibility-Aware Rendering ---
+    let isVisible = true;
+    let animationId = null;
+
+    // Pause when tab is hidden
+    document.addEventListener('visibilitychange', () => {
+        isVisible = !document.hidden;
+        if (isVisible && !animationId) {
+            clock.start();
+            animate();
+        }
+    });
+
+    // Pause when hero section scrolls out of view
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            isVisible = entries[0].isIntersecting;
+            if (isVisible && !animationId) {
+                clock.start();
+                animate();
+            }
+        }, { threshold: 0.05 });
+        observer.observe(container);
+    }
+
+    // Check prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+        renderer.render(scene, camera);
+        return; // Render static frame and halt loop
+    }
+
     // --- Animation Loop ---
     const clock = new THREE.Clock();
+    let frameCount = 0;
 
     const animate = () => {
-        const elapsedTime = clock.getElapsedTime();
-
-        // 1. Multi-Octave Terrain Wave Simulation
-        const positions = planeGeometry.attributes.position.array;
-        
-        for(let i = 0; i < positions.length; i += 3) {
-            const x = planeOriginalPositions[i];
-            const y = planeOriginalPositions[i+1];
-            
-            // Layered waves for complex fluid look
-            const wave1 = 0.7 * Math.sin(x * 0.12 + elapsedTime * 0.45);
-            const wave2 = 0.35 * Math.sin(y * 0.15 + elapsedTime * 0.3);
-            const wave3 = 0.2 * Math.cos((x + y) * 0.3 + elapsedTime * 0.6);
-            
-            positions[i + 2] = wave1 + wave2 + wave3;
+        if (!isVisible) {
+            animationId = null;
+            return;
         }
-        planeGeometry.attributes.position.needsUpdate = true;
+
+        const elapsedTime = clock.getElapsedTime();
+        frameCount++;
+
+        // 1. Alternating-frame terrain wave updates (saves 50% vertex buffer CPU time)
+        if (frameCount % 2 === 0) {
+            const positions = planeGeometry.attributes.position.array;
+            for(let i = 0; i < positions.length; i += 3) {
+                const x = planeOriginalPositions[i];
+                const y = planeOriginalPositions[i+1];
+                
+                const wave1 = 0.7 * Math.sin(x * 0.12 + elapsedTime * 0.45);
+                const wave2 = 0.35 * Math.sin(y * 0.15 + elapsedTime * 0.3);
+                const wave3 = 0.2 * Math.cos((x + y) * 0.3 + elapsedTime * 0.6);
+                
+                positions[i + 2] = wave1 + wave2 + wave3;
+            }
+            planeGeometry.attributes.position.needsUpdate = true;
+        }
 
         // Slow grid rotation over time
         planeMesh.rotation.z = elapsedTime * 0.015;
@@ -138,8 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         particlesMesh.rotation.x = Math.sin(elapsedTime * 0.01) * 0.05;
 
         // 3. Smooth Camera Parallax Interpolation (Lerp)
-        targetX = mouseX * 0.0004;
-        targetY = mouseY * 0.0004;
+        const targetY = mouseY * 0.0004;
 
         planeMesh.rotation.x += 0.04 * ((-Math.PI / 2 + targetY) - planeMesh.rotation.x);
 
@@ -150,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         camera.lookAt(new THREE.Vector3(0, -2, 0));
 
         renderer.render(scene, camera);
-        requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
     };
 
     animate();
@@ -169,3 +206,4 @@ document.addEventListener('DOMContentLoaded', () => {
         renderer.setSize(width, height);
     });
 });
+
