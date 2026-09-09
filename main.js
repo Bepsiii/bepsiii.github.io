@@ -160,6 +160,10 @@ const FALLBACK_HEADER = `
                 <a href="setup.html" class="nav-link-item">Setup</a>
             </nav>
             <div class="flex items-center gap-2">
+                <a href="https://ko-fi.com/bepsiiiiii" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-full text-xs font-medium transition-all text-gray-300 hover:text-white bg-white/[0.03] hover:bg-[#ff5e5b]/10 border border-white/[0.08] hover:border-[#ff5e5b]/30 flex items-center gap-1.5" title="Support on Ko-fi" aria-label="Support on Ko-fi">
+                    <svg class="w-3.5 h-3.5 text-[#ff5e5b]" fill="currentColor" viewBox="0 0 24 24"><path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723S0 4.605 0 5.417V17.83s.723.812 1.446.812h12.18s1.446.04 1.446-1.584c0 0 3.328.325 5.856-1.583 2.531-1.91 3.824-3.567 3.824-3.567s.148-1.583-.871-2.964zm-5.02 5.03c-1.393.754-3.218.423-3.218.423V7.202h3.218s2.518-.113 2.518 3.107c0 3.224-2.518 3.669-2.518 3.669z"/></svg>
+                    <span class="hidden sm:inline">Ko-fi</span>
+                </a>
                 <button type="button" data-search-trigger class="px-3 py-1.5 rounded-full text-xs font-medium transition-all text-gray-300 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] flex items-center gap-1.5 cursor-pointer" aria-label="Search site (Ctrl+K)">
                     <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                     <span class="hidden min-[480px]:inline-block">Search</span>
@@ -193,6 +197,13 @@ const FALLBACK_HEADER = `
         <a href="resources1.html" class="mobile-nav-item"><span>Resources</span><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
         <a href="reviews.html" class="mobile-nav-item"><span>Reviews</span><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
         <a href="setup.html" class="mobile-nav-item"><span>Setup &amp; Battlestation</span><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+        <a href="https://ko-fi.com/bepsiiiiii" target="_blank" rel="noopener noreferrer" class="mobile-nav-item text-[#ff5e5b] hover:text-[#ff7471]">
+            <span class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-[#ff5e5b]" fill="currentColor" viewBox="0 0 24 24"><path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723S0 4.605 0 5.417V17.83s.723.812 1.446.812h12.18s1.446.04 1.446-1.584c0 0 3.328.325 5.856-1.583 2.531-1.91 3.824-3.567 3.824-3.567s.148-1.583-.871-2.964zm-5.02 5.03c-1.393.754-3.218.423-3.218.423V7.202h3.218s2.518-.113 2.518 3.107c0 3.224-2.518 3.669-2.518 3.669z"/></svg>
+                <span>Support on Ko-fi</span>
+            </span>
+            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
         <div class="h-px my-1.5 bg-white/[0.08]"></div>
         <a href="contact.html" class="btn-navy text-xs py-2.5 text-center font-bold justify-center rounded-xl">Contact Me</a>
     </div>
@@ -539,9 +550,9 @@ const MobileNav = {
 const SiteSearch = {
     // Search Index Database
     index: [
-        { title: 'Home', category: 'General', url: 'index.html', desc: 'Main landing page, featured works, and digital overview.' },
-        { title: 'About Bepsi', category: 'Profile', url: 'about.html', desc: 'Background, context, design philosophy, and biography.' },
-        { title: 'AscentCustoms', category: 'Hardware', url: 'ascentcustoms.html', desc: 'Next-gen 3D printed custom gaming mice & shell mods.' },
+        { title: 'Home', category: 'General', url: 'index.html', desc: 'Main landing page, projects, and site overview.' },
+        { title: 'About Bepsi', category: 'Profile', url: 'about.html', desc: 'About me, interests, and background.' },
+        { title: 'AscentCustoms', category: 'Hardware', url: 'ascentcustoms.html', desc: 'Custom 3D printed gaming mice & shell mods.' },
         { title: 'My Setup & Battlestation', category: 'Hardware', url: 'setup.html', desc: 'Detailed specs of battlestation, peripherals, audio lab, and desk.' },
         { title: 'Workstation Specs (i7-12700KF & RX 6800)', category: 'Hardware', url: 'setup.html#workstation', desc: 'Core PC specs: Intel i7-12700KF, Radeon RX 6800 16GB, 32GB 3600MHz RAM, Liquid Freezer II.' },
         { title: 'Peripherals & Custom Mice', category: 'Hardware', url: 'setup.html#peripherals', desc: 'XM2we wireless, SayoDevice O3C keypad, Artisan Zero soft mousepad.' },
@@ -554,7 +565,7 @@ const SiteSearch = {
         { title: '7Hz Sonus Hybrid IEM Review', category: 'Reviews', url: '7hzsonus-review.html', desc: 'Hybrid dual-driver IEM in-depth review and sound profile.' },
         { title: 'Beanmouse V2.1 Custom Mod Review', category: 'Reviews', url: 'beanmouse-review.html', desc: 'Ultra-lightweight custom wireless fingertip mouse mod for Viper V2 Pro.' },
         { title: 'Tech Articles & Guides', category: 'Articles', url: 'articles.html', desc: '3D printed mouse ergonomics, IEM damping acoustics, and small form factor PC guides.' },
-        { title: 'Contact Bepsi', category: 'General', url: 'contact.html', desc: 'Get in touch for collabs, questions, hardware ideas, or Discord chat.' }
+        { title: 'Contact Bepsi', category: 'General', url: 'contact.html', desc: 'Get in touch, ask questions, or send a message.' }
     ],
 
     init() {
@@ -1080,9 +1091,9 @@ const FormValidator = {
                 <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-2">Message Dispatched!</h3>
+                <h3 class="text-2xl font-bold text-white mb-2">Message Sent!</h3>
                 <p class="text-gray-400 text-sm max-w-md mx-auto mb-6">
-                    Thank you for reaching out. Your message has been encrypted and securely delivered. I will respond as soon as possible.
+                    Thanks for reaching out! Your message was sent, and I'll get back to you as soon as I can.
                 </p>
                 <button type="button" data-form-reset="${formId}" class="btn-outline text-xs py-2 px-6">
                     Send Another Message
