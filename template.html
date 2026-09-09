@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@
     <title>Template | Bepsi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
     <link rel="preload" href="header.html" as="fetch" crossorigin>
     <link rel="preload" href="footer.html" as="fetch" crossorigin>
     <link rel="icon" type="image/png" href="images/website-logo.png">
@@ -15,49 +15,46 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
-    <div class="scanlines"></div>
-    
-    <!-- Background Layer System -->
+<body class="selection:bg-blue-500 selection:text-white bg-[#08090d] text-slate-200 min-h-screen">
+    <canvas id="bg-canvas"></canvas>
     <div class="bg-grid-pattern"></div>
-    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
-    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
-    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
 
     <div id="header-placeholder"></div>
 
-    <main id="main-content" class="relative z-10 pt-32 pb-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
-                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Boilerplate</span>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-none">
-                    Template <span class="text-gradient-cyan-indigo">Page</span>
+    <main id="main-content" class="relative z-10 pt-36 pb-28">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-down">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-400 font-mono text-xs tracking-wider uppercase mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                    BOILERPLATE // ARCHITECTURE
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-['Space_Grotesk'] text-white mb-4 tracking-tight">
+                    Template <span class="text-blue-400">Page</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed">
-                    A clean starting point for custom pages matching your premium styling guidelines.
+                <p class="text-base sm:text-lg text-slate-400 font-normal leading-relaxed">
+                    A clean starting point for custom pages matching your technical studio styling guidelines.
                 </p>
             </div>
 
             <!-- Content Card -->
-            <div class="soft-card glow-card float-card max-w-3xl mx-auto p-8 md:p-12" data-aos="fade-up" data-aos-delay="100">
-                <div class="float-content space-y-6">
-                    <h2 class="text-2xl font-bold text-white mb-4">About This Site Template</h2>
-                    <p class="text-gray-300 leading-relaxed">
-                        This is a template page. You can write all your custom HTML content for this specific page right here inside the layout container.
-                    </p>
-                    <p class="text-gray-300 leading-relaxed">
-                        The navigation header and footer blocks are automatically injected from <code class="text-blue-400 font-mono text-sm bg-white/5 px-1.5 py-0.5 rounded">header.html</code> and <code class="text-blue-400 font-mono text-sm bg-white/5 px-1.5 py-0.5 rounded">footer.html</code> files via JavaScript during client loading.
-                    </p>
-                    <p class="text-gray-300 leading-relaxed">
-                        All styles are controlled centrally in <code class="text-blue-400 font-mono text-sm bg-white/5 px-1.5 py-0.5 rounded">style.css</code>, and the custom spotlights, interactive 2D glass float parallax transitions, and scroll triggers are initialized dynamically by <code class="text-blue-400 font-mono text-sm bg-white/5 px-1.5 py-0.5 rounded">main.js</code>.
-                    </p>
-                </div>
+            <div class="card-technical p-8 sm:p-12 rounded-2xl bg-[#0e1017] space-y-6" data-aos="fade-up" data-aos-delay="100">
+                <h2 class="text-2xl font-bold font-['Space_Grotesk'] text-white">About This Site Template</h2>
+                <p class="text-slate-300 leading-relaxed font-normal">
+                    This is a template page. You can write all your custom HTML content for this specific page right here inside the layout container.
+                </p>
+                <p class="text-slate-300 leading-relaxed font-normal">
+                    The navigation header and footer blocks are automatically injected from <code class="text-blue-400 font-mono text-sm bg-black/40 border border-white/10 px-2 py-0.5 rounded">header.html</code> and <code class="text-blue-400 font-mono text-sm bg-black/40 border border-white/10 px-2 py-0.5 rounded">footer.html</code> files via JavaScript during client loading.
+                </p>
+                <p class="text-slate-300 leading-relaxed font-normal">
+                    All styles are controlled centrally in <code class="text-blue-400 font-mono text-sm bg-black/40 border border-white/10 px-2 py-0.5 rounded">style.css</code>, and technical drafting animations, interactive lightboxes, and keyboard triggers are initialized dynamically by <code class="text-blue-400 font-mono text-sm bg-black/40 border border-white/10 px-2 py-0.5 rounded">main.js</code> and <code class="text-blue-400 font-mono text-sm bg-black/40 border border-white/10 px-2 py-0.5 rounded">background-animation.js</code>.
+                </p>
             </div>
         </div>
     </main>
     
     <div id="footer-placeholder"></div>
 
+    <script src="background-animation.js" defer></script>
     <script src="main.js"></script>
 </body>
 </html>

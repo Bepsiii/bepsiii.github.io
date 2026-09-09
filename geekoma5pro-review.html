@@ -1,12 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review: GEEKOM A5 Pro (2026) - Bepsi</title>
+    <meta name="description" content="In-depth review of the GEEKOM A5 Pro (2026) mini-PC — Zen 3 architecture, homelab benchmarking, thermal performance, and daily driving.">
+    <meta name="author" content="Bepsi">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
     <link rel="preload" href="header.html" as="fetch" crossorigin>
     <link rel="preload" href="footer.html" as="fetch" crossorigin>
     <link rel="icon" type="image/png" href="images/website-logo.png">
@@ -15,307 +17,375 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
-    <div class="scanlines"></div>
-    
-    <!-- Background Layer System -->
+<body class="selection:bg-blue-500 selection:text-white bg-[#08090d] text-slate-200 min-h-screen">
+    <canvas id="bg-canvas"></canvas>
     <div class="bg-grid-pattern"></div>
-    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
-    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
-    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
 
     <div id="header-placeholder"></div>
 
-    <main id="main-content" class="relative z-10 pt-32 pb-24">
+    <main id="main-content" class="relative z-10 pt-32 pb-28">
         <article class="container mx-auto px-6 max-w-4xl">
-            <nav aria-label="breadcrumb" class="text-sm text-gray-400 mb-6" data-aos="fade-down">
-                <a href="index.html" class="hover:text-white transition-colors">Home</a> / 
-                <a href="reviews.html" class="hover:text-white transition-colors">Reviews</a> / 
-                <span class="text-white">GEEKOM A5 Pro</span>
+            <!-- Breadcrumbs -->
+            <nav aria-label="breadcrumb" class="flex items-center gap-2 font-mono text-xs text-slate-400 mb-8" data-aos="fade-down">
+                <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
+                <span class="text-slate-600">/</span>
+                <a href="reviews.html" class="hover:text-blue-400 transition-colors">Reviews</a>
+                <span class="text-slate-600">/</span>
+                <span class="text-slate-200">GEEKOM A5 Pro</span>
             </nav>
-            <header class="text-center mb-16" data-aos="fade-down">
-                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Review</span>
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-none tracking-tight">GEEKOM A5 Pro (2026)</h1>
-                <h2 class="text-xl text-gray-400 font-medium">GEEKOM’s Zen 3 Powered Workhorse</h2>
+
+            <!-- Article Header -->
+            <header class="text-center mb-14" data-aos="fade-down">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-400 font-mono text-xs tracking-wider uppercase mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                    HARDWARE LAB EVALUATION // MINI PC
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-['Space_Grotesk'] text-white mb-4 tracking-tight">
+                    GEEKOM A5 Pro (2026)
+                </h1>
+                <h2 class="text-lg sm:text-xl text-slate-400 font-medium">
+                    GEEKOM’s Zen 3 Powered Workhorse
+                </h2>
+                <div class="flex items-center justify-center gap-4 mt-6 text-xs font-mono text-slate-500">
+                    <span>Published: March 17, 2026</span>
+                    <span>•</span>
+                    <span>Author: Bepsi</span>
+                </div>
             </header>
 
             <div class="space-y-8">
-                <!-- disclaimer and who am i -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                        <div class="p-5 border border-yellow-500/20 bg-yellow-500/[0.02] rounded-2xl flex flex-row items-center gap-4 text-sm text-yellow-500 mb-8 leading-relaxed">
-                            <div class="text-yellow-500 bg-yellow-500/10 p-2.5 rounded-xl shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            </div>
-                            <div>
-                                <strong>Disclaimer:</strong> GEEKOM sent this unit for review; however, no money exchanged hands, and this is solely my thoughts, feelings, and results from testing.
-                            </div>
+                <!-- Disclaimer and Who Am I -->
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <div class="p-4 sm:p-5 border border-amber-500/30 bg-amber-950/20 rounded-xl flex items-start sm:items-center gap-4 text-sm text-amber-200 mb-8">
+                        <div class="text-amber-400 bg-amber-500/10 p-2.5 rounded-lg shrink-0 border border-amber-500/20">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Who Am I?</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-4">
-                            I'm Bepsi. I'm one of the staff members here at r/PCBuild and the PC Help Hub (PCHH) Discord server. I usually keep to the Discord and lurk on Reddit. My passions lie in peripherals and PC hardware, and notably, servers and Mini PCs. I have multiple years of experience in the PC sphere, and I have previously reviewed audio gear and custom mice and dabbled in PC hardware (both tinkering and diagnosing).
+                        <div>
+                            <strong class="text-white font-mono uppercase tracking-wider text-xs block mb-1">Disclaimer:</strong>
+                            GEEKOM sent this unit for review; however, no money exchanged hands, and this is solely my thoughts, feelings, and results from testing.
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-4">Who Am I?</h3>
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-4 font-normal">
+                        I'm Bepsi. I'm one of the staff members here at r/PCBuild and the PC Help Hub (PCHH) Discord server. I usually keep to the Discord and lurk on Reddit. My passions lie in peripherals and PC hardware, and notably, servers and Mini PCs. I have multiple years of experience in the PC sphere, and I have previously reviewed audio gear and custom mice and dabbled in PC hardware (both tinkering and diagnosing).
+                    </p>
+                    <p class="text-base text-slate-400 font-mono mb-6">
+                        Personal site: <a href="https://bepsi.dev/" class="text-blue-400 hover:underline">https://bepsi.dev/</a>
+                    </p>
+                    <div class="relative group cursor-zoom-in rounded-xl overflow-hidden border border-white/10 bg-slate-900 shadow-lg">
+                        <img src="images/setup/reviews/geekoma5pro/cover.png" 
+                             class="w-full zoomable-img transition-transform duration-500 group-hover:scale-[1.02]" 
+                             alt="GEEKOM A5 Pro cover" 
+                             data-zoomable>
+                        <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-black/70 backdrop-blur-md text-slate-300 font-mono text-[11px] border border-white/10 flex items-center gap-1.5 pointer-events-none">
+                            <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                            Click to Inspect
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Who is GEEKOM -->
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-4">Who is GEEKOM?</h3>
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+                        GEEKOM was founded in 2003, and over the past 23 years, they have become one of the well-known and well-respected players in the mini-PC market. Their focus is on green computing, engineering energy efficient, compact systems without compromising on performance or longevity. They stand out for their modular and upgradable systems (like this A5 Pro 2026) and are backed by AMD and Intel. Their systems are dependable and backed by a robust 3-year warranty.
+                    </p>
+                </section>
+
+                <!-- 1. Introduction -->
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-4 flex items-center gap-3">
+                        <span class="text-blue-400 font-mono text-base">01.</span>
+                        Introduction
+                    </h3>
+                    <div class="text-slate-300 space-y-4 text-base sm:text-lg leading-relaxed font-normal">
+                        <p>In the middle of “Ramageddon,” building even a basic PC has seen an exponential rise in pricing and limited availability, especially brand new. DRAM as a whole has seen over a 200% increase in price, impacting both SSDs and RAM, and it looks like it will only continue to climb as we get further into the year. Even building a new budget home server has risen in price to the point it can barely be called budget, and that includes small form factor media systems too.</p>
+                        <p>Which is where GEEKOM comes in with the A5 Pro (2026 Edition). Out of the box, and for around $500, it comes with 16GB of upgradable DDR4 SODIMMs, a solid 1TB NVMe (also upgradable), and an absurdly nice all-aluminum build matched with a 3-year warranty and support. While most mini-PCs at this price point compromise in areas like build and cooling, this one does not.</p>
+                    </div>
+                </section>
+
+                <!-- 2. Unboxing and First Impressions -->
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-4 flex items-center gap-3">
+                        <span class="text-blue-400 font-mono text-base">02.</span>
+                        Unboxing and First Impressions
+                    </h3>
+                    <div class="text-slate-300 space-y-5 text-base sm:text-lg leading-relaxed font-normal">
+                        <p>The unboxing experience was fantastic: fast shipping, anti-tamper stickers, and high-grade packaging with segmented foam that keeps the A5 Pro safe. GEEKOM includes essentials: HDMI cable, compact power brick, and a VESA mount for an all-in-one monitor setup.</p>
+                        <p>Taking the A5 Pro out, the first thing that strikes you is size. It is incredibly compact, measuring 11.2 x 11.2 x 3.6 cm, smaller than my desktop DAC (Topping DX5 II). Construction is one of the strongest points. Instead of a cheap injection-molded ABS shell, the A5 Pro is entirely aluminum, which creates a premium finish while also acting as a passive heatsink.</p>
+                        
+                        <div class="bg-[#12141d] p-5 sm:p-6 rounded-xl border border-white/[0.08]">
+                            <span class="block font-mono text-xs uppercase tracking-wider text-blue-400 mb-3">Front and Rear I/O Breakdown</span>
+                            <ul class="space-y-2.5 text-sm sm:text-base text-slate-300 font-mono">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400 font-bold">•</span>
+                                    <span><strong>Front:</strong> Physical power button, 3.5mm audio jack, and two USB 3.2 Gen 2 Type-A ports (one supports Power Delivery for charging devices like phones).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400 font-bold">•</span>
+                                    <span><strong>Rear:</strong> Two HDMI 2.0 ports and two USB-C 3.2 ports capable of 10 Gbps transfer speeds.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="text-sm text-slate-400 italic">
+                            One small gripe is the lack of an internal speaker. Even a basic one for Windows notification sounds would have been nice. Given the footprint, though, it is forgivable for most real-world use cases with external audio.
                         </p>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-6 font-medium">
-                            You can find me at: <a href="https://bepsi.dev/" class="text-blue-400 hover:underline">https://bepsi.dev/</a>
-                        </p>
-                        <div class="block rounded-xl overflow-hidden border border-white/5 shadow-md">
-                            <img src="images/setup/reviews/geekoma5pro/cover.png" class="w-full" alt="GEEKOM A5 Pro cover image placeholder">
-                        </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- who is geekom -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-4">Who is GEEKOM?</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed">
-                            GEEKOM was founded in 2003, and over the past 23 years, they have become one of the well-known and well-respected players in the mini-PC market. Their focus is on green computing, engineering energy efficient, compact systems without compromising on performance or longevity. They stand out for their modular and upgradable systems (like this A5 Pro 2026) and are backed by AMD and Intel. Their systems are dependable and backed by a robust 3-year warranty.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Intro -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-4">1. Introduction</h3>
-                        <div class="text-gray-400 space-y-4 text-lg leading-relaxed">
-                            <p>In the middle of “Ramageddon,” building even a basic PC has seen an exponential rise in pricing and limited availability, especially brand new. DRAM as a whole has seen over a 200% increase in price, impacting both SSDs and RAM, and it looks like it will only continue to climb as we get further into the year. Even building a new budget home server has risen in price to the point it can barely be called budget, and that includes small form factor media systems too.</p>
-                            <p>Which is where GEEKOM comes in with the A5 Pro (2026 Edition). Out of the box, and for around $500, it comes with 16GB of upgradable DDR4 SODIMMs, a solid 1TB NVMe (also upgradable), and an absurdly nice all-aluminum build matched with a 3-year warranty and support. While most mini-PCs at this price point compromise in areas like build and cooling, this one does not.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- unboxing -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-4">2. Unboxing and First Impressions</h3>
-                        <div class="text-gray-400 space-y-4 text-lg leading-relaxed">
-                            <p>The unboxing experience was fantastic: fast shipping, anti-tamper stickers, and high-grade packaging with segmented foam that keeps the A5 Pro safe. GEEKOM includes essentials: HDMI cable, compact power brick, and a VESA mount for an all-in-one monitor setup.</p>
-                            <p>Taking the A5 Pro out, the first thing that strikes you is size. It is incredibly compact, measuring 11.2 x 11.2 x 3.6 cm, smaller than my desktop DAC (Topping DX5 II). Construction is one of the strongest points. Instead of a cheap injection-molded ABS shell, the A5 Pro is entirely aluminum, which creates a premium finish while also acting as a passive heatsink.</p>
-                            <p><strong>Front and Rear I/O:</strong></p>
-                            <div class="bg-white/[0.01] p-6 rounded-2xl border border-white/5 shadow-md">
-                                <ul class="list-disc pl-5 text-gray-300 text-sm space-y-2">
-                                    <li><strong>Front:</strong> Physical power button, 3.5mm audio jack, and two USB 3.2 Gen 2 Type-A ports (one supports Power Delivery for charging devices like phones).</li>
-                                    <li><strong>Rear:</strong> Two HDMI 2.0 ports and two USB-C 3.2 ports capable of 10 Gbps transfer speeds.</li>
-                                </ul>
-                            </div>
-                            <p class="text-sm font-medium">One small gripe is the lack of an internal speaker. Even a basic one for Windows notification sounds would have been nice. Given the footprint, though, it is forgivable for most real-world use cases with external audio.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- spec -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-4">3. Teardown and Spec</h3>
-                        <div class="text-gray-400 space-y-4 text-lg leading-relaxed">
-                            <p>Tearing down the A5 Pro is extremely easy. The rubber feet pop off and are reusable, thanks to small cutouts that slot back in. Underneath are four Phillips head screws, and the same screw type is used throughout teardown, which makes servicing straightforward.</p>
-                            <p>Removing the bottom panel reveals a large metal shield that acts as a passive heat spreader for storage and networking components, complete with a thick thermal pad connecting the primary SSD to the shield.</p>
-                            <p>The CPU is an AMD Ryzen 5 7530U, a 6-core, 12-thread mobile chip based on Zen 3. Yes, Zen 3 in 2026, but this is a positive for this use case. Zen 3 is mature, stable, and very well tested. For a machine expected to run 24/7, stable behavior matters more than chasing newer silicon with immature platform updates. I observed no stability issues at all.</p>
-                            <p>The iGPU is Vega 7. It is sufficient for expected workloads: low power, surprisingly capable, and suitable for emulation and lighter AAA titles such as Forza Horizon 5.</p>
-                            <p>Modular components are easy to access:</p>
-                            <div class="bg-white/[0.01] p-6 rounded-2xl border border-white/5 shadow-md">
-                                <ul class="list-disc pl-5 text-gray-300 text-sm space-y-2">
-                                    <li><strong>RAM:</strong> 16GB (2x8GB) Kingston DDR4 in dual-channel at 3200 MT/s. Board supports up to 64GB.</li>
-                                    <li><strong>Storage:</strong> 1TB Wodposit NVMe in the 2280 slot plus a secondary 2242 NVMe slot for expansion or dual-boot setups.</li>
-                                    <li><strong>Networking:</strong> Realtek RTL8852BE Wi-Fi module is not soldered, so swapping to an Intel AX-210 later is possible.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Benchmarks -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-4">4. Benchmarks</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                            Out of the box, the software experience is clean: Windows 11 Pro with zero bloatware. I ran a full benchmark suite and compared against my current home server (i5-6600, 16GB DDR3L) and daily laptop (Core Ultra 7 155H, 32GB DDR5) as data points.
-                        </p>
-
-                        <h4 class="text-xl font-bold text-white mb-3">Geekbench 6</h4>
-                        <div class="overflow-x-auto mb-8 rounded-xl border border-white/5 shadow-md">
-                            <table class="w-full text-left text-sm bg-white/[0.01]">
-                                <thead class="bg-white/[0.03] border-b border-white/[0.08] text-white">
-                                    <tr>
-                                        <th class="p-3.5 border-r border-white/[0.05] font-bold">Test System</th>
-                                        <th class="p-3.5 border-r border-white/[0.05] font-bold">Single Core</th>
-                                        <th class="p-3.5 font-bold">Multi Core</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-gray-300 divide-y divide-white/[0.04]">
-                                    <tr>
-                                        <td class="p-3.5 border-r border-white/[0.05] font-semibold text-white">GEEKOM A5 Pro</td>
-                                        <td class="p-3.5 border-r border-white/[0.05]">1950</td>
-                                        <td class="p-3.5">6945</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3.5 border-r border-white/[0.05] text-gray-400">Current Home Server (i5-6600)</td>
-                                        <td class="p-3.5 border-r border-white/[0.05]">1344</td>
-                                        <td class="p-3.5">3786</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3.5 border-r border-white/[0.05] text-gray-400">MSI Prestige 13 A1M</td>
-                                        <td class="p-3.5 border-r border-white/[0.05]">2387</td>
-                                        <td class="p-3.5">11201</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <h4 class="text-xl font-bold text-white mb-3">Cinebench 2024</h4>
-                        <div class="overflow-x-auto mb-8 rounded-xl border border-white/5 shadow-md">
-                            <table class="w-full text-left text-sm bg-white/[0.01]">
-                                <thead class="bg-white/[0.03] border-b border-white/[0.08] text-white">
-                                    <tr>
-                                        <th class="p-3.5 border-r border-white/[0.05] font-bold">Test System</th>
-                                        <th class="p-3.5 border-r border-white/[0.05] font-bold">Single Core</th>
-                                        <th class="p-3.5 font-bold">Multi Core</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-gray-300 divide-y divide-white/[0.04]">
-                                    <tr>
-                                        <td class="p-3.5 border-r border-white/[0.05] font-semibold text-white">GEEKOM A5 Pro</td>
-                                        <td class="p-3.5 border-r border-white/[0.05]">85</td>
-                                        <td class="p-3.5">398</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3.5 border-r border-white/[0.05] text-gray-400">Current Home Server (i5-6600)</td>
-                                        <td class="p-3.5 border-r border-white/[0.05]">58</td>
-                                        <td class="p-3.5">215</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3.5 border-r border-white/[0.05] text-gray-400">MSI Prestige 13 A1M</td>
-                                        <td class="p-3.5 border-r border-white/[0.05]">102</td>
-                                        <td class="p-3.5">531</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <h4 class="text-xl font-bold text-white mb-3">Storage Benchmark (CrystalDiskMark)</h4>
-                        <div class="overflow-x-auto mb-8 rounded-xl border border-white/5 shadow-md">
-                            <table class="w-full text-left text-sm bg-white/[0.01]">
-                                <thead class="bg-white/[0.03] border-b border-white/[0.08] text-white">
-                                    <tr>
-                                        <th class="p-3.5 border-r border-white/[0.05] font-bold">Speed Type</th>
-                                        <th class="p-3.5 border-r border-white/[0.05] font-bold">Read</th>
-                                        <th class="p-3.5 font-bold">Write</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-gray-300 divide-y divide-white/[0.04]">
-                                    <tr>
-                                        <td class="p-3.5 border-r border-white/[0.05] font-semibold text-white">Sequential</td>
-                                        <td class="p-3.5 border-r border-white/[0.05]">3720 MB/s</td>
-                                        <td class="p-3.5">3407 MB/s</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3.5 border-r border-white/[0.05] text-gray-400">Random</td>
-                                        <td class="p-3.5 border-r border-white/[0.05]">574 MB/s</td>
-                                        <td class="p-3.5">303 MB/s</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <h4 class="text-xl font-bold text-white mb-3">Gaming and Graphics Performance</h4>
-                        <div class="text-gray-400 space-y-4 text-lg leading-relaxed mb-6">
-                            <p>This is not a gaming-first machine, but I tested lighter AAA titles and Minecraft to reflect realistic use.</p>
-                            <p><strong>Forza Horizon 5:</strong> 1080p Low Native: 33 FPS, 1080p Low FSR 2.1 Balanced: 29 FPS, 720p Low Native: 48 FPS, 720p High Native: 33 FPS. Note: FSR 2.1 performed worse than native across repeated runs.</p>
-                            <p><strong>DiRT Rally 2.0:</strong> 1080p Low: 35 FPS, 720p Low: 60 FPS (inbuilt benchmark).</p>
-                            <p><strong>Minecraft (Vanilla):</strong> 1080p Fancy: 150 FPS, 1080p Fast: 200 FPS.</p>
-                            <p class="font-medium">3DMark Steel Nomad Light score was 977, with consistent behavior and minimal dips.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- daily driving -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-4">5. Daily Driving and Creative Tasks</h3>
-                        <div class="text-gray-400 space-y-4 text-lg leading-relaxed">
-                            <p>For creative workloads, expectations should be realistic: no dedicated GPU and no dedicated VRAM means it is not intended for heavy 4K rendering or complex 3D production.</p>
-                            <p>That said, it is highly capable in 2D workflows. I used it for mousepad concept work in Adobe Photoshop with large canvases, multiple adjustment layers, and filters without issues. RAW photo touch-ups from my phone over USB-C also worked smoothly.</p>
-                            <p>I also tested TinkerCAD with custom 3D-printed mouse shell work. Viewport responsiveness stayed strong, object interactions remained smooth, export was clean, and the system stayed stable over long sessions.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- home server -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-4">6. The Home Server Experience</h3>
-                        <div class="text-gray-400 space-y-4 text-lg leading-relaxed">
-                            <p>Many SFF buyers run these as headless home servers. GEEKOM claims Linux support, so I tested with Ubuntu and Debian after partitioning the SSD. Installation was smooth and hardware compatibility was excellent out of the box.</p>
-                            <p>The A5 Pro uses a Realtek 2.5GbE controller. Intel NICs are often preferred for virtualization edge cases, but I personally did not encounter packet handling or stability issues in my testing, aside from occasionally lower-than-expected Wi-Fi speeds.</p>
-                            <p>To stress test, I hosted a modded Fabric Minecraft server. The 7530U held stable 20 TPS with active players generating chunks. Even with redstone stress tests, server behavior remained smooth.</p>
-                            <p>I then ran Minecraft and Plex concurrently, streaming a 1080p movie and FLAC library to other devices. The A5 Pro handled all services at once without dropped packets, missed server ticks, or buffering.</p>
-                            <p>I also ran Tailscale and AdGuard Home for remote access and network-wide ad blocking, with zero reliability issues during the test window.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Thermals -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-4">7. Thermals, Acoustics, and Power Efficiency</h3>
-                        <div class="text-gray-400 space-y-4 text-lg leading-relaxed">
-                            <p>Thermals are usually the biggest issue in mini-PCs, but the A5 Pro does well here. Because the 7530U is efficient, heat stayed controlled even under repeated benchmark runs.</p>
-                            <p>Under full synthetic load, peak power draw stayed around 25W. At idle it sat under 5W, which makes it cost-effective for 24/7 server duty.</p>
-                            <p>GEEKOM’s “IceBlast” cooling exhausts heat from the rear. Fan behavior remained tame: audible under heavier loads but never harsh or high-pitched, more of a gentle whir than a whine.</p>
-                            <p>The aluminum chassis also helped keep external temperatures reasonable, generally warm to the touch instead of hot.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- pros cons -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="soft-card glow-card float-card p-8 group border-green-500/10" data-aos="fade-right">
-                        <div class="float-content">
-                            <h4 class="text-xl font-bold text-green-500 mb-4">The Pros</h4>
-                            <ul class="space-y-2 text-gray-400 text-sm leading-relaxed">
-                                <li class="flex gap-2"><span class="text-green-500 font-bold">+</span> Power efficiency: around 25W max under full load and sub-5W idle.</li>
-                                <li class="flex gap-2"><span class="text-green-500 font-bold">+</span> Build quality and modularity: aluminum chassis with upgradeable RAM, NVMe, and Wi-Fi.</li>
-                                <li class="flex gap-2"><span class="text-green-500 font-bold">+</span> Software profile: bloatware-free Windows 11 Pro image.</li>
-                                <li class="flex gap-2"><span class="text-green-500 font-bold">+</span> Linux compatibility and stable concurrent server workload behavior.</li>
+                <!-- 3. Teardown and Spec -->
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-4 flex items-center gap-3">
+                        <span class="text-blue-400 font-mono text-base">03.</span>
+                        Teardown and Spec
+                    </h3>
+                    <div class="text-slate-300 space-y-4 text-base sm:text-lg leading-relaxed font-normal">
+                        <p>Tearing down the A5 Pro is extremely easy. The rubber feet pop off and are reusable, thanks to small cutouts that slot back in. Underneath are four Phillips head screws, and the same screw type is used throughout teardown, which makes servicing straightforward.</p>
+                        <p>Removing the bottom panel reveals a large metal shield that acts as a passive heat spreader for storage and networking components, complete with a thick thermal pad connecting the primary SSD to the shield.</p>
+                        <p>The CPU is an AMD Ryzen 5 7530U, a 6-core, 12-thread mobile chip based on Zen 3. Yes, Zen 3 in 2026, but this is a positive for this use case. Zen 3 is mature, stable, and very well tested. For a machine expected to run 24/7, stable behavior matters more than chasing newer silicon with immature platform updates. I observed no stability issues at all.</p>
+                        <p>The iGPU is Vega 7. It is sufficient for expected workloads: low power, surprisingly capable, and suitable for emulation and lighter AAA titles such as Forza Horizon 5.</p>
+                        
+                        <div class="bg-[#12141d] p-5 sm:p-6 rounded-xl border border-white/[0.08]">
+                            <span class="block font-mono text-xs uppercase tracking-wider text-blue-400 mb-3">Internal Modularity &amp; Slots</span>
+                            <ul class="space-y-2 text-sm sm:text-base text-slate-300 font-mono">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400">•</span>
+                                    <span><strong>RAM:</strong> 16GB (2x8GB) Kingston DDR4 in dual-channel at 3200 MT/s. Board supports up to 64GB.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400">•</span>
+                                    <span><strong>Storage:</strong> 1TB Wodposit NVMe in the 2280 slot plus a secondary 2242 NVMe slot for expansion or dual-boot setups.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400">•</span>
+                                    <span><strong>Networking:</strong> Realtek RTL8852BE Wi-Fi module is not soldered, so swapping to an Intel AX-210 later is possible.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="soft-card glow-card float-card p-8 group border-red-500/10" data-aos="fade-left">
-                        <div class="float-content">
-                            <h4 class="text-xl font-bold text-red-500 mb-4">The Cons</h4>
-                            <ul class="space-y-2 text-gray-400 text-sm leading-relaxed">
-                                <li class="flex gap-2"><span class="text-red-500 font-bold">-</span> No internal speaker for basic notification sounds.</li>
-                                <li class="flex gap-2"><span class="text-red-500 font-bold">-</span> Realtek networking may be less desirable than Intel for some advanced users.</li>
-                            </ul>
+                </section>
+
+                <!-- 4. Benchmarks -->
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-4 flex items-center gap-3">
+                        <span class="text-blue-400 font-mono text-base">04.</span>
+                        Benchmarks
+                    </h3>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6 font-normal">
+                        Out of the box, the software experience is clean: Windows 11 Pro with zero bloatware. I ran a full benchmark suite and compared against my current home server (i5-6600, 16GB DDR3L) and daily laptop (Core Ultra 7 155H, 32GB DDR5) as data points.
+                    </p>
+
+                    <h4 class="text-lg font-bold font-['Space_Grotesk'] text-white mb-3">Geekbench 6</h4>
+                    <div class="overflow-x-auto mb-8 rounded-xl border border-white/[0.08] bg-[#10121a]">
+                        <table class="w-full text-left text-sm font-mono">
+                            <thead class="bg-[#141722] border-b border-white/[0.08] text-white">
+                                <tr>
+                                    <th class="p-3.5 border-r border-white/[0.06] font-semibold">Test System</th>
+                                    <th class="p-3.5 border-r border-white/[0.06] font-semibold text-right">Single Core</th>
+                                    <th class="p-3.5 font-semibold text-right">Multi Core</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/[0.04] text-slate-300">
+                                <tr class="bg-blue-500/[0.05]">
+                                    <td class="p-3.5 border-r border-white/[0.06] font-semibold text-blue-400">GEEKOM A5 Pro</td>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-right font-bold text-white">1,950</td>
+                                    <td class="p-3.5 text-right font-bold text-white">6,945</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-slate-400">Current Home Server (i5-6600)</td>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-right">1,344</td>
+                                    <td class="p-3.5 text-right">3,786</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-slate-400">MSI Prestige 13 A1M</td>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-right">2,387</td>
+                                    <td class="p-3.5 text-right">11,201</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="text-lg font-bold font-['Space_Grotesk'] text-white mb-3">Cinebench 2024</h4>
+                    <div class="overflow-x-auto mb-8 rounded-xl border border-white/[0.08] bg-[#10121a]">
+                        <table class="w-full text-left text-sm font-mono">
+                            <thead class="bg-[#141722] border-b border-white/[0.08] text-white">
+                                <tr>
+                                    <th class="p-3.5 border-r border-white/[0.06] font-semibold">Test System</th>
+                                    <th class="p-3.5 border-r border-white/[0.06] font-semibold text-right">Single Core</th>
+                                    <th class="p-3.5 font-semibold text-right">Multi Core</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/[0.04] text-slate-300">
+                                <tr class="bg-blue-500/[0.05]">
+                                    <td class="p-3.5 border-r border-white/[0.06] font-semibold text-blue-400">GEEKOM A5 Pro</td>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-right font-bold text-white">85</td>
+                                    <td class="p-3.5 text-right font-bold text-white">398</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-slate-400">Current Home Server (i5-6600)</td>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-right">58</td>
+                                    <td class="p-3.5 text-right">215</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-slate-400">MSI Prestige 13 A1M</td>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-right">102</td>
+                                    <td class="p-3.5 text-right">531</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="text-lg font-bold font-['Space_Grotesk'] text-white mb-3">Storage Benchmark (CrystalDiskMark)</h4>
+                    <div class="overflow-x-auto mb-8 rounded-xl border border-white/[0.08] bg-[#10121a]">
+                        <table class="w-full text-left text-sm font-mono">
+                            <thead class="bg-[#141722] border-b border-white/[0.08] text-white">
+                                <tr>
+                                    <th class="p-3.5 border-r border-white/[0.06] font-semibold">Speed Profile</th>
+                                    <th class="p-3.5 border-r border-white/[0.06] font-semibold text-right">Read</th>
+                                    <th class="p-3.5 font-semibold text-right">Write</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/[0.04] text-slate-300">
+                                <tr>
+                                    <td class="p-3.5 border-r border-white/[0.06] font-semibold text-white">Sequential</td>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-right text-emerald-400 font-bold">3,720 MB/s</td>
+                                    <td class="p-3.5 text-right text-emerald-400 font-bold">3,407 MB/s</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-slate-400">Random</td>
+                                    <td class="p-3.5 border-r border-white/[0.06] text-right text-blue-400">574 MB/s</td>
+                                    <td class="p-3.5 text-right text-blue-400">303 MB/s</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="text-lg font-bold font-['Space_Grotesk'] text-white mb-3">Gaming and Graphics Performance</h4>
+                    <div class="text-slate-300 space-y-3 text-sm sm:text-base leading-relaxed bg-[#12141d] p-5 sm:p-6 rounded-xl border border-white/[0.08]">
+                        <p class="text-slate-400 text-sm">This is not a gaming-first machine, but I tested lighter AAA titles and Minecraft to reflect realistic use:</p>
+                        <div class="space-y-2 font-mono text-sm">
+                            <p><strong class="text-white">Forza Horizon 5:</strong> 1080p Low Native: 33 FPS, 1080p Low FSR 2.1 Balanced: 29 FPS, 720p Low Native: 48 FPS, 720p High Native: 33 FPS. <span class="text-slate-400">(Note: FSR 2.1 performed worse than native across repeated runs).</span></p>
+                            <p><strong class="text-white">DiRT Rally 2.0:</strong> 1080p Low: 35 FPS, 720p Low: 60 FPS (inbuilt benchmark).</p>
+                            <p><strong class="text-white">Minecraft (Vanilla):</strong> 1080p Fancy: 150 FPS, 1080p Fast: 200 FPS.</p>
+                            <p><strong class="text-white">3DMark Steel Nomad Light:</strong> Score was 977, with consistent behavior and minimal dips.</p>
                         </div>
                     </div>
+                </section>
+
+                <!-- 5. Daily Driving and Creative Tasks -->
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-4 flex items-center gap-3">
+                        <span class="text-blue-400 font-mono text-base">05.</span>
+                        Daily Driving and Creative Tasks
+                    </h3>
+                    <div class="text-slate-300 space-y-4 text-base sm:text-lg leading-relaxed font-normal">
+                        <p>For creative workloads, expectations should be realistic: no dedicated GPU and no dedicated VRAM means it is not intended for heavy 4K rendering or complex 3D production.</p>
+                        <p>That said, it is highly capable in 2D workflows. I used it for mousepad concept work in Adobe Photoshop with large canvases, multiple adjustment layers, and filters without issues. RAW photo touch-ups from my phone over USB-C also worked smoothly.</p>
+                        <p>I also tested TinkerCAD with custom 3D-printed mouse shell work. Viewport responsiveness stayed strong, object interactions remained smooth, export was clean, and the system stayed stable over long sessions.</p>
+                    </div>
+                </section>
+
+                <!-- 6. The Home Server Experience -->
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-4 flex items-center gap-3">
+                        <span class="text-blue-400 font-mono text-base">06.</span>
+                        The Home Server Experience
+                    </h3>
+                    <div class="text-slate-300 space-y-4 text-base sm:text-lg leading-relaxed font-normal">
+                        <p>Many SFF buyers run these as headless home servers. GEEKOM claims Linux support, so I tested with Ubuntu and Debian after partitioning the SSD. Installation was smooth and hardware compatibility was excellent out of the box.</p>
+                        <p>The A5 Pro uses a Realtek 2.5GbE controller. Intel NICs are often preferred for virtualization edge cases, but I personally did not encounter packet handling or stability issues in my testing, aside from occasionally lower-than-expected Wi-Fi speeds.</p>
+                        <p>To stress test, I hosted a modded Fabric Minecraft server. The 7530U held stable 20 TPS with active players generating chunks. Even with redstone stress tests, server behavior remained smooth.</p>
+                        <p>I then ran Minecraft and Plex concurrently, streaming a 1080p movie and FLAC library to other devices. The A5 Pro handled all services at once without dropped packets, missed server ticks, or buffering.</p>
+                        <p>I also ran Tailscale and AdGuard Home for remote access and network-wide ad blocking, with zero reliability issues during the test window.</p>
+                    </div>
+                </section>
+
+                <!-- 7. Thermals, Acoustics, and Power Efficiency -->
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-4 flex items-center gap-3">
+                        <span class="text-blue-400 font-mono text-base">07.</span>
+                        Thermals, Acoustics, and Power Efficiency
+                    </h3>
+                    <div class="text-slate-300 space-y-4 text-base sm:text-lg leading-relaxed font-normal">
+                        <p>Thermals are usually the biggest issue in mini-PCs, but the A5 Pro does well here. Because the 7530U is efficient, heat stayed controlled even under repeated benchmark runs.</p>
+                        <p>Under full synthetic load, peak power draw stayed around 25W. At idle it sat under 5W, which makes it cost-effective for 24/7 server duty.</p>
+                        <p>GEEKOM’s “IceBlast” cooling exhausts heat from the rear. Fan behavior remained tame: audible under heavier loads but never harsh or high-pitched, more of a gentle whir than a whine.</p>
+                        <p>The aluminum chassis also helped keep external temperatures reasonable, generally warm to the touch instead of hot.</p>
+                    </div>
+                </section>
+
+                <!-- Pros and Cons -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                    <section class="card-technical p-6 sm:p-8 rounded-2xl border-emerald-500/20 bg-[#0c1210]" data-aos="fade-right">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            <h4 class="text-xl font-bold font-['Space_Grotesk'] text-white">The Pros</h4>
+                        </div>
+                        <ul class="space-y-2.5 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <li class="flex items-start gap-2">
+                                <span class="text-emerald-400 font-mono font-bold shrink-0">+</span>
+                                <span><strong>Power efficiency:</strong> around 25W max under full load and sub-5W idle.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-emerald-400 font-mono font-bold shrink-0">+</span>
+                                <span><strong>Build quality &amp; modularity:</strong> aluminum chassis with upgradeable RAM, NVMe, and Wi-Fi.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-emerald-400 font-mono font-bold shrink-0">+</span>
+                                <span><strong>Software profile:</strong> bloatware-free Windows 11 Pro image.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-emerald-400 font-mono font-bold shrink-0">+</span>
+                                <span><strong>Linux compatibility:</strong> stable concurrent server workload behavior.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="card-technical p-6 sm:p-8 rounded-2xl border-red-500/20 bg-[#140e10]" data-aos="fade-left">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                            <h4 class="text-xl font-bold font-['Space_Grotesk'] text-white">The Cons</h4>
+                        </div>
+                        <ul class="space-y-2.5 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-400 font-mono font-bold shrink-0">-</span>
+                                <span>No internal speaker for basic notification sounds.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-400 font-mono font-bold shrink-0">-</span>
+                                <span>Realtek networking may be less desirable than Intel for some advanced users.</span>
+                            </li>
+                        </ul>
+                    </section>
                 </div>
 
                 <!-- Verdict -->
-                <div class="soft-card glow-card float-card p-12 text-center group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-6">8. Final Verdict</h3>
-                        <p class="text-gray-400 mb-8 text-lg max-w-2xl mx-auto leading-relaxed">
-                            The GEEKOM A5 Pro is not for users chasing high-framerate AAA gaming. For users who want a compact, quiet desktop for office work, light 2D creation, or an efficient homelab foundation, it delivers stable and consistent performance. The mix of mature Zen 3 hardware, premium aluminum construction, and low power use makes it a practical and easy recommendation.
-                        </p>
-                        <div class="inline-flex flex-col items-center">
-                            <span class="text-xs text-blue-400 font-bold tracking-widest uppercase mb-3">Verdict</span>
-                            <div class="text-2xl font-extrabold text-white bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-3 rounded-2xl shadow-lg shadow-blue-500/20 border border-blue-400/20">
-                                Highly Recommended
-                            </div>
+                <section class="card-technical p-8 sm:p-12 text-center rounded-2xl bg-[#0e1017]" data-aos="fade-up">
+                    <span class="inline-block font-mono text-xs uppercase tracking-widest text-blue-400 mb-3">Final Assessment</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold font-['Space_Grotesk'] text-white mb-5">8. Final Verdict</h3>
+                    <p class="text-slate-300 mb-8 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+                        The GEEKOM A5 Pro is not for users chasing high-framerate AAA gaming. For users who want a compact, quiet desktop for office work, light 2D creation, or an efficient homelab foundation, it delivers stable and consistent performance. The mix of mature Zen 3 hardware, premium aluminum construction, and low power use makes it a practical and easy recommendation.
+                    </p>
+                    <div class="inline-flex flex-col items-center">
+                        <span class="text-xs font-mono text-slate-400 tracking-wider uppercase mb-2">Verdict Badge</span>
+                        <div class="flex items-center gap-2 px-8 py-3 rounded-xl bg-[#141722] border border-blue-500/30 shadow-inner">
+                            <span class="text-xl font-bold font-['Space_Grotesk'] text-blue-400">Highly Recommended</span>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
 
-            <div class="text-center mt-16">
-                <a href="reviews.html" class="btn-outline">&larr; Back to Reviews</a>
+            <div class="text-center mt-14">
+                <a href="reviews.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 bg-[#12141d] hover:bg-[#1a1d2b] hover:border-blue-500/40 text-sm font-mono text-slate-300 hover:text-white transition-all duration-200">
+                    &larr; Back to All Reviews
+                </a>
             </div>
         </article>
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="background-animation.js" defer></script>
     <script src="main.js"></script>
 </body>
 </html>

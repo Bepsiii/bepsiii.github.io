@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
     <title>Articles - Bepsi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
     <link rel="preload" href="header.html" as="fetch" crossorigin>
     <link rel="preload" href="footer.html" as="fetch" crossorigin>
     <link rel="icon" type="image/png" href="images/website-logo.png">
@@ -21,88 +21,103 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
-    <div class="scanlines"></div>
-    
-    <!-- Background Layer System -->
+<body class="selection:bg-blue-500 selection:text-white bg-[#08090d] text-slate-200 min-h-screen">
+    <canvas id="bg-canvas"></canvas>
     <div class="bg-grid-pattern"></div>
-    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
-    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
-    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
 
     <div id="header-placeholder"></div>
 
-    <main id="main-content" class="relative z-10 pt-32 pb-24">
-        <div class="container mx-auto px-6">
+    <main id="main-content" class="relative z-10 pt-32 pb-28">
+        <div class="container mx-auto px-6 max-w-7xl">
             <!-- Hero -->
-            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
-                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Writings</span>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-none">
-                    Tech <span class="text-gradient-cyan-indigo">Articles</span>
+            <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-down">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-400 font-mono text-xs tracking-wider uppercase mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                    TECHNICAL PUBLICATIONS // ARCHIVE
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-['Space_Grotesk'] text-white mb-4 tracking-tight">
+                    Tech <span class="text-blue-400">Articles</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed">
+                <p class="text-base sm:text-lg text-slate-400 font-normal leading-relaxed">
                     Thoughts, Guides &amp; Musings on custom hardware, 3D printing ergonomics, and audio engineering.
                 </p>
             </div>
 
-            <!-- Warning Strip -->
-            <div class="max-w-4xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-                <div class="soft-card p-6 flex flex-row items-center gap-5 border border-blue-500/20 bg-blue-500/[0.02]">
-                    <div class="text-blue-400 bg-blue-500/10 p-3 rounded-2xl shrink-0">
+            <!-- In-Progress Banner -->
+            <div class="max-w-4xl mx-auto mb-14" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-technical p-5 sm:p-6 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4 border-blue-500/30 bg-[#0e111a]">
+                    <div class="text-blue-400 bg-blue-500/10 p-3 rounded-xl shrink-0 border border-blue-500/20">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
                     </div>
                     <div>
-                        <h3 class="text-white font-bold mb-1">Editorial Drafts in Progress</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Comprehensive guides on mouse shell 3D printing and IEM impedance matching are currently being authored.</p>
+                        <h3 class="text-white font-bold font-['Space_Grotesk'] text-base mb-1">Editorial Drafts in Progress</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed font-normal">
+                            Comprehensive guides on mouse shell 3D printing and IEM impedance matching are currently being authored.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Articles Grid with Feature 6 Skeleton Preview States -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Articles Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 
                 <!-- Article Card 1 -->
-                <div class="soft-card glow-card float-card p-6 flex flex-col justify-between" data-aos="fade-up">
+                <div class="card-technical p-6 rounded-2xl flex flex-col justify-between" data-aos="fade-up">
                     <div>
-                        <div class="flex items-center gap-2 mb-4">
-                            <span class="px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 text-[10px] font-bold uppercase tracking-wider">Hardware Modding</span>
-                            <span class="text-[10px] text-gray-500 font-mono">10 min read</span>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="text-[10px] font-mono text-amber-400 uppercase tracking-wider">[HARDWARE MODDING]</span>
+                            <span class="text-[10px] text-slate-500 font-mono">10 min read</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">3D Printed Mouse Ergonomics</h3>
-                        <p class="text-gray-400 text-xs mb-4 leading-relaxed">How shell curvature and center-of-gravity modifications improve aim consistency and reduce wrist fatigue.</p>
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mb-2">3D Printed Mouse Ergonomics</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed font-normal">
+                            How shell curvature and center-of-gravity modifications improve aim consistency and reduce wrist fatigue.
+                        </p>
                     </div>
-                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                        <span class="text-[10px] font-bold bg-white/5 text-gray-400 px-2.5 py-1 rounded uppercase tracking-widest">Coming Soon</span>
+                    <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                        <span class="text-[11px] font-mono font-semibold bg-white/[0.04] border border-white/[0.08] text-slate-400 px-3 py-1 rounded-lg uppercase tracking-wider">
+                            Coming Soon
+                        </span>
+                        <span class="w-2 h-2 rounded-full bg-amber-400/60 animate-pulse"></span>
                     </div>
                 </div>
 
                 <!-- Article Card 2 -->
-                <div class="soft-card glow-card float-card p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-technical p-6 rounded-2xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <div class="flex items-center gap-2 mb-4">
-                            <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-[10px] font-bold uppercase tracking-wider">Acoustics</span>
-                            <span class="text-[10px] text-gray-500 font-mono">8 min read</span>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="text-[10px] font-mono text-blue-400 uppercase tracking-wider">[ACOUSTICS]</span>
+                            <span class="text-[10px] text-slate-500 font-mono">8 min read</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">The Truth About IEM Damping</h3>
-                        <p class="text-gray-400 text-xs mb-4 leading-relaxed">Understanding acoustic filters, nozzle resonance peaks, and how tip materials alter frequency response.</p>
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mb-2">The Truth About IEM Damping</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed font-normal">
+                            Understanding acoustic filters, nozzle resonance peaks, and how tip materials alter frequency response.
+                        </p>
                     </div>
-                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                        <span class="text-[10px] font-bold bg-white/5 text-gray-400 px-2.5 py-1 rounded uppercase tracking-widest">Coming Soon</span>
+                    <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                        <span class="text-[11px] font-mono font-semibold bg-white/[0.04] border border-white/[0.08] text-slate-400 px-3 py-1 rounded-lg uppercase tracking-wider">
+                            Coming Soon
+                        </span>
+                        <span class="w-2 h-2 rounded-full bg-blue-400/60 animate-pulse"></span>
                     </div>
                 </div>
 
                 <!-- Article Card 3 -->
-                <div class="soft-card glow-card float-card p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-technical p-6 rounded-2xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
                     <div>
-                        <div class="flex items-center gap-2 mb-4">
-                            <span class="px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 text-[10px] font-bold uppercase tracking-wider">PC Hardware</span>
-                            <span class="text-[10px] text-gray-500 font-mono">12 min read</span>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="text-[10px] font-mono text-purple-400 uppercase tracking-wider">[PC HARDWARE]</span>
+                            <span class="text-[10px] text-slate-500 font-mono">12 min read</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Micro-ATX vs Mini-ITX</h3>
-                        <p class="text-gray-400 text-xs mb-4 leading-relaxed">Why compact mATX enclosures like the Lian Li A3 offer superior thermal and acoustic performance.</p>
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mb-2">Micro-ATX vs Mini-ITX</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed font-normal">
+                            Why compact mATX enclosures like the Lian Li A3 offer superior thermal and acoustic performance.
+                        </p>
                     </div>
-                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                        <span class="text-[10px] font-bold bg-white/5 text-gray-400 px-2.5 py-1 rounded uppercase tracking-widest">Coming Soon</span>
+                    <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                        <span class="text-[11px] font-mono font-semibold bg-white/[0.04] border border-white/[0.08] text-slate-400 px-3 py-1 rounded-lg uppercase tracking-wider">
+                            Coming Soon
+                        </span>
+                        <span class="w-2 h-2 rounded-full bg-purple-400/60 animate-pulse"></span>
                     </div>
                 </div>
 
@@ -111,6 +126,7 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="background-animation.js" defer></script>
     <script src="main.js"></script>
 </body>
 </html>

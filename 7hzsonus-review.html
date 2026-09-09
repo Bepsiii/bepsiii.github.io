@@ -1,12 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review: 7Hz Sonus - Bepsi</title>
+    <meta name="description" content="In-depth review of the 7Hz Sonus hybrid driver IEMs — acoustic performance, gaming technicals, and value.">
+    <meta name="author" content="Bepsi">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
     <link rel="preload" href="header.html" as="fetch" crossorigin>
     <link rel="preload" href="footer.html" as="fetch" crossorigin>
     <link rel="icon" type="image/png" href="images/website-logo.png">
@@ -15,152 +17,242 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
-    <div class="scanlines"></div>
-    
-    <!-- Background Layer System -->
+<body class="selection:bg-blue-500 selection:text-white bg-[#08090d] text-slate-200 min-h-screen">
+    <canvas id="bg-canvas"></canvas>
     <div class="bg-grid-pattern"></div>
-    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
-    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
-    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
 
     <div id="header-placeholder"></div>
 
-    <main id="main-content" class="relative z-10 pt-32 pb-24">
+    <main id="main-content" class="relative z-10 pt-32 pb-28">
         <article class="container mx-auto px-6 max-w-4xl">
-            <nav aria-label="breadcrumb" class="text-sm text-gray-400 mb-6" data-aos="fade-down">
-                <a href="index.html" class="hover:text-white transition-colors">Home</a> / 
-                <a href="reviews.html" class="hover:text-white transition-colors">Reviews</a> / 
-                <span class="text-white">7Hz Sonus</span>
+            <!-- Breadcrumbs -->
+            <nav aria-label="breadcrumb" class="flex items-center gap-2 font-mono text-xs text-slate-400 mb-8" data-aos="fade-down">
+                <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
+                <span class="text-slate-600">/</span>
+                <a href="reviews.html" class="hover:text-blue-400 transition-colors">Reviews</a>
+                <span class="text-slate-600">/</span>
+                <span class="text-slate-200">7Hz Sonus</span>
             </nav>
-            <header class="text-center mb-16" data-aos="fade-down">
-                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Review</span>
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-none tracking-tight">7Hz Sonus</h1>
-                <h2 class="text-xl text-gray-400 font-medium">A Worthy Contender to the Truthear Zero?</h2>
+
+            <!-- Article Header -->
+            <header class="text-center mb-14" data-aos="fade-down">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-400 font-mono text-xs tracking-wider uppercase mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                    ACOUSTIC EVALUATION // 1DD + 1BA HYBRID
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-['Space_Grotesk'] text-white mb-4 tracking-tight">
+                    7Hz Sonus
+                </h1>
+                <h2 class="text-lg sm:text-xl text-slate-400 font-medium">
+                    A Worthy Contender to the Truthear Zero?
+                </h2>
+                <div class="flex items-center justify-center gap-4 mt-6 text-xs font-mono text-slate-500">
+                    <span>Published: April 12, 2024</span>
+                    <span>•</span>
+                    <span>Author: Bepsi</span>
+                </div>
             </header>
 
             <div class="space-y-8">
                 <!-- Overview -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                         <div class="p-5 border border-yellow-500/20 bg-yellow-500/[0.02] rounded-2xl flex flex-row items-center gap-4 text-sm text-yellow-500 mb-8 leading-relaxed">
-                            <div class="text-yellow-500 bg-yellow-500/10 p-2.5 rounded-xl shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            </div>
-                            <div>
-                                <strong>Disclaimer:</strong> This unit was purchased by myself. I am also affiliated with PC Help Hub as a Content Creator.
-                            </div>
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <div class="p-4 sm:p-5 border border-amber-500/30 bg-amber-950/20 rounded-xl flex items-start sm:items-center gap-4 text-sm text-amber-200 mb-8">
+                        <div class="text-amber-400 bg-amber-500/10 p-2.5 rounded-lg shrink-0 border border-amber-500/20">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Overview</h3>
-                        <p class="text-gray-400 leading-relaxed text-lg mb-8">
-                            Manufactured by 7HZ, the Sonus is a Hybrid driver IEM sporting 1BA alongside 1DD. Releasing at an MSRP of ~$60 USD, it targets the Truthear Zeros and Hexas of the world, and they do truly challenge the reign of the Truthear Zero.
-                        </p>
-                        <div class="rounded-xl overflow-hidden border border-white/5 shadow-md">
-                            <img src="images/setup/reviews/sonus/7hz_sonus_main.jpg" class="w-full object-cover max-h-[450px]" alt="7Hz Sonus main view">
+                        <div>
+                            <strong class="text-white font-mono uppercase tracking-wider text-xs block mb-1">Disclaimer:</strong>
+                            This unit was purchased by myself. I am also affiliated with PC Help Hub as a Content Creator.
                         </div>
                     </div>
-                </div>
 
-                <!-- Unboxing -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-4">Unboxing & Accessories</h3>
-                        <div class="text-gray-400 space-y-4 text-lg leading-relaxed mb-6">
-                            <p>The unboxing experience and the amount of accessories are great for the price range. They are packed very well with a sleeve covering the main box, in which the main box opens to reveal a paper insert that greets us to the 7HZ world and their products. Under the insert are the IEMs themselves, packaged in a thick foam that ensures they arrive safely.</p>
-                            <div class="bg-white/[0.01] p-6 rounded-2xl border border-white/5 shadow-md">
-                                <ul class="list-disc pl-5 space-y-2 text-sm text-gray-300">
-                                    <li>A set of 4 filter and mesh replacements.</li>
-                                    <li>A good selection of tips (7HZ coloured tips and some black and red translucent tips).</li>
-                                    <li>A "leather" carry pouch that sports the 7Hz logo.</li>
-                                    <li>The cable, which is a 4-core unbraided 2-pin 0.78 cable.</li>
-                                </ul>
-                            </div>
-                            <p class="text-sm text-gray-500 font-medium">Although the cable looks great, it can be an issue for comfort since it's generally more rigid and less forgiving than other cables on the market.</p>
-                        </div>
-                        <div class="rounded-xl overflow-hidden border border-white/5 shadow-md">
-                            <img src="images/setup/reviews/sonus/7hz_sonus_cable_tips.jpg" class="w-full" alt="7Hz Sonus cable and tips accessories">
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-4 flex items-center gap-3">
+                        <span class="text-purple-400 font-mono text-base">01.</span>
+                        Overview
+                    </h3>
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-6 font-normal">
+                        Manufactured by 7HZ, the Sonus is a Hybrid driver IEM sporting 1BA alongside 1DD. Releasing at an MSRP of ~$60 USD, it targets the Truthear Zeros and Hexas of the world, and they do truly challenge the reign of the Truthear Zero.
+                    </p>
+                    <div class="relative group cursor-zoom-in rounded-xl overflow-hidden border border-white/10 bg-slate-900 shadow-lg">
+                        <img src="images/setup/reviews/sonus/7hz_sonus_main.jpg" 
+                             class="w-full object-cover max-h-[460px] zoomable-img transition-transform duration-500 group-hover:scale-[1.02]" 
+                             alt="7Hz Sonus main view" 
+                             data-zoomable>
+                        <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-black/70 backdrop-blur-md text-slate-300 font-mono text-[11px] border border-white/10 flex items-center gap-1.5 pointer-events-none">
+                            <svg class="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                            Click to Inspect
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Sound -->
-                <div class="soft-card glow-card float-card p-8 group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-6">Sound Quality</h3>
-                        <p class="text-gray-400 leading-relaxed text-lg mb-8">
-                            Out of the box, the 7Hz Sonus delivers a clean but somewhat uninspiring sound. It lacks the vibrant energy found in other IEMs within its price range, and vocals, in general, come across as flat.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="p-6 bg-white/[0.01] rounded-2xl border border-white/5 shadow-sm">
-                                <div class="text-blue-400 font-bold text-lg mb-2">Bass</div>
-                                <div class="text-gray-400 text-sm leading-relaxed">Plays it safe. Mid-bass punch present, decent sub-bass depth, but lacks impact. Clean and controlled.</div>
-                            </div>
-                            <div class="p-6 bg-white/[0.01] rounded-2xl border border-white/5 shadow-sm">
-                                <div class="text-blue-400 font-bold text-lg mb-2">Mids</div>
-                                <div class="text-gray-400 text-sm leading-relaxed">Natural. Never overpowered. Female vocals have presence, but instruments lack weight.</div>
-                            </div>
-                             <div class="p-6 bg-white/[0.01] rounded-2xl border border-white/5 shadow-sm">
-                                <div class="text-blue-400 font-bold text-lg mb-2">Highs</div>
-                                <div class="text-gray-400 text-sm leading-relaxed">Smooth and controlled. Prioritizes non-harshness over shimmer and sparkle.</div>
-                            </div>
-                             <div class="p-6 bg-blue-500/5 border border-blue-500/20 rounded-2xl">
-                                <div class="text-white font-bold text-lg mb-2">Technicals</div>
-                                <div class="text-gray-300 text-sm leading-relaxed">Where this set shines. Exceptional imaging for gaming. For &lt; £50, these are a 10/10 competitive choice.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pros/Cons -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="soft-card glow-card float-card p-8 group border-green-500/10" data-aos="fade-right">
-                        <div class="float-content">
-                            <h4 class="text-xl font-bold text-green-500 mb-4">Pros</h4>
-                            <ul class="space-y-2 text-gray-400 text-sm leading-relaxed">
-                                <li class="flex gap-2"><span class="text-green-500 font-bold">+</span> Fit & Comfort</li>
-                                <li class="flex gap-2"><span class="text-green-500 font-bold">+</span> Accessories Package</li>
-                                <li class="flex gap-2"><span class="text-green-500 font-bold">+</span> Price to Performance</li>
-                                <li class="flex gap-2"><span class="text-green-500 font-bold">+</span> Technicals (Gaming)</li>
+                <!-- Unboxing & Accessories -->
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-5 flex items-center gap-3">
+                        <span class="text-purple-400 font-mono text-base">02.</span>
+                        Unboxing &amp; Accessories
+                    </h3>
+                    <div class="text-slate-300 space-y-5 text-base sm:text-lg leading-relaxed mb-6">
+                        <p>The unboxing experience and the amount of accessories are great for the price range. They are packed very well with a sleeve covering the main box, in which the main box opens to reveal a paper insert that greets us to the 7HZ world and their products. Under the insert are the IEMs themselves, packaged in a thick foam that ensures they arrive safely.</p>
+                        
+                        <div class="bg-[#12141d] p-5 sm:p-6 rounded-xl border border-white/[0.08]">
+                            <span class="block font-mono text-xs uppercase tracking-wider text-slate-400 mb-3">Included Kit</span>
+                            <ul class="space-y-2 text-sm sm:text-base text-slate-300">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                                    A set of 4 filter and mesh replacements
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                                    A good selection of tips (7HZ coloured tips and some black and red translucent tips)
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                                    A "leather" carry pouch that sports the 7Hz logo
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                                    The cable, which is a 4-core unbraided 2-pin 0.78 cable
+                                </li>
                             </ul>
                         </div>
+                        <p class="text-sm text-slate-400 font-medium italic">
+                            Although the cable looks great, it can be an issue for comfort since it's generally more rigid and less forgiving than other cables on the market.
+                        </p>
                     </div>
-                    <div class="soft-card glow-card float-card p-8 group border-red-500/10" data-aos="fade-left">
-                        <div class="float-content">
-                            <h4 class="text-xl font-bold text-red-500 mb-4">Cons</h4>
-                            <ul class="space-y-2 text-gray-400 text-sm leading-relaxed">
-                                <li class="flex gap-2"><span class="text-red-500 font-bold">-</span> Sound can be boring/safe</li>
-                                <li class="flex gap-2"><span class="text-red-500 font-bold">-</span> Lacks High-end Sparkle</li>
-                                <li class="flex gap-2"><span class="text-red-500 font-bold">-</span> Build Quality concerns</li>
-                                <li class="flex gap-2"><span class="text-red-500 font-bold">-</span> Rigid Cable</li>
-                            </ul>
+                    <div class="relative group cursor-zoom-in rounded-xl overflow-hidden border border-white/10 bg-slate-900 shadow-md">
+                        <img src="images/setup/reviews/sonus/7hz_sonus_cable_tips.jpg" 
+                             class="w-full zoomable-img transition-transform duration-500 group-hover:scale-[1.02]" 
+                             alt="7Hz Sonus cable and tips accessories" 
+                             data-zoomable>
+                        <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-black/70 backdrop-blur-md text-slate-300 font-mono text-[11px] border border-white/10 flex items-center gap-1.5 pointer-events-none">
+                            <svg class="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                            Inspect Accessories
                         </div>
                     </div>
+                </section>
+
+                <!-- Sound Quality Breakdown -->
+                <section class="card-technical p-6 sm:p-8 rounded-2xl" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white mb-4 flex items-center gap-3">
+                        <span class="text-purple-400 font-mono text-base">03.</span>
+                        Sound Quality
+                    </h3>
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-6 font-normal">
+                        Out of the box, the 7Hz Sonus delivers a clean but somewhat uninspiring sound. It lacks the vibrant energy found in other IEMs within its price range, and vocals, in general, come across as flat.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-5 rounded-xl border border-white/[0.08] bg-[#10121a]">
+                            <div class="font-mono text-xs uppercase tracking-wider text-purple-400 mb-1">Frequency Range: Lows</div>
+                            <h4 class="text-lg font-bold font-['Space_Grotesk'] text-white mb-2">Bass</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Plays it safe. Mid-bass punch present, decent sub-bass depth, but lacks impact. Clean and controlled.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-xl border border-white/[0.08] bg-[#10121a]">
+                            <div class="font-mono text-xs uppercase tracking-wider text-purple-400 mb-1">Frequency Range: Midrange</div>
+                            <h4 class="text-lg font-bold font-['Space_Grotesk'] text-white mb-2">Mids</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Natural. Never overpowered. Female vocals have presence, but instruments lack weight.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-xl border border-white/[0.08] bg-[#10121a]">
+                            <div class="font-mono text-xs uppercase tracking-wider text-purple-400 mb-1">Frequency Range: Treble</div>
+                            <h4 class="text-lg font-bold font-['Space_Grotesk'] text-white mb-2">Highs</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Smooth and controlled. Prioritizes non-harshness over shimmer and sparkle.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-xl border border-purple-500/30 bg-[#161324]">
+                            <div class="font-mono text-xs uppercase tracking-wider text-purple-300 mb-1">Competitive Benchmark</div>
+                            <h4 class="text-lg font-bold font-['Space_Grotesk'] text-white mb-2">Technicals</h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Where this set shines. Exceptional imaging for gaming. For &lt; £50, these are a 10/10 competitive choice.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pros & Cons -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                    <section class="card-technical p-6 sm:p-8 rounded-2xl border-emerald-500/20 bg-[#0c1210]" data-aos="fade-right">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            <h4 class="text-xl font-bold font-['Space_Grotesk'] text-white">Pros</h4>
+                        </div>
+                        <ul class="space-y-2.5 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <li class="flex items-center gap-2">
+                                <span class="text-emerald-400 font-mono font-bold">+</span>
+                                Fit &amp; Comfort
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-emerald-400 font-mono font-bold">+</span>
+                                Accessories Package
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-emerald-400 font-mono font-bold">+</span>
+                                Price to Performance
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-emerald-400 font-mono font-bold">+</span>
+                                Technicals (Gaming)
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="card-technical p-6 sm:p-8 rounded-2xl border-red-500/20 bg-[#140e10]" data-aos="fade-left">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                            <h4 class="text-xl font-bold font-['Space_Grotesk'] text-white">Cons</h4>
+                        </div>
+                        <ul class="space-y-2.5 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <li class="flex items-center gap-2">
+                                <span class="text-red-400 font-mono font-bold">-</span>
+                                Sound can be boring/safe
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-red-400 font-mono font-bold">-</span>
+                                Lacks High-end Sparkle
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-red-400 font-mono font-bold">-</span>
+                                Build Quality concerns
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-red-400 font-mono font-bold">-</span>
+                                Rigid Cable
+                            </li>
+                        </ul>
+                    </section>
                 </div>
 
                 <!-- Conclusion -->
-                <div class="soft-card glow-card float-card p-12 text-center group" data-aos="fade-up">
-                    <div class="float-content">
-                        <h3 class="text-2xl font-bold text-white mb-6">Conclusion</h3>
-                        <p class="text-gray-400 mb-8 text-lg max-w-2xl mx-auto leading-relaxed">
-                            The 7Hz Sonus is a strong option in the budget IEM space, particularly for its technical performance in gaming. While the tuning might feel safe for music, its comfort and price make it a noteworthy consideration.
-                        </p>
-                        <div class="inline-flex flex-col items-center">
-                            <span class="text-xs text-blue-400 font-bold tracking-widest uppercase mb-3">Rating</span>
-                            <div class="text-4xl font-extrabold text-white bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-3 rounded-2xl shadow-lg shadow-blue-500/20 border border-blue-400/20">
-                                3.5 / 5
-                            </div>
+                <section class="card-technical p-8 sm:p-12 text-center rounded-2xl bg-[#0e1017]" data-aos="fade-up">
+                    <span class="inline-block font-mono text-xs uppercase tracking-widest text-purple-400 mb-3">Final Assessment</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold font-['Space_Grotesk'] text-white mb-5">Conclusion</h3>
+                    <p class="text-slate-300 mb-8 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                        The 7Hz Sonus is a strong option in the budget IEM space, particularly for its technical performance in gaming. While the tuning might feel safe for music, its comfort and price make it a noteworthy consideration.
+                    </p>
+                    <div class="inline-flex flex-col items-center">
+                        <span class="text-xs font-mono text-slate-400 tracking-wider uppercase mb-2">Overall Score</span>
+                        <div class="flex items-center gap-3 px-8 py-3 rounded-xl bg-[#141722] border border-purple-500/30 shadow-inner">
+                            <span class="text-3xl font-bold font-mono text-white">3.5</span>
+                            <span class="text-lg font-mono text-slate-500">/</span>
+                            <span class="text-xl font-mono text-slate-400">5</span>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
 
-            <div class="text-center mt-16">
-                 <a href="reviews.html" class="btn-outline">&larr; Back to Reviews</a>
+            <div class="text-center mt-14">
+                <a href="reviews.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 bg-[#12141d] hover:bg-[#1a1d2b] hover:border-purple-500/40 text-sm font-mono text-slate-300 hover:text-white transition-all duration-200">
+                    &larr; Back to All Reviews
+                </a>
             </div>
         </article>
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="background-animation.js" defer></script>
     <script src="main.js"></script>
 </body>
 </html>

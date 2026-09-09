@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="In-depth thoughts on tech and peripherals.">
+    <meta name="description" content="In-depth thoughts on tech, IEMs, mini PCs, and gaming peripherals.">
     <meta name="author" content="Bepsi">
     <meta property="og:title" content="Reviews - Bepsi">
     <meta property="og:description" content="In-depth thoughts on tech and peripherals.">
@@ -12,7 +12,7 @@
     <title>Reviews - Bepsi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
     <link rel="preload" href="header.html" as="fetch" crossorigin>
     <link rel="preload" href="footer.html" as="fetch" crossorigin>
     <link rel="icon" type="image/png" href="images/website-logo.png">
@@ -21,102 +21,174 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
-    <div class="scanlines"></div>
-    
-    <!-- Background Layer System -->
+<body class="selection:bg-blue-500 selection:text-white bg-[#08090d] text-slate-200 min-h-screen">
+    <canvas id="bg-canvas"></canvas>
     <div class="bg-grid-pattern"></div>
-    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
-    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
-    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
 
     <div id="header-placeholder"></div>
 
-    <main id="main-content" class="relative z-10 pt-32 pb-24">
-        <div class="container mx-auto px-6">
-             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
-                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Evaluations</span>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-none">
-                    Hardware <span class="text-gradient-cyan-indigo">Reviews</span>
+    <main id="main-content" class="relative z-10 pt-32 pb-28">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <!-- Header Section -->
+            <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-down">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-400 font-mono text-xs tracking-wider uppercase mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+                    EVALUATION ARCHIVE
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-['Space_Grotesk'] text-white mb-5 tracking-tight">
+                    Hardware <span class="text-blue-400">Reviews</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed mb-8">
+                <p class="text-base sm:text-lg text-slate-400 font-normal leading-relaxed mb-8">
                     In-depth, unsponsored thoughts on IEMs, mini PCs, custom mouse mods, and gaming peripherals.
                 </p>
 
                 <!-- Filter Category Badges -->
-                <div class="flex flex-wrap justify-center gap-2">
-                    <button type="button" data-review-filter="all" class="filter-btn px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-bold tracking-wider uppercase active">All Categories (4)</button>
-                    <button type="button" data-review-filter="iem" class="filter-btn px-4 py-1.5 rounded-full bg-white/[0.02] hover:bg-white/[0.06] text-gray-400 hover:text-white border border-white/[0.06] text-xs font-semibold tracking-wider transition-all">IEMs &amp; Audio (2)</button>
-                    <button type="button" data-review-filter="minipc" class="filter-btn px-4 py-1.5 rounded-full bg-white/[0.02] hover:bg-white/[0.06] text-gray-400 hover:text-white border border-white/[0.06] text-xs font-semibold tracking-wider transition-all">Mini PCs (1)</button>
-                    <button type="button" data-review-filter="mousemod" class="filter-btn px-4 py-1.5 rounded-full bg-white/[0.02] hover:bg-white/[0.06] text-gray-400 hover:text-white border border-white/[0.06] text-xs font-semibold tracking-wider transition-all">Mouse Mods (1)</button>
+                <div class="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-xl border border-white/[0.08] bg-[#10121a]/80 backdrop-blur-md shadow-sm">
+                    <button type="button" data-review-filter="all" class="filter-btn px-4 py-2 rounded-lg bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-mono font-medium tracking-wider uppercase transition-all duration-200 active">
+                        All Categories (4)
+                    </button>
+                    <button type="button" data-review-filter="iem" class="filter-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.04] border border-transparent text-xs font-mono font-medium tracking-wider uppercase transition-all duration-200">
+                        IEMs &amp; Audio (2)
+                    </button>
+                    <button type="button" data-review-filter="minipc" class="filter-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.04] border border-transparent text-xs font-mono font-medium tracking-wider uppercase transition-all duration-200">
+                        Mini PCs (1)
+                    </button>
+                    <button type="button" data-review-filter="mousemod" class="filter-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.04] border border-transparent text-xs font-mono font-medium tracking-wider uppercase transition-all duration-200">
+                        Mouse Mods (1)
+                    </button>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Review 0 -->
-                <a href="geekoma5pro-review.html" data-review-card data-category="minipc" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up">
-                    <div class="float-content flex flex-col h-full w-full">
-                        <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/geekoma5pro/cover.png" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=GEEKOM+A5+Pro'" alt="GEEKOM A5 Pro" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">Mini PC</div>
+            <!-- Reviews Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Review 0: GEEKOM A5 Pro -->
+                <a href="geekoma5pro-review.html" data-review-card data-category="minipc" class="card-technical group flex flex-col h-full rounded-2xl overflow-hidden hover:border-blue-500/40 transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up">
+                    <div class="h-52 w-full relative overflow-hidden bg-slate-900 border-b border-white/[0.06]">
+                        <img src="images/setup/reviews/geekoma5pro/cover.png" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=GEEKOM+A5+Pro'" alt="GEEKOM A5 Pro" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                        <div class="absolute top-3 left-3 bg-[#08090d]/80 backdrop-blur-md border border-white/10 text-blue-400 text-[10px] px-2.5 py-1 rounded-md font-mono font-semibold tracking-wider uppercase shadow-md">
+                            Mini PC
                         </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">GEEKOM A5 Pro (2026)</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">Zen 3 mini-PC for desktop and homelab use.</p>
+                        <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm border border-white/10 text-slate-400 text-[11px] px-2 py-0.5 rounded font-mono">
+                            Zen 3 Architecture
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between bg-[#0e1017]">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="text-[11px] font-mono text-slate-500 uppercase tracking-wider">Benchmarked</span>
+                                <span class="text-[11px] font-mono text-slate-400">March 17, 2026</span>
                             </div>
-                            <div class="text-[10px] text-gray-500 font-bold tracking-wider uppercase">March 17, 2026</div>
+                            <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                GEEKOM A5 Pro (2026)
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6 font-normal">
+                                Zen 3 mini-PC for desktop and homelab use.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-slate-400 group-hover:text-blue-400 transition-colors">
+                            <span>Read Deep Dive</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
                         </div>
                     </div>
                 </a>
 
-                <!-- Review 1 -->
-                <a href="spacetravel-review.html" data-review-card data-category="iem" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="float-content flex flex-col h-full w-full">
-                        <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/spacetravels/moondrop_spacetravel_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=Space+Travel'" alt="Moondrop Space Travel" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">TWS</div>
+                <!-- Review 1: Moondrop Space Travel -->
+                <a href="spacetravel-review.html" data-review-card data-category="iem" class="card-technical group flex flex-col h-full rounded-2xl overflow-hidden hover:border-blue-500/40 transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-52 w-full relative overflow-hidden bg-slate-900 border-b border-white/[0.06]">
+                        <img src="images/setup/reviews/spacetravels/moondrop_spacetravel_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=Space+Travel'" alt="Moondrop Space Travel" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                        <div class="absolute top-3 left-3 bg-[#08090d]/80 backdrop-blur-md border border-white/10 text-emerald-400 text-[10px] px-2.5 py-1 rounded-md font-mono font-semibold tracking-wider uppercase shadow-md">
+                            TWS
                         </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Moondrop Space Travel</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">Sub-$25 ANC earbuds with reference tuning.</p>
+                        <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm border border-white/10 text-slate-400 text-[11px] px-2 py-0.5 rounded font-mono">
+                            Sub-$25
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between bg-[#0e1017]">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="text-[11px] font-mono text-slate-500 uppercase tracking-wider">Acoustic Test</span>
+                                <span class="text-[11px] font-mono text-slate-400">Oct 12, 2024</span>
                             </div>
-                            <div class="text-[10px] text-gray-500 font-bold tracking-wider uppercase">Oct 12, 2024</div>
+                            <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                Moondrop Space Travel
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6 font-normal">
+                                Sub-$25 ANC earbuds with reference tuning.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-slate-400 group-hover:text-blue-400 transition-colors">
+                            <span>Read Deep Dive</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
                         </div>
                     </div>
                 </a>
 
-                 <!-- Review 2 -->
-                <a href="7hzsonus-review.html" data-review-card data-category="iem" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="150">
-                    <div class="float-content flex flex-col h-full w-full">
-                        <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/sonus/7hz_sonus_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=7Hz'" alt="7Hz Sonus" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">IEMs</div>
+                <!-- Review 2: 7Hz Sonus -->
+                <a href="7hzsonus-review.html" data-review-card data-category="iem" class="card-technical group flex flex-col h-full rounded-2xl overflow-hidden hover:border-blue-500/40 transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="150">
+                    <div class="h-52 w-full relative overflow-hidden bg-slate-900 border-b border-white/[0.06]">
+                        <img src="images/setup/reviews/sonus/7hz_sonus_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=7Hz'" alt="7Hz Sonus" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                        <div class="absolute top-3 left-3 bg-[#08090d]/80 backdrop-blur-md border border-white/10 text-purple-400 text-[10px] px-2.5 py-1 rounded-md font-mono font-semibold tracking-wider uppercase shadow-md">
+                            IEMs
                         </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">7hz Sonus</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">Is Truthear in trouble?</p>
+                        <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm border border-white/10 text-slate-400 text-[11px] px-2 py-0.5 rounded font-mono">
+                            Hybrid 1DD+1BA
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between bg-[#0e1017]">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="text-[11px] font-mono text-slate-500 uppercase tracking-wider">Acoustic Test</span>
+                                <span class="text-[11px] font-mono text-slate-400">April 12, 2024</span>
                             </div>
-                            <div class="text-[10px] text-gray-500 font-bold tracking-wider uppercase">April 12, 2024</div>
+                            <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                7hz Sonus
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6 font-normal">
+                                Is Truthear in trouble?
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-slate-400 group-hover:text-blue-400 transition-colors">
+                            <span>Read Deep Dive</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
                         </div>
                     </div>
                 </a>
 
-                 <!-- Review 3 -->
-                <a href="beanmouse-review.html" data-review-card data-category="mousemod" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="float-content flex flex-col h-full w-full">
-                        <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/beanmouse/beanmouse_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=Bean'" alt="Beanmouse V2.1" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">MOD</div>
+                <!-- Review 3: Beanmouse V2.1 -->
+                <a href="beanmouse-review.html" data-review-card data-category="mousemod" class="card-technical group flex flex-col h-full rounded-2xl overflow-hidden hover:border-blue-500/40 transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-52 w-full relative overflow-hidden bg-slate-900 border-b border-white/[0.06]">
+                        <img src="images/setup/reviews/beanmouse/beanmouse_main.jpg" onerror="this.src='https://placehold.co/600x400/18181b/FFF?text=Bean'" alt="Beanmouse V2.1" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                        <div class="absolute top-3 left-3 bg-[#08090d]/80 backdrop-blur-md border border-white/10 text-amber-400 text-[10px] px-2.5 py-1 rounded-md font-mono font-semibold tracking-wider uppercase shadow-md">
+                            Mod
                         </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Beanmouse V2.1</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">Fingertip Grip for Viper V2 Pro.</p>
+                        <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm border border-white/10 text-slate-400 text-[11px] px-2 py-0.5 rounded font-mono">
+                            Fingertip Shape
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between bg-[#0e1017]">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="text-[11px] font-mono text-slate-500 uppercase tracking-wider">Ergonomics</span>
+                                <span class="text-[11px] font-mono text-slate-400">Sept 19, 2024</span>
                             </div>
-                            <div class="text-[10px] text-gray-500 font-bold tracking-wider uppercase">Sept 19, 2024</div>
+                            <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                Beanmouse V2.1
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6 font-normal">
+                                Fingertip Grip for Viper V2 Pro.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-slate-400 group-hover:text-blue-400 transition-colors">
+                            <span>Read Deep Dive</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
                         </div>
                     </div>
                 </a>
@@ -125,6 +197,7 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="background-animation.js" defer></script>
     <script src="main.js"></script>
 </body>
 </html>

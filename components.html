@@ -38,15 +38,11 @@
         }
     </style>
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
-    <div class="scanlines"></div>
-    <div id="header-placeholder"></div>
-
-    <!-- Background Layer System -->
+<body class="selection:bg-blue-500 selection:text-white bg-[#08090d] text-slate-200 min-h-screen">
+    <canvas id="bg-canvas"></canvas>
     <div class="bg-grid-pattern"></div>
-    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
-    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
-    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
+
+    <div id="header-placeholder"></div>
 
     <main id="main-content" class="relative z-10 pt-36 pb-28">
         <div class="container mx-auto px-6 max-w-7xl">
@@ -490,6 +486,7 @@
     </div>
 
     <div id="footer-placeholder"></div>
+    <script src="background-animation.js" defer></script>
     <script src="main.js"></script>
 </body>
 </html>

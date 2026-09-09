@@ -4,142 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="7yCEmQDGk-wyY3MRIXKsq5zrL9zBMyEmkD9OmmQkRIw" />
-    <meta name="description" content="Portfolio and personal website of Bepsi, a Digital Craftsman.">
+    <meta name="description" content="Personal website of Bepsi — hardware reviews, 3D printing projects, and curated technical resources.">
     <meta name="author" content="Bepsi">
-    <meta property="og:title" content="Bepsi | Digital Craftsman">
-    <meta property="og:description" content="Portfolio and personal website of Bepsi, a Digital Craftsman.">
+    <meta property="og:title" content="Bepsi">
+    <meta property="og:description" content="Personal website of Bepsi — hardware reviews, 3D printing projects, and curated technical resources.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://placehold.co/1200x630/18181b/FFFFFF?text=Bepsi">
-    <title>Bepsi | Digital Craftsman</title>
+    <title>Bepsi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap">
     <link rel="preload" href="header.html" as="fetch" crossorigin>
     <link rel="preload" href="footer.html" as="fetch" crossorigin>
     <link rel="icon" type="image/png" href="images/website-logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="background-animation.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="selection:bg-blue-500 selection:text-white">
-    <div class="scanlines"></div>
     <div id="header-placeholder"></div>
 
-    <!-- Background Layer System -->
+    <!-- Technical Blueprint Grid Layer -->
     <div class="bg-grid-pattern"></div>
-    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
-    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
-    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
 
-    <!-- Feature 12: Main content target for skip link -->
     <main id="main-content" class="relative z-10">
         <!-- HERO SECTION -->
-        <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-            <!-- Three.js Backdrop Canvas -->
+        <section class="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-28 pb-16">
+            <!-- Technical Canvas Backdrop -->
             <div id="hero-canvas-container" class="absolute inset-0 z-0"></div>
             
-            <div class="container relative mx-auto px-6 z-10 text-center">
-                <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight text-white leading-none pt-8" data-aos="fade-up">
-                    Exploring Tech <br />
-                    <span class="text-gradient-cyan-indigo">&amp; Design</span>
+            <div class="container relative mx-auto px-4 sm:px-6 z-10 text-center max-w-4xl">
+                <!-- Status Pill -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 mb-6 sm:mb-8" data-aos="fade-down">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+                    <span class="font-mono text-[11px] font-bold uppercase tracking-wider">Hardware Studio &amp; Tech Archive</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-6 tracking-tight text-white leading-[1.08]" data-aos="fade-up">
+                    Exploring Tech <br class="hidden sm:inline" />
+                    <span class="text-blue-400">&amp; Design</span>
                 </h1>
 
-                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-10 font-medium leading-relaxed px-2" data-aos="fade-up" data-aos-delay="100">
                     Welcome to my digital workspace. I'm <span class="text-white font-semibold">Bepsi</span>, and this is where I archive my projects, resources, and hardware obsession.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="200">
-                    <a href="#projects" class="btn-navy">
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full max-w-md mx-auto sm:max-w-none" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#projects" class="btn-navy w-full sm:w-auto">
                         View My Work
                     </a>
-                    <a href="about.html" class="btn-outline">
+                    <a href="about.html" class="btn-outline w-full sm:w-auto">
                         About Me
                     </a>
-                    <button type="button" data-search-trigger class="btn-outline text-xs">
-                        Search
+                    <button type="button" data-search-trigger class="btn-outline w-full sm:w-auto text-xs py-3 sm:py-2.5">
+                        <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        <span>Search Archive</span>
+                        <span class="kbd-badge text-[9px] px-1 hidden sm:inline-block">Ctrl K</span>
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- PROJECTS SECTION -->
-        <section id="projects" class="py-28 relative">
-            <div class="container mx-auto px-6">
-                <div class="flex justify-between items-end mb-16" data-aos="fade-up">
+        <!-- PROJECTS & ARCHIVE BENTO SECTION -->
+        <section id="projects" class="py-20 sm:py-28 relative">
+            <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-2 mb-10 sm:mb-14 pb-4 border-b border-white/[0.08]" data-aos="fade-up">
                     <div>
-                        <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-1 block">Selections</span>
-                        <h2 class="text-4xl font-extrabold text-white tracking-tight">Featured Works</h2>
-                        <p class="text-gray-400 text-sm mt-1">A selection of projects and resources.</p>
+                        <span class="text-mono-tag block mb-1">Selections</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Featured Works</h2>
+                        <p class="text-gray-400 text-sm mt-1">A curated selection of projects, hardware evaluations, and resources.</p>
                     </div>
                 </div>
 
-                <!-- 3-Column Mathematically Nested Bento Grid (500px High-Height Alignment) -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Bento Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                     
-                    <!-- Card 1: AscentCustoms (Span 2x2) -->
-                    <a href="ascentcustoms.html" class="soft-card glow-card float-card group p-0 overflow-hidden md:col-span-2 md:row-span-2 h-[500px]" data-aos="fade-up">
-                        <div class="float-content relative h-full w-full">
-                            <img src="images/slide1.jpg" onerror="this.src='https://placehold.co/800x600/18181b/FFF?text=Ascent'" alt="AscentCustoms" loading="lazy" decoding="async" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-75 group-hover:opacity-100">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent p-8 flex flex-col justify-end">
-                                <span class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-1.5">Featured Project</span>
-                                <h3 class="text-3xl font-extrabold text-white mb-1.5">AscentCustoms</h3>
-                                <p class="text-gray-300 text-sm">Next Gen 3D Printed Gaming Mice</p>
+                    <!-- Card 1: AscentCustoms (Span 2 Cols on Desktop) -->
+                    <a href="ascentcustoms.html" class="soft-card group p-0 overflow-hidden md:col-span-2 min-h-[360px] sm:min-h-[440px] relative" data-aos="fade-up">
+                        <div class="relative h-full w-full">
+                            <img src="images/slide1.jpg" onerror="this.src='https://placehold.co/800x600/18181b/FFF?text=Ascent'" alt="AscentCustoms" loading="lazy" decoding="async" class="object-cover w-full h-full min-h-[360px] sm:min-h-[440px] transition-transform duration-500 group-hover:scale-105 opacity-70 group-hover:opacity-90">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#08090d] via-[#08090d]/60 to-transparent p-6 sm:p-8 flex flex-col justify-end">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="spec-badge primary">Featured Project</span>
+                                    <span class="spec-badge">&lt; 45g Target</span>
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-1.5 group-hover:text-blue-400 transition-colors">AscentCustoms</h3>
+                                <p class="text-gray-300 text-sm max-w-lg">Next Gen 3D Printed Gaming Mice with custom ergonomics and Viper V2 Pro internals.</p>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Card 2: My Setup (Span 1x1, Height 236px) -->
-                    <a href="setup.html" class="soft-card glow-card float-card p-6 justify-between group md:col-span-1 h-[236px]" data-aos="fade-up" data-aos-delay="100">
-                        <div class="float-content flex flex-col h-full justify-between">
+                    <!-- Card 2: My Setup -->
+                    <a href="setup.html" class="soft-card p-6 sm:p-7 justify-between group md:col-span-1 min-h-[220px]" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex flex-col h-full justify-between">
                             <div>
-                                <div class="w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl flex items-center justify-center text-indigo-400 mb-4 shadow-lg shadow-indigo-500/5 group-hover:scale-105 transition-transform duration-300">
+                                <div class="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-4 group-hover:scale-105 transition-transform">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                                 </div>
-                                <h3 class="text-xl font-bold text-white tracking-tight">My Setup</h3>
-                                <p class="text-gray-400 text-xs mt-1.5 leading-relaxed">Detailed breakdown of my gaming battlestation and Sennheiser HD580 &amp; HD 480 Pro headphones.</p>
+                                <h3 class="text-xl font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors">My Setup</h3>
+                                <p class="text-gray-400 text-xs mt-2 leading-relaxed">Detailed breakdown of my gaming battlestation and Sennheiser HD580 &amp; HD 480 Pro headphones.</p>
                             </div>
-                            <div class="flex items-center text-xs font-bold text-white gap-1 mt-4 group-hover:text-blue-400 transition-colors">
+                            <div class="flex items-center text-xs font-semibold text-white gap-1 mt-6 group-hover:text-blue-400 transition-colors">
                                 View Specs <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Card 3: Resource Library (Span 1x1, Height 236px) -->
-                    <a href="resources1.html" class="soft-card glow-card float-card p-6 justify-between group md:col-span-1 h-[236px]" data-aos="fade-up" data-aos-delay="200">
-                        <div class="float-content flex flex-col h-full justify-between">
+                    <!-- Card 3: Resource Library -->
+                    <a href="resources1.html" class="soft-card p-6 sm:p-7 justify-between group md:col-span-1 min-h-[220px]" data-aos="fade-up" data-aos-delay="150">
+                        <div class="flex flex-col h-full justify-between">
                             <div>
-                                <div class="w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-400 mb-4 shadow-lg shadow-emerald-500/5 group-hover:scale-105 transition-transform duration-300">
+                                <div class="w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center text-emerald-400 mb-4 group-hover:scale-105 transition-transform">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                                 </div>
-                                <h3 class="text-xl font-bold text-white tracking-tight">Resource Library</h3>
-                                <p class="text-gray-400 text-xs mt-1.5 leading-relaxed">Curated spreadsheets, benchmarking tools, and public datasets.</p>
+                                <h3 class="text-xl font-bold text-white tracking-tight group-hover:text-emerald-400 transition-colors">Resource Library</h3>
+                                <p class="text-gray-400 text-xs mt-2 leading-relaxed">Curated spreadsheets, benchmarking tools, and public datasets.</p>
                             </div>
-                            <div class="flex items-center text-xs font-bold text-white gap-1 mt-4 group-hover:text-blue-400 transition-colors">
+                            <div class="flex items-center text-xs font-semibold text-white gap-1 mt-6 group-hover:text-emerald-400 transition-colors">
                                 Browse Library <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Card 4: Reviews Hub (Span 3x1 Asymmetric Row Base) -->
-                    <a href="reviews.html" class="soft-card glow-card float-card p-8 group md:col-span-3 min-h-[180px] justify-between relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                        <div class="float-content flex flex-col md:flex-row justify-between items-center gap-8 h-full w-full relative z-10">
+                    <!-- Card 4: Hardware Evaluations (Reviews Hub) -->
+                    <a href="reviews.html" class="soft-card p-6 sm:p-8 group md:col-span-2 min-h-[220px] justify-between" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 h-full w-full">
                             <div class="max-w-xl text-left">
-                                <div class="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center text-blue-400 mb-4 shadow-lg shadow-blue-500/5 group-hover:scale-105 transition-transform duration-300">
+                                <div class="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-3 group-hover:scale-105 transition-transform">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.907c.961 0 1.36 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.77-.57-.372-1.81.587-1.81h4.907a1 1 0 00.95-.69l1.519-4.674z"></path></svg>
                                 </div>
-                                <h3 class="text-2xl font-bold text-white tracking-tight">Hardware Evaluations</h3>
-                                <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors">Hardware Evaluations</h3>
+                                <p class="text-gray-400 text-xs sm:text-sm mt-2 leading-relaxed">
                                     Unbiased, in-depth breakdowns of reference headphones like the Sennheiser HD580 &amp; HD 480 Pro, mini PCs, custom mouse shell mods, and surface performance metrics.
                                 </p>
                             </div>
-                            <div class="flex flex-wrap gap-2 justify-center md:justify-end max-w-sm">
-                                <span class="px-3.5 py-1.5 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[10px] text-gray-400 font-bold uppercase tracking-widest">Sennheiser HD580</span>
-                                <span class="px-3.5 py-1.5 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[10px] text-gray-400 font-bold uppercase tracking-widest">HD 480 Pro</span>
-                                <span class="px-3.5 py-1.5 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[10px] text-gray-400 font-bold uppercase tracking-widest">GEEKOM A5 Pro</span>
-                                <span class="px-3.5 py-1.5 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[10px] text-gray-400 font-bold uppercase tracking-widest">ZA13 Mod</span>
+                            <div class="flex flex-wrap gap-1.5 sm:justify-end shrink-0">
+                                <span class="spec-badge">HD580</span>
+                                <span class="spec-badge">HD 480 Pro</span>
+                                <span class="spec-badge">GEEKOM A5 Pro</span>
+                                <span class="spec-badge">BeanMouse</span>
                             </div>
                         </div>
                     </a>
@@ -151,6 +156,8 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="hero-3d.js" defer></script>
     <script src="main.js"></script>
 </body>
 </html>

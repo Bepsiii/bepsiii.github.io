@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
     <title>Bottleneck Calculator - Bepsi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
     <link rel="preload" href="header.html" as="fetch" crossorigin>
     <link rel="preload" href="footer.html" as="fetch" crossorigin>
     <link rel="icon" type="image/png" href="images/website-logo.png">
@@ -21,74 +21,80 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
-    <div class="scanlines"></div>
-    
-    <!-- Background Layer System -->
+<body class="selection:bg-blue-500 selection:text-white bg-[#08090d] text-slate-200 min-h-screen">
+    <canvas id="bg-canvas"></canvas>
     <div class="bg-grid-pattern"></div>
-    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
-    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
-    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
 
     <div id="header-placeholder"></div>
 
-    <main id="main-content" class="relative z-10 pt-32 pb-20">
-        <div class="container mx-auto px-6 max-w-4xl">
+    <main id="main-content" class="relative z-10 pt-32 pb-28">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <!-- Header -->
             <div class="text-center mb-12" data-aos="fade-down">
-                <span class="text-blue-500 font-bold text-sm tracking-wider uppercase mb-2 block">System Analysis</span>
-                <h1 class="text-5xl font-bold text-white mb-4">Bottleneck Calculator</h1>
-                <p class="text-gray-400 text-lg">Answer the questions below to determine if your system has a performance bottleneck.</p>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-400 font-mono text-xs tracking-wider uppercase mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                    SYSTEM DIAGNOSTIC TOOL
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-['Space_Grotesk'] text-white mb-4 tracking-tight">
+                    Bottleneck <span class="text-blue-400">Calculator</span>
+                </h1>
+                <p class="text-base sm:text-lg text-slate-400 font-normal leading-relaxed">
+                    Answer the questions below to determine if your system has a performance bottleneck.
+                </p>
             </div>
 
-            <div class="soft-card glow-card float-card p-8 lg:p-12" data-aos="fade-up">
-                <div class="float-content">
-                    <form id="bottleneck-form" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Form Container -->
+            <div class="card-technical p-6 sm:p-10 rounded-2xl bg-[#0e1017]" data-aos="fade-up">
+                <form id="bottleneck-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
-                            <label for="cpu-model" class="block text-xs font-bold text-gray-500 mb-2 uppercase">CPU Model</label>
-                            <input type="text" id="cpu-model" class="w-full" placeholder="e.g., Intel i7-12700K">
+                            <label for="cpu-model" class="block text-xs font-mono font-semibold text-slate-400 mb-2 uppercase tracking-wider">CPU Model</label>
+                            <input type="text" id="cpu-model" class="w-full px-4 py-3 bg-[#12141d] border border-white/10 rounded-xl font-mono text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all" placeholder="e.g., Intel i7-12700K">
                         </div>
                         <div>
-                            <label for="gpu-model" class="block text-xs font-bold text-gray-500 mb-2 uppercase">GPU Model</label>
-                            <input type="text" id="gpu-model" class="w-full" placeholder="e.g., RTX 4070">
+                            <label for="gpu-model" class="block text-xs font-mono font-semibold text-slate-400 mb-2 uppercase tracking-wider">GPU Model</label>
+                            <input type="text" id="gpu-model" class="w-full px-4 py-3 bg-[#12141d] border border-white/10 rounded-xl font-mono text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all" placeholder="e.g., RTX 4070">
                         </div>
                         <div>
-                            <label for="ram-capacity" class="block text-xs font-bold text-gray-500 mb-2 uppercase">RAM (GB)</label>
-                            <input type="number" id="ram-capacity" class="w-full" placeholder="16">
+                            <label for="ram-capacity" class="block text-xs font-mono font-semibold text-slate-400 mb-2 uppercase tracking-wider">RAM (GB)</label>
+                            <input type="number" id="ram-capacity" class="w-full px-4 py-3 bg-[#12141d] border border-white/10 rounded-xl font-mono text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all" placeholder="16">
                         </div>
                         <div>
-                            <label for="storage-type" class="block text-xs font-bold text-gray-500 mb-2 uppercase">Storage Type</label>
-                            <select id="storage-type" class="w-full">
+                            <label for="storage-type" class="block text-xs font-mono font-semibold text-slate-400 mb-2 uppercase tracking-wider">Storage Type</label>
+                            <select id="storage-type" class="w-full px-4 py-3 bg-[#12141d] border border-white/10 rounded-xl font-mono text-sm text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all">
                                 <option>HDD</option>
                                 <option>SSD</option>
-                                <option>NVMe SSD</option>
+                                <option selected>NVMe SSD</option>
                             </select>
                         </div>
-                         <div>
-                            <label for="monitor-resolution" class="block text-xs font-bold text-gray-500 mb-2 uppercase">Monitor Resolution</label>
-                            <select id="monitor-resolution" class="w-full">
+                        <div>
+                            <label for="monitor-resolution" class="block text-xs font-mono font-semibold text-slate-400 mb-2 uppercase tracking-wider">Monitor Resolution</label>
+                            <select id="monitor-resolution" class="w-full px-4 py-3 bg-[#12141d] border border-white/10 rounded-xl font-mono text-sm text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all">
                                 <option>1080p</option>
-                                <option>1440p</option>
+                                <option selected>1440p</option>
                                 <option>4K</option>
                             </select>
                         </div>
-                         <div>
-                            <label for="target-games" class="block text-xs font-bold text-gray-500 mb-2 uppercase">Target Games</label>
-                            <input type="text" id="target-games" class="w-full" placeholder="e.g. Cyberpunk 2077, CS2">
+                        <div>
+                            <label for="target-games" class="block text-xs font-mono font-semibold text-slate-400 mb-2 uppercase tracking-wider">Target Games</label>
+                            <input type="text" id="target-games" class="w-full px-4 py-3 bg-[#12141d] border border-white/10 rounded-xl font-mono text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all" placeholder="e.g. Cyberpunk 2077, CS2">
                         </div>
                     </div>
-                    <button type="submit" class="btn-navy w-full justify-center py-4 text-lg">Calculate</button>
+                    <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono text-sm font-semibold tracking-wider uppercase transition-all duration-200 shadow-md flex items-center justify-center gap-2">
+                        <span>Run Bottleneck Analysis</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
                 </form>
-                </div>
             </div>
 
-            <div id="result" class="hidden mt-8 soft-card p-10 border-l-4 border-green-500">
+            <!-- Dynamic Result Container -->
+            <div id="result" class="hidden mt-8 card-technical p-8 sm:p-10 rounded-2xl transition-all duration-300">
                 <div class="text-center">
-                    <div class="inline-block p-4 bg-green-500/10 rounded-full text-green-500 mb-4">
+                    <div class="inline-flex p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
-                    <h2 class="text-3xl font-bold text-white mb-4">Good News!</h2>
-                    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    <h2 class="text-2xl sm:text-3xl font-bold font-['Space_Grotesk'] text-white mb-3">Good News!</h2>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed font-normal">
                         You shouldn't worry about bottlenecks. Just enjoy your PC! Modern components are generally well-balanced, and performance is influenced by a wide range of factors including game optimization, driver versions, and background processes.
                     </p>
                 </div>
@@ -97,6 +103,7 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="background-animation.js" defer></script>
     <script src="main.js"></script>
     <script>
         document.getElementById('bottleneck-form').addEventListener('submit', (e) => {
@@ -121,7 +128,6 @@
                 advice.push("Using an HDD for modern games leads to very long load times and potential texture streaming issues. An SSD is highly recommended.");
             }
             if (cpu && gpu) {
-                // Extremely basic mismatch logic
                 const isLowEndCpu = cpu.match(/i3|ryzen 3|pentium|celeron/);
                 const isHighEndGpu = gpu.match(/rtx (3080|3090|4070|4080|4090)|rx (6800|6900|7800|7900)/);
                 
@@ -135,31 +141,33 @@
             resultDiv.classList.remove('hidden');
             
             if (isSevere) {
-                resultDiv.className = 'mt-8 soft-card p-10 border-l-4 border-red-500';
+                resultDiv.className = 'mt-8 card-technical p-8 sm:p-10 rounded-2xl border border-rose-500/40 bg-[#160d0f]';
                 resultDiv.innerHTML = `
                 <div class="text-center">
-                    <div class="inline-block p-4 bg-red-500/10 rounded-full text-red-500 mb-4">
+                    <div class="inline-flex p-3 rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20 mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                     </div>
-                    <h2 class="text-3xl font-bold text-white mb-4">Significant Bottleneck Detected</h2>
-                    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-4">Based on your input, we found some potential issues:</p>
-                    <ul class="text-red-400 text-left list-disc list-inside max-w-xl mx-auto space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-bold font-['Space_Grotesk'] text-white mb-3">Significant Bottleneck Detected</h2>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-5">Based on your hardware configuration, consider these bottlenecks:</p>
+                    <ul class="text-rose-300 text-left list-disc list-inside max-w-lg mx-auto space-y-2 font-mono text-xs sm:text-sm">
                         ${advice.map(msg => `<li>${msg}</li>`).join('')}
                     </ul>
                 </div>`;
             } else {
-                resultDiv.className = 'mt-8 soft-card p-10 border-l-4 border-green-500';
+                resultDiv.className = 'mt-8 card-technical p-8 sm:p-10 rounded-2xl border border-emerald-500/40 bg-[#0c1410]';
                 resultDiv.innerHTML = `
                 <div class="text-center">
-                    <div class="inline-block p-4 bg-green-500/10 rounded-full text-green-500 mb-4">
+                    <div class="inline-flex p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
-                    <h2 class="text-3xl font-bold text-white mb-4">Good News!</h2>
-                    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    <h2 class="text-2xl sm:text-3xl font-bold font-['Space_Grotesk'] text-white mb-3">Good News!</h2>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed font-normal">
                         You shouldn't worry about severe bottlenecks. Just enjoy your PC! Modern components are generally well-balanced, and performance is influenced by a wide range of factors including game optimization, driver versions, and background processes.
                     </p>
                 </div>`;
             }
+            
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
     </script>
 </body>

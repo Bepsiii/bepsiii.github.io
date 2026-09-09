@@ -89,6 +89,7 @@ async function initApp() {
     PasswordToggle.init();
     FormValidator.init();
     ModalManager.init();
+    ImageLightbox.init();
 
     // 4. Interactive Page Controllers
     CardEffects.init();
@@ -126,51 +127,50 @@ async function initApp() {
 const FALLBACK_HEADER = `
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <div id="scroll-progress-bar" class="scroll-progress-bar" aria-hidden="true"></div>
-<header class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl z-50 transition-all duration-500" id="navbar">
-    <div class="navbar-glass absolute inset-0 rounded-full shadow-2xl transition-all duration-300" style="background: color-mix(in srgb, var(--bg-body) 75%, transparent); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-dropdown);"></div>
-    <div class="container relative mx-auto px-6 py-2.5">
+<header class="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[94%] max-w-6xl z-50 transition-all duration-300" id="navbar">
+    <div class="navbar-glass absolute inset-0 rounded-2xl sm:rounded-full transition-all duration-300"></div>
+    <div class="relative mx-auto px-4 sm:px-6 py-2.5">
         <div class="flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3 group relative z-10" aria-label="Bepsi Home">
-                <div class="absolute -inset-3 bg-blue-500/12 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <img src="images/website-logo.png" alt="Logo" class="h-9 w-auto relative hover:scale-105 transition-transform duration-300">
+            <a href="index.html" class="flex items-center group relative z-10" aria-label="Bepsi Home">
+                <img src="images/website-logo.png" alt="Bepsi Logo" class="h-8 sm:h-9 w-auto relative group-hover:scale-105 transition-transform duration-200">
             </a>
-            <nav class="hidden md:flex items-center gap-1 p-1 rounded-full backdrop-blur-md" style="background: var(--bg-badge); border: 1px solid var(--border-subtle);" aria-label="Main Navigation">
-                <a href="about.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">About</a>
+            <nav class="hidden md:flex items-center gap-1 p-1 rounded-full bg-white/[0.03] border border-white/[0.08]" aria-label="Main Navigation">
+                <a href="about.html" class="nav-link-item">About</a>
                 <div class="relative group">
-                    <button class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full flex items-center gap-1 transition-all duration-300" style="color: var(--text-muted);" aria-haspopup="true" aria-expanded="false">
+                    <button class="nav-link-item flex items-center gap-1 cursor-pointer" aria-haspopup="true" aria-expanded="false">
                         Projects 
-                        <svg class="w-3 h-3 opacity-70 group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg class="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
-                        <div class="backdrop-blur-2xl rounded-2xl p-1.5 w-60 shadow-2xl overflow-hidden" style="background: var(--bg-modal); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-dropdown);">
-                            <a href="ascentcustoms.html" class="flex items-center gap-3 px-3 py-2.5 text-xs rounded-xl transition-colors group/item" style="color: var(--text-muted);">
-                                <span class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover/item:bg-blue-500 group-hover/item:text-white transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 opacity-0 translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                        <div class="rounded-xl p-1.5 w-56 shadow-2xl border border-white/[0.1] bg-[#11131c]/95 backdrop-blur-xl">
+                            <a href="ascentcustoms.html" class="flex items-center gap-3 px-3 py-2.5 text-xs rounded-lg transition-colors hover:bg-white/[0.06] text-gray-300 hover:text-white group/item">
+                                <span class="w-7 h-7 rounded-md bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover/item:bg-blue-500 group-hover/item:text-white transition-colors">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
                                 </span>
                                 <div class="text-left">
-                                    <div class="font-bold text-xs" style="color: var(--text-heading);">AscentCustoms</div>
-                                    <div class="text-[10px] mt-0.5" style="color: var(--text-dark);">3D Printed Gaming Mice</div>
+                                    <div class="font-bold text-xs text-white">AscentCustoms</div>
+                                    <div class="text-[10px] text-gray-400">3D Printed Gaming Mice</div>
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div>
-                <a href="resources1.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">Resources</a>
-                <a href="reviews.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">Reviews</a>
-                <a href="setup.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">Setup</a>
+                <a href="resources1.html" class="nav-link-item">Resources</a>
+                <a href="reviews.html" class="nav-link-item">Reviews</a>
+                <a href="setup.html" class="nav-link-item">Setup</a>
             </nav>
             <div class="flex items-center gap-2">
-                <button type="button" data-search-trigger class="px-3.5 py-1.5 rounded-full text-xs font-medium transition-all hover:text-white flex items-center gap-1.5" style="background: var(--bg-badge); border: 1px solid var(--border-subtle); color: var(--text-muted);" aria-label="Search site (Ctrl+K)">
+                <button type="button" data-search-trigger class="px-3 py-1.5 rounded-full text-xs font-medium transition-all text-gray-300 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] flex items-center gap-1.5 cursor-pointer" aria-label="Search site (Ctrl+K)">
                     <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    <span>Search</span>
-                    <span class="search-shortcut-badge hidden sm:inline-block">Ctrl K</span>
+                    <span class="hidden min-[480px]:inline-block">Search</span>
+                    <span class="kbd-badge text-[9px] px-1.5 py-0 hidden sm:inline-block">Ctrl K</span>
                 </button>
-                <button type="button" data-theme-toggle class="theme-toggle-btn" aria-label="Toggle light and dark mode">
+                <button type="button" data-theme-toggle class="theme-toggle-btn" aria-label="Toggle theme">
                     <svg class="sun-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                     <svg class="moon-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
                 </button>
                 <div class="hidden lg:block">
-                    <a href="contact.html" class="btn-navy text-[11px] py-2 px-4 shadow-lg shadow-blue-500/10 hover:shadow-blue-500/30">Get in Touch</a>
+                    <a href="contact.html" class="btn-navy text-xs py-1.5 px-3.5 rounded-full">Get in Touch</a>
                 </div>
                 <button type="button" id="mobile-menu-button" class="hamburger-btn md:hidden" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                     <span class="hamburger-line"></span>
@@ -180,50 +180,51 @@ const FALLBACK_HEADER = `
             </div>
         </div>
     </div>
-    <div id="mobile-menu" class="hidden absolute top-[115%] left-0 w-full backdrop-blur-2xl p-5 rounded-2xl shadow-2xl flex flex-col gap-2 z-50" style="background: var(--bg-modal); border: 1px solid var(--border-subtle);" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
-        <button type="button" data-search-trigger class="flex items-center justify-center gap-2 p-3 rounded-xl text-xs font-semibold mb-2" style="background: var(--bg-badge); border: 1px solid var(--border-subtle); color: var(--text-muted);">
-            <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-            <span>Search (Ctrl+K)</span>
+    <div id="mobile-menu" class="hidden absolute top-[115%] left-0 w-full p-4 rounded-2xl shadow-2xl flex flex-col gap-1.5 z-50 border border-white/[0.1] bg-[#11131c]/98 backdrop-blur-2xl" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+        <button type="button" data-search-trigger class="flex items-center justify-between p-3 rounded-xl text-xs font-semibold mb-1 bg-white/[0.04] border border-white/[0.08] text-gray-300 hover:text-white cursor-pointer">
+            <span class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <span>Search Documentation &amp; Pages</span>
+            </span>
+            <span class="kbd-badge text-[9px] px-1.5 py-0.5">Ctrl K</span>
         </button>
-        <a href="about.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">About</a>
-        <a href="ascentcustoms.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">AscentCustoms (3D Printed Mice)</a>
-        <a href="resources1.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">Resources</a>
-        <a href="reviews.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">Reviews</a>
-        <a href="setup.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">Setup</a>
-        <div class="h-px my-2" style="background: var(--border-subtle);"></div>
-        <a href="contact.html" class="text-sm font-bold text-center text-blue-400 p-2.5 bg-blue-500/10 hover:bg-blue-500/20 rounded-xl transition-all">Contact Me</a>
+        <a href="about.html" class="mobile-nav-item"><span>About</span><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+        <a href="ascentcustoms.html" class="mobile-nav-item"><span>AscentCustoms (3D Printed Mice)</span><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+        <a href="resources1.html" class="mobile-nav-item"><span>Resources</span><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+        <a href="reviews.html" class="mobile-nav-item"><span>Reviews</span><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+        <a href="setup.html" class="mobile-nav-item"><span>Setup &amp; Battlestation</span><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+        <div class="h-px my-1.5 bg-white/[0.08]"></div>
+        <a href="contact.html" class="btn-navy text-xs py-2.5 text-center font-bold justify-center rounded-xl">Contact Me</a>
     </div>
 </header>
 <div id="mobile-menu-backdrop" class="mobile-backdrop" aria-hidden="true"></div>
 `;
 
 const FALLBACK_FOOTER = `
-<footer class="relative mt-32 backdrop-blur-md overflow-hidden" style="background: color-mix(in srgb, var(--bg-body) 40%, transparent); border-top: 1px solid var(--border-subtle);">
-    <div class="absolute right-0 bottom-0 w-80 h-80 rounded-full bg-blue-500/5 blur-[80px] pointer-events-none z-0"></div>
-    <div class="absolute left-0 bottom-0 w-80 h-80 rounded-full bg-indigo-500/5 blur-[80px] pointer-events-none z-0"></div>
-    <div class="container relative mx-auto px-6 py-14 z-10">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8 pb-10" style="border-bottom: 1px solid var(--border-subtle);">
+<footer class="relative mt-24 sm:mt-32 border-t border-white/[0.08] bg-[#0c0d14]/70 backdrop-blur-md">
+    <div class="container relative mx-auto px-4 sm:px-6 py-12 z-10 max-w-6xl">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8 border-b border-white/[0.08]">
             <div class="text-center md:text-left">
-                <div class="flex items-center gap-2 justify-center md:justify-start mb-3">
-                    <img src="images/website-logo.png" alt="Logo" class="h-7 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300">
+                <div class="flex items-center justify-center md:justify-start mb-2">
+                    <img src="images/website-logo.png" alt="Logo" class="h-7 w-auto opacity-90 hover:opacity-100 transition-opacity">
                 </div>
-                <p class="text-xs leading-relaxed max-w-sm" style="color: var(--text-muted);">Digital Craftsman &amp; Tech Enthusiast. <br>Archiving creations, custom hardware, and curated resources.</p>
+                <p class="text-xs leading-relaxed text-slate-400 max-w-sm">Personal repository for hardware reviews, custom projects, and curated technical resources.</p>
             </div>
-            <div class="flex gap-4">
-                <a href="https://x.com/Bepsi_Bottle" target="_blank" aria-label="X (Twitter)" class="p-2.5 rounded-full transition-all duration-300 hover:text-white hover:border-[#1da1f2]/30 hover:bg-[#1da1f2]/10" style="background: var(--bg-badge); border: 1px solid var(--border-subtle); color: var(--text-muted);"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                <button type="button" data-copy="theukgovernment" title="Copy Discord: theukgovernment" aria-label="Copy Discord username theukgovernment" class="p-2.5 rounded-full transition-all duration-300 hover:text-white hover:border-[#5865f2]/30 hover:bg-[#5865f2]/10 cursor-pointer" style="background: var(--bg-badge); border: 1px solid var(--border-subtle); color: var(--text-muted);"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/></svg></button>
-                <a href="mailto:sandra@blowyournanstitscleanoff.shop" aria-label="Send Email" class="p-2.5 rounded-full transition-all duration-300 hover:text-white hover:border-[#10b981]/30 hover:bg-[#10b981]/10" style="background: var(--bg-badge); border: 1px solid var(--border-subtle); color: var(--text-muted);"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
+            <div class="flex items-center gap-3">
+                <a href="https://x.com/Bepsi_Bottle" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-gray-400 hover:text-white hover:border-white/[0.2] transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <button type="button" data-copy="theukgovernment" title="Copy Discord: theukgovernment" aria-label="Copy Discord username theukgovernment" class="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-gray-400 hover:text-white hover:border-white/[0.2] cursor-pointer transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/></svg></button>
+                <a href="mailto:sandra@blowyournanstitscleanoff.shop" aria-label="Send Email" class="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-gray-400 hover:text-white hover:border-white/[0.2] transition-colors"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
             </div>
         </div>
-        <div class="mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-3">
-                <p class="text-[11px] font-medium" style="color: var(--text-dark);">&copy; <span id="current-year">2026</span> Bepsi. All rights reserved.</p>
-                <span style="color: var(--border-subtle);">&bull;</span>
-                <button type="button" data-reopen-cookie-banner class="text-[11px] underline transition-colors" style="color: var(--text-dark);">Cookie Preferences</button>
+        <div class="mt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+            <div class="flex items-center gap-2.5">
+                <p>&copy; <span id="current-year">2026</span> Bepsi. All rights reserved.</p>
+                <span>&bull;</span>
+                <button type="button" data-reopen-cookie-banner class="hover:text-gray-300 underline cursor-pointer">Cookie Preferences</button>
             </div>
-            <div class="flex items-center gap-6">
-                <button type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-[11px] font-medium flex items-center gap-1.5 transition-colors hover:text-white" style="color: var(--text-dark);">Back to Top <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg></button>
-                <a href="https://ko-fi.com/bepsiiiiii" target="_blank" class="text-[11px] font-semibold flex items-center gap-1 transition-colors duration-300 hover:text-[#ff5e5b]" style="color: var(--text-muted);"><svg class="w-4 h-4 text-[#ff5e5b]" fill="currentColor" viewBox="0 0 24 24"><path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723S0 4.605 0 5.417V17.83s.723.812 1.446.812h12.18s1.446.04 1.446-1.584c0 0 3.328.325 5.856-1.583 2.531-1.91 3.824-3.567 3.824-3.567s.148-1.583-.871-2.964zm-5.02 5.03c-1.393.754-3.218.423-3.218.423V7.202h3.218s2.518-.113 2.518 3.107c0 3.224-2.518 3.669-2.518 3.669z"/></svg> Support on Ko-fi</a>
+            <div class="flex items-center gap-5">
+                <button type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="flex items-center gap-1 hover:text-white transition-colors cursor-pointer">Back to Top <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg></button>
+                <a href="https://ko-fi.com/bepsiiiiii" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 font-semibold text-gray-400 hover:text-[#ff5e5b] transition-colors"><svg class="w-3.5 h-3.5 text-[#ff5e5b]" fill="currentColor" viewBox="0 0 24 24"><path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723S0 4.605 0 5.417V17.83s.723.812 1.446.812h12.18s1.446.04 1.446-1.584c0 0 3.328.325 5.856-1.583 2.531-1.91 3.824-3.567 3.824-3.567s.148-1.583-.871-2.964zm-5.02 5.03c-1.393.754-3.218.423-3.218.423V7.202h3.218s2.518-.113 2.518 3.107c0 3.224-2.518 3.669-2.518 3.669z"/></svg> Support on Ko-fi</a>
             </div>
         </div>
     </div>
@@ -1529,12 +1530,88 @@ function initSetupScrollSpy() {
     }
 }
 
+/* ==============================================================================
+   Image Lightbox & Zoom Viewer (Bespoke Hardware Inspection Tool)
+   ============================================================================== */
+const ImageLightbox = {
+    backdrop: null,
+    img: null,
+    caption: null,
+
+    init() {
+        if (!document.getElementById('bepsi-lightbox')) {
+            const lb = document.createElement('div');
+            lb.id = 'bepsi-lightbox';
+            lb.className = 'lightbox-backdrop';
+            lb.setAttribute('role', 'dialog');
+            lb.setAttribute('aria-modal', 'true');
+            lb.setAttribute('aria-label', 'Image preview');
+            lb.innerHTML = `
+                <button type="button" class="lightbox-close-btn" aria-label="Close image preview">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+                <div class="lightbox-container">
+                    <img class="lightbox-img" src="" alt="Enlarged preview">
+                    <div class="lightbox-caption"></div>
+                </div>
+            `;
+            document.body.appendChild(lb);
+            this.backdrop = lb;
+            this.img = lb.querySelector('.lightbox-img');
+            this.caption = lb.querySelector('.lightbox-caption');
+
+            lb.addEventListener('click', (e) => {
+                if (e.target === lb || e.target.closest('.lightbox-close-btn')) {
+                    this.close();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lb.classList.contains('active')) {
+                    this.close();
+                }
+            });
+        }
+
+        // Delegate image clicks on review and setup images
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('article img, .zoomable-img, [data-zoomable], .soft-card img');
+            if (target && !target.closest('nav') && !target.closest('header') && !target.closest('footer') && !target.closest('#bepsi-lightbox')) {
+                // Ignore small logo/icon images
+                if (target.naturalWidth > 150 || target.src.includes('review') || target.src.includes('setup') || target.src.includes('slide')) {
+                    e.preventDefault();
+                    this.open(target.src, target.alt || target.title || '');
+                }
+            }
+        });
+    },
+
+    open(src, captionText) {
+        if (!this.backdrop) return;
+        this.img.src = src;
+        this.caption.textContent = captionText;
+        this.backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    },
+
+    close() {
+        if (!this.backdrop) return;
+        this.backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            if (this.img) this.img.src = '';
+        }, 250);
+    }
+};
+
 // Global Exports
 window.ThemeManager = ThemeManager;
 window.SiteSearch = SiteSearch;
 window.CookieConsent = CookieConsent;
 window.ModalManager = ModalManager;
+window.ImageLightbox = ImageLightbox;
 window.Toast = Toast;
 window.ActiveNav = ActiveNav;
 window.LinkPrefetcher = LinkPrefetcher;
+
 

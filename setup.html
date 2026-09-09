@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Setup - Bepsi</title>
+    <meta name="description" content="Detailed hardware archive and battlestation breakdown of Bepsi's workstation, peripherals, and reference audio stack.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap">
     <link rel="preload" href="header.html" as="fetch" crossorigin>
     <link rel="preload" href="footer.html" as="fetch" crossorigin>
     <link rel="icon" type="image/png" href="images/website-logo.png">
@@ -16,49 +16,45 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-
-<body class="selection:bg-blue-500 selection:text-white bg-[#06080c] text-zinc-200 overflow-x-hidden">
+<body class="selection:bg-blue-500 selection:text-white bg-[#08090d] text-slate-200 min-h-screen">
+    <canvas id="bg-canvas"></canvas>
+    <div class="bg-grid-pattern"></div>
     <div id="header-placeholder"></div>
 
-    <!-- Ambient Glow System -->
-    <div class="bg-grid-pattern opacity-40"></div>
-    <div class="glow-blob bg-blue-500/8 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] -top-32 -left-32"></div>
-    <div class="glow-blob bg-indigo-500/5 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] top-1/2 right-0"></div>
-
-    <main id="main-content" class="relative z-10 pt-28 sm:pt-32 md:pt-36 pb-20 md:pb-32">
+    <main id="main-content" class="relative z-10 pt-28 sm:pt-36 pb-24">
         <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
 
             <!-- Page Header -->
-            <header class="mb-10 sm:mb-16" data-aos="fade-down">
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 pb-6 sm:pb-8 border-b border-blue-500/[0.12]">
+            <header class="mb-10 sm:mb-14 pb-6 sm:pb-8 border-b border-white/[0.08]" data-aos="fade-down">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
                     <div>
-                        <span class="text-blue-400 font-mono text-[11px] sm:text-xs uppercase tracking-widest font-bold block mb-1.5 sm:mb-2">Hardware Archive</span>
+                        <span class="text-mono-tag block mb-1.5">Hardware Archive</span>
                         <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
-                            Setup <span class="text-gradient-cyan-indigo">&amp; Battlestation</span>
+                            Setup <span class="text-blue-400">&amp; Battlestation</span>
                         </h1>
-                        <p class="text-zinc-400 text-sm sm:text-base md:text-lg font-medium mt-2.5 max-w-2xl leading-relaxed">
+                        <p class="text-gray-400 text-sm sm:text-base md:text-lg font-medium mt-2 max-w-2xl leading-relaxed">
                             Optimized for bullying Beyerdynamic owners.
                         </p>
                     </div>
 
                     <!-- Actions & Category Jump Bar -->
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                        <button type="button" id="copy-specs-btn" class="shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold text-blue-400 bg-blue-500/10 border border-blue-400/20 hover:bg-blue-500/20 hover:border-blue-400/40 transition-all flex items-center gap-1.5 shadow-sm cursor-pointer" title="Copy specs summary to clipboard">
+                    <div class="flex flex-wrap sm:flex-nowrap items-center gap-2.5">
+                        <button type="button" id="copy-specs-btn" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-blue-400 bg-blue-500/10 border border-blue-400/20 hover:bg-blue-500/20 hover:border-blue-400/40 transition-all flex items-center gap-1.5 shadow-sm cursor-pointer" title="Copy specs summary to clipboard">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
                             <span>Copy Specs</span>
                         </button>
 
-                        <nav class="flex flex-nowrap overflow-x-auto no-scrollbar gap-2 pb-1 sm:pb-0 sm:flex-wrap -mx-4 px-4 sm:mx-0 sm:px-0" aria-label="Setup Sections">
-                            <a href="#workstation" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-semibold text-zinc-300 bg-[#0f1420] border border-blue-400/[0.1] hover:bg-[#131b2c] hover:text-white hover:border-blue-400/[0.25] transition-all flex items-center gap-1.5 sm:gap-2 shadow-sm">
+                        <nav class="flex flex-wrap gap-1.5" aria-label="Setup Sections">
+                            <a href="#workstation" class="setup-jump-link filter-btn">
                                 <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Workstation
                             </a>
-                            <a href="#peripherals" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-semibold text-zinc-300 bg-[#0f1420] border border-blue-400/[0.1] hover:bg-[#131b2c] hover:text-white hover:border-blue-400/[0.25] transition-all flex items-center gap-1.5 sm:gap-2 shadow-sm">
+                            <a href="#peripherals" class="setup-jump-link filter-btn">
                                 <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg> Peripherals
                             </a>
-                            <a href="#audio" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-semibold text-zinc-300 bg-[#0f1420] border border-blue-400/[0.1] hover:bg-[#131b2c] hover:text-white hover:border-blue-400/[0.25] transition-all flex items-center gap-1.5 sm:gap-2 shadow-sm">
+                            <a href="#audio" class="setup-jump-link filter-btn">
                                 <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg> Audio
                             </a>
-                            <a href="#ecosystem" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-semibold text-zinc-300 bg-[#0f1420] border border-blue-400/[0.1] hover:bg-[#131b2c] hover:text-white hover:border-blue-400/[0.25] transition-all flex items-center gap-1.5 sm:gap-2 shadow-sm">
+                            <a href="#ecosystem" class="setup-jump-link filter-btn">
                                 <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg> Desk &amp; Lab
                             </a>
                         </nav>
@@ -66,68 +62,73 @@
                 </div>
             </header>
 
-            <div class="space-y-12 sm:space-y-16 md:space-y-20">
+            <div class="space-y-12 sm:space-y-16">
 
                 <!-- SECTION 01: WORKSTATION -->
                 <section id="workstation" class="scroll-mt-28 space-y-4 sm:space-y-6" data-aos="fade-up">
-                    <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Main Workstation</h2>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Main Workstation</h2>
+                    </div>
 
-                    <!-- Workstation Showcase Card (Subtle Blue Tinted Dark Surface) -->
-                    <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl shadow-blue-950/20 group">
+                    <!-- Workstation Showcase Card -->
+                    <div class="soft-card p-0 overflow-hidden group">
                         <div class="relative w-full">
-                            <!-- Hero Image Banner with Natural Responsive Aspect Ratio -->
-                            <div class="relative w-full aspect-[16/10] sm:aspect-video md:aspect-[21/9] min-h-[220px] max-h-[440px] overflow-hidden bg-black">
+                            <!-- Hero Image Banner with Zoom Trigger -->
+                            <div class="relative w-full aspect-[16/10] sm:aspect-video md:aspect-[21/9] min-h-[220px] max-h-[440px] overflow-hidden bg-black cursor-zoom-in" title="Click to enlarge battlestation photo">
                                 <img src="images/setup/section1.webp"
                                     onerror="this.src='https://placehold.co/1920x1080/121214/FFFFFF?text=The+Battlestation'"
                                     alt="The Battlestation"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#0b0e14] via-[#0b0e14]/40 to-transparent"></div>
-                                
-
+                                    data-zoomable
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#12141d] via-[#12141d]/40 to-transparent pointer-events-none"></div>
+                                <span class="absolute bottom-3 right-3 px-2 py-1 rounded bg-black/60 backdrop-blur-md border border-white/10 text-[10px] text-gray-300 font-mono flex items-center gap-1 pointer-events-none">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg> Click to Zoom
+                                </span>
                             </div>
 
                             <!-- Specs Breakdown Grid -->
-                            <div class="p-4 sm:p-6 md:p-8 bg-[#0b0e14] border-t border-blue-500/[0.12] space-y-4 sm:space-y-6">
+                            <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
                                 <!-- Top 4 Core Specs -->
                                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
-                                    <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                        <span class="text-[10px] sm:text-[11px] font-medium text-zinc-400 block mb-0.5 sm:mb-1">Processor</span>
+                                    <div class="p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] transition-all">
+                                        <span class="text-[10px] sm:text-[11px] font-mono text-blue-400 block mb-1">PROCESSOR</span>
                                         <div class="text-white font-extrabold text-sm sm:text-base">i7 12700KF</div>
-                                        <span class="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5 sm:mt-1 block">240W Power Limit</span>
+                                        <span class="text-[10px] sm:text-[11px] text-gray-400 mt-0.5 block font-mono">240W Power Limit</span>
                                     </div>
-                                    <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                        <span class="text-[10px] sm:text-[11px] font-medium text-zinc-400 block mb-0.5 sm:mb-1">Graphics</span>
+                                    <div class="p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] transition-all">
+                                        <span class="text-[10px] sm:text-[11px] font-mono text-blue-400 block mb-1">GRAPHICS</span>
                                         <div class="text-white font-extrabold text-sm sm:text-base">RX 6800 OC</div>
-                                        <span class="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5 sm:mt-1 block">16GB GDDR6</span>
+                                        <span class="text-[10px] sm:text-[11px] text-gray-400 mt-0.5 block font-mono">16GB GDDR6</span>
                                     </div>
-                                    <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                        <span class="text-[10px] sm:text-[11px] font-medium text-zinc-400 block mb-0.5 sm:mb-1">Memory</span>
+                                    <div class="p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] transition-all">
+                                        <span class="text-[10px] sm:text-[11px] font-mono text-blue-400 block mb-1">MEMORY</span>
                                         <div class="text-white font-extrabold text-sm sm:text-base">32GB 3600MHz</div>
-                                        <span class="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5 sm:mt-1 block">DDR4 Dual Ch</span>
+                                        <span class="text-[10px] sm:text-[11px] text-gray-400 mt-0.5 block font-mono">DDR4 Dual Ch</span>
                                     </div>
-                                    <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                        <span class="text-[10px] sm:text-[11px] font-medium text-zinc-400 block mb-0.5 sm:mb-1">Cooling</span>
+                                    <div class="p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] transition-all">
+                                        <span class="text-[10px] sm:text-[11px] font-mono text-blue-400 block mb-1">COOLING</span>
                                         <div class="text-white font-extrabold text-sm sm:text-base truncate">Liquid Freezer II</div>
-                                        <span class="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5 sm:mt-1 block">240mm AIO</span>
+                                        <span class="text-[10px] sm:text-[11px] text-gray-400 mt-0.5 block font-mono">240mm AIO</span>
                                     </div>
                                 </div>
 
                                 <!-- Detailed Hardware Manifest -->
-                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 text-xs pt-1 sm:pt-2">
-                                    <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center hover:border-blue-400/[0.22] transition-colors">
-                                        <span class="text-zinc-400 font-medium">Motherboard</span>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 text-xs pt-1">
+                                    <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex justify-between items-center">
+                                        <span class="text-gray-400 font-medium">Motherboard</span>
                                         <span class="text-white font-semibold font-mono text-right">ASRock B660M Pro RS</span>
                                     </div>
-                                    <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center hover:border-blue-400/[0.22] transition-colors">
-                                        <span class="text-zinc-400 font-medium">Power Supply</span>
+                                    <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex justify-between items-center">
+                                        <span class="text-gray-400 font-medium">Power Supply</span>
                                         <span class="text-white font-semibold font-mono text-right">Corsair RM750x</span>
                                     </div>
-                                    <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center hover:border-blue-400/[0.22] transition-colors">
-                                        <span class="text-zinc-400 font-medium">Primary Storage</span>
+                                    <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex justify-between items-center">
+                                        <span class="text-gray-400 font-medium">Primary Storage</span>
                                         <span class="text-white font-semibold font-mono text-right">1TB WD SN570</span>
                                     </div>
-                                    <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center hover:border-blue-400/[0.22] transition-colors">
-                                        <span class="text-zinc-400 font-medium">Secondary &amp; Archive</span>
+                                    <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex justify-between items-center">
+                                        <span class="text-gray-400 font-medium">Secondary &amp; Archive</span>
                                         <span class="text-white font-semibold font-mono text-right">1TB SSD + 4TB HDD</span>
                                     </div>
                                 </div>
@@ -138,108 +139,107 @@
 
                 <!-- SECTION 02: PERIPHERALS -->
                 <section id="peripherals" class="scroll-mt-28 space-y-4 sm:space-y-6" data-aos="fade-up">
-                    <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Peripherals &amp; Input</h2>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Peripherals &amp; Input</h2>
+                    </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <!-- Mice & Surfaces Panel -->
-                        <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6 shadow-xl shadow-blue-950/20 flex flex-col">
-                            <div class="space-y-4 sm:space-y-6">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-3 sm:pb-4">
-                                    <h3 class="text-base sm:text-lg font-bold text-white">Mice &amp; Surfaces</h3>
-                                    <span class="text-[10px] font-medium text-zinc-400">Input Stack</span>
-                                </div>
+                        <div class="soft-card p-6 sm:p-8 space-y-6 flex flex-col">
+                            <div class="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                                <h3 class="text-base sm:text-lg font-bold text-white">Mice &amp; Surfaces</h3>
+                                <span class="spec-badge">Input Stack</span>
+                            </div>
 
-                                <!-- Mice Rotation -->
-                                <div class="space-y-2.5 sm:space-y-3">
-                                    <span class="text-[10px] font-medium text-zinc-400 block">Mice rotation</span>
-                                    <div class="space-y-2">
-                                        <div class="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex justify-between items-center gap-2">
-                                            <div class="min-w-0 flex-1">
-                                                <div class="text-xs font-bold text-white truncate">Pulsar X2 Crazylight Mini</div>
-                                                <div class="text-[11px] text-zinc-400">Boardzy Edition</div>
-                                            </div>
-                                            <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Primary</span>
+                            <!-- Mice Rotation -->
+                            <div class="space-y-3">
+                                <span class="text-mono-tag block text-[10px]">Mice Rotation</span>
+                                <div class="space-y-2">
+                                    <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] transition-all flex justify-between items-center gap-2">
+                                        <div class="min-w-0 flex-1">
+                                            <div class="text-xs sm:text-sm font-bold text-white truncate">Pulsar X2 Crazylight Mini</div>
+                                            <div class="text-[11px] text-gray-400 font-mono">Boardzy Edition</div>
                                         </div>
-                                        <div class="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex justify-between items-center gap-2">
-                                            <div class="min-w-0 flex-1">
-                                                <div class="text-xs font-bold text-white truncate">WLMouse BeastX Pro Mini</div>
-                                                <div class="text-[11px] text-zinc-400">Magnesium Alloy</div>
-                                            </div>
-                                            <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Secondary</span>
+                                        <span class="spec-badge primary">Primary</span>
+                                    </div>
+                                    <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] transition-all flex justify-between items-center gap-2">
+                                        <div class="min-w-0 flex-1">
+                                            <div class="text-xs sm:text-sm font-bold text-white truncate">WLMouse BeastX Pro Mini</div>
+                                            <div class="text-[11px] text-gray-400 font-mono">Magnesium Alloy</div>
                                         </div>
-                                        <div class="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex justify-between items-center gap-2">
-                                            <div class="min-w-0 flex-1">
-                                                <div class="text-xs font-bold text-white truncate">Zowie ZA13-C &amp; ZA13-B</div>
-                                                <div class="text-[11px] text-zinc-400">High Hump Ergonomics</div>
-                                            </div>
-                                            <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Reserve</span>
+                                        <span class="spec-badge">Secondary</span>
+                                    </div>
+                                    <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] transition-all flex justify-between items-center gap-2">
+                                        <div class="min-w-0 flex-1">
+                                            <div class="text-xs sm:text-sm font-bold text-white truncate">Zowie ZA13-C &amp; ZA13-B</div>
+                                            <div class="text-[11px] text-gray-400 font-mono">High Hump Ergonomics</div>
                                         </div>
+                                        <span class="spec-badge">Reserve</span>
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- Surfaces -->
-                                <div class="space-y-2.5 sm:space-y-3 pt-1">
-                                    <span class="text-[10px] font-medium text-zinc-400 block">Surfaces &amp; mousepads</span>
-                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
-                                        <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                            <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Mousepad</span>
-                                            <div class="text-xs font-bold text-white leading-snug">Tenta-X Sente V2</div>
-                                        </div>
-                                        <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                            <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Control-hybrid</span>
-                                            <div class="text-xs font-bold text-white leading-snug">Matrova Vein 490</div>
-                                        </div>
-                                        <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                            <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Speed-control</span>
-                                            <div class="text-xs font-bold text-white leading-snug">Puretrak P51</div>
-                                        </div>
+                            <!-- Surfaces -->
+                            <div class="space-y-3 pt-2">
+                                <span class="text-mono-tag block text-[10px]">Surfaces &amp; Mousepads</span>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                                    <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                                        <span class="text-[10px] text-gray-400 block mb-0.5">Mousepad</span>
+                                        <div class="text-xs font-bold text-white">Tenta-X Sente V2</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                                        <span class="text-[10px] text-gray-400 block mb-0.5">Control-hybrid</span>
+                                        <div class="text-xs font-bold text-white">Matrova Vein 490</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                                        <span class="text-[10px] text-gray-400 block mb-0.5">Speed-control</span>
+                                        <div class="text-xs font-bold text-white">Puretrak P51</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Keyboards Panel -->
-                        <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6 shadow-xl shadow-blue-950/20 flex flex-col">
-                            <div class="space-y-4 sm:space-y-6">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-3 sm:pb-4">
-                                    <h3 class="text-base sm:text-lg font-bold text-white">Custom Keyboards</h3>
-                                    <span class="text-[10px] font-medium text-zinc-400">Mechanical</span>
-                                </div>
+                        <div class="soft-card p-6 sm:p-8 space-y-6 flex flex-col">
+                            <div class="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                                <h3 class="text-base sm:text-lg font-bold text-white">Custom Keyboards</h3>
+                                <span class="spec-badge">Mechanical</span>
+                            </div>
 
-                                <div class="space-y-3 sm:space-y-4">
-                                    <!-- Keyboard 1 -->
-                                    <div class="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all space-y-2.5 sm:space-y-3">
-                                        <div class="flex justify-between items-center gap-2">
-                                            <h4 class="text-sm sm:text-base font-extrabold text-white truncate">ENVKB 65m</h4>
-                                            <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Grail</span>
+                            <div class="space-y-4">
+                                <!-- Keyboard 1 -->
+                                <div class="p-4 sm:p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] transition-all space-y-3">
+                                    <div class="flex justify-between items-center gap-2">
+                                        <h4 class="text-sm sm:text-base font-extrabold text-white truncate">ENVKB 65m</h4>
+                                        <span class="spec-badge amber">Grail</span>
+                                    </div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                                        <div class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04]">
+                                            <span class="text-[10px] text-gray-400 block mb-0.5 font-mono">SWITCHES</span>
+                                            <span class="text-white font-medium">Kang White V2</span>
                                         </div>
-                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                                            <div class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.08]">
-                                                <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Switches</span>
-                                                <span class="text-zinc-200 font-medium">Kang White V2</span>
-                                            </div>
-                                            <div class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.08]">
-                                                <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Keycaps</span>
-                                                <span class="text-zinc-200 font-medium">Alfei WOB Doubleshot</span>
-                                            </div>
+                                        <div class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04]">
+                                            <span class="text-[10px] text-gray-400 block mb-0.5 font-mono">KEYCAPS</span>
+                                            <span class="text-white font-medium">Alfei WOB Doubleshot</span>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <!-- Keyboard 2 -->
-                                    <div class="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all space-y-2.5 sm:space-y-3">
-                                        <div class="flex justify-between items-center gap-2">
-                                            <h4 class="text-sm sm:text-base font-extrabold text-white truncate">Geonworks Frog Mini</h4>
-                                            <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Daily</span>
+                                <!-- Keyboard 2 -->
+                                <div class="p-4 sm:p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] transition-all space-y-3">
+                                    <div class="flex justify-between items-center gap-2">
+                                        <h4 class="text-sm sm:text-base font-extrabold text-white truncate">Geonworks Frog Mini</h4>
+                                        <span class="spec-badge primary">Daily</span>
+                                    </div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                                        <div class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04]">
+                                            <span class="text-[10px] text-gray-400 block mb-0.5 font-mono">BOARD &amp; SWITCHES</span>
+                                            <span class="text-white font-medium truncate block">Legerra // TTC Flip KOM</span>
                                         </div>
-                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                                            <div class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.08]">
-                                                <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Board &amp; switches</span>
-                                                <span class="text-zinc-200 font-medium truncate block">Legerra // TTC Flip KOM</span>
-                                            </div>
-                                            <div class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.08]">
-                                                <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Keycaps</span>
-                                                <span class="text-zinc-200 font-medium">KKB OHM</span>
-                                            </div>
+                                        <div class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04]">
+                                            <span class="text-[10px] text-gray-400 block mb-0.5 font-mono">KEYCAPS</span>
+                                            <span class="text-white font-medium">KKB OHM</span>
                                         </div>
                                     </div>
                                 </div>
@@ -250,100 +250,103 @@
 
                 <!-- SECTION 03: AUDIO & ACOUSTICS -->
                 <section id="audio" class="scroll-mt-28 space-y-4 sm:space-y-6" data-aos="fade-up">
-                    <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Audio &amp; Acoustics</h2>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Audio &amp; Acoustics</h2>
+                    </div>
 
-                    <!-- Clean 4-Column Directory (Subtle Blue Tinted Boxes) -->
-                    <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl shadow-blue-950/20">
+                    <!-- Clean 4-Column Directory -->
+                    <div class="soft-card p-6 sm:p-8">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
 
                             <!-- Monitoring -->
-                            <div class="space-y-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex flex-col">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-2.5">
+                            <div class="space-y-3 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col">
+                                <div class="flex items-center justify-between border-b border-white/[0.08] pb-2.5">
                                     <span class="text-xs font-bold text-white">Monitoring</span>
-                                    <span class="text-[10px] font-medium text-zinc-400">Studio</span>
+                                    <span class="spec-badge">Studio</span>
                                 </div>
-                                <ul class="space-y-2 sm:space-y-2.5 flex-1">
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                <ul class="space-y-2 flex-1">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Sennheiser HD 580</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Reference</span>
+                                        <span class="spec-badge primary text-[9px]">Reference</span>
                                     </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Sennheiser HD 480 Pro</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Comfort</span>
+                                        <span class="spec-badge text-[9px]">Comfort</span>
                                     </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Kali Audio LP-8 v2</span>
-                                        <span class="shrink-0 text-[10px] text-zinc-400">Monitors</span>
+                                        <span class="text-[10px] text-gray-400">Monitors</span>
                                     </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Tannoy TS2.10</span>
-                                        <span class="shrink-0 text-[10px] text-zinc-400">Active Sub</span>
+                                        <span class="text-[10px] text-gray-400">Active Sub</span>
                                     </li>
                                 </ul>
                             </div>
 
                             <!-- Flatheads & In-Ears -->
-                            <div class="space-y-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex flex-col">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-2.5">
+                            <div class="space-y-3 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col">
+                                <div class="flex items-center justify-between border-b border-white/[0.08] pb-2.5">
                                     <span class="text-xs font-bold text-white">Flatheads &amp; In-Ears</span>
-                                    <span class="text-[10px] font-medium text-zinc-400">Earphones</span>
+                                    <span class="spec-badge">Earphones</span>
                                 </div>
-                                <ul class="space-y-2 sm:space-y-2.5 flex-1">
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                <ul class="space-y-2 flex-1">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Yincrow X6</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Flatheads</span>
+                                        <span class="spec-badge text-[9px]">Flatheads</span>
                                     </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Clone Sennheiser IE900</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">IEM</span>
+                                        <span class="spec-badge text-[9px]">IEM</span>
                                     </li>
                                 </ul>
                             </div>
 
                             <!-- Amplification & Processing -->
-                            <div class="space-y-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex flex-col">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-2.5">
+                            <div class="space-y-3 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col">
+                                <div class="flex items-center justify-between border-b border-white/[0.08] pb-2.5">
                                     <span class="text-xs font-bold text-white">Amplification</span>
-                                    <span class="text-[10px] font-medium text-zinc-400">Processing</span>
+                                    <span class="spec-badge">Processing</span>
                                 </div>
-                                <ul class="space-y-2 sm:space-y-2.5 flex-1">
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                <ul class="space-y-2 flex-1">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">FIIO K15</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">DAC/Amp</span>
+                                        <span class="spec-badge primary text-[9px]">DAC/Amp</span>
                                     </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Schiit Vali 2</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Tube Amp</span>
+                                        <span class="spec-badge amber text-[9px]">Tube Amp</span>
                                     </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Tungsram ECC88</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">NOS Tube</span>
+                                        <span class="spec-badge text-[9px]">NOS Tube</span>
                                     </li>
                                 </ul>
                             </div>
 
                             <!-- Portable & DAP -->
-                            <div class="space-y-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex flex-col">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-2.5">
+                            <div class="space-y-3 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col">
+                                <div class="flex items-center justify-between border-b border-white/[0.08] pb-2.5">
                                     <span class="text-xs font-bold text-white">Portable &amp; DAP</span>
-                                    <span class="text-[10px] font-medium text-zinc-400">Mobile</span>
+                                    <span class="spec-badge">Mobile</span>
                                 </div>
-                                <ul class="space-y-2 sm:space-y-2.5 flex-1">
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                <ul class="space-y-2 flex-1">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Pixel 8 Pro</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">DAP</span>
+                                        <span class="spec-badge text-[9px]">DAP</span>
                                     </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Oppo Find X9 Ultra</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Phone</span>
+                                        <span class="spec-badge text-[9px]">Phone</span>
                                     </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Sony WF-1000XM6</span>
-                                        <span class="shrink-0 text-[10px] text-zinc-400">TWS</span>
+                                        <span class="text-[10px] text-gray-400">TWS</span>
                                     </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
+                                    <li class="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] flex justify-between items-center gap-2 text-xs">
                                         <span class="font-semibold text-white truncate">Earfun Clip 1</span>
-                                        <span class="shrink-0 text-[10px] text-zinc-400">Sport</span>
+                                        <span class="text-[10px] text-gray-400">Sport</span>
                                     </li>
                                 </ul>
                             </div>
@@ -354,74 +357,77 @@
 
                 <!-- SECTION 04: DESK & HOMELAB -->
                 <section id="ecosystem" class="scroll-mt-28 space-y-4 sm:space-y-6" data-aos="fade-up">
-                    <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Supporting Compute &amp; Desk Tools</h2>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Supporting Compute &amp; Desk Tools</h2>
+                    </div>
 
                     <!-- Compute Hardware Dual Column -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                         <!-- Primary Laptop -->
-                        <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex items-center gap-3.5 sm:gap-4 hover:border-blue-400/[0.25] transition-all shadow-xl shadow-blue-950/20">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.1] text-white flex items-center justify-center shrink-0">
-                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="soft-card p-5 sm:p-6 flex items-center gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
                             </div>
                             <div class="min-w-0 flex-1">
                                 <div class="flex items-center justify-between gap-2">
                                     <h3 class="text-sm sm:text-base font-extrabold text-white tracking-tight truncate">MSI Prestige 13 A1M</h3>
-                                    <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Laptop</span>
+                                    <span class="spec-badge">Laptop</span>
                                 </div>
-                                <p class="text-xs text-zinc-400 mt-0.5 sm:mt-1 truncate">Ultra 7 155H · 32GB · 1TB OLED</p>
+                                <p class="text-xs text-gray-400 mt-1 font-mono truncate">Ultra 7 155H · 32GB · 1TB OLED</p>
                             </div>
                         </div>
 
                         <!-- Home Server -->
-                        <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex items-center gap-3.5 sm:gap-4 hover:border-blue-400/[0.25] transition-all shadow-xl shadow-blue-950/20">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.1] text-white flex items-center justify-center shrink-0">
-                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="soft-card p-5 sm:p-6 flex items-center gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
                                 </svg>
                             </div>
                             <div class="min-w-0 flex-1">
                                 <div class="flex items-center justify-between gap-2">
                                     <h3 class="text-sm sm:text-base font-extrabold text-white tracking-tight truncate">GEEKOM A5 Pro (2026)</h3>
-                                    <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Server</span>
+                                    <span class="spec-badge">Server</span>
                                 </div>
-                                <p class="text-xs text-zinc-400 mt-0.5 sm:mt-1 truncate">Ryzen 7 5825U · 16GB · Win 11 Pro</p>
+                                <p class="text-xs text-gray-400 mt-1 font-mono truncate">Ryzen 7 5825U · 16GB · Win 11 Pro</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Environment & Measurement Specs -->
-                    <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl shadow-blue-950/20">
-                        <div class="space-y-3 sm:space-y-4">
-                            <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-2.5 sm:pb-3">
+                    <div class="soft-card p-6 sm:p-8">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
                                 <span class="text-xs font-bold text-white">Desk Calibration &amp; Environment Tools</span>
-                                <span class="text-[10px] font-medium text-zinc-400">Accessories</span>
+                                <span class="spec-badge">Accessories</span>
                             </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 text-xs">
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs">
+                                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] flex justify-between items-center gap-2">
                                     <span class="text-white font-medium truncate">MiniDSP UMIK-1</span>
-                                    <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Measurement</span>
+                                    <span class="spec-badge text-[9px]">Measurement</span>
                                 </div>
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
+                                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] flex justify-between items-center gap-2">
                                     <span class="text-white font-medium truncate">Marantz MPM1000U</span>
-                                    <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Microphone</span>
+                                    <span class="spec-badge text-[9px]">Microphone</span>
                                 </div>
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
+                                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] flex justify-between items-center gap-2">
                                     <span class="text-white font-medium truncate">Govee H61E5 &amp; H6056</span>
-                                    <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Lighting</span>
+                                    <span class="spec-badge text-[9px]">Lighting</span>
                                 </div>
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
+                                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] flex justify-between items-center gap-2">
                                     <span class="text-white font-medium truncate">Stagg Tabletop Monitor Stands</span>
-                                    <span class="shrink-0 text-[10px] text-zinc-400">Stands</span>
+                                    <span class="text-[10px] text-gray-400">Stands</span>
                                 </div>
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
+                                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] flex justify-between items-center gap-2">
                                     <span class="text-white font-medium truncate">Dual Wali Monitor Arms</span>
-                                    <span class="shrink-0 text-[10px] text-zinc-400">Mounting</span>
+                                    <span class="text-[10px] text-gray-400">Mounting</span>
                                 </div>
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
+                                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] flex justify-between items-center gap-2">
                                     <span class="text-white font-medium truncate">Cablecove &amp; Ugreen Zapix</span>
-                                    <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Power</span>
+                                    <span class="spec-badge text-[9px]">Power</span>
                                 </div>
                             </div>
                         </div>
@@ -433,7 +439,7 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="background-animation.js" defer></script>
     <script src="main.js"></script>
 </body>
-
 </html>
