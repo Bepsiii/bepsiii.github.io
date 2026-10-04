@@ -7,23 +7,22 @@
         return node;
     };
     const pages = [
-        ['Home', '/', 'Projects, reviews and resources'],
+        ['Home', '/', 'Resources, gear and reviews'],
         ['About Bepsi', '/about.html', 'Background, interests and community'],
-        ['AscentCustoms', '/ascentcustoms.html', '3D printed custom gaming mice and coatings'],
         ['Resource library', '/resources1.html', 'Spreadsheets, keyboards, mice, audio and monitors'],
         ['Hardware reviews', '/reviews.html', 'Hands-on audio, mini PC and mouse reviews'],
         ['My setup', '/setup.html', 'Workstation, peripherals, headphones and audio chain'],
         ['Articles and notes', '/articles.html', 'Writing and project notes'],
-        ['Performance checklist', '/bottleneck.html', 'Diagnose PC performance and bottlenecks'],
         ['GEEKOM A5 Pro', '/geekoma5pro-review.html', 'Mini PC benchmarks, thermals and home server'],
         ['Moondrop Space Travel', '/spacetravel-review.html', 'Wireless earbuds and budget audio'],
         ['7Hz Sonus', '/7hzsonus-review.html', 'Hybrid in-ear monitor audio review'],
         ['Beanmouse', '/beanmouse-review.html', 'Fingertip mouse mod for Viper V2 Pro'],
         ['Contact', '/contact.html', 'Collaborations, gear questions and feedback'],
+        ['AscentCustoms', '/ascentcustoms.html', 'Earlier project: 3D printed mice and coatings'],
     ];
     const dialog = create('dialog', 'command-dialog');
     dialog.setAttribute('aria-labelledby', 'search-title');
-    dialog.innerHTML = '<div class="command-top"><h2 id="search-title">Find your next rabbit hole.</h2><button type="button" class="icon-button" data-close-search aria-label="Close search">×</button></div><label class="sr-only" for="global-search">Search the site</label><input id="global-search" type="search" placeholder="Try audio, custom mice, or setup…" autocomplete="off"><p class="command-count" role="status" aria-live="polite"></p><div class="command-results"></div><div class="command-bottom">↑ ↓ to navigate · Enter to open · Esc to close</div>';
+    dialog.innerHTML = '<div class="command-top"><h2 id="search-title">Search the site</h2><button type="button" class="icon-button" data-close-search aria-label="Close search">×</button></div><label class="sr-only" for="global-search">Search the site</label><input id="global-search" type="search" placeholder="Search resources, reviews, or gear…" autocomplete="off"><p class="command-count" role="status" aria-live="polite"></p><div class="command-results"></div><div class="command-bottom">↑ ↓ to navigate · Enter to open · Esc to close</div>';
     document.body.appendChild(dialog);
     const input = dialog.querySelector('input');
     const results = dialog.querySelector('.command-results');

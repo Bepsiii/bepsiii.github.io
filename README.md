@@ -13,7 +13,7 @@ The committed HTML, CSS, JavaScript, and images are ready to serve directly. No 
 - `enhancements.js` adds site search, review filters, saved resources, and reading tools.
 - `images/optimized/` contains responsive WebP images; original photos remain in `images/`.
 
-The pages and hardware information are based on the supplied local copy (`d4f1ffb`). The homepage reorganizes that content; the remote-only archive pages are removed.
+The pages and hardware information are based on the supplied local copy (`d4f1ffb`). The homepage focuses on resources and gear. The earlier AscentCustoms project remains for reference; the bottleneck page and remote-only archives have been removed.
 
 Utility styles are generated with Tailwind 3.4.17. To rebuild after editing utility classes:
 
@@ -26,6 +26,6 @@ Commit `assets/utilities.css` whenever utility classes change. GitHub Pages serv
 
 Run `python scripts/audit-links.py` to check local page and asset links. Run `npx playwright install chromium`, then `npm run check` for desktop and mobile browser checks. On a Windows machine with Edge installed, set `PLAYWRIGHT_BROWSER=msedge` to use Edge instead. The browser checks cover search, review filters, saved resources, reading tools, light mode, blocked browser storage, contact success/failure, and mobile layouts. Test form requests are intercepted locally.
 
-The contact form uses the existing Formspree endpoint. Browser verification should intercept form requests so test messages are not sent. Performance checklist inputs stay in the browser.
+The contact form uses the existing Formspree endpoint. Browser verification should intercept form requests so test messages are not sent.
 
 Serve this directory with a local HTTP server to preview it. Shared navigation loads from `header.html` and `footer.html`. Keep `sitemap.xml`, `robots.txt`, and page canonical URLs consistent with the published domain.

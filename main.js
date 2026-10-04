@@ -152,14 +152,15 @@ const FALLBACK_HEADER = `
 
             <!-- Centered Desktop Navigation Menu -->
             <nav class="hidden md:flex items-center gap-1 p-1 rounded-full backdrop-blur-md" style="background: var(--bg-badge); border: 1px solid var(--border-subtle);" aria-label="Main Navigation">
-                <a href="about.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">About</a>
 
-                <!-- Projects Dropdown Menu -->
-                <a href="ascentcustoms.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full" style="color: var(--text-muted);">Projects</a>
-                <a href="resources1.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">Resources</a>
-                <a href="reviews.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">Reviews</a>
-                <a href="setup.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">Setup</a>
-            </nav>
+
+
+
+<a href="resources1.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">Resources</a>
+<a href="setup.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">Setup</a>
+<a href="reviews.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">Reviews</a>
+<a href="about.html" class="nav-link-item px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300" style="color: var(--text-muted);">About</a>
+</nav>
 
             <!-- Actions Right Area -->
             <div class="flex items-center gap-2">
@@ -185,7 +186,7 @@ const FALLBACK_HEADER = `
                 <!-- Call to Action button -->
                 <div class="hidden lg:block">
                     <a href="contact.html" class="btn-navy text-[11px] py-2 px-4 shadow-lg shadow-blue-500/10 hover:shadow-blue-500/30">
-                        Get in Touch
+                        Contact
                     </a>
                 </div>
 
@@ -207,19 +208,24 @@ const FALLBACK_HEADER = `
             <span>Search (Ctrl+K)</span>
         </button>
 
-        <a href="about.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">About</a>
-        <a href="ascentcustoms.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">AscentCustoms (3D Printed Mice)</a>
-        <a href="resources1.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">Resources</a>
-        <a href="reviews.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">Reviews</a>
-        <a href="setup.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">Setup</a>
 
-        <div class="h-px my-2" style="background: var(--border-subtle);"></div>
-        <a href="contact.html" class="text-sm font-bold text-center text-blue-400 p-2.5 bg-blue-500/10 hover:bg-blue-500/20 rounded-xl transition-all">Contact Me</a>
+
+
+
+
+
+<a href="resources1.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">Resources</a>
+<a href="setup.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">Setup</a>
+<a href="reviews.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">Reviews</a>
+<a href="about.html" class="mobile-nav-item text-sm font-semibold p-2.5 rounded-xl transition-all" style="color: var(--text-muted);">About</a>
+<div class="h-px my-2" style="background: var(--border-subtle);"></div>
+        <a href="contact.html" class="text-sm font-bold text-center text-blue-400 p-2.5 bg-blue-500/10 hover:bg-blue-500/20 rounded-xl transition-all">Contact</a>
     </div>
 </header>
 
 <!-- Mobile Menu Backdrop Overlay -->
 <div id="mobile-menu-backdrop" class="mobile-backdrop" aria-hidden="true"></div>
+
 `;
 
 const FALLBACK_FOOTER = `
@@ -236,7 +242,7 @@ const FALLBACK_FOOTER = `
                     <img src="images/website-logo.png" alt="Logo" class="h-7 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300">
                 </div>
                 <p class="text-xs leading-relaxed max-w-sm" style="color: var(--text-muted);">
-                    Digital Craftsman &amp; Tech Enthusiast. <br>Archiving creations, custom hardware, and curated resources.
+                    Hardware resources, reviews, and the gear I use.<br>Based in London.
                 </p>
             </div>
 
@@ -273,6 +279,7 @@ const FALLBACK_FOOTER = `
         </div>
     </div>
 </footer>
+
 
 
 `;
@@ -591,7 +598,6 @@ const SiteSearch = {
         { title: 'Peripherals & Custom Mice', category: 'Hardware', url: 'setup.html#peripherals', desc: 'XM2we wireless, SayoDevice O3C keypad, Artisan Zero soft mousepad.' },
         { title: 'Audio Reference Gear & DAC', category: 'Audio', url: 'setup.html#audio', desc: 'Sennheiser HD580, HD 480 Pro Classic, Moondrop Space Travel, Topping DX5 II DAC/Amp.' },
         { title: 'Resource Library & Databases', category: 'Tools', url: 'resources1.html', desc: 'Curated spreadsheets, benchmarking tools, datasets, and guides.' },
-        { title: 'Bottleneck Calculator', category: 'Tools', url: 'bottleneck.html', desc: 'System balance and bottleneck analysis tool for gaming rigs.' },
         { title: 'Hardware Reviews Hub', category: 'Reviews', url: 'reviews.html', desc: 'In-depth evaluations on tech, audio gear, and peripherals.' },
         { title: 'GEEKOM A5 Pro (2026) Review', category: 'Reviews', url: 'geekoma5pro-review.html', desc: 'Comprehensive review of the Zen 3 mini PC for desktop and homelab.' },
         { title: 'Moondrop Space Travel Review', category: 'Reviews', url: 'spacetravel-review.html', desc: 'Sub-$25 ANC earbuds with reference tuning and punchy response.' },
