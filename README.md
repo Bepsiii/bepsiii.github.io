@@ -1,6 +1,6 @@
 # Bepsi — Tech & Design
 
-A static personal site for GitHub Pages at https://bepsiii.github.io/.
+A static personal site for GitHub Pages at https://bepsi.dev/.
 
 The committed HTML, CSS, JavaScript, and images are ready to serve directly. No server application, dependency installation, or GitHub Actions build is required.
 
