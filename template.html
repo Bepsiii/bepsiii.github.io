@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>About Me | Bepsi</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="A page template for the Bepsi digital lab.">
+
+    <link rel="stylesheet" href="/assets/utilities.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/main.js" defer></script>
+    <meta name="theme-color" content="#05060b">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="robots" content="noindex">
 </head>
 <body class="transition-colors duration-500">
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
+    <noscript><nav class="noscript-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
     <div id="header-placeholder"></div>
 
-    <main class="relative z-20 bg-stone-950 pt-40 pb-20">
+    <main id="main-content" class="relative z-20 bg-stone-950 pt-40 pb-20" tabindex="-1">
         <div class="container mx-auto px-6">
             <h1 class="text-5xl font-bold text-sky-400 text-center mb-6" data-aos="fade-up">
                 About This Site
@@ -35,53 +37,8 @@
             </div>
         </div>
     </main>
-    
+
     <div id="footer-placeholder"></div>
-
-    <script src="main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const initPage = () => {
-                if (typeof AOS !== 'undefined') {
-                    AOS.init({
-                        duration: 800,
-                        once: true,
-                        offset: 50,
-                    });
-                }
-            };
-
-            const loadComponents = async () => {
-                try {
-                    const [headerResponse, footerResponse] = await Promise.all([
-                        fetch('header.html'),
-                        fetch('footer.html')
-                    ]);
-
-                    if (!headerResponse.ok) throw new Error('Failed to fetch header');
-                    if (!footerResponse.ok) throw new Error('Failed to fetch footer');
-
-                    const headerData = await headerResponse.text();
-                    const footerData = await footerResponse.text();
-
-                    document.getElementById('header-placeholder').innerHTML = headerData;
-                    document.getElementById('footer-placeholder').innerHTML = footerData;
-
-                    if (typeof initializeFeatures === 'function') {
-                        initializeFeatures();
-                    }
-
-                    initPage();
-                } catch (error) {
-                    console.error('Error loading components:', error);
-                    initPage();
-                }
-            };
-
-            initPage();
-            loadComponents();
-        });
-    </script>
 
 </body>
 </html>
