@@ -3,147 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles - Bepsi</title>
-    <meta name="description" content="Published reviews and upcoming notes on custom hardware, audio, and workflows from Bepsi.">
-    <link rel="stylesheet" href="/assets/utilities.css">
-    <link rel="stylesheet" href="/style.css">
-    <script src="/main.js" defer></script>
-    <meta name="theme-color" content="#05060b">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="canonical" href="https://bepsi.dev/articles.html">
-    <meta property="og:type" content="website">
+    <meta name="description" content="Thoughts, Guides &amp; Musings. Dive into a collection of articles covering various topics.">
+    <meta name="author" content="Bepsi">
     <meta property="og:title" content="Articles - Bepsi">
-    <meta property="og:description" content="Published reviews and upcoming notes on custom hardware, audio, and workflows from Bepsi.">
-    <meta property="og:url" content="https://bepsi.dev/articles.html">
-    <meta property="og:image" content="https://bepsi.dev/images/setup/setup1.png">
+    <meta property="og:description" content="Thoughts, Guides &amp; Musings. Dive into a collection of articles covering various topics.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://bepsi.dev/images/website-logo.png?section=Articles">
+    <title>Articles - Bepsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="preload" href="header.html" as="fetch" crossorigin>
+    <link rel="preload" href="footer.html" as="fetch" crossorigin>
+    <link rel="icon" type="image/png" href="images/website-logo.png">
+    <link rel="stylesheet" href="assets/utilities.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="refresh.css">
+    <script src="enhancements.js" defer></script>
+    <link rel="canonical" href="https://bepsi.dev/articles.html">
+    <meta name="theme-color" content="#101211">
     <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="transition-colors duration-500">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+<body class="selection:bg-blue-500 selection:text-white">
+    <div class="scanlines"></div>
 
-    <noscript><nav class="noscript-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
+    <!-- Background Layer System -->
+    <div class="bg-grid-pattern"></div>
+    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
+    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
+    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
+
+    <noscript><nav class="noscript-links" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
     <div id="header-placeholder"></div>
 
-    <!-- Page Specific Content -->
-    <main id="main-content" class="relative z-20" tabindex="-1">
-        <!-- Hero Section -->
-        <section class="setup-hero cosmic-hero">
-            <div class="hero-cosmic-layer" aria-hidden="true">
-                <div class="hero-orbit"></div>
-                <div class="hero-orbit"></div>
-                <div class="hero-orbit"></div>
-                <div class="hero-sparkles"></div>
+    <main tabindex="-1" id="main-content" class="relative z-10 pt-32 pb-24">
+        <div class="container mx-auto px-6">
+            <!-- Hero -->
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
+                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Writings</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-none">
+                    Tech <span class="text-gradient-cyan-indigo">Articles</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed">
+                    Thoughts, Guides &amp; Musings on custom hardware, 3D printing ergonomics, and audio engineering.
+                </p>
             </div>
-            <div class="hero-inner" data-aos="fade-up">
-                <span class="hero-pill">Articles &amp; logs</span>
-                <h1 class="hero-title">Living <span>Notebook</span></h1>
-                <p class="hero-lead">Guides, teardown notes, and personal retrospectives. Everything I learn eventually ends up here.</p>
-                <div class="hero-badge-row">
-                    <span class="hero-badge">Guides</span>
-                    <span class="hero-badge">Design notes</span>
-                    <span class="hero-badge">Reviews</span>
-                    <span class="hero-badge">Process logs</span>
-                </div>
-                <div class="hero-divider"></div>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-                    <a href="#published-writing" class="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-sky-500/30">
-                        <span>Read published writing</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                    <a href="/contact.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white/90 hover:text-white hover:border-white/60 transition-all duration-300">
-                        <span>Suggest a topic</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
 
-        <section class="setup-section">
-            <div class="container mx-auto px-6">
-                <div class="section-label">The notebook</div>
-                <div class="interactive-card" data-aos="fade-up">
-                    <span class="card-ribbon">Work in progress</span>
-                    <h2 class="text-3xl font-bold mb-3">Good notes take a little time.</h2>
-                    <p class="text-slate-200 text-lg">The longer guides are still taking shape. In the meantime, start with the published gear reviews: personal testing, photos, and the details that made a difference.</p>
+            <!-- Warning Strip -->
+            <div class="max-w-4xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
+                <div class="soft-card p-6 flex flex-row items-center gap-5 border border-blue-500/20 bg-blue-500/[0.02]">
+                    <div class="text-blue-400 bg-blue-500/10 p-3 rounded-2xl shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold mb-1">Editorial Drafts in Progress</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Comprehensive guides on mouse shell 3D printing and IEM impedance matching are currently being authored.</p>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section id="published-writing" class="setup-section aura-section">
-            <div class="container mx-auto px-6">
-                <div class="section-label">Ready to read</div>
-                <h2 class="text-3xl font-bold mb-8">From the testing desk.</h2>
-                <div class="details-grid large">
-                    <a href="/beanmouse-review.html" class="interactive-card link-card">
-                        <span class="card-ribbon">Mouse mod</span>
-                        <h3 class="text-2xl font-bold">BeanMouse Small V2.1</h3>
-                        <p class="text-slate-300">Shape, comfort, and click design on a custom fingertip shell for the Viper V2 Pro.</p>
-                        <span class="text-sky-300 font-semibold mt-auto">Read the review &rarr;</span>
-                    </a>
-                    <a href="/7hzsonus-review.html" class="interactive-card link-card">
-                        <span class="card-ribbon alt">Audio</span>
-                        <h3 class="text-2xl font-bold">7Hz Sonus</h3>
-                        <p class="text-slate-300">A closer look at tuning, accessories, comfort, and gaming on a budget hybrid IEM.</p>
-                        <span class="text-sky-300 font-semibold mt-auto">Read the review &rarr;</span>
-                    </a>
-                    <a href="/spacetravel-review.html" class="interactive-card link-card">
-                        <span class="card-ribbon">Wireless audio</span>
-                        <h3 class="text-2xl font-bold">Moondrop Space Travel</h3>
-                        <p class="text-slate-300">First impressions of budget wireless earbuds, including the compromises behind the price.</p>
-                        <span class="text-sky-300 font-semibold mt-auto">Read the review &rarr;</span>
-                    </a>
-                </div>
-            </div>
-        </section>
+            <!-- Articles Grid with Feature 6 Skeleton Preview States -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <section id="articles-listing" class="setup-section">
-            <div class="container mx-auto px-6">
-                <div class="section-label">On the drawing board</div>
-                <h2 class="text-3xl font-bold mb-3">Ideas for future notes.</h2>
-                <p class="text-slate-300 mb-8">These topics are planned, with no publication dates attached yet.</p>
-                <div id="cards-wrapper" class="details-grid large">
-                    <article class="interactive-card" data-aos="fade-up">
-                        <span class="card-ribbon">Guide</span>
-                        <h3 class="text-2xl font-bold">Building a distraction-proof desk</h3>
-                        <p class="text-slate-300">Breaking down lighting, layouts, and automation scenes that keep the workspace focused.</p>
-                        <div class="flex items-center justify-between text-sm text-slate-400 mt-auto">
-                            <span>Planned guide</span>
+                <!-- Article Card 1 -->
+                <div class="soft-card glow-card float-card p-6 flex flex-col justify-between" data-aos="fade-up">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 text-[10px] font-bold uppercase tracking-wider">Hardware Modding</span>
+                            <span class="text-[10px] text-gray-500 font-mono">10 min read</span>
                         </div>
-                    </article>
-                    <article class="interactive-card" data-aos="fade-up" data-aos-delay="100">
-                        <span class="card-ribbon alt">Review</span>
-                        <h3 class="text-2xl font-bold">Glass pad ergonomics primer</h3>
-                        <p class="text-slate-300">Notes on pairing glass mousepads with switches, grips, and PTFE skates.</p>
-                        <div class="flex items-center justify-between text-sm text-slate-400 mt-auto">
-                            <span>Planned guide</span>
-                        </div>
-                    </article>
-                    <article class="interactive-card" data-aos="fade-up" data-aos-delay="200">
-                        <span class="card-ribbon">Process</span>
-                        <h3 class="text-2xl font-bold">From idea to resource sheet</h3>
-                        <p class="text-slate-300">How I track research, validate links, and ship spreadsheets people actually use.</p>
-                        <div class="flex items-center justify-between text-sm text-slate-400 mt-auto">
-                            <span>Planned process note</span>
-                        </div>
-                    </article>
-                    <article class="interactive-card" data-aos="fade-up" data-aos-delay="300">
-                        <span class="card-ribbon alt">Reflection</span>
-                        <h3 class="text-2xl font-bold">What I'm learning from community builds</h3>
-                        <p class="text-slate-300">Lessons from testing other people's setups, plus things I'm stealing for my own.</p>
-                        <div class="flex items-center justify-between text-sm text-slate-400 mt-auto">
-                            <span>Planned reflection</span>
-                        </div>
-                    </article>
+                        <h3 class="text-xl font-bold text-white mb-2">3D Printed Mouse Ergonomics</h3>
+                        <p class="text-gray-400 text-xs mb-4 leading-relaxed">How shell curvature and center-of-gravity modifications improve aim consistency and reduce wrist fatigue.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <span class="text-[10px] font-bold bg-white/5 text-gray-400 px-2.5 py-1 rounded uppercase tracking-widest">Coming Soon</span>
+                    </div>
                 </div>
+
+                <!-- Article Card 2 -->
+                <div class="soft-card glow-card float-card p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-[10px] font-bold uppercase tracking-wider">Acoustics</span>
+                            <span class="text-[10px] text-gray-500 font-mono">8 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">The Truth About IEM Damping</h3>
+                        <p class="text-gray-400 text-xs mb-4 leading-relaxed">Understanding acoustic filters, nozzle resonance peaks, and how tip materials alter frequency response.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <span class="text-[10px] font-bold bg-white/5 text-gray-400 px-2.5 py-1 rounded uppercase tracking-widest">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Article Card 3 -->
+                <div class="soft-card glow-card float-card p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 text-[10px] font-bold uppercase tracking-wider">PC Hardware</span>
+                            <span class="text-[10px] text-gray-500 font-mono">12 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Micro-ATX vs Mini-ITX</h3>
+                        <p class="text-gray-400 text-xs mb-4 leading-relaxed">Why compact mATX enclosures like the Lian Li A3 offer superior thermal and acoustic performance.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <span class="text-[10px] font-bold bg-white/5 text-gray-400 px-2.5 py-1 rounded uppercase tracking-widest">Coming Soon</span>
+                    </div>
+                </div>
+
             </div>
-        </section>
+        </div>
     </main>
 
     <div id="footer-placeholder"></div>
-
+    <script src="main.js"></script>
 </body>
 </html>

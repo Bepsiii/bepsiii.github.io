@@ -3,221 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Performance Checklist | Bepsi</title>
-    <meta name="description" content="Build a practical PC performance troubleshooting checklist using your specs and symptoms.">
-
-    <link rel="stylesheet" href="/assets/utilities.css">
-    <link rel="stylesheet" href="/style.css">
-    <script src="/main.js" defer></script>
-    <meta name="theme-color" content="#05060b">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="canonical" href="https://bepsi.dev/bottleneck.html">
+    <meta name="description" content="Answer the questions below to determine if your system has a bottleneck.">
+    <meta name="author" content="Bepsi">
+    <meta property="og:title" content="Bottleneck Calculator - Bepsi">
+    <meta property="og:description" content="Answer the questions below to determine if your system has a bottleneck.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Performance Checklist | Bepsi">
-    <meta property="og:description" content="Build a practical PC performance troubleshooting checklist using your specs and symptoms.">
-    <meta property="og:url" content="https://bepsi.dev/bottleneck.html">
-    <meta property="og:image" content="https://bepsi.dev/images/setup/setup1.png">
+    <meta property="og:image" content="https://bepsi.dev/images/website-logo.png?section=Bottleneck+Calculator">
+    <title>Bottleneck Calculator - Bepsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="preload" href="header.html" as="fetch" crossorigin>
+    <link rel="preload" href="footer.html" as="fetch" crossorigin>
+    <link rel="icon" type="image/png" href="images/website-logo.png">
+    <link rel="stylesheet" href="assets/utilities.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="refresh.css">
+    <script src="enhancements.js" defer></script>
+    <link rel="canonical" href="https://bepsi.dev/bottleneck.html">
+    <meta name="theme-color" content="#101211">
     <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="transition-colors duration-500">
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <noscript><nav class="noscript-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
+<body class="selection:bg-blue-500 selection:text-white">
+    <div class="scanlines"></div>
+
+    <!-- Background Layer System -->
+    <div class="bg-grid-pattern"></div>
+    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
+    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
+    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
+
+    <noscript><nav class="noscript-links" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
     <div id="header-placeholder"></div>
 
-    <main id="main-content" class="relative z-20" tabindex="-1">
-        <section class="setup-hero cosmic-hero">
-            <div class="hero-cosmic-layer" aria-hidden="true">
-                <div class="hero-orbit"></div>
-                <div class="hero-orbit"></div>
-                <div class="hero-orbit"></div>
-                <div class="hero-sparkles"></div>
+    <main tabindex="-1" id="main-content" class="relative z-10 pt-32 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12" data-aos="fade-down">
+                <span class="text-blue-500 font-bold text-sm tracking-wider uppercase mb-2 block">System Analysis</span>
+                <h1 class="text-5xl font-bold text-white mb-4">Bottleneck Calculator</h1>
+                <p class="text-gray-400 text-lg">Answer the questions below to determine if your system has a performance bottleneck.</p>
             </div>
-            <div class="hero-inner" data-aos="fade-up">
-                <span class="hero-pill">Measure before you upgrade</span>
-                <h1 class="hero-title">Performance <span>Checklist</span></h1>
-                <p class="hero-lead">A practical starting point for a smoother PC. Share your setup and get a short list of useful checks to run.</p>
-                <div class="hero-badge-row">
-                    <span class="hero-badge">PC builds</span>
-                    <span class="hero-badge">Troubleshooting</span>
-                    <span class="hero-badge">Local to your browser</span>
-                </div>
-                <div class="hero-divider"></div>
-            </div>
-        </section>
 
-        <section class="setup-section">
-            <div class="container mx-auto px-6 max-w-5xl">
-                <div class="section-label">Start with the symptoms</div>
-                <article class="interactive-card" data-aos="fade-up">
-                    <div class="mb-6">
-                        <span class="card-ribbon">Your setup</span>
-                        <h2 class="text-3xl font-bold mb-3">Build your troubleshooting plan.</h2>
-                        <p class="text-slate-300" id="checklist-description">Specs alone cannot identify a bottleneck. This checklist suggests what to measure next; it does not predict frame rates or assign a bottleneck percentage. Your answers stay in this page.</p>
-                    </div>
-                    <noscript><p class="form-status">Enable JavaScript for a tailored checklist, or <a href="/contact.html">get in touch</a> for help.</p></noscript>
-                    <form id="bottleneck-form" class="space-y-6" aria-describedby="checklist-description">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="cpu" class="form-label">CPU</label>
-                                <input type="text" id="cpu" name="cpu" placeholder="Intel Core i7-12700K" class="form-input" required maxlength="80" pattern=".*\S.*" autocomplete="off">
-                            </div>
-                            <div>
-                                <label for="gpu" class="form-label">GPU</label>
-                                <input type="text" id="gpu" name="gpu" placeholder="RTX 4070" class="form-input" required maxlength="80" pattern=".*\S.*" autocomplete="off">
-                            </div>
-                            <div>
-                                <label for="ram" class="form-label">RAM (GB)</label>
-                                <input type="number" id="ram" name="ram" placeholder="16" class="form-input" min="1" max="2048" step="1" required>
-                            </div>
-                            <div>
-                                <label for="storage" class="form-label">Game storage</label>
-                                <select id="storage" name="storage" class="form-input" required>
-                                    <option value="" selected disabled>Choose your drive type</option>
-                                    <option value="hdd">HDD</option>
-                                    <option value="ssd">SATA SSD</option>
-                                    <option value="nvme">NVMe SSD</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="resolution" class="form-label">Gaming resolution</label>
-                                <select id="resolution" name="resolution" class="form-input" required>
-                                    <option value="1080p">1080p</option>
-                                    <option value="1440p">1440p</option>
-                                    <option value="4K">4K</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="symptom" class="form-label">Main concern</label>
-                                <select id="symptom" name="symptom" class="form-input" required>
-                                    <option value="fps">Low frame rate</option>
-                                    <option value="stutter">Stutters or frame-time spikes</option>
-                                    <option value="loading">Long loading times</option>
-                                </select>
-                            </div>
-                            <div class="md:col-span-2">
-                                <label for="games" class="form-label">Game or workload (optional)</label>
-                                <input type="text" id="games" name="games" placeholder="Cyberpunk 2077, CS2" class="form-input" maxlength="160" autocomplete="off">
-                            </div>
+            <div class="soft-card glow-card float-card p-8 lg:p-12" data-aos="fade-up">
+                <div class="float-content">
+                    <form id="bottleneck-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="cpu-model" class="block text-xs font-bold text-gray-500 mb-2 uppercase">CPU Model</label>
+                            <input type="text" id="cpu-model" class="w-full" placeholder="e.g., Intel i7-12700K">
                         </div>
-                        <div class="pt-4">
-                            <button id="checklist-submit" type="submit" class="btn-primary inline-flex items-center gap-2 py-3 px-6 rounded-full text-white font-semibold" disabled>
-                                <span>Build my checklist</span>
-                                <span aria-hidden="true">&rarr;</span>
-                            </button>
+                        <div>
+                            <label for="gpu-model" class="block text-xs font-bold text-gray-500 mb-2 uppercase">GPU Model</label>
+                            <input type="text" id="gpu-model" class="w-full" placeholder="e.g., RTX 4070">
                         </div>
-                        <noscript><p class="text-slate-300">Enable JavaScript to build a checklist. You can also use the measurement steps below or <a href="/contact.html" class="text-sky-300 underline">ask me about your setup</a>.</p></noscript>
-                    </form>
-                </article>
-
-                <div id="result" class="hidden mt-8" tabindex="-1" role="region" aria-labelledby="result-title" aria-live="polite">
-                    <div class="glass-tile rounded-2xl p-6 md:p-8">
-                        <span class="card-ribbon">Your next steps</span>
-                        <h2 id="result-title" class="text-3xl font-bold mb-3">A plan you can measure.</h2>
-                        <p id="result-summary" class="text-slate-300 mb-6"></p>
-                        <ol id="result-checks" class="space-y-6"></ol>
-                        <p class="text-slate-400 mt-8">Keep notes from each run, then <a href="/contact.html" class="text-sky-300 underline">share your results</a> if you'd like a second pair of eyes.</p>
+                        <div>
+                            <label for="ram-capacity" class="block text-xs font-bold text-gray-500 mb-2 uppercase">RAM (GB)</label>
+                            <input type="number" id="ram-capacity" class="w-full" placeholder="16">
+                        </div>
+                        <div>
+                            <label for="storage-type" class="block text-xs font-bold text-gray-500 mb-2 uppercase">Storage Type</label>
+                            <select id="storage-type" class="w-full">
+                                <option>HDD</option>
+                                <option>SSD</option>
+                                <option>NVMe SSD</option>
+                            </select>
+                        </div>
+                         <div>
+                            <label for="monitor-resolution" class="block text-xs font-bold text-gray-500 mb-2 uppercase">Monitor Resolution</label>
+                            <select id="monitor-resolution" class="w-full">
+                                <option>1080p</option>
+                                <option>1440p</option>
+                                <option>4K</option>
+                            </select>
+                        </div>
+                         <div>
+                            <label for="target-games" class="block text-xs font-bold text-gray-500 mb-2 uppercase">Target Games</label>
+                            <input type="text" id="target-games" class="w-full" placeholder="e.g. Cyberpunk 2077, CS2">
+                        </div>
                     </div>
+                    <button type="submit" class="btn-navy w-full justify-center py-4 text-lg">Calculate</button>
+                </form>
                 </div>
             </div>
-        </section>
 
-        <section class="setup-section aura-section">
-            <div class="container mx-auto px-6 max-w-5xl">
-                <div class="section-label">The useful baseline</div>
-                <h2 class="text-3xl font-bold mb-8">One change. One repeatable test.</h2>
-                <div class="details-grid large">
-                    <article class="interactive-card">
-                        <span class="card-ribbon">01</span>
-                        <h3 class="text-xl font-bold">Repeat the same scene</h3>
-                        <p class="text-slate-300">Use a built-in benchmark or a repeatable section of your game. Record the resolution, settings, and any frame cap.</p>
-                    </article>
-                    <article class="interactive-card">
-                        <span class="card-ribbon alt">02</span>
-                        <h3 class="text-xl font-bold">Watch more than FPS</h3>
-                        <p class="text-slate-300">Capture frame times, CPU and GPU activity, memory use, and storage activity while the issue happens.</p>
-                    </article>
-                    <article class="interactive-card">
-                        <span class="card-ribbon">03</span>
-                        <h3 class="text-xl font-bold">Compare, then decide</h3>
-                        <p class="text-slate-300">Change one setting and repeat. A spec list cannot tell you which upgrade will help your particular workload.</p>
-                    </article>
+            <div id="result" class="hidden mt-8 soft-card p-10 border-l-4 border-green-500">
+                <div class="text-center">
+                    <div class="inline-block p-4 bg-green-500/10 rounded-full text-green-500 mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white mb-4">Good News!</h2>
+                    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                        You shouldn't worry about bottlenecks. Just enjoy your PC! Modern components are generally well-balanced, and performance is influenced by a wide range of factors including game optimization, driver versions, and background processes.
+                    </p>
                 </div>
-                <p class="text-sm text-slate-400 mt-8">Further reading: <a href="https://www.intel.com/content/www/us/en/gaming/resources/what-is-bottlenecking-my-pc.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 underline">Intel's guide to PC bottlenecks</a> and <a href="https://www.intel.com/content/www/us/en/docs/gpa/user-guide/2024-2/game-optimization-methodology.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 underline">measuring CPU and GPU limits</a>.</p>
             </div>
-        </section>
+        </div>
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('bottleneck-form').addEventListener('submit', (e) => {
+            e.preventDefault();
 
-    <script data-page-script="performance-checklist">
-        (() => {
-            const form = document.getElementById('bottleneck-form');
-            const submit = document.getElementById('checklist-submit');
-            const result = document.getElementById('result');
-            const summary = document.getElementById('result-summary');
-            const checks = document.getElementById('result-checks');
-            if (!form || !submit || !result || !summary || !checks) return;
-            submit.disabled = false;
+            const cpu = document.getElementById('cpu-model').value.toLowerCase();
+            const gpu = document.getElementById('gpu-model').value.toLowerCase();
+            const ram = parseInt(document.getElementById('ram-capacity').value) || 0;
+            const storage = document.getElementById('storage-type').value;
+            const resolution = document.getElementById('monitor-resolution').value;
 
-            form.addEventListener('submit', (event) => {
-                event.preventDefault();
-                const cpu = form.elements.cpu.value.trim();
-                const gpu = form.elements.gpu.value.trim();
-                form.elements.cpu.value = cpu;
-                form.elements.gpu.value = gpu;
-                if (!form.reportValidity()) return;
+            let isSevere = false;
+            let advice = [];
 
-                const ram = Number(form.elements.ram.value);
-                const storage = form.elements.storage.value;
-                const resolution = form.elements.resolution.value;
-                const symptom = form.elements.symptom.value;
-                const games = form.elements.games.value.trim();
-                if (!Number.isInteger(ram) || ram < 1 || ram > 2048) return;
+            // Basic checks for severe bottlenecks
+            if (ram > 0 && ram < 16) {
+                isSevere = true;
+                advice.push("Having less than 16GB of RAM can cause severe stuttering in modern games. Consider upgrading your RAM.");
+            }
+            if (storage === 'HDD') {
+                isSevere = true;
+                advice.push("Using an HDD for modern games leads to very long load times and potential texture streaming issues. An SSD is highly recommended.");
+            }
+            if (cpu && gpu) {
+                // Extremely basic mismatch logic
+                const isLowEndCpu = cpu.match(/i3|ryzen 3|pentium|celeron/);
+                const isHighEndGpu = gpu.match(/rtx (3080|3090|4070|4080|4090)|rx (6800|6900|7800|7900)/);
 
-                summary.textContent = cpu + ' / ' + gpu + ' / ' + ram + ' GB RAM' + (resolution === 'other' ? '' : ' / ' + resolution) + (games ? ' · ' + games : '') + '. Start with these checks; this is a measurement plan, not a performance score.';
-                const advice = [];
-
-                if (symptom === 'loading') {
-                    advice.push(['Time the loading screen', 'Repeat the same load and watch drive activity. Compare loading time separately from in-game frame rate.']);
-                } else if (symptom === 'stutter') {
-                    advice.push(['Capture the hitch', 'Watch a frame-time graph and check which CPU, GPU, memory, or disk activity changes at the same moment.']);
-                } else {
-                    advice.push(['Check the frame limit first', 'Record your frame cap and sync settings before comparing the same scene with lower graphics settings.']);
+                if (isLowEndCpu && isHighEndGpu && resolution === '1080p') {
+                    isSevere = true;
+                    advice.push("Pairing an entry-level CPU with a high-end GPU at 1080p will likely result in a severe CPU bottleneck. Your GPU won't be fully utilized.");
                 }
+            }
 
-                if (storage === 'hdd') {
-                    advice.push(['Check the game drive', 'Watch HDD activity during loading and stutters. If an SSD is available, compare the same game there.']);
-                } else {
-                    advice.push(['Watch storage activity', 'An SSD does not rule out storage issues. Check whether drive activity coincides with the slowdown.']);
-                }
+            const resultDiv = document.getElementById('result');
+            resultDiv.classList.remove('hidden');
 
-                advice.push(['Measure memory pressure', 'With ' + ram + ' GB installed, check actual memory use during play. Compare after closing unnecessary background apps.']);
-
-                if (resolution === '4K' || resolution === '1440p') {
-                    advice.push(['Compare a lower resolution', 'Repeat the same scene below ' + resolution + '. Record frame times and GPU activity to see whether the rendering workload matters.']);
-                } else {
-                    advice.push(['Compare the graphics workload', 'Lower rendering resolution for one run. Compare frame times and CPU/GPU activity; FPS alone cannot identify the limit.']);
-                }
-
-                checks.replaceChildren();
-                advice.forEach(([title, description], index) => {
-                    const item = document.createElement('li');
-                    const heading = document.createElement('h3');
-                    const paragraph = document.createElement('p');
-                    heading.className = 'text-xl font-bold mb-2';
-                    heading.textContent = (index + 1) + '. ' + title;
-                    paragraph.className = 'text-slate-300';
-                    paragraph.textContent = description;
-                    item.append(heading, paragraph);
-                    checks.appendChild(item);
-                });
-                result.classList.remove('hidden');
-                result.focus({ preventScroll: true });
-                result.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
-            });
-        })();
+            if (isSevere) {
+                resultDiv.className = 'mt-8 soft-card p-10 border-l-4 border-red-500';
+                resultDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="inline-block p-4 bg-red-500/10 rounded-full text-red-500 mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white mb-4">Significant Bottleneck Detected</h2>
+                    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-4">Based on your input, we found some potential issues:</p>
+                    <ul class="text-red-400 text-left list-disc list-inside max-w-xl mx-auto space-y-2">
+                        ${advice.map(msg => `<li>${msg}</li>`).join('')}
+                    </ul>
+                </div>`;
+            } else {
+                resultDiv.className = 'mt-8 soft-card p-10 border-l-4 border-green-500';
+                resultDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="inline-block p-4 bg-green-500/10 rounded-full text-green-500 mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white mb-4">Good News!</h2>
+                    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                        You shouldn't worry about severe bottlenecks. Just enjoy your PC! Modern components are generally well-balanced, and performance is influenced by a wide range of factors including game optimization, driver versions, and background processes.
+                    </p>
+                </div>`;
+            }
+        });
     </script>
 </body>
 </html>

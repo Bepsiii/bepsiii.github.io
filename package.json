@@ -4,6 +4,8 @@
   "private": true,
   "description": "Bepsi's personal technology and design site",
   "scripts": {
-    "build": "node scripts/build-css.cjs"
-  }
+    "build": "tailwindcss -i assets/source.css -o assets/utilities.css --minify",
+    "check": "node scripts/check-site.cjs"
+  },
+  "devDependencies": { "tailwindcss": "3.4.17", "playwright": "1.62.1" }
 }

@@ -3,315 +3,506 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Helpful Resources - Bepsi</title>
-    <meta name="description" content="Search community spreadsheets, hardware guides, recommendations, and buyer resources curated by Bepsi.">
-    <link rel="stylesheet" href="/assets/utilities.css">
-    <link rel="stylesheet" href="/style.css">
-    <script src="/main.js" defer></script>
-    <meta name="theme-color" content="#05060b">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <title>Resources - Bepsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="preload" href="header.html" as="fetch" crossorigin>
+    <link rel="preload" href="footer.html" as="fetch" crossorigin>
+    <link rel="icon" type="image/png" href="images/website-logo.png">
+    <link rel="stylesheet" href="assets/utilities.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="refresh.css">
+    <script src="enhancements.js" defer></script>
     <link rel="canonical" href="https://bepsi.dev/resources1.html">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Helpful Resources - Bepsi">
-    <meta property="og:description" content="Search community spreadsheets, hardware guides, recommendations, and buyer resources curated by Bepsi.">
-    <meta property="og:url" content="https://bepsi.dev/resources1.html">
-    <meta property="og:image" content="https://bepsi.dev/images/setup/setup1.png">
+    <meta name="theme-color" content="#101211">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="Resources - Bepsi: hardware notes, projects and tools from Bepsi.">
 </head>
-<body class="transition-colors duration-500">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+<body class="selection:bg-blue-500 selection:text-white">
+    <div class="scanlines"></div>
 
-    <noscript><nav class="noscript-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
+    <!-- Background Layer System -->
+    <div class="bg-grid-pattern"></div>
+    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
+    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/3 right-10"></div>
+    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
+
+    <noscript><nav class="noscript-links" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
     <div id="header-placeholder"></div>
 
-    <!-- Page Specific Content -->
-    <main id="main-content" class="relative z-20" tabindex="-1">
-        <section class="setup-hero cosmic-hero">
-            <div class="hero-cosmic-layer" aria-hidden="true">
-                <div class="hero-orbit"></div>
-                <div class="hero-orbit"></div>
-                <div class="hero-orbit"></div>
-                <div class="hero-sparkles"></div>
-            </div>
-            <div class="hero-inner" data-aos="fade-up">
-                <span class="hero-pill">Curated collections</span>
-                <h1 class="hero-title">Helpful <span>Resources</span></h1>
-                <p class="hero-lead">Community-built spreadsheets, warnings, and guides that keep my setups dialed and yours safer.</p>
-                <div class="hero-badge-row">
-                    <span class="hero-badge">Spreadsheets</span>
-                    <span class="hero-badge">Buyer guides</span>
-                    <span class="hero-badge">Warnings</span>
-                    <span class="hero-badge">Mods</span>
-                </div>
-                <div class="hero-divider"></div>
-            </div>
-        </section>
+    <main tabindex="-1" id="main-content" class="relative z-10 pt-32 pb-24">
+        <div class="container mx-auto px-6">
 
-        <section id="spreadsheets-listing" class="setup-section">
-            <div class="container mx-auto px-6">
-                <div class="resource-toolbar"><div class="resource-search-wrap"><label for="resource-search">Find a resource</label><input class="form-input" id="resource-search" type="search" placeholder="Search gear, guides, or creators…" autocomplete="off" aria-controls="cards-wrapper"></div><p id="resource-count" class="resource-count" role="status" aria-live="polite"></p></div>
-                <div class="section-label">Browse by category</div>
-                <div id="filter-container" class="filter-card-grid" data-aos="fade-up">
-                    <button aria-pressed="true" class="filter-card active" data-filter="all" type="button">All</button>
-                    <button aria-pressed="false" class="filter-card" data-filter="keyboards" type="button">Keyboards</button>
-                    <button aria-pressed="false" class="filter-card" data-filter="mice" type="button">Mice</button>
-                    <button aria-pressed="false" class="filter-card" data-filter="audio" type="button">Audio</button>
-                    <button aria-pressed="false" class="filter-card" data-filter="monitors" type="button">Monitors</button>
-                    <button aria-pressed="false" class="filter-card" data-filter="3d-printers" type="button">3D Printers</button>
-                    <button aria-pressed="false" class="filter-card" data-filter="warnings" type="button">Warnings</button>
-                    <button aria-pressed="false" class="filter-card" data-filter="misc" type="button">Misc</button>
-                </div>
-
-                <h2 class="section-label mt-12">The library</h2>
-                <p id="resource-empty" class="resource-empty" hidden>No resources match. Try another search or choose All.</p>
-                <div id="cards-wrapper" class="details-grid large">
-
-                <div class="resource-item" data-category="misc" data-aos="fade-up">
-                    <div class="interactive-card">
-                         <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M19 12H5M19 8H5M19 16H5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">Simple Recommendation Sheet</h3>
-                             <div class="category-tag mb-4">Misc</div>
-                            <p class="text-gray-400 mb-4 flex-grow">Covers audio recommendations for the normies. Thank you to Pelperson and the NTL Team.</p>
-                            <a href="https://docs.google.com/spreadsheets/d/1IpYhHzt151sio5rT_AvBSzpz1-kCfG1tqJ8Oa0Ra1_I/edit?gid=314339735#gid=314339735" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="audio" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">NCR's Speaker Master Sheet</h3>
-                             <div class="category-tag mb-4">Audio</div>
-                            <p class="text-gray-400 mb-4 flex-grow">Every speaker at every budget. Thank you to NCR for creating this. @ncr_is_washed</p>
-                            <a href="https://docs.google.com/spreadsheets/d/1UPhmxSuc2LHnxjcwCwIE9iGiRaOH0f0-HTqhu4A5jMo/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="monitors" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">Monitor Ranking List</h3>
-                             <div class="category-tag mb-4">Monitors</div>
-                            <p class="text-gray-400 mb-4 flex-grow">A tracker for Monitors on the market. Tiered and Price Checked.</p>
-                            <a href="https://docs.google.com/spreadsheets/d/1qCInWar0InXoyHYAwAnONcE-zxpQpMGP2uUUkz9iBkI/edit?gid=2076833903#gid=2076833903" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="keyboards" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><path d="M17 2v4M7 2v4M2 12h20"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">Hall Effect Keyboards List</h3>
-                             <div class="category-tag mb-4">Keyboards</div>
-                            <p class="text-gray-400 mb-4 flex-grow">Covers issues with hall effect manufacturers and provides recommendations.</p>
-                            <a href="https://docs.google.com/document/d/e/2PACX-1vSsjTA29tUSQDgT_FWmvX2nHg17RLzCXdZnBV2pdAWO2SqJmzeNl9EQNc2Yw2Cy4kHjIBcDVVCUgErC/pub" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Document</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="audio" data-aos="fade-up">
-                    <div class="interactive-card">
-                         <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">Subwoofer Master Sheet</h3>
-                             <div class="category-tag mb-4">Audio</div>
-                            <p class="text-gray-400 mb-4 flex-grow">Need specifications, reviews, or just looking for a subwoofer to get?</p>
-                            <a href="https://docs.google.com/spreadsheets/d/1dU5OOnf3nVgctJszmfyBjaxK69dkXte6ZL6anVTW2_M/edit?gid=834598950" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="mice" data-aos="fade-up">
-                    <div class="interactive-card">
-                         <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9H2l2 10h9.5A2.5 2.5 0 0 0 16 18V9Z"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">JST Batteries</h3>
-                             <div class="category-tag mb-4">Mice</div>
-                            <p class="text-gray-400 mb-4 flex-grow">A specialized sheet covering JST batteries. Extremely helpful for modifying mice.</p>
-                            <a href="https://docs.google.com/spreadsheets/d/12jjOAsstn5d8HCQ5f5Y3wgKbxemBJBxaIzOqEDu6hTc/edit?gid=1848579347" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="warnings" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Aula</h3>
-                             <div class="category-tag mb-4">Community Warnings</div>
-                            <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Aula boards.</p>
-                            <a href="https://imgur.com/a/aula-boards-are-not-hazardous-amazing-9D5pcXs" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="warnings" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Royal Kludge</h3>
-                             <div class="category-tag mb-4">Community Warnings</div>
-                            <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Royal Kludge boards.</p>
-                            <a href="https://imgur.com/a/royal-kludge-is-good-brand-you-should-buy-keyboards-x7LTFwp" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="warnings" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Why You Shouldn't Buy Madlions</h3>
-                             <div class="category-tag mb-4">Community Warnings</div>
-                            <p class="text-gray-400 mb-4 flex-grow">An Imgur album full of the issues with Madlions boards.</p>
-                            <a href="https://imgur.com/a/stop-buying-madlions-slop-S7lrqVu" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="audio" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><circle cx="12" cy="12" r="10"></circle></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">Tim Tuned IEM Rankings</h3>
-                             <div class="category-tag mb-4">Audio</div>
-                            <p class="text-gray-400 mb-4 flex-grow">Tim Tuned's IEM Rankings.</p>
-                            <a href="https://docs.google.com/spreadsheets/d/1lvI0ucbqjPXZLQKzqdycBD9ZKBuMSdd0e_bPzhJpJKo/edit?gid=2029568238#gid=2029568238" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="3d-printers" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">3D Printer Filament Master Sheet</h3>
-                             <div class="category-tag mb-4">3D Printers</div>
-                            <p class="text-gray-400 mb-4 flex-grow">A comprehensive list of filaments with reviews.</p>
-                            <a href="https://docs.google.com/spreadsheets/d/1-moGrSlTVI7w-vad6vdJm2D3wruPa_xP_inucLQnpNI/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Spreadsheet</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="mice" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">Mouse Encoder Heights</h3>
-                             <div class="category-tag mb-4">Mice</div>
-                            <p class="text-gray-400 mb-4 flex-grow">Mouse Encoder Heights, useful for modding mice.</p>
-                            <a href="https://docs.google.com/spreadsheets/d/1L8PUiSMGKeJsbjkb_DpT-I4cmfWR0M9EvvLGetNQj9Y/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="misc" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4l2 2"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">SSD List</h3>
-                             <div class="category-tag mb-4">Misc</div>
-                            <p class="text-gray-400 mb-4 flex-grow">SSD List with specifications and components.</p>
-                            <a href="https://docs.google.com/spreadsheets/u/0/d/1B27_j9NDPU3cNlj2HKcrfpJKHkOf-Oi1DbuuQva2gT4/htmlview?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="audio" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M19 12H5M19 8H5M19 16H5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">Wagyus IEM Mastersheet</h3>
-                             <div class="category-tag mb-4">Audio</div>
-                            <p class="text-gray-400 mb-4 flex-grow">Wagyu / nonillions mastersheet for recommended iems.</p>
-                            <a href="https://docs.google.com/spreadsheets/d/1chq1Bnvyg1GD3tham5wLV7M_8vKnaoaAc5hmW4w8oIU/edit?gid=1919313960#gid=1919313960" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="resource-item" data-category="audio" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">Tweaking Tips - A Guide to IEM Tips</h3>
-                             <div class="category-tag mb-4">Audio</div>
-                            <p class="text-gray-400 mb-4 flex-grow">Guide to IEM tips w mini reviews and statistics.</p>
-                            <a href="https://www.audioreviews.org/guide-to-iem-silicone-eartips/#N" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Link</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="misc" data-aos="fade-up">
-                    <div class="interactive-card">
-                         <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400"><path d="M19 12H5M19 8H5M19 16H5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
-                            <h3 class="text-xl font-bold text-white mb-2">Trusted Reviewers List</h3>
-                             <div class="category-tag mb-4">Misc</div>
-                            <p class="text-gray-400 mb-4 flex-grow">A list of trusted reviewers for all tech products.</p>
-                            <a href="https://docs.google.com/document/d/1hLYzW9wn_CwUULYESH_M7M111kjY6o3SPPO1dP-Ibbo/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Document</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="mice" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Avoid Glorious Mice in 2025</h3>
-                             <div class="category-tag mb-4">Mice</div>
-                            <p class="text-gray-400 mb-4 flex-grow">A document warning users against purchasing or using Glorious brand mice in the year 2025.</p>
-                            <a href="https://docs.google.com/document/d/1SqNYQWtjCbrVbMYJyRn_sHOeMnqYkRR6EeOpRgZFxr8/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Document</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="keyboards" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">The Problem with Cheap OEM Keyboards</h3>
-                             <div class="category-tag mb-4">Keyboards</div>
-                            <p class="text-gray-400 mb-4 flex-grow">The document  discusses the potential issues, drawbacks, or risks associated with purchasing and using low-cost, unbranded (OEM) keyboards, often sourced from China.</p>
-                            <a href="https://docs.google.com/document/d/1B3MDyurBbViumUZH1i0kON6PSKRvM0ZBFIiQtI6PKTE/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Document</a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="resource-item" data-category="keyboards" data-aos="fade-up">
-                    <div class="interactive-card">
-                        <div class="p-6 flex flex-col h-full resource-content">
-                            <div class="flex-shrink-0 mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Trusted Peripheral Reviewers List</h3>
-                             <div class="category-tag mb-4">Keyboards</div>
-                            <p class="text-gray-400 mb-4 flex-grow">A list of trusted reviewers for all peripheral products</p>
-                            <a href="https://docs.google.com/document/d/13AF_3HRoAlk_hLI7urlLaGVHXcP1gcGHjaf5Kd2JNgE/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block text-center bg-gray-800/50 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">Open Document</a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Header -->
+            <div class="flex flex-col lg:flex-row lg:justify-between lg:items-end mb-16 gap-6" data-aos="fade-down">
+                <div>
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-4 leading-none">
+                        Resource <span class="text-gradient-cyan-indigo">Library</span>
+                    </h1>
+                    <p class="text-gray-400 max-w-xl text-lg font-medium leading-relaxed">
+                        Curated spreadsheets, community tools, and technical documentation.
+                    </p>
                 </div>
             </div>
-        </section>
+
+            <!-- Asymmetrical Sticky Split Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                <!-- Left Sidebar: Search, Filter Dashboard & Disclaimer (Sticky) -->
+                <div class="lg:col-span-4 lg:sticky lg:top-28 space-y-6" data-aos="fade-right">
+
+                    <!-- Search glass panel -->
+                    <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] backdrop-blur-xl space-y-3">
+                        <span class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider block">Query Search</span>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-500">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            </span>
+                            <input type="text" id="resource-search" placeholder="Search databases, guides..." class="w-full pl-10 pr-4 py-3 bg-black/40 border border-white/[0.06] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 transition-all font-medium">
+                        </div>
+                    </div>
+
+                    <!-- Category filter glass panel -->
+                    <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] backdrop-blur-xl space-y-4">
+                        <span class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider block">Categories</span>
+
+                        <div class="flex flex-wrap lg:flex-col gap-2" id="dashboard-filter-container">
+                            <button class="dashboard-filter-btn filter-btn active text-left flex items-center justify-between w-full" data-filter="all">
+                                <span>All Resources</span>
+                                <span class="text-[10px] bg-white/5 px-2 py-0.5 rounded font-mono">19</span>
+                            </button>
+                            <button class="dashboard-filter-btn filter-btn text-left flex items-center justify-between w-full" data-filter="audio">
+                                <span>Audio Recommendations</span>
+                                <span class="text-[10px] bg-white/5 px-2 py-0.5 rounded font-mono">6</span>
+                            </button>
+                            <button class="dashboard-filter-btn filter-btn text-left flex items-center justify-between w-full" data-filter="keyboard">
+                                <span>Keyboard Guides</span>
+                                <span class="text-[10px] bg-white/5 px-2 py-0.5 rounded font-mono">4</span>
+                            </button>
+                            <button class="dashboard-filter-btn filter-btn text-left flex items-center justify-between w-full" data-filter="mice">
+                                <span>Gaming Mice</span>
+                                <span class="text-[10px] bg-white/5 px-2 py-0.5 rounded font-mono">4</span>
+                            </button>
+                            <button class="dashboard-filter-btn filter-btn text-left flex items-center justify-between w-full" data-filter="monitor">
+                                <span>Display Rankings</span>
+                                <span class="text-[10px] bg-white/5 px-2 py-0.5 rounded font-mono">1</span>
+                            </button>
+                            <button class="dashboard-filter-btn filter-btn text-left flex items-center justify-between w-full" data-filter="printers">
+                                <span>3D Printing</span>
+                                <span class="text-[10px] bg-white/5 px-2 py-0.5 rounded font-mono">1</span>
+                            </button>
+                            <button class="dashboard-filter-btn filter-btn text-left flex items-center justify-between w-full text-red-400 hover:text-red-300 hover:bg-red-500/10 [&.active]:!bg-red-500/20 [&.active]:!border-red-500/40 [&.active]:!text-red-200" data-filter="warning">
+                                <span>Avoid / Warnings</span>
+                                <span class="text-[10px] bg-red-500/10 px-2 py-0.5 rounded font-mono text-red-400">3</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Disclaimer -->
+                    <div class="p-5 rounded-2xl bg-amber-500/[0.02] border border-amber-500/10 text-xs text-gray-400 leading-relaxed space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-amber-400 uppercase tracking-widest text-[10px]">
+                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            Database Disclaimer
+                        </div>
+                        <p>
+                            These databases are collated from trusted community enthusiasts and objective hardware evaluation metrics. Avoid purchasing brands flagged with warnings due to confirmed structural and latency failures.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Right Side: Scrollable Bento & Card Grid -->
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-left">
+
+                    <!-- 1. Simple Recs (Audio/Misc) - Featured (Spans 2 columns on desktop) -->
+                    <div class="resource-item md:col-span-2 soft-card glow-card float-card p-8 group" data-category="audio" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-6">
+                                    <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center text-blue-400 shadow-lg shadow-blue-500/5 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                                    </div>
+                                    <span class="px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-bold text-blue-400 uppercase tracking-widest">Featured</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-3">Simple Recommendation Sheet</h3>
+                                <p class="text-gray-400 mb-8 leading-relaxed font-medium">The ultimate guide for audio recommendations. Perfect for beginners looking to upgrade their sound without the audiophile jargon.</p>
+                            </div>
+                            <a href="https://docs.google.com/spreadsheets/d/1IpYhHzt151sio5rT_AvBSzpz1-kCfG1tqJ8Oa0Ra1_I/edit" target="_blank" class="inline-flex items-center gap-2 text-blue-400 font-bold hover:text-blue-300 transition-colors mt-auto self-start">
+                                Access Database <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2. NCR Speakers (Audio) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="audio" data-aos="fade-up" data-aos-delay="100">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center text-indigo-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Audio</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">NCR's Speaker Master Sheet</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Comprehensive speaker list for every budget tier.</p>
+                            </div>
+                            <a href="https://docs.google.com/spreadsheets/d/1UPhmxSuc2LHnxjcwCwIE9iGiRaOH0f0-HTqhu4A5jMo/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-indigo-600 hover:border-indigo-600 hover:text-white transition-all shadow-md">Open Sheet</a>
+                        </div>
+                    </div>
+
+                    <!-- 3. Monitor Ranking (Monitors) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="monitor" data-aos="fade-up" data-aos-delay="200">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Display</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Monitor Ranking List</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Tiered ranking and price tracking for monitors.</p>
+                            </div>
+                            <a href="https://docs.google.com/spreadsheets/d/1qCInWar0InXoyHYAwAnONcE-zxpQpMGP2uUUkz9iBkI/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-emerald-600 hover:border-emerald-600 hover:text-white transition-all shadow-md">Open Sheet</a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Hall Effect (Keyboard) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="keyboard" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-purple-500/10 border border-purple-500/20 rounded-xl flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2" ry="2" /><path d="M17 2v4M7 2v4M2 12h20" /></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Keebs</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Hall Effect Keyboards</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Deep dive into HE boards and manufacturer issues.</p>
+                            </div>
+                            <a href="https://docs.google.com/document/d/e/2PACX-1vSsjTA29tUSQDgT_FWmvX2nHg17RLzCXdZnBV2pdAWO2SqJmzeNl9EQNc2Yw2Cy4kHjIBcDVVCUgErC/pub" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-purple-600 hover:border-purple-600 hover:text-white transition-all shadow-md">Read Doc</a>
+                        </div>
+                    </div>
+
+                    <!-- 5. Subwoofer (Audio) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="audio" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center text-indigo-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Audio</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Subwoofer Master Sheet</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Specs and reviews for subwoofers.</p>
+                            </div>
+                            <a href="https://docs.google.com/spreadsheets/d/1dU5OOnf3nVgctJszmfyBjaxK69dkXte6ZL6anVTW2_M/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-indigo-600 hover:border-indigo-600 hover:text-white transition-all shadow-md">Open Sheet</a>
+                        </div>
+                    </div>
+
+                    <!-- 6. JST Batteries (Mice) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="mice" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-orange-500/10 border border-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Mice</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">JST Batteries</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Battery specs for mouse modding.</p>
+                            </div>
+                            <a href="https://docs.google.com/spreadsheets/d/12jjOAsstn5d8HCQ5f5Y3wgKbxemBJBxaIzOqEDu6hTc/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-orange-600 hover:border-orange-600 hover:text-white transition-all shadow-md">Open Sheet</a>
+                        </div>
+                    </div>
+
+                    <!-- 7. Warning: Aula -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group border-red-500/10 bg-red-500/[0.02]" data-category="warning" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center justify-center text-red-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-red-400 uppercase tracking-wider">Warning</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Avoid Aula</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Evidence regarding issues with Aula keyboards.</p>
+                            </div>
+                            <a href="https://imgur.com/a/aula-boards-are-not-hazardous-amazing-9D5pcXs" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-center text-xs font-bold text-red-300 hover:bg-red-500 hover:text-white transition-all shadow-md">Read Report</a>
+                        </div>
+                    </div>
+
+                    <!-- 8. Warning: Royal Kludge -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group border-red-500/10 bg-red-500/[0.02]" data-category="warning" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center justify-center text-red-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-red-400 uppercase tracking-wider">Warning</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Avoid Royal Kludge</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Evidence regarding issues with RK keyboards.</p>
+                            </div>
+                            <a href="https://imgur.com/a/royal-kludge-is-good-brand-you-should-buy-keyboards-x7LTFwp" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-center text-xs font-bold text-red-300 hover:bg-red-500 hover:text-white transition-all shadow-md">Read Report</a>
+                        </div>
+                    </div>
+
+                    <!-- 9. Warning: Madlions -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group border-red-500/10 bg-red-500/[0.02]" data-category="warning" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center justify-center text-red-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-red-400 uppercase tracking-wider">Warning</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Avoid Madlions</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Evidence regarding issues with Madlions boards.</p>
+                            </div>
+                            <a href="https://imgur.com/a/stop-buying-madlions-slop-S7lrqVu" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-center text-xs font-bold text-red-300 hover:bg-red-500 hover:text-white transition-all shadow-md">Read Report</a>
+                        </div>
+                    </div>
+
+                    <!-- 10. Tim Tuned (Audio) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="audio" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center text-indigo-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Audio</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Tim Tuned Rankings</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Tim Tuned's IEM Rankings.</p>
+                            </div>
+                            <a href="https://docs.google.com/spreadsheets/d/1lvI0ucbqjPXZLQKzqdycBD9ZKBuMSdd0e_bPzhJpJKo/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-indigo-600 hover:border-indigo-600 hover:text-white transition-all shadow-md">Open Sheet</a>
+                        </div>
+                    </div>
+
+                    <!-- 11. 3D Print (Printers) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="printers" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-pink-500/10 border border-pink-500/20 rounded-xl flex items-center justify-center text-pink-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">3D Print</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Filament Master Sheet</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Comprehensive list of filaments with reviews.</p>
+                            </div>
+                            <a href="https://docs.google.com/spreadsheets/d/1-moGrSlTVI7w-vad6vdJm2D3wruPa_xP_inucLQnpNI/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-pink-600 hover:border-pink-600 hover:text-white transition-all shadow-md">Open Sheet</a>
+                        </div>
+                    </div>
+
+                    <!-- 12. Mouse Encoders (Mice) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="mice" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-orange-500/10 border border-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Mice</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Encoder Heights</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Mouse Encoder Heights, useful for modding.</p>
+                            </div>
+                            <a href="https://docs.google.com/spreadsheets/d/1L8PUiSMGKeJsbjkb_DpT-I4cmfWR0M9EvvLGetNQj9Y/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-orange-600 hover:border-orange-600 hover:text-white transition-all shadow-md">Open Sheet</a>
+                        </div>
+                    </div>
+
+                    <!-- 13. SSD List (Audio/Misc) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="audio" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Audio</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">SSD List</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Specs and components for SSDs.</p>
+                            </div>
+                            <a href="https://docs.google.com/spreadsheets/u/0/d/1B27_j9NDPU3cNlj2HKcrfpJKHkOf-Oi1DbuuQva2gT4/htmlview" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all shadow-md">Open Sheet</a>
+                        </div>
+                    </div>
+
+                    <!-- 14. Wagyus IEM (Audio) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="audio" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center text-indigo-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Audio</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Wagyus IEM Sheet</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Recommended IEMs by Wagyu / nonillions.</p>
+                            </div>
+                            <a href="https://docs.google.com/spreadsheets/d/1chq1Bnvyg1GD3tham5wLV7M_8vKnaoaAc5hmW4w8oIU/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-indigo-600 hover:border-indigo-600 hover:text-white transition-all shadow-md">Open Sheet</a>
+                        </div>
+                    </div>
+
+                    <!-- 15. IEM Tips (Audio) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="audio" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center text-indigo-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Audio</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Guide to IEM Tips</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Reviews and statistics for IEM tips.</p>
+                            </div>
+                            <a href="https://www.audioreviews.org/guide-to-iem-silicone-eartips/#N" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-indigo-600 hover:border-indigo-600 hover:text-white transition-all shadow-md">Read Guide</a>
+                        </div>
+                    </div>
+
+                    <!-- 16. Trusted Reviewers (Keyboard) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="keyboard" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Keebs</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Trusted Reviewers</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">A list of trusted reviewers for all tech products.</p>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1hLYzW9wn_CwUULYESH_M7M111kjY6o3SPPO1dP-Ibbo/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all shadow-md">Open Doc</a>
+                        </div>
+                    </div>
+
+                    <!-- 17. Avoid Glorious (Mice) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="mice" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-orange-500/10 border border-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Mice</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Avoid Glorious</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Why you shouldn't buy Glorious mice in 2025.</p>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1SqNYQWtjCbrVbMYJyRn_sHOeMnqYkRR6EeOpRgZFxr8/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-orange-600 hover:border-orange-600 hover:text-white transition-all shadow-md">Open Doc</a>
+                        </div>
+                    </div>
+
+                    <!-- 18. Cheap OEM (Keyboard) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="keyboard" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-purple-500/10 border border-purple-500/20 rounded-xl flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Keebs</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Cheap OEM Issues</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Risks of low-cost, unbranded keyboards.</p>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1B3MDyurBbViumUZH1i0kON6PSKRvM0ZBFIiQtI6PKTE/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-purple-600 hover:border-purple-600 hover:text-white transition-all shadow-md">Open Doc</a>
+                        </div>
+                    </div>
+
+                    <!-- 19. Peripheral Reviewers (Keyboard) -->
+                    <div class="resource-item soft-card glow-card float-card p-6 group" data-category="keyboard" data-aos="fade-up">
+                        <div class="float-content flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-purple-500/10 border border-purple-500/20 rounded-xl flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Keebs</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Peripheral Reviewers</h3>
+                                <p class="text-gray-400 text-sm mb-6 leading-relaxed font-medium">Trusted reviewers for peripherals.</p>
+                            </div>
+                            <a href="https://docs.google.com/document/d/13AF_3HRoAlk_hLI7urlLaGVHXcP1gcGHjaf5Kd2JNgE/edit" target="_blank" class="mt-auto w-full py-2.5 rounded-xl bg-white/5 border border-white/5 text-center text-xs font-bold text-gray-300 hover:bg-purple-600 hover:border-purple-600 hover:text-white transition-all shadow-md">Open Doc</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </main>
 
     <div id="footer-placeholder"></div>
 
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('resource-search');
+            const buttons = document.querySelectorAll('.dashboard-filter-btn');
+            const items = document.querySelectorAll('.resource-item');
+
+            let activeFilter = 'all';
+            let searchQuery = '';
+
+            function filterResources() {
+                items.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    const titleElement = item.querySelector('h3');
+                    const descElement = item.querySelector('p');
+
+                    const title = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    const desc = descElement ? descElement.textContent.toLowerCase() : '';
+
+                    const matchesCategory = activeFilter === 'all' || category === activeFilter;
+                    const matchesSearch = title.includes(searchQuery) || desc.includes(searchQuery);
+
+                    if (matchesCategory && matchesSearch) {
+                        item.classList.remove('hidden');
+                        setTimeout(() => item.classList.add('aos-animate'), 10);
+                    } else {
+                        item.classList.add('hidden');
+                        item.classList.remove('aos-animate');
+                    }
+                });
+
+                if (typeof AOS !== 'undefined') {
+                    setTimeout(() => AOS.refresh(), 100);
+                }
+            }
+
+            // Wire up filter buttons
+            buttons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeFilter = btn.getAttribute('data-filter');
+                    filterResources();
+                });
+            });
+
+            // Wire up search input
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    searchQuery = e.target.value.toLowerCase().trim();
+                    filterResources();
+                });
+            }
+        });
+    </script>
 </body>
 </html>

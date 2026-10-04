@@ -1,31 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#05060b">
-    <meta name="robots" content="noindex">
-    <title>Page not found | Bepsi</title>
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <title>404 Not Found | Bepsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="preload" href="/header.html" as="fetch" crossorigin>
+    <link rel="preload" href="/footer.html" as="fetch" crossorigin>
+    <link rel="icon" type="image/png" href="/images/website-logo.png">
     <link rel="stylesheet" href="/assets/utilities.css">
     <link rel="stylesheet" href="/style.css">
-    <script src="/main.js" defer></script>
+    <link rel="stylesheet" href="/refresh.css">
+    <script src="/enhancements.js" defer></script>
+    <link rel="canonical" href="https://bepsi.dev/404.html">
+    <meta name="theme-color" content="#101211">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="404 Not Found | Bepsi: hardware notes, projects and tools from Bepsi.">
 </head>
-<body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <noscript><nav class="noscript-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
+<body class="selection:bg-blue-500 selection:text-white">
+    <div class="scanlines"></div>
+
+    <!-- Background Layer System -->
+    <div class="bg-grid-pattern"></div>
+    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
+    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
+    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
+
     <div id="header-placeholder"></div>
-    <main id="main-content" tabindex="-1">
-        <section class="setup-hero cosmic-hero error-hero">
-            <div class="hero-cosmic-layer" aria-hidden="true"><div class="hero-orbit"></div><div class="hero-orbit"></div><div class="hero-orbit"></div></div>
-            <div class="hero-inner">
-                <span class="hero-pill">404 / Page not found</span>
-                <h1 class="hero-title">Lost in <span>orbit.</span></h1>
-                <p class="hero-lead">This page may have moved, or the address may be a little off. Let's get you back to the lab.</p>
-                <div class="home-actions error-actions"><a class="button button-primary" href="/">Back to home <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="/resources1.html">Browse resources <span aria-hidden="true">→</span></a></div>
+
+    <main tabindex="-1" id="main-content" class="relative z-10 pt-40 pb-20 min-h-[70vh] flex flex-col justify-center items-center text-center">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <h1 class="text-7xl md:text-8xl font-extrabold text-blue-400 mb-6 font-mono leading-none tracking-tight">
+                Error <span class="text-gradient-cyan-indigo">404</span>
+            </h1>
+            <h2 class="text-3xl font-extrabold text-white mb-4">Dead Socket.</h2>
+            <div class="max-w-xl mx-auto text-lg text-gray-400 mb-10 leading-relaxed font-medium">
+                <p>
+                    Looks like the page you are trying to visit has been unplugged or doesn't exist. Let's redirect that bandwidth back to safety.
+                </p>
             </div>
-        </section>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/index.html" class="btn-navy py-3 px-8 text-base">
+                    Return Home
+                </a>
+                <button type="button" data-search-trigger class="btn-outline py-3 px-6 text-sm">
+                    Search Site
+                </button>
+            </div>
+        </div>
     </main>
+
     <div id="footer-placeholder"></div>
+
+    <script src="/main.js"></script>
 </body>
 </html>

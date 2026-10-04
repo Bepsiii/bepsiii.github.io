@@ -3,42 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>About Me | Bepsi</title>
-    <meta name="description" content="A page template for the Bepsi digital lab.">
-
-    <link rel="stylesheet" href="/assets/utilities.css">
-    <link rel="stylesheet" href="/style.css">
-    <script src="/main.js" defer></script>
-    <meta name="theme-color" content="#05060b">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <meta name="robots" content="noindex">
+    <title>Template | Bepsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="preload" href="header.html" as="fetch" crossorigin>
+    <link rel="preload" href="footer.html" as="fetch" crossorigin>
+    <link rel="icon" type="image/png" href="images/website-logo.png">
+    <link rel="stylesheet" href="assets/utilities.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="refresh.css">
+    <script src="enhancements.js" defer></script>
+    <link rel="canonical" href="https://bepsi.dev/template.html">
+    <meta name="theme-color" content="#101211">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="Template | Bepsi: hardware notes, projects and tools from Bepsi.">
 </head>
-<body class="transition-colors duration-500">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+<body class="selection:bg-blue-500 selection:text-white">
+    <div class="scanlines"></div>
 
-    <noscript><nav class="noscript-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
+    <!-- Background Layer System -->
+    <div class="bg-grid-pattern"></div>
+    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
+    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
+    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
+
+    <noscript><nav class="noscript-links" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
     <div id="header-placeholder"></div>
 
-    <main id="main-content" class="relative z-20 bg-stone-950 pt-40 pb-20" tabindex="-1">
+    <main tabindex="-1" id="main-content" class="relative z-10 pt-32 pb-20">
         <div class="container mx-auto px-6">
-            <h1 class="text-5xl font-bold text-sky-400 text-center mb-6" data-aos="fade-up">
-                About This Site
-            </h1>
-            <div class="max-w-3xl mx-auto text-lg text-gray-300 space-y-6" data-aos="fade-up" data-aos-delay="100">
-                <p>
-                    This is the about page. You can write all your content for this specific page right here.
-                    The header and footer are automatically loaded from `header.html` and `footer.html`.
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
+                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Boilerplate</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-none">
+                    Template <span class="text-gradient-cyan-indigo">Page</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed">
+                    A clean starting point for custom pages matching your premium styling guidelines.
                 </p>
-                <p>
-                    All the styling comes from `style.css`, and all the functionality comes from `main.js`.
-                    This means you can change the navigation menu in one file, and it will update across the entire site.
-                </p>
+            </div>
+
+            <!-- Content Card -->
+            <div class="soft-card glow-card float-card max-w-3xl mx-auto p-8 md:p-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="float-content space-y-6">
+                    <h2 class="text-2xl font-bold text-white mb-4">About This Site Template</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        This is a template page. You can write all your custom HTML content for this specific page right here inside the layout container.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        The navigation header and footer blocks are automatically injected from <code class="text-blue-400 font-mono text-sm bg-white/5 px-1.5 py-0.5 rounded">header.html</code> and <code class="text-blue-400 font-mono text-sm bg-white/5 px-1.5 py-0.5 rounded">footer.html</code> files via JavaScript during client loading.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        All styles are controlled centrally in <code class="text-blue-400 font-mono text-sm bg-white/5 px-1.5 py-0.5 rounded">style.css</code>, and the custom spotlights, interactive 2D glass float parallax transitions, and scroll triggers are initialized dynamically by <code class="text-blue-400 font-mono text-sm bg-white/5 px-1.5 py-0.5 rounded">main.js</code>.
+                    </p>
+                </div>
             </div>
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
 
+    <script src="main.js"></script>
 </body>
 </html>
