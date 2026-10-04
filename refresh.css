@@ -2,7 +2,7 @@
 :root { --color-accent-primary: #60a5fa; --color-accent-hover: #93c5fd; --color-accent-light: #60a5fa; --color-accent-glow: #60a5fa18; }
 body { background-color: var(--bg-body); }
 .home-page { animation: none; }
-:root, [data-theme="dark"] { --bg-body: #080d18; --bg-surface: #101a2c; --bg-card: #101a2cdd; --accent-navy: #3b82f6; --accent-navy-dark: #1d4ed8; --accent-text: #60a5fa; }
+:root:not([data-theme="light"]), [data-theme="dark"] { --bg-body: #080d18; --bg-surface: #101a2c; --bg-card: #101a2cdd; --accent-navy: #3b82f6; --accent-navy-dark: #1d4ed8; --accent-text: #60a5fa; }
 .site-container { width: min(1280px, calc(100% - 64px)); margin-inline: auto; }
 .home-hero-grid { display: grid; grid-template-columns: 1.08fr 1fr; align-items: center; }
 .eyebrow { display: inline-block; font-size: .68rem; text-transform: uppercase; letter-spacing: .13em; color: #60a5fa; }
@@ -57,6 +57,10 @@ body { background-color: var(--bg-body); }
 [data-theme="light"] .eyebrow, [data-theme="light"] .card-link, [data-theme="light"] .text-link { color: #2563eb; }
 [data-theme="light"] .home-intro h1 span { color: #2563eb; -webkit-text-fill-color: #2563eb; }
 [data-theme="light"] .save-resource { color: #1d4ed8; border-color: #1d4ed866; }
+[data-theme="light"] #navbar a[aria-label="Bepsi Home"] img { filter: brightness(0); }
+[data-theme="light"] .cookie-banner h4 { color: var(--text-heading); }
+[data-theme="light"] .cookie-banner p { color: #475569; }
+[data-theme="light"] .cookie-banner { box-shadow: 0 16px 48px #20385220; }
 .home-page footer { margin-top: 0 !important; }
 .noscript-links { display: flex; flex-wrap: wrap; gap: 20px; padding: 24px; border-bottom: 1px solid var(--border-subtle); }
 nav[aria-label="Setup Sections"] { max-width: 100%; }

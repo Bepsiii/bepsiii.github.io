@@ -22,8 +22,11 @@
     <link rel="stylesheet" href="assets/utilities.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="refresh.css">
+    <link rel="stylesheet" href="polish.css">
     <script src="main.js" defer></script>
     <script src="enhancements.js" defer></script>
+    <script src="visual-polish.js" defer></script>
+    <script type="module" src="home-scene.js"></script>
 </head>
 <body class="home-page">
     <a href="#main-content" class="skip-link">Skip to content</a>
@@ -31,6 +34,7 @@
     <noscript><nav class="site-container home-wayfinding" aria-label="Main navigation"><a href="about.html">About</a><a href="reviews.html">Reviews</a><a href="resources1.html">Resources</a><a href="setup.html">Setup</a><a href="contact.html">Contact</a></nav></noscript>
     <main id="main-content" tabindex="-1">
         <section class="home-hero" aria-labelledby="home-title">
+            <div id="hero-scene" class="hero-scene" aria-hidden="true"></div>
             <div class="site-container home-hero-grid">
                 <div class="home-intro">
                     <span class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Bepsi / London</span>
@@ -45,7 +49,7 @@
                     <div class="showcase-image"><img src="images/optimized/setup-setup1-1280.webp" srcset="images/optimized/setup-setup1-640.webp 640w, images/optimized/setup-setup1-1280.webp 1280w" sizes="(max-width: 767px) 90vw, 560px" width="1280" height="720" fetchpriority="high" alt="My desk, monitors, speakers, keyboard, and headphones" decoding="async"></div>
                     <div class="showcase-caption"><div><span class="eyebrow">The gear I use</span><h2>My desk<br>and hardware.</h2></div><span class="round-arrow" aria-hidden="true">↗</span></div>
                 </a>
-                <div class="hero-footnote"><span>Resources · PC hardware · Peripherals · Audio</span><a href="#resources">Browse the site <span aria-hidden="true">↓</span></a></div>
+                <div class="hero-footnote"><span>Resources · PC hardware · Peripherals · Audio</span><div class="hero-footnote-actions"><button type="button" id="scene-toggle" class="motion-toggle" aria-pressed="false" hidden>Pause motion</button><a href="#resources">Browse the site <span aria-hidden="true">↓</span></a></div></div>
             </div>
         </section>
         <section id="resources" class="home-section">

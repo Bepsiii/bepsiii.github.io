@@ -1580,7 +1580,7 @@ function initSetupScrollSpy() {
     const copySpecsBtn = document.getElementById('copy-specs-btn');
     if (copySpecsBtn) {
         copySpecsBtn.addEventListener('click', () => {
-            const specsSummary = `Bepsi's Battlestation Specs:\n• CPU: Intel i7-12700KF (240W Power Limit)\n• GPU: AMD Radeon RX 6800 OC (16GB GDDR6)\n• RAM: 32GB DDR4 3600MHz Dual Channel\n• Cooler: Arctic Liquid Freezer II 240mm\n• Audio: Sennheiser HD580, HD 480 Pro Classic, Topping DX5 II DAC\n• Mouse: XM2we Wireless / SayoDevice O3C / Artisan Zero`;
+            const specsSummary = "Bepsi's setup\n\n" + [...document.querySelectorAll('#workstation, #peripherals, #audio, #ecosystem')].map(section => section.dataset.originalSpecs || section.innerText.trim()).join('\n\n');
             navigator.clipboard.writeText(specsSummary).then(() => {
                 Toast.show('Full system specs copied to clipboard!');
             }).catch(() => {
