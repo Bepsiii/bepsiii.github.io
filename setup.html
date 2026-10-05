@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,434 +13,168 @@
     <link rel="stylesheet" href="assets/utilities.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="refresh.css">
+    <link rel="stylesheet" href="site-refinement.css">
     <link rel="stylesheet" href="polish.css">
+    <link rel="stylesheet" href="scenes.css">
+    <link rel="stylesheet" href="setup-refinement.css">
     <script src="enhancements.js" defer></script>
     <script src="setup-explorer.js" defer></script>
     <script src="visual-polish.js" defer></script>
+    <script src="page-scenes.js" type="module"></script>
     <link rel="canonical" href="https://bepsi.dev/setup.html">
     <meta name="theme-color" content="#080d18">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="description" content="My Setup - Bepsi: hardware notes, projects and tools from Bepsi.">
+    <meta name="description" content="The hardware on my desk: PC components, keyboards, mice, audio equipment, and supporting tools.">
 </head>
-
 <body class="setup-page selection:bg-blue-500 selection:text-white bg-[#06080c] text-zinc-200 overflow-x-hidden">
     <noscript><nav class="noscript-links" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
     <div id="header-placeholder"></div>
-
-    <!-- Ambient Glow System -->
-    <div class="bg-grid-pattern opacity-40"></div>
-    <div class="glow-blob bg-blue-500/8 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] -top-32 -left-32"></div>
-    <div class="glow-blob bg-indigo-500/5 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] top-1/2 right-0"></div>
-
+    <div class="bg-grid-pattern opacity-40" aria-hidden="true"></div>
     <main tabindex="-1" id="main-content" class="relative z-10 pt-28 sm:pt-32 md:pt-36 pb-20 md:pb-32">
         <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
-
-            <!-- Page Header -->
-            <header class="mb-10 sm:mb-16" data-aos="fade-down">
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 pb-6 sm:pb-8 border-b border-blue-500/[0.12]">
+            <header class="setup-header">
+                <div class="setup-header-layout">
                     <div>
-                        <span class="text-blue-400 font-mono text-[11px] sm:text-xs uppercase tracking-widest font-bold block mb-1.5 sm:mb-2">Hardware Archive</span>
-                        <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
-                            Setup <span class="text-gradient-cyan-indigo">&amp; Battlestation</span>
-                        </h1>
-                        <p class="text-zinc-400 text-sm sm:text-base md:text-lg font-medium mt-2.5 max-w-2xl leading-relaxed">
-                            My PC, peripherals, audio equipment, and desk hardware.
-                        </p>
+                        <span class="eyebrow">Hardware archive</span>
+                        <h1>Setup <span>&amp; Battlestation</span></h1>
+                        <p>My PC, peripherals, audio equipment, and desk hardware.</p>
                     </div>
-
-                    <!-- Actions & Category Jump Bar -->
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                        <button type="button" id="copy-specs-btn" class="shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold text-blue-400 bg-blue-500/10 border border-blue-400/20 hover:bg-blue-500/20 hover:border-blue-400/40 transition-all flex items-center gap-1.5 shadow-sm cursor-pointer" title="Copy specs summary to clipboard">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
-                            <span>Copy Specs</span>
-                        </button>
-
-                        <nav class="flex flex-nowrap overflow-x-auto no-scrollbar gap-2 pb-1 sm:pb-0 sm:flex-wrap -mx-4 px-4 sm:mx-0 sm:px-0" aria-label="Setup Sections">
-                            <a href="#workstation" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-semibold text-zinc-300 bg-[#0f1420] border border-blue-400/[0.1] hover:bg-[#131b2c] hover:text-white hover:border-blue-400/[0.25] transition-all flex items-center gap-1.5 sm:gap-2 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Workstation
-                            </a>
-                            <a href="#peripherals" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-semibold text-zinc-300 bg-[#0f1420] border border-blue-400/[0.1] hover:bg-[#131b2c] hover:text-white hover:border-blue-400/[0.25] transition-all flex items-center gap-1.5 sm:gap-2 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg> Peripherals
-                            </a>
-                            <a href="#audio" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-semibold text-zinc-300 bg-[#0f1420] border border-blue-400/[0.1] hover:bg-[#131b2c] hover:text-white hover:border-blue-400/[0.25] transition-all flex items-center gap-1.5 sm:gap-2 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg> Audio
-                            </a>
-                            <a href="#ecosystem" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-semibold text-zinc-300 bg-[#0f1420] border border-blue-400/[0.1] hover:bg-[#131b2c] hover:text-white hover:border-blue-400/[0.25] transition-all flex items-center gap-1.5 sm:gap-2 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg> Desk &amp; Lab
-                            </a>
-                        </nav>
-                    </div>
+                    <button type="button" id="copy-specs-btn" class="setup-copy-button" title="Copy specs summary to clipboard">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                        <span>Copy Specs</span>
+                    </button>
                 </div>
+                <nav class="setup-static-nav" aria-label="Setup Sections">
+                    <a href="#workstation">Workstation</a><a href="#peripherals">Peripherals</a><a href="#audio">Audio</a><a href="#ecosystem">Desk &amp; Lab</a>
+                </nav>
             </header>
 
-            <div class="space-y-12 sm:space-y-16 md:space-y-20">
-
-                <!-- SECTION 01: WORKSTATION -->
-                <section id="workstation" class="scroll-mt-28 space-y-4 sm:space-y-6" data-aos="fade-up">
-                    <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Main Workstation</h2>
-
-                    <!-- Workstation Showcase Card (Subtle Blue Tinted Dark Surface) -->
-                    <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl shadow-blue-950/20 group">
-                        <div class="relative w-full">
-                            <!-- Hero Image Banner with Natural Responsive Aspect Ratio -->
-                            <div class="relative w-full aspect-[16/10] sm:aspect-video md:aspect-[21/9] min-h-[220px] max-h-[440px] overflow-hidden bg-black">
-                                <img src="images/setup/section1.webp"
-
-                                    alt="The Battlestation"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90" width="6912" height="5184" decoding="async" loading="lazy">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#0b0e14] via-[#0b0e14]/40 to-transparent"></div>
-
-
-                            </div>
-
-                            <!-- Specs Breakdown Grid -->
-                            <div class="p-4 sm:p-6 md:p-8 bg-[#0b0e14] border-t border-blue-500/[0.12] space-y-4 sm:space-y-6">
-                                <!-- Top 4 Core Specs -->
-                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
-                                    <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                        <span class="text-[10px] sm:text-[11px] font-medium text-zinc-400 block mb-0.5 sm:mb-1">Processor</span>
-                                        <div class="text-white font-extrabold text-sm sm:text-base">i7 12700KF</div>
-                                        <span class="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5 sm:mt-1 block">240W Power Limit</span>
-                                    </div>
-                                    <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                        <span class="text-[10px] sm:text-[11px] font-medium text-zinc-400 block mb-0.5 sm:mb-1">Graphics</span>
-                                        <div class="text-white font-extrabold text-sm sm:text-base">RX 6800 OC</div>
-                                        <span class="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5 sm:mt-1 block">16GB GDDR6</span>
-                                    </div>
-                                    <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                        <span class="text-[10px] sm:text-[11px] font-medium text-zinc-400 block mb-0.5 sm:mb-1">Memory</span>
-                                        <div class="text-white font-extrabold text-sm sm:text-base">32GB 3600MHz</div>
-                                        <span class="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5 sm:mt-1 block">DDR4 Dual Ch</span>
-                                    </div>
-                                    <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                        <span class="text-[10px] sm:text-[11px] font-medium text-zinc-400 block mb-0.5 sm:mb-1">Cooling</span>
-                                        <div class="text-white font-extrabold text-sm sm:text-base truncate">Liquid Freezer II</div>
-                                        <span class="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5 sm:mt-1 block">240mm AIO</span>
-                                    </div>
-                                </div>
-
-                                <!-- Detailed Hardware Manifest -->
-                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 text-xs pt-1 sm:pt-2">
-                                    <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center hover:border-blue-400/[0.22] transition-colors">
-                                        <span class="text-zinc-400 font-medium">Motherboard</span>
-                                        <span class="text-white font-semibold font-mono text-right">ASRock B660M Pro RS</span>
-                                    </div>
-                                    <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center hover:border-blue-400/[0.22] transition-colors">
-                                        <span class="text-zinc-400 font-medium">Power Supply</span>
-                                        <span class="text-white font-semibold font-mono text-right">Corsair RM750x</span>
-                                    </div>
-                                    <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center hover:border-blue-400/[0.22] transition-colors">
-                                        <span class="text-zinc-400 font-medium">Primary Storage</span>
-                                        <span class="text-white font-semibold font-mono text-right">1TB WD SN570</span>
-                                    </div>
-                                    <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center hover:border-blue-400/[0.22] transition-colors">
-                                        <span class="text-zinc-400 font-medium">Secondary &amp; Archive</span>
-                                        <span class="text-white font-semibold font-mono text-right">1TB SSD + 4TB HDD</span>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="setup-inventory">
+                <section id="workstation" class="inventory-section" aria-labelledby="workstation-title">
+                    <h2 id="workstation-title">Main Workstation</h2>
+                    <div class="workstation-layout">
+                        <div class="gear-panel component-board">
+                            <div class="panel-heading"><h3>Core components</h3><span class="panel-meta">PC</span></div>
+                            <dl class="core-specs">
+                                <div><dt>Processor</dt><dd>i7 12700KF</dd><dd class="spec-note">240W Power Limit</dd></div>
+                                <div><dt>Graphics</dt><dd>RX 6800 OC</dd><dd class="spec-note">16GB GDDR6</dd></div>
+                                <div><dt>Memory</dt><dd>32GB 3600MHz</dd><dd class="spec-note">DDR4 Dual Ch</dd></div>
+                                <div><dt>Cooling</dt><dd>Liquid Freezer II</dd><dd class="spec-note">240mm AIO</dd></div>
+                            </dl>
+                            <dl class="spec-rows component-manifest">
+                                <div><dt>Motherboard</dt><dd>ASRock B660M Pro RS</dd></div>
+                                <div><dt>Power Supply</dt><dd>Corsair RM750x</dd></div>
+                                <div><dt>Primary Storage</dt><dd>1TB WD SN570</dd></div>
+                                <div><dt>Secondary &amp; Archive</dt><dd>1TB SSD + 4TB HDD</dd></div>
+                            </dl>
                         </div>
-                    </div>
-                </section>
-
-                <!-- SECTION 02: PERIPHERALS -->
-                <section id="peripherals" class="scroll-mt-28 space-y-4 sm:space-y-6" data-aos="fade-up">
-                    <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Peripherals &amp; Input</h2>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-                        <!-- Mice & Surfaces Panel -->
-                        <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6 shadow-xl shadow-blue-950/20 flex flex-col">
-                            <div class="space-y-4 sm:space-y-6">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-3 sm:pb-4">
-                                    <h3 class="text-base sm:text-lg font-bold text-white">Mice &amp; Surfaces</h3>
-                                    <span class="text-[10px] font-medium text-zinc-400">Input Stack</span>
-                                </div>
-
-                                <!-- Mice Rotation -->
-                                <div class="space-y-2.5 sm:space-y-3">
-                                    <span class="text-[10px] font-medium text-zinc-400 block">Mice rotation</span>
-                                    <div class="space-y-2">
-                                        <div class="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex justify-between items-center gap-2">
-                                            <div class="min-w-0 flex-1">
-                                                <div class="text-xs font-bold text-white truncate">Pulsar X2 Crazylight Mini</div>
-                                                <div class="text-[11px] text-zinc-400">Boardzy Edition</div>
-                                            </div>
-                                            <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Primary</span>
-                                        </div>
-                                        <div class="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex justify-between items-center gap-2">
-                                            <div class="min-w-0 flex-1">
-                                                <div class="text-xs font-bold text-white truncate">WLMouse BeastX Pro Mini</div>
-                                                <div class="text-[11px] text-zinc-400">Magnesium Alloy</div>
-                                            </div>
-                                            <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Secondary</span>
-                                        </div>
-                                        <div class="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex justify-between items-center gap-2">
-                                            <div class="min-w-0 flex-1">
-                                                <div class="text-xs font-bold text-white truncate">Zowie ZA13-C &amp; ZA13-B</div>
-                                                <div class="text-[11px] text-zinc-400">High Hump Ergonomics</div>
-                                            </div>
-                                            <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Reserve</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Surfaces -->
-                                <div class="space-y-2.5 sm:space-y-3 pt-1">
-                                    <span class="text-[10px] font-medium text-zinc-400 block">Surfaces &amp; mousepads</span>
-                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
-                                        <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                            <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Mousepad</span>
-                                            <div class="text-xs font-bold text-white leading-snug">Tenta-X Sente V2</div>
-                                        </div>
-                                        <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                            <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Control-hybrid</span>
-                                            <div class="text-xs font-bold text-white leading-snug">Matrova Vein 490</div>
-                                        </div>
-                                        <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                            <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Speed-control</span>
-                                            <div class="text-xs font-bold text-white leading-snug">Puretrak P51</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Keyboards Panel -->
-                        <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6 shadow-xl shadow-blue-950/20 flex flex-col">
-                            <div class="space-y-4 sm:space-y-6">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-3 sm:pb-4">
-                                    <h3 class="text-base sm:text-lg font-bold text-white">Custom Keyboards</h3>
-                                    <span class="text-[10px] font-medium text-zinc-400">Mechanical</span>
-                                </div>
-
-                                <div class="space-y-3 sm:space-y-4">
-                                    <!-- Keyboard 1 -->
-                                    <div class="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all space-y-2.5 sm:space-y-3">
-                                        <div class="flex justify-between items-center gap-2">
-                                            <h4 class="text-sm sm:text-base font-extrabold text-white truncate">ENVKB 65m</h4>
-                                            <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Grail</span>
-                                        </div>
-                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                                            <div class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.08]">
-                                                <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Switches</span>
-                                                <span class="text-zinc-200 font-medium">Kang White V2</span>
-                                            </div>
-                                            <div class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.08]">
-                                                <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Keycaps</span>
-                                                <span class="text-zinc-200 font-medium">Alfei WOB Doubleshot</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Keyboard 2 -->
-                                    <div class="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all space-y-2.5 sm:space-y-3">
-                                        <div class="flex justify-between items-center gap-2">
-                                            <h4 class="text-sm sm:text-base font-extrabold text-white truncate">Geonworks Frog Mini</h4>
-                                            <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Daily</span>
-                                        </div>
-                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                                            <div class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.08]">
-                                                <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Board &amp; switches</span>
-                                                <span class="text-zinc-200 font-medium truncate block">Legerra // TTC Flip KOM</span>
-                                            </div>
-                                            <div class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.08]">
-                                                <span class="text-[10px] font-medium text-zinc-400 block mb-0.5">Keycaps</span>
-                                                <span class="text-zinc-200 font-medium">KKB OHM</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SECTION 03: AUDIO & ACOUSTICS -->
-                <section id="audio" class="scroll-mt-28 space-y-4 sm:space-y-6" data-aos="fade-up">
-                    <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Audio &amp; Acoustics</h2>
-
-                    <!-- Clean 4-Column Directory (Subtle Blue Tinted Boxes) -->
-                    <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl shadow-blue-950/20">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-
-                            <!-- Monitoring -->
-                            <div class="space-y-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex flex-col">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-2.5">
-                                    <span class="text-xs font-bold text-white">Monitoring</span>
-                                    <span class="text-[10px] font-medium text-zinc-400">Studio</span>
-                                </div>
-                                <ul class="space-y-2 sm:space-y-2.5 flex-1">
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Sennheiser HD 580</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Reference</span>
-                                    </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Sennheiser HD 480 Pro</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Comfort</span>
-                                    </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Kali Audio LP-8 v2</span>
-                                        <span class="shrink-0 text-[10px] text-zinc-400">Monitors</span>
-                                    </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Tannoy TS2.10</span>
-                                        <span class="shrink-0 text-[10px] text-zinc-400">Active Sub</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Flatheads & In-Ears -->
-                            <div class="space-y-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex flex-col">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-2.5">
-                                    <span class="text-xs font-bold text-white">Flatheads &amp; In-Ears</span>
-                                    <span class="text-[10px] font-medium text-zinc-400">Earphones</span>
-                                </div>
-                                <ul class="space-y-2 sm:space-y-2.5 flex-1">
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Yincrow X6</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Flatheads</span>
-                                    </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Clone Sennheiser IE900</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">IEM</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Amplification & Processing -->
-                            <div class="space-y-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex flex-col">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-2.5">
-                                    <span class="text-xs font-bold text-white">Amplification</span>
-                                    <span class="text-[10px] font-medium text-zinc-400">Processing</span>
-                                </div>
-                                <ul class="space-y-2 sm:space-y-2.5 flex-1">
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">FIIO K15</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">DAC/Amp</span>
-                                    </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Schiit Vali 2</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Tube Amp</span>
-                                    </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Tungsram ECC88</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">NOS Tube</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Portable & DAP -->
-                            <div class="space-y-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.08] hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all flex flex-col">
-                                <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-2.5">
-                                    <span class="text-xs font-bold text-white">Portable &amp; DAP</span>
-                                    <span class="text-[10px] font-medium text-zinc-400">Mobile</span>
-                                </div>
-                                <ul class="space-y-2 sm:space-y-2.5 flex-1">
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Pixel 8 Pro</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">DAP</span>
-                                    </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Oppo Find X9 Ultra</span>
-                                        <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Phone</span>
-                                    </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Sony WF-1000XM6</span>
-                                        <span class="shrink-0 text-[10px] text-zinc-400">TWS</span>
-                                    </li>
-                                    <li class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0b0e14] border border-blue-500/[0.06] flex justify-between items-center gap-2 text-xs">
-                                        <span class="font-semibold text-white truncate">Earfun Clip 1</span>
-                                        <span class="shrink-0 text-[10px] text-zinc-400">Sport</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SECTION 04: DESK & HOMELAB -->
-                <section id="ecosystem" class="scroll-mt-28 space-y-4 sm:space-y-6" data-aos="fade-up">
-                    <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Supporting Compute &amp; Desk Tools</h2>
-
-                    <!-- Compute Hardware Dual Column -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                        <!-- Primary Laptop -->
-                        <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex items-center gap-3.5 sm:gap-4 hover:border-blue-400/[0.25] transition-all shadow-xl shadow-blue-950/20">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.1] text-white flex items-center justify-center shrink-0">
-                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        <figure class="rig-visual">
+                            <div class="rig-scene page-scene" data-scene="rig" aria-hidden="true">
+                                <svg class="rig-fallback" viewBox="0 0 400 330" fill="none" aria-hidden="true">
+                                    <path d="M200 48 335 125 200 202 65 125Z M200 95 335 172 200 249 65 172Z M200 142 335 219 200 296 65 219Z" stroke="currentColor"/>
+                                    <path d="M65 125v94M335 125v94M200 202v94M200 48v94" stroke="currentColor" stroke-dasharray="3 5"/>
+                                    <path d="m200 116 43 25-43 25-43-25Z" stroke="currentColor"/>
                                 </svg>
                             </div>
-                            <div class="min-w-0 flex-1">
-                                <div class="flex items-center justify-between gap-2">
-                                    <h3 class="text-sm sm:text-base font-extrabold text-white tracking-tight truncate">MSI Prestige 13 A1M</h3>
-                                    <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Laptop</span>
-                                </div>
-                                <p class="text-xs text-zinc-400 mt-0.5 sm:mt-1 truncate">Ultra 7 155H · 32GB · 1TB OLED</p>
-                            </div>
-                        </div>
-
-                        <!-- Home Server -->
-                        <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex items-center gap-3.5 sm:gap-4 hover:border-blue-400/[0.25] transition-all shadow-xl shadow-blue-950/20">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#0f1420] border border-blue-400/[0.1] text-white flex items-center justify-center shrink-0">
-                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
-                                </svg>
-                            </div>
-                            <div class="min-w-0 flex-1">
-                                <div class="flex items-center justify-between gap-2">
-                                    <h3 class="text-sm sm:text-base font-extrabold text-white tracking-tight truncate">GEEKOM A5 Pro (2026)</h3>
-                                    <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[10px] font-mono font-medium">Server</span>
-                                </div>
-                                <p class="text-xs text-zinc-400 mt-0.5 sm:mt-1 truncate">Ryzen 7 5825U · 16GB · Win 11 Pro</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Environment & Measurement Specs -->
-                    <div class="bg-[#0b0e14] border border-blue-500/[0.12] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl shadow-blue-950/20">
-                        <div class="space-y-3 sm:space-y-4">
-                            <div class="flex items-center justify-between border-b border-blue-500/[0.1] pb-2.5 sm:pb-3">
-                                <span class="text-xs font-bold text-white">Desk Calibration &amp; Environment Tools</span>
-                                <span class="text-[10px] font-medium text-zinc-400">Accessories</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 text-xs">
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                    <span class="text-white font-medium truncate">MiniDSP UMIK-1</span>
-                                    <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Measurement</span>
-                                </div>
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                    <span class="text-white font-medium truncate">Marantz MPM1000U</span>
-                                    <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Microphone</span>
-                                </div>
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                    <span class="text-white font-medium truncate">Govee H61E5 &amp; H6056</span>
-                                    <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Lighting</span>
-                                </div>
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                    <span class="text-white font-medium truncate">Stagg Tabletop Monitor Stands</span>
-                                    <span class="shrink-0 text-[10px] text-zinc-400">Stands</span>
-                                </div>
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                    <span class="text-white font-medium truncate">Dual Wali Monitor Arms</span>
-                                    <span class="shrink-0 text-[10px] text-zinc-400">Mounting</span>
-                                </div>
-                                <div class="p-3 sm:p-3.5 rounded-xl bg-[#0f1420] border border-blue-400/[0.08] flex justify-between items-center gap-2 hover:border-blue-400/[0.22] hover:bg-[#131b2c] transition-all">
-                                    <span class="text-white font-medium truncate">Cablecove &amp; Ugreen Zapix</span>
-                                    <span class="shrink-0 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 text-[9px] font-mono font-medium">Power</span>
-                                </div>
-                            </div>
-                        </div>
+                            <button type="button" class="rig-motion-toggle" data-scene-toggle hidden>Pause motion</button>
+                            <figcaption><span class="eyebrow">Workstation schematic</span><p>An abstract view of the display, inputs and PC components.</p></figcaption>
+                        </figure>
                     </div>
                 </section>
 
+                <section id="peripherals" class="inventory-section" aria-labelledby="peripherals-title">
+                    <h2 id="peripherals-title">Peripherals &amp; Input</h2>
+                    <div class="gear-columns">
+                        <article class="gear-panel">
+                            <div class="panel-heading"><h3>Mice &amp; Surfaces</h3><span class="panel-meta">Input Stack</span></div>
+                            <h4 class="gear-group-label">Mice rotation</h4>
+                            <ul class="gear-list mouse-inventory">
+                                <li class="gear-entry"><div><strong data-gear-name>Pulsar X2 Crazylight Mini</strong><span class="gear-note">Boardzy Edition</span></div><span class="gear-tag" data-gear-role>Primary</span></li>
+                                <li class="gear-entry"><div><strong data-gear-name>WLMouse BeastX Pro Mini</strong><span class="gear-note">Magnesium Alloy</span></div><span class="gear-tag" data-gear-role>Secondary</span></li>
+                                <li class="gear-entry"><div><strong data-gear-name>Zowie ZA13-C &amp; ZA13-B</strong><span class="gear-note">High Hump Ergonomics</span></div><span class="gear-tag" data-gear-role>Reserve</span></li>
+                            </ul>
+                            <h4 class="gear-group-label">Surfaces &amp; mousepads</h4>
+                            <dl class="spec-rows">
+                                <div><dt>Mousepad</dt><dd>Tenta-X Sente V2</dd></div>
+                                <div><dt>Control-hybrid</dt><dd>Matrova Vein 490</dd></div>
+                                <div><dt>Speed-control</dt><dd>Puretrak P51</dd></div>
+                            </dl>
+                        </article>
+                        <article class="gear-panel">
+                            <div class="panel-heading"><h3>Custom Keyboards</h3><span class="panel-meta">Mechanical</span></div>
+                            <article class="keyboard-build">
+                                <div class="keyboard-heading"><h4 data-keyboard-name>ENVKB 65m</h4><span class="gear-tag">Grail</span></div>
+                                <dl class="spec-rows"><div><dt>Switches</dt><dd>Kang White V2</dd></div><div><dt>Keycaps</dt><dd>Alfei WOB Doubleshot</dd></div></dl>
+                            </article>
+                            <article class="keyboard-build">
+                                <div class="keyboard-heading"><h4 data-keyboard-name>Geonworks Frog Mini</h4><span class="gear-tag">Daily</span></div>
+                                <dl class="spec-rows"><div><dt>Board &amp; switches</dt><dd>Legerra // TTC Flip KOM</dd></div><div><dt>Keycaps</dt><dd>KKB OHM</dd></div></dl>
+                            </article>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="audio" class="inventory-section" aria-labelledby="audio-title">
+                    <h2 id="audio-title">Audio &amp; Acoustics</h2>
+                    <div class="audio-directory">
+                        <article class="gear-panel audio-category" id="audio-monitoring">
+                            <div class="panel-heading"><h3 data-audio-title>Monitoring</h3><span class="panel-meta">Studio</span></div>
+                            <ul class="gear-list">
+                                <li class="gear-entry"><strong data-gear-name>Sennheiser HD 580</strong><span class="gear-tag" data-gear-role>Reference</span></li>
+                                <li class="gear-entry"><strong data-gear-name>Sennheiser HD 480 Pro</strong><span class="gear-tag" data-gear-role>Comfort</span></li>
+                                <li class="gear-entry"><strong data-gear-name>Kali Audio LP-8 v2</strong><span class="gear-tag" data-gear-role>Monitors</span></li>
+                                <li class="gear-entry"><strong data-gear-name>Tannoy TS2.10</strong><span class="gear-tag" data-gear-role>Active Sub</span></li>
+                            </ul>
+                        </article>
+                        <article class="gear-panel audio-category" id="audio-earphones">
+                            <div class="panel-heading"><h3 data-audio-title>Flatheads &amp; In-Ears</h3><span class="panel-meta">Earphones</span></div>
+                            <ul class="gear-list">
+                                <li class="gear-entry"><strong data-gear-name>Yincrow X6</strong><span class="gear-tag" data-gear-role>Flatheads</span></li>
+                                <li class="gear-entry"><strong data-gear-name>Clone Sennheiser IE900</strong><span class="gear-tag" data-gear-role>IEM</span></li>
+                            </ul>
+                        </article>
+                        <article class="gear-panel audio-category" id="audio-amplification">
+                            <div class="panel-heading"><h3 data-audio-title>Amplification</h3><span class="panel-meta">Processing</span></div>
+                            <ul class="gear-list">
+                                <li class="gear-entry"><strong data-gear-name>FIIO K15</strong><span class="gear-tag" data-gear-role>DAC/Amp</span></li>
+                                <li class="gear-entry"><strong data-gear-name>Schiit Vali 2</strong><span class="gear-tag" data-gear-role>Tube Amp</span></li>
+                                <li class="gear-entry"><strong data-gear-name>Tungsram ECC88</strong><span class="gear-tag" data-gear-role>NOS Tube</span></li>
+                            </ul>
+                        </article>
+                        <article class="gear-panel audio-category" id="audio-portable">
+                            <div class="panel-heading"><h3 data-audio-title>Portable &amp; DAP</h3><span class="panel-meta">Mobile</span></div>
+                            <ul class="gear-list">
+                                <li class="gear-entry"><strong data-gear-name>Pixel 8 Pro</strong><span class="gear-tag" data-gear-role>DAP</span></li>
+                                <li class="gear-entry"><strong data-gear-name>Oppo Find X9 Ultra</strong><span class="gear-tag" data-gear-role>Phone</span></li>
+                                <li class="gear-entry"><strong data-gear-name>Sony WF-1000XM6</strong><span class="gear-tag" data-gear-role>TWS</span></li>
+                                <li class="gear-entry"><strong data-gear-name>Earfun Clip 1</strong><span class="gear-tag" data-gear-role>Sport</span></li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="ecosystem" class="inventory-section" aria-labelledby="ecosystem-title">
+                    <h2 id="ecosystem-title">Supporting Compute &amp; Desk Tools</h2>
+                    <div class="gear-columns supporting-compute">
+                        <article class="gear-panel compute-card"><span class="gear-group-label">Laptop</span><h3>MSI Prestige 13 A1M</h3><p>Ultra 7 155H · 32GB · 1TB OLED</p></article>
+                        <article class="gear-panel compute-card"><span class="gear-group-label">Server</span><h3>GEEKOM A5 Pro (2026)</h3><p>Ryzen 7 5825U · 16GB · Win 11 Pro</p></article>
+                    </div>
+                    <article class="gear-panel desk-tools">
+                        <div class="panel-heading"><h3>Desk Calibration &amp; Environment Tools</h3><span class="panel-meta">Accessories</span></div>
+                        <ul class="gear-list desk-tool-list">
+                            <li class="gear-entry"><strong data-gear-name>MiniDSP UMIK-1</strong><span class="gear-tag" data-gear-role>Measurement</span></li>
+                            <li class="gear-entry"><strong data-gear-name>Marantz MPM1000U</strong><span class="gear-tag" data-gear-role>Microphone</span></li>
+                            <li class="gear-entry"><strong data-gear-name>Govee H61E5 &amp; H6056</strong><span class="gear-tag" data-gear-role>Lighting</span></li>
+                            <li class="gear-entry"><strong data-gear-name>Stagg Tabletop Monitor Stands</strong><span class="gear-tag" data-gear-role>Stands</span></li>
+                            <li class="gear-entry"><strong data-gear-name>Dual Wali Monitor Arms</strong><span class="gear-tag" data-gear-role>Mounting</span></li>
+                            <li class="gear-entry"><strong data-gear-name>Cablecove &amp; Ugreen Zapix</strong><span class="gear-tag" data-gear-role>Power</span></li>
+                        </ul>
+                    </article>
+                </section>
             </div>
         </div>
     </main>
-
     <div id="footer-placeholder"></div>
     <script src="main.js"></script>
 </body>
-
 </html>

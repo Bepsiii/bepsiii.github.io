@@ -19,113 +19,50 @@
     <link rel="stylesheet" href="assets/utilities.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="refresh.css">
+    <link rel="stylesheet" href="site-refinement.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="scenes.css">
+    <script src="pages.js" defer></script>
+    <script type="module" src="page-scenes.js"></script>
     <script src="enhancements.js" defer></script>
     <link rel="canonical" href="https://bepsi.dev/reviews.html">
     <meta name="theme-color" content="#080d18">
     <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
-    <div class="scanlines"></div>
-
-    <!-- Background Layer System -->
-    <div class="bg-grid-pattern"></div>
-    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
-    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
-    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
-
-    <noscript><nav class="noscript-links" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
+<body class="editorial-page reviews-page selection:bg-blue-500 selection:text-white">
+    <noscript><nav class="noscript-links" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/setup.html">Setup</a><a href="/contact.html">Contact</a></nav></noscript>
     <div id="header-placeholder"></div>
-
-    <main tabindex="-1" id="main-content" class="relative z-10 pt-32 pb-24">
-        <div class="container mx-auto px-6">
-             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
-                <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Evaluations</span>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-none">
-                    Hardware <span class="text-gradient-cyan-indigo">Reviews</span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed mb-8">
-                    In-depth, unsponsored thoughts on IEMs, mini PCs, custom mouse mods, and gaming peripherals.
-                </p>
-
-                <!-- Filter Category Badges -->
-                <div class="flex flex-wrap justify-center gap-2">
-                    <button type="button" data-review-filter="all" class="filter-btn px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-bold tracking-wider uppercase active">All Categories (4)</button>
-                    <button type="button" data-review-filter="iem" class="filter-btn px-4 py-1.5 rounded-full bg-white/[0.02] hover:bg-white/[0.06] text-gray-400 hover:text-white border border-white/[0.06] text-xs font-semibold tracking-wider transition-all">IEMs &amp; Audio (2)</button>
-                    <button type="button" data-review-filter="minipc" class="filter-btn px-4 py-1.5 rounded-full bg-white/[0.02] hover:bg-white/[0.06] text-gray-400 hover:text-white border border-white/[0.06] text-xs font-semibold tracking-wider transition-all">Mini PCs (1)</button>
-                    <button type="button" data-review-filter="mousemod" class="filter-btn px-4 py-1.5 rounded-full bg-white/[0.02] hover:bg-white/[0.06] text-gray-400 hover:text-white border border-white/[0.06] text-xs font-semibold tracking-wider transition-all">Mouse Mods (1)</button>
+    <main tabindex="-1" id="main-content" class="page-main">
+        <div class="page-shell">
+            <header class="page-hero">
+                <div class="page-hero-copy">
+                    <p class="page-kicker"><span></span>Hardware reviews</p>
+                    <h1>Used. Tested.<br><span>Written about.</span></h1>
+                    <p class="page-intro">In-depth, unsponsored thoughts on IEMs, mini PCs, custom mouse mods, and gaming peripherals.</p>
+                    <div class="page-hero-meta"><span>4 reviews</span><span>Audio · Mini PCs · Mouse mods</span></div>
                 </div>
+                <div class="page-hero-art">
+                    <div class="page-scene" data-scene="orbits" aria-hidden="true"></div>
+                    <button type="button" data-scene-toggle class="scene-control" hidden aria-pressed="false">Pause motion</button>
+                </div>
+            </header>
+            <div class="review-fallback-filters" aria-label="Review categories">
+                <button type="button" data-review-filter="all" class="filter-btn active">All categories (4)</button><button type="button" data-review-filter="iem" class="filter-btn">IEMs &amp; audio (2)</button><button type="button" data-review-filter="minipc" class="filter-btn">Mini PCs (1)</button><button type="button" data-review-filter="mousemod" class="filter-btn">Mouse mods (1)</button>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Review 0 -->
-                <a href="geekoma5pro-review.html" data-review-card data-category="minipc" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up">
-                    <div class="float-content flex flex-col h-full w-full">
-                        <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/geekoma5pro/cover.png" alt="GEEKOM A5 Pro" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" width="2400" height="1792">
-                            <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">Mini PC</div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">GEEKOM A5 Pro (2026)</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">Zen 3 mini-PC for desktop and homelab use.</p>
-                            </div>
-                            <div class="text-[10px] text-gray-500 font-bold tracking-wider uppercase">March 17, 2026</div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Review 1 -->
-                <a href="spacetravel-review.html" data-review-card data-category="iem" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="float-content flex flex-col h-full w-full">
-                        <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/spacetravels/moondrop_spacetravel_main.jpg" alt="Moondrop Space Travel" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" width="4032" height="2268">
-                            <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">TWS</div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Moondrop Space Travel</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">Sub-$25 ANC earbuds with reference tuning.</p>
-                            </div>
-                            <div class="text-[10px] text-gray-500 font-bold tracking-wider uppercase">Oct 12, 2024</div>
-                        </div>
-                    </div>
-                </a>
-
-                 <!-- Review 2 -->
-                <a href="7hzsonus-review.html" data-review-card data-category="iem" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="150">
-                    <div class="float-content flex flex-col h-full w-full">
-                        <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/sonus/7hz_sonus_main.jpg" alt="7Hz Sonus" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" width="1097" height="659">
-                            <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">IEMs</div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">7hz Sonus</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">Is Truthear in trouble?</p>
-                            </div>
-                            <div class="text-[10px] text-gray-500 font-bold tracking-wider uppercase">April 12, 2024</div>
-                        </div>
-                    </div>
-                </a>
-
-                 <!-- Review 3 -->
-                <a href="beanmouse-review.html" data-review-card data-category="mousemod" class="soft-card glow-card float-card group p-0 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="float-content flex flex-col h-full w-full">
-                        <div class="h-48 w-full relative overflow-hidden">
-                            <img src="images/setup/reviews/beanmouse/beanmouse_main.jpg" alt="Beanmouse V2.1" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" width="4032" height="2268">
-                            <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-md border border-blue-400/20 text-white text-[10px] px-2.5 py-1 rounded-md font-bold tracking-widest uppercase shadow-md">MOD</div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Beanmouse V2.1</h3>
-                                <p class="text-gray-400 text-sm mb-4 leading-relaxed">Fingertip Grip for Viper V2 Pro.</p>
-                            </div>
-                            <div class="text-[10px] text-gray-500 font-bold tracking-wider uppercase">Sept 19, 2024</div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
+            <div class="reviews-directory"><a href="geekoma5pro-review.html" data-review-card data-category="minipc" class="directory-review">
+                    <div class="directory-review-image"><img src="images/optimized/geekom-cover-1280.webp" srcset="images/optimized/geekom-cover-640.webp 640w, images/optimized/geekom-cover-1280.webp 1280w" sizes="(max-width: 700px) 100vw, 50vw" alt="GEEKOM A5 Pro (2026)" loading="lazy" decoding="async" width="1280" height="956"><span class="review-image-label">Mini PC</span><span class="review-image-index" aria-hidden="true">01</span></div>
+                    <div class="directory-review-body"><time datetime="2026-03-17">March 17, 2026</time><h3>GEEKOM A5 Pro (2026)</h3><p>Zen 3 mini-PC for desktop and homelab use.</p><span class="directory-review-link">Read the review <span aria-hidden="true">↗</span></span></div>
+                </a><a href="spacetravel-review.html" data-review-card data-category="iem" class="directory-review">
+                    <div class="directory-review-image"><img src="images/optimized/setup-reviews-spacetravels-moondrop_spacetravel_main-1280.webp" srcset="images/optimized/setup-reviews-spacetravels-moondrop_spacetravel_main-640.webp 640w, images/optimized/setup-reviews-spacetravels-moondrop_spacetravel_main-1280.webp 1280w" sizes="(max-width: 700px) 100vw, 50vw" alt="Moondrop Space Travel" loading="lazy" decoding="async" width="1280" height="720"><span class="review-image-label">TWS audio</span><span class="review-image-index" aria-hidden="true">02</span></div>
+                    <div class="directory-review-body"><time datetime="2024-10-12">Oct 12, 2024</time><h3>Moondrop Space Travel</h3><p>Sub-$25 ANC earbuds with reference tuning.</p><span class="directory-review-link">Read the review <span aria-hidden="true">↗</span></span></div>
+                </a><a href="7hzsonus-review.html" data-review-card data-category="iem" class="directory-review">
+                    <div class="directory-review-image"><img src="images/optimized/setup-reviews-sonus-7hz_sonus_main-1097.webp" srcset="images/optimized/setup-reviews-sonus-7hz_sonus_main-640.webp 640w, images/optimized/setup-reviews-sonus-7hz_sonus_main-1097.webp 1097w" sizes="(max-width: 700px) 100vw, 50vw" alt="7hz Sonus" loading="lazy" decoding="async" width="1097" height="659"><span class="review-image-label">IEMs</span><span class="review-image-index" aria-hidden="true">03</span></div>
+                    <div class="directory-review-body"><time datetime="2024-04-12">April 12, 2024</time><h3>7hz Sonus</h3><p>Is Truthear in trouble?</p><span class="directory-review-link">Read the review <span aria-hidden="true">↗</span></span></div>
+                </a><a href="beanmouse-review.html" data-review-card data-category="mousemod" class="directory-review">
+                    <div class="directory-review-image"><img src="images/optimized/setup-reviews-beanmouse-beanmouse_main-1280.webp" srcset="images/optimized/setup-reviews-beanmouse-beanmouse_main-640.webp 640w, images/optimized/setup-reviews-beanmouse-beanmouse_main-1280.webp 1280w" sizes="(max-width: 700px) 100vw, 50vw" alt="Beanmouse V2.1" loading="lazy" decoding="async" width="1280" height="720"><span class="review-image-label">Mouse mod</span><span class="review-image-index" aria-hidden="true">04</span></div>
+                    <div class="directory-review-body"><time datetime="2024-09-19">Sept 19, 2024</time><h3>Beanmouse V2.1</h3><p>Fingertip Grip for Viper V2 Pro.</p><span class="directory-review-link">Read the review <span aria-hidden="true">↗</span></span></div>
+                </a></div>
+            <aside class="page-footnote"><p>More hardware, in one place.</p><a href="setup.html">Explore my setup <span aria-hidden="true">↗</span></a><a href="resources1.html">Browse the resource library <span aria-hidden="true">↗</span></a></aside></div>
     </main>
 
     <div id="footer-placeholder"></div>

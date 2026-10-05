@@ -4,8 +4,12 @@
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const make = (tag, className, text) => { const el = document.createElement(tag); if (className) el.className = className; if (text) el.textContent = text; return el; };
     const labels = ['Workstation', 'Peripherals', 'Audio', 'Desk & lab'];
-    const originalPhoto = sections[0].querySelector('img');
-    sections.forEach(section => { section.dataset.originalSpecs = section.innerText.trim(); });
+    const originalPhoto = { src: 'images/setup/section1.webp', alt: 'The Battlestation' };
+    // Keep the clipboard tied to the static inventory, before adding navigation and visual labels.
+    sections.forEach(section => {
+        const sceneCaption = section.querySelector('.rig-visual')?.innerText || '';
+        section.dataset.originalSpecs = section.innerText.replace(sceneCaption, '').trim();
+    });
     const mainHeader = document.querySelector('#main-content > div > header');
 
     // The photo is a map into the existing inventory, not a second set of gear data.
@@ -14,10 +18,10 @@
     explorer.innerHTML = '<div class="explorer-heading"><div><span class="eyebrow">Explore the setup</span><h2 id="desk-explorer-title">A closer look.</h2></div><p>Select a point to browse the current gear.</p></div><div class="explorer-grid"><div class="desk-map"><img class="desk-map-image" src="images/optimized/desk-full-1600.webp" width="1600" height="1200" alt="Desk photo with monitors, speakers, keyboard, mouse, and headphones" loading="eager" decoding="async"><div class="desk-map-grid" aria-hidden="true"></div><span class="map-corner map-corner-top" aria-hidden="true"></span><span class="map-corner map-corner-bottom" aria-hidden="true"></span><button type="button" class="photo-expand" aria-label="Open full desk photo">↗ Full photo</button></div><div class="desk-inspector"><span class="eyebrow">Current inventory</span><div class="inspector-content" aria-live="polite" aria-atomic="true"></div><div class="inspector-tabs" role="group" aria-label="Select gear category"></div></div></div>';
     mainHeader.after(explorer);
     const audioLists = [...sections[2].querySelectorAll('ul')];
-    const inventory = list => list ? [...list.querySelectorAll('li')].map(item => ({ name: item.querySelector('.font-semibold')?.textContent.trim() || item.textContent.trim(), role: item.querySelector('.shrink-0')?.textContent.trim() || '' })) : [];
+    const inventory = list => list ? [...list.querySelectorAll('li')].map(item => ({ name: item.querySelector('[data-gear-name]')?.textContent.trim() || item.textContent.trim(), role: item.querySelector('[data-gear-role]')?.textContent.trim() || '' })) : [];
     const monitoring = inventory(audioLists[0]);
-    const keyboards = [...sections[1].querySelectorAll('h4')].map(heading => ({ name: heading.textContent.trim(), role: 'Keyboard' }));
-    const mice = [...sections[1].querySelectorAll('.min-w-0 > .font-bold')].map(node => ({ name: node.textContent.trim(), role: 'Mouse' }));
+    const keyboards = [...sections[1].querySelectorAll('[data-keyboard-name]')].map(heading => ({ name: heading.textContent.trim(), role: 'Keyboard' }));
+    const mice = [...sections[1].querySelectorAll('.mouse-inventory [data-gear-name]')].map(node => ({ name: node.textContent.trim(), role: 'Mouse' }));
     const nodes = [
         { title: 'Speakers', section: 'audio', x: 76, y: 37, items: monitoring.filter(item => !item.name.startsWith('Sennheiser')) },
         { title: 'Headphones', section: 'audio', x: 30, y: 64, items: monitoring.filter(item => item.name.startsWith('Sennheiser')) },
@@ -64,6 +68,7 @@
     // Focus a section without losing any inventory; All restores the complete page.
     const browser = make('nav', 'setup-browser'); browser.setAttribute('aria-label', 'Browse setup sections');
     const group = make('div', 'setup-browser-buttons'); const count = make('span', 'setup-browser-count', '04 sections');
+    count.setAttribute('aria-live', 'polite');
     const filterButtons = [];
     ['All sections', ...labels].forEach((label, index) => {
         const button = make('button', 'setup-section-filter', label); button.type = 'button'; button.dataset.section = index ? sections[index - 1].id : 'all';
@@ -78,6 +83,7 @@
         group.append(button); filterButtons.push(button);
     });
     browser.append(group, count); explorer.after(browser);
+    document.body.classList.add('setup-enhanced');
     // Internal links always reveal their destination, even while a filter is active.
     document.addEventListener('click', event => {
         const link = event.target.closest('a[href^="#"]');
@@ -88,7 +94,7 @@
     // An overview of the actual audio categories, with a visual path into each list.
     const overview = make('div', 'audio-overview'); overview.setAttribute('aria-label', 'Audio equipment categories');
     audioLists.forEach((list, index) => {
-        const card = list.parentElement; const title = card.querySelector('span')?.textContent.trim() || 'Audio';
+        const card = list.parentElement; const title = card.querySelector('[data-audio-title]')?.textContent.trim() || 'Audio';
         const button = make('button', 'audio-node'); button.type = 'button';
         button.append(make('span', 'audio-node-index', `0${index + 1}`), make('strong', '', title), make('span', 'audio-node-count', `${list.children.length} items`));
         button.addEventListener('click', () => {

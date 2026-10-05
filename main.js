@@ -229,13 +229,13 @@ const FALLBACK_HEADER = `
 `;
 
 const FALLBACK_FOOTER = `
-<footer class="relative mt-32 backdrop-blur-md overflow-hidden" style="background: color-mix(in srgb, var(--bg-body) 40%, transparent); border-top: 1px solid var(--border-subtle);">
+<footer class="site-footer relative mt-32 backdrop-blur-md overflow-hidden" style="background: color-mix(in srgb, var(--bg-body) 40%, transparent); border-top: 1px solid var(--border-subtle);">
     <!-- Ambient Corner Glow in Footer -->
     <div class="absolute right-0 bottom-0 w-80 h-80 rounded-full bg-blue-500/5 blur-[80px] pointer-events-none z-0"></div>
     <div class="absolute left-0 bottom-0 w-80 h-80 rounded-full bg-indigo-500/5 blur-[80px] pointer-events-none z-0"></div>
 
     <div class="container relative mx-auto px-6 py-14 z-10">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8 pb-10" style="border-bottom: 1px solid var(--border-subtle);">
+        <div class="footer-main flex flex-col md:flex-row justify-between items-center gap-8 pb-10" style="border-bottom: 1px solid var(--border-subtle);">
 
             <div class="text-center md:text-left">
                 <div class="flex items-center gap-2 justify-center md:justify-start mb-3">
@@ -246,8 +246,14 @@ const FALLBACK_FOOTER = `
                 </p>
             </div>
 
-            <!-- Social Links with Color Glows -->
-            <div class="flex gap-4">
+            <nav class="footer-site-nav" aria-label="Footer navigation">
+                <a href="resources1.html">Resources</a><a href="setup.html">Setup</a>
+                <a href="reviews.html">Reviews</a><a href="articles.html">Articles</a>
+                <a href="about.html">About</a><a href="contact.html">Contact</a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="footer-socials flex gap-4">
                 <a href="https://x.com/Bepsi_Bottle" target="_blank" aria-label="X (Twitter)" class="p-2.5 rounded-full transition-all duration-300 hover:text-white hover:border-[#1da1f2]/30 hover:bg-[#1da1f2]/10" style="background: var(--bg-badge); border: 1px solid var(--border-subtle); color: var(--text-muted);">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
@@ -260,7 +266,7 @@ const FALLBACK_FOOTER = `
             </div>
         </div>
 
-        <div class="mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="footer-meta mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3">
                 <p class="text-[11px] font-medium" style="color: var(--text-dark);">&copy; <span id="current-year">2026</span> Bepsi. All rights reserved.</p>
                 <span style="color: var(--border-subtle);">&bull;</span>
@@ -279,9 +285,6 @@ const FALLBACK_FOOTER = `
         </div>
     </div>
 </footer>
-
-
-
 `;
 
 /**
@@ -800,7 +803,7 @@ const CookieConsent = {
                     <div class="flex-grow min-w-0 pr-6">
                         <h4 class="text-white font-bold text-sm mb-1">Privacy &amp; Cookies</h4>
                         <p class="text-xs text-gray-400 leading-relaxed mb-3">
-                            This site uses local storage strictly for themes and essential navigation preferences.
+                            This site saves your theme, resource bookmarks and reading preferences in this browser.
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <button type="button" id="cookie-accept-btn" class="btn-navy text-xs py-1.5 px-3.5">Accept</button>

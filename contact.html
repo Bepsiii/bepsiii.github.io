@@ -19,48 +19,43 @@
     <link rel="stylesheet" href="assets/utilities.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="refresh.css">
+    <link rel="stylesheet" href="site-refinement.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="scenes.css">
+    <script src="pages.js" defer></script>
+    <script type="module" src="page-scenes.js"></script>
     <script src="enhancements.js" defer></script>
     <link rel="canonical" href="https://bepsi.dev/contact.html">
     <meta name="theme-color" content="#080d18">
     <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
-    <div class="scanlines"></div>
-
-    <!-- Background Layer System -->
-    <div class="bg-grid-pattern"></div>
-    <div class="glow-blob bg-blue-500/10 w-[600px] h-[600px] -top-40 -left-40"></div>
-    <div class="glow-blob bg-indigo-500/8 w-[500px] h-[500px] top-1/2 right-10"></div>
-    <div class="glow-blob bg-purple-500/10 w-[600px] h-[600px] bottom-10 left-10"></div>
-
-    <noscript><nav class="noscript-links" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
+<body class="editorial-page contact-page selection:bg-blue-500 selection:text-white">
+    <noscript><nav class="noscript-links" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/setup.html">Setup</a><a href="/contact.html">Contact</a></nav></noscript>
     <div id="header-placeholder"></div>
-
-    <main tabindex="-1" id="main-content" class="relative z-10 pt-36 pb-24">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
-
-                <!-- Contact Form Container with Validation & States -->
-                <div class="soft-card glow-card p-8 md:p-10" data-aos="fade-right">
-                    <span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Communication</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-none">
-                        Let's <span class="text-gradient-cyan-indigo">Talk</span>
-                    </h1>
-                    <p class="text-gray-400 text-base md:text-lg mb-8 font-medium leading-relaxed">
-                        Questions about a resource, review, or piece of gear?
-                    </p>
-
-                    <!-- Main Form (Feature 14 UTM auto-injected, Feature 16 Error States) -->
-                    <form id="contact-form" action="https://formspree.io/f/xldnazyg" method="POST" data-validate="true" class="space-y-5">
+    <main tabindex="-1" id="main-content" class="page-main">
+        <div class="page-shell">
+            <header class="page-hero">
+                <div class="page-hero-copy">
+                    <p class="page-kicker"><span></span>Contact</p>
+                    <h1>Get in<br><span>touch.</span></h1>
+                    <p class="page-intro">Questions about a resource, review, or piece of gear?</p>
+                    <div class="page-hero-meta"><span>London, UK</span><span>Feedback &amp; hardware questions</span></div>
+                </div>
+                <div class="page-hero-art">
+                    <div class="page-scene" data-scene="waveform" aria-hidden="true"></div>
+                    <button type="button" data-scene-toggle class="scene-control" hidden aria-pressed="false">Pause motion</button>
+                </div>
+            </header>
+            <div class="contact-layout"><section class="contact-form-panel" aria-labelledby="contact-form-heading"><div class="contact-panel-heading"><h2 id="contact-form-heading">Send a message</h2><p>All fields are required.</p></div><div class="contact-topics" hidden><span>Quick subject</span><button type="button" data-contact-topic="Broken resource link">Broken resource link</button><button type="button" data-contact-topic="Gear question">Gear question</button><button type="button" data-contact-topic="Review feedback">Review feedback</button></div><form id="contact-form" action="https://formspree.io/f/xldnazyg" method="POST" data-validate="true" class="space-y-5">
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div class="form-group">
                                 <label for="form-name" class="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-widest">Full Name <span class="text-red-400">*</span></label>
-                                <input type="text" id="form-name" name="name" autocomplete="name" maxlength="120" required placeholder="John Doe" class="w-full">
+                                <input type="text" id="form-name" name="name" autocomplete="name" maxlength="120" required placeholder="Your name" class="w-full">
                             </div>
                             <div class="form-group">
                                 <label for="form-email" class="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-widest">Email Address <span class="text-red-400">*</span></label>
-                                <input type="email" id="form-email" name="email" autocomplete="email" maxlength="254" required placeholder="john@example.com" class="w-full">
+                                <input type="email" id="form-email" name="email" autocomplete="email" maxlength="254" required placeholder="you@example.com" class="w-full">
                             </div>
                         </div>
 
@@ -71,7 +66,7 @@
 
                         <div class="form-group">
                             <label for="form-message" class="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-widest">Message <span class="text-red-400">*</span></label>
-                            <textarea id="form-message" name="message" maxlength="10000" rows="5" required minlength="10" placeholder="Type your message here..." class="w-full"></textarea>
+                            <textarea id="form-message" name="message" maxlength="10000" rows="7" required minlength="10" placeholder="Type your message here..." class="w-full"></textarea>
                         </div>
 
                         <div class="pt-2">
@@ -79,10 +74,7 @@
                                 Send Message
                             </button>
                         </div>
-                    </form>
-
-                    <!-- Form Success State Card -->
-                    <div id="contact-form-success" class="form-success-card soft-card">
+                    </form><div id="contact-form-success" class="form-success-card soft-card">
                         <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         </div>
@@ -93,44 +85,8 @@
                         <button type="button" data-form-reset="contact-form" class="btn-outline text-xs py-2 px-6">
                             Send Another Message
                         </button>
-                    </div>
-                </div>
-
-                <!-- Right Side: Direct Contacts -->
-                <div class="space-y-6 flex flex-col justify-start" data-aos="fade-left" data-aos-delay="200">
-
-                    <!-- Direct Contact Methods -->
-                    <div class="grid grid-cols-1 gap-4">
-                        <!-- Discord Direct Card -->
-                        <div class="soft-card glow-card float-card p-6 w-full text-left group hover:border-blue-500/30">
-                            <div class="float-content">
-                                <div class="text-[#5865f2] mb-3 group-hover:scale-105 transition-transform duration-300">
-                                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
-                                    </svg>
-                                </div>
-                                <h3 class="text-base font-bold text-white mb-0.5">Discord</h3>
-                                <p class="text-gray-400 text-xs font-mono">theukgovernment</p>
-                            </div>
-                        </div>
-
-                        <!-- Email Card -->
-                        <a href="mailto:sandra@blowyournanstitscleanoff.shop" class="soft-card glow-card float-card p-6 w-full group hover:border-blue-500/30">
-                            <div class="float-content">
-                                <div class="text-[#10b981] mb-3 group-hover:scale-105 transition-transform duration-300">
-                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="text-base font-bold text-white mb-0.5">Email</h3>
-                                <p class="text-gray-400 text-xs truncate font-mono">sandra@blowyournanstitscleanoff.shop</p>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+                    </div></section>
+            <aside class="contact-direct"><p class="page-kicker">Direct contact</p><h2>Another way<br>to reach me.</h2><div class="contact-method"><span class="contact-method-icon" aria-hidden="true">#</span><div><h3>Discord</h3><p class="contact-handle">theukgovernment</p></div><button type="button" class="copy-handle" data-copy-value="theukgovernment" aria-label="Copy Discord username" hidden>Copy</button></div><a href="mailto:sandra@blowyournanstitscleanoff.shop" class="contact-method contact-email"><span class="contact-method-icon" aria-hidden="true">@</span><div><h3>Email</h3><p class="contact-handle">sandra@blowyournanstitscleanoff.shop</p></div><span aria-hidden="true">↗</span></a><div class="contact-help"><h3>Spotted a broken link?</h3><p>Include the name of the resource and its link so I can find it.</p><a href="resources1.html">Back to the library <span aria-hidden="true">↗</span></a></div></aside></div></div>
     </main>
 
     <div id="footer-placeholder"></div>

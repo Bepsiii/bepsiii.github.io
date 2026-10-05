@@ -1,0 +1,16 @@
+/* Decorative sculptures remain contained, with a static composition if WebGL is unavailable. */
+.page-scene, [data-scene] { position: relative; isolation: isolate; overflow: hidden; min-height: 160px; }
+.page-scene canvas, [data-scene] canvas { position: relative; z-index: 1; display: block; width: 100%; height: 100%; pointer-events: none; }
+.page-scene::before, [data-scene]::before { content: ""; position: absolute; inset: 15% 22%; border: 1px solid #a2b9d841; border-radius: 50%; transform: rotate(-30deg); background: repeating-linear-gradient(120deg, transparent, transparent 19px, #a2b9d80b 20px, transparent 21px); box-shadow: 0 0 0 22px #a2b9d80a, 0 0 0 45px #a2b9d805; opacity: .7; transition: opacity .8s; pointer-events: none; }
+.page-scene[data-scene="lattice"]::before, [data-scene="lattice"]::before { border-radius: 15%; transform: rotate(30deg) scale(.72); }
+.page-scene[data-scene="waveform"]::before, [data-scene="waveform"]::before { border-radius: 50%; transform: rotate(-12deg) scaleY(.6); background: repeating-linear-gradient(90deg, transparent, transparent 10px, #a2b9d834 11px, transparent 12px); }
+.page-scene[data-scene="rig"]::before, [data-scene="rig"]::before { inset: 23% 25%; border-radius: 6px; transform: skewY(15deg); background: repeating-linear-gradient(0deg, transparent, transparent 24px, #a2b9d812 25px, transparent 26px); }
+.page-scene[data-scene-state="ready"]::before, [data-scene][data-scene-state="ready"]::before { opacity: .09; }
+.page-scene[data-scene-state="fallback"] canvas, [data-scene][data-scene-state="fallback"] canvas { visibility: hidden; }
+[data-theme="light"] .page-scene::before, [data-theme="light"] [data-scene]::before { border-color: #365a8055; box-shadow: 0 0 0 22px #365a800a, 0 0 0 45px #365a8005; }
+[data-scene-toggle] { position: relative; z-index: 2; padding: 7px 10px; border: 1px solid #a3b8d138; border-radius: 5px; color: var(--text-muted, #a1afc2); background: #a3b8d106; font-size: .7rem; cursor: pointer; }
+[data-scene-toggle]:hover { color: var(--text-color, #e2e8f0); border-color: #a3b8d170; }
+[data-scene-toggle]:focus-visible { outline: 2px solid #96b5dd; outline-offset: 4px; }
+[data-scene-toggle][hidden] { display: none; }
+@media print { .page-scene, [data-scene], [data-scene-toggle] { display: none !important; } }
+@media (prefers-reduced-motion: reduce) { .page-scene::before, [data-scene]::before { transition: none; } }

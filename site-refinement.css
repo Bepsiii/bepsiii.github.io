@@ -1,0 +1,55 @@
+/* Shared chrome stays quiet so the content and scenes take the lead. */
+body { text-rendering: optimizeLegibility; }
+#navbar .navbar-glass { background: color-mix(in srgb, var(--bg-body) 88%, transparent) !important; border-color: color-mix(in srgb, var(--text-muted) 20%, transparent) !important; }
+#navbar .nav-link-item { padding: 9px 18px; font-size: .75rem; }
+#navbar .nav-link-item:hover { color: var(--text-heading) !important; }
+#navbar .nav-link-item[aria-current="page"] { color: var(--text-heading) !important; background: #98b5dc14; }
+#navbar:focus-within { transform: translate(-50%, 0) !important; opacity: 1; }
+.site-footer { margin-top: 60px !important; background: linear-gradient(180deg, #97b9e605, transparent) !important; }
+.site-footer .footer-main { align-items: start; }
+.footer-site-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 36px; }
+.footer-site-nav a { font-size: .8rem; color: var(--text-muted); }
+.footer-site-nav a:hover { color: var(--text-heading); }
+.site-footer .footer-socials { display: flex; gap: 12px; }
+.site-footer .footer-socials a, .site-footer .footer-socials button { min-width: 44px; min-height: 44px; display: grid; place-items: center; border-radius: 8px; }
+.site-footer .footer-socials a:hover, .site-footer .footer-socials button:hover { border-color: #a6bfdf66; background: #98b5dc12; color: var(--text-heading); }
+.site-footer .footer-meta { gap: 16px; }
+.site-footer img { filter: saturate(0); }
+.site-footer a[href*="ko-fi"] { color: var(--text-muted); }
+.site-footer a[href*="ko-fi"] svg { color: #9ebfe9; }
+.cookie-banner { left: 24px; bottom: 24px; width: min(390px, calc(100% - 48px)); padding: 20px; max-width: none; border-radius: 12px; transform: translateY(calc(100% + 40px)); box-shadow: 0 16px 48px #0005; }
+.cookie-banner.visible { transform: translateY(0); }
+.cookie-banner > div { gap: 12px; }
+.cookie-banner > div > div:first-child { display: none; }
+.cookie-banner h4 { font-size: .8rem; margin-bottom: 8px; }
+.cookie-banner p { font-size: .75rem; line-height: 1.75; }
+.cookie-banner .btn-navy, .cookie-banner .btn-outline { min-height: 40px; width: auto; padding: 8px 18px; border-radius: 6px; box-shadow: none; font-size: .75rem; }
+.cookie-banner #cookie-close-btn { width: 36px; height: 36px; display: grid; place-items: center; top: 8px; right: 8px; }
+.return-top { border-radius: 8px; width: 44px; height: 44px; background: var(--bg-surface); color: var(--text-main); border-color: #98b5dc44; }
+[data-theme="light"] .site-footer img { filter: brightness(0); }
+[data-theme="light"] .site-footer { background: linear-gradient(180deg, #97b9e60b, transparent) !important; }
+[data-theme="light"] .site-footer .footer-socials a, [data-theme="light"] .site-footer .footer-socials button { color: #53647d; }
+[data-theme="light"] .cookie-banner { background: #fffffff5; }
+.home-page .review-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.home-page .review-preview { display: grid; grid-template-columns: 1fr 1fr; min-height: 270px; }
+.home-page .review-image { height: 100%; min-height: 270px; }
+.home-page .review-preview-content { padding: 28px; justify-content: center; }
+.home-page .review-preview h3 { font-size: clamp(1.25rem, 2vw, 1.65rem); line-height: 1.25; margin-block: 14px; }
+.home-page .review-preview p { line-height: 1.8; margin-bottom: 26px; }
+.home-page .review-preview-content .card-link { margin-top: 0; }
+.home-page .review-preview[href="geekoma5pro-review.html"] .review-image img { object-fit: contain; }
+@media (max-width: 1099px) {
+  .home-page .review-preview { grid-template-columns: 1fr; }
+  .home-page .review-image { height: 240px; min-height: 0; }
+}
+@media (max-width: 767px) {
+  .home-page .review-grid { grid-template-columns: 1fr; }
+  .home-page .review-preview { grid-template-columns: 1fr; }
+  .site-footer .footer-main { align-items: start; text-align: left; gap: 32px; }
+  .site-footer .footer-main > div:first-child { text-align: left; }
+  .site-footer .footer-main > div:first-child > div { justify-content: start; }
+  .footer-site-nav { width: 100%; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .cookie-banner { width: calc(100% - 32px); left: 16px; bottom: 16px; }
+  .site-footer .footer-meta { align-items: start; }
+}
+@media print { .footer-site-nav, .cookie-banner { display: none !important; } }

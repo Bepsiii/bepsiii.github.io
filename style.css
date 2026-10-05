@@ -1086,11 +1086,11 @@ textarea[aria-invalid="true"] {
     .soft-card {
         padding: 1.5rem;
     }
-    h1 {
+    body:not(.editorial-page):not(.setup-page):not(.home-page) h1 {
         font-size: 2.75rem !important;
         line-height: 1.1 !important;
     }
-    h2 {
+    body:not(.editorial-page):not(.setup-page):not(.home-page) h2 {
         font-size: 2rem !important;
     }
     .btn-navy, .btn-outline {
