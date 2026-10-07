@@ -24,7 +24,7 @@
     <link rel="canonical" href="https://bepsi.dev/setup.html">
     <meta name="theme-color" content="#080d18">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="description" content="The hardware on my desk: PC components, keyboards, mice, audio equipment, and supporting tools.">
+    <meta name="description" content="My workstation, keyboards, mice, audio equipment, and two home servers running Proxmox VE and Ubuntu.">
 </head>
 <body class="setup-page selection:bg-blue-500 selection:text-white bg-[#06080c] text-zinc-200 overflow-x-hidden">
     <noscript><nav class="noscript-links" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/contact.html">Contact</a></nav></noscript>
@@ -35,9 +35,9 @@
             <header class="setup-header">
                 <div class="setup-header-layout">
                     <div>
-                        <span class="eyebrow">Hardware archive</span>
+                        <span class="eyebrow">Current hardware</span>
                         <h1>Setup <span>&amp; Battlestation</span></h1>
-                        <p>My PC, peripherals, audio equipment, and desk hardware.</p>
+                        <p>From the daily workstation to the home lab: my PC, peripherals, audio equipment, and servers.</p>
                     </div>
                     <button type="button" id="copy-specs-btn" class="setup-copy-button" title="Copy specs summary to clipboard">
                         <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
@@ -59,7 +59,7 @@
                                 <div><dt>Processor</dt><dd>i7 12700KF</dd><dd class="spec-note">240W Power Limit</dd></div>
                                 <div><dt>Graphics</dt><dd>RX 6800 OC</dd><dd class="spec-note">16GB GDDR6</dd></div>
                                 <div><dt>Memory</dt><dd>32GB 3600MHz</dd><dd class="spec-note">DDR4 Dual Ch</dd></div>
-                                <div><dt>Cooling</dt><dd>Liquid Freezer II</dd><dd class="spec-note">240mm AIO</dd></div>
+                                <div><dt>Cooling</dt><dd>A620SE</dd><dd class="spec-note">Dual tower air cooler</dd></div>
                             </dl>
                             <dl class="spec-rows component-manifest">
                                 <div><dt>Motherboard</dt><dd>ASRock B660M Pro RS</dd></div>
@@ -90,7 +90,6 @@
                             <h4 class="gear-group-label">Mice rotation</h4>
                             <ul class="gear-list mouse-inventory">
                                 <li class="gear-entry"><div><strong data-gear-name>Pulsar X2 Crazylight Mini</strong><span class="gear-note">Boardzy Edition</span></div><span class="gear-tag" data-gear-role>Primary</span></li>
-                                <li class="gear-entry"><div><strong data-gear-name>WLMouse BeastX Pro Mini</strong><span class="gear-note">Magnesium Alloy</span></div><span class="gear-tag" data-gear-role>Secondary</span></li>
                                 <li class="gear-entry"><div><strong data-gear-name>Zowie ZA13-C &amp; ZA13-B</strong><span class="gear-note">High Hump Ergonomics</span></div><span class="gear-tag" data-gear-role>Reserve</span></li>
                             </ul>
                             <h4 class="gear-group-label">Surfaces &amp; mousepads</h4>
@@ -101,7 +100,7 @@
                             </dl>
                         </article>
                         <article class="gear-panel">
-                            <div class="panel-heading"><h3>Custom Keyboards</h3><span class="panel-meta">Mechanical</span></div>
+                            <div class="panel-heading"><h3>Keyboards</h3><span class="panel-meta">Input</span></div>
                             <article class="keyboard-build">
                                 <div class="keyboard-heading"><h4 data-keyboard-name>ENVKB 65m</h4><span class="gear-tag">Grail</span></div>
                                 <dl class="spec-rows"><div><dt>Switches</dt><dd>Kang White V2</dd></div><div><dt>Keycaps</dt><dd>Alfei WOB Doubleshot</dd></div></dl>
@@ -109,6 +108,9 @@
                             <article class="keyboard-build">
                                 <div class="keyboard-heading"><h4 data-keyboard-name>Geonworks Frog Mini</h4><span class="gear-tag">Daily</span></div>
                                 <dl class="spec-rows"><div><dt>Board &amp; switches</dt><dd>Legerra // TTC Flip KOM</dd></div><div><dt>Keycaps</dt><dd>KKB OHM</dd></div></dl>
+                            </article>
+                            <article class="keyboard-build">
+                                <div class="keyboard-heading"><h4 data-keyboard-name>Razer Joro</h4><span class="gear-tag">Keyboard</span></div>
                             </article>
                         </article>
                     </div>
@@ -121,16 +123,14 @@
                             <div class="panel-heading"><h3 data-audio-title>Monitoring</h3><span class="panel-meta">Studio</span></div>
                             <ul class="gear-list">
                                 <li class="gear-entry"><strong data-gear-name>Sennheiser HD 580</strong><span class="gear-tag" data-gear-role>Reference</span></li>
-                                <li class="gear-entry"><strong data-gear-name>Sennheiser HD 480 Pro</strong><span class="gear-tag" data-gear-role>Comfort</span></li>
                                 <li class="gear-entry"><strong data-gear-name>Kali Audio LP-8 v2</strong><span class="gear-tag" data-gear-role>Monitors</span></li>
                                 <li class="gear-entry"><strong data-gear-name>Tannoy TS2.10</strong><span class="gear-tag" data-gear-role>Active Sub</span></li>
                             </ul>
                         </article>
                         <article class="gear-panel audio-category" id="audio-earphones">
-                            <div class="panel-heading"><h3 data-audio-title>Flatheads &amp; In-Ears</h3><span class="panel-meta">Earphones</span></div>
+                            <div class="panel-heading"><h3 data-audio-title>Flathead Earbuds</h3><span class="panel-meta">Earphones</span></div>
                             <ul class="gear-list">
                                 <li class="gear-entry"><strong data-gear-name>Yincrow X6</strong><span class="gear-tag" data-gear-role>Flatheads</span></li>
-                                <li class="gear-entry"><strong data-gear-name>Clone Sennheiser IE900</strong><span class="gear-tag" data-gear-role>IEM</span></li>
                             </ul>
                         </article>
                         <article class="gear-panel audio-category" id="audio-amplification">
@@ -142,9 +142,8 @@
                             </ul>
                         </article>
                         <article class="gear-panel audio-category" id="audio-portable">
-                            <div class="panel-heading"><h3 data-audio-title>Portable &amp; DAP</h3><span class="panel-meta">Mobile</span></div>
+                            <div class="panel-heading"><h3 data-audio-title>Portable Audio</h3><span class="panel-meta">Mobile</span></div>
                             <ul class="gear-list">
-                                <li class="gear-entry"><strong data-gear-name>Pixel 8 Pro</strong><span class="gear-tag" data-gear-role>DAP</span></li>
                                 <li class="gear-entry"><strong data-gear-name>Oppo Find X9 Ultra</strong><span class="gear-tag" data-gear-role>Phone</span></li>
                                 <li class="gear-entry"><strong data-gear-name>Sony WF-1000XM6</strong><span class="gear-tag" data-gear-role>TWS</span></li>
                                 <li class="gear-entry"><strong data-gear-name>Earfun Clip 1</strong><span class="gear-tag" data-gear-role>Sport</span></li>
@@ -154,11 +153,23 @@
                 </section>
 
                 <section id="ecosystem" class="inventory-section" aria-labelledby="ecosystem-title">
-                    <h2 id="ecosystem-title">Supporting Compute &amp; Desk Tools</h2>
-                    <div class="gear-columns supporting-compute">
-                        <article class="gear-panel compute-card"><span class="gear-group-label">Laptop</span><h3>MSI Prestige 13 A1M</h3><p>Ultra 7 155H · 32GB · 1TB OLED</p></article>
-                        <article class="gear-panel compute-card"><span class="gear-group-label">Server</span><h3>GEEKOM A5 Pro (2026)</h3><p>Ryzen 7 5825U · 16GB · Win 11 Pro</p></article>
-                    </div>
+                    <h2 id="ecosystem-title">Home Lab &amp; Desk Tools</h2>
+                    <section id="home-lab" class="home-lab" aria-labelledby="home-lab-title">
+                        <div class="lab-heading"><div><span class="eyebrow">Supporting compute</span><h3 id="home-lab-title">Two servers. One home lab.</h3></div><span class="lab-count">02 home servers</span></div>
+                        <div class="gear-columns server-grid">
+                            <article class="gear-panel compute-card server-card">
+                                <div class="server-heading"><span class="gear-group-label">Home server 01</span><span class="server-platform">Proxmox VE</span></div>
+                                <h4>GEEKOM</h4>
+                                <dl class="spec-rows"><div><dt>Processor</dt><dd>AMD Ryzen 5 7540U</dd></div><div><dt>Memory</dt><dd>16GB</dd></div><div><dt>Operating system</dt><dd>Proxmox VE</dd></div></dl>
+                            </article>
+                            <article class="gear-panel compute-card server-card">
+                                <div class="server-heading"><span class="gear-group-label">Home server 02</span><span class="server-platform">Ubuntu</span></div>
+                                <h4>VZmore AX9 Max</h4>
+                                <dl class="spec-rows"><div><dt>Operating system</dt><dd>Ubuntu</dd></div></dl>
+                            </article>
+                        </div>
+                    </section>
+                    <article class="gear-panel compute-card laptop-card"><span class="gear-group-label">Laptop</span><h3>MSI Prestige 13 A1M</h3><p>Ultra 7 155H · 32GB · 1TB OLED</p></article>
                     <article class="gear-panel desk-tools">
                         <div class="panel-heading"><h3>Desk Calibration &amp; Environment Tools</h3><span class="panel-meta">Accessories</span></div>
                         <ul class="gear-list desk-tool-list">

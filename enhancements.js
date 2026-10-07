@@ -11,7 +11,7 @@
         ['About Bepsi', '/about.html', 'Background, interests and community'],
         ['Resource library', '/resources1.html', 'Spreadsheets, keyboards, mice, audio and monitors'],
         ['Hardware reviews', '/reviews.html', 'Hands-on audio, mini PC and mouse reviews'],
-        ['My setup', '/setup.html', 'Workstation, peripherals, headphones and audio chain'],
+        ['My setup', '/setup.html', 'Workstation, peripherals, headphones, audio and home lab'],
         ['Articles and notes', '/articles.html', 'Writing and project notes'],
         ['GEEKOM A5 Pro', '/geekoma5pro-review.html', 'Mini PC benchmarks, thermals and home server'],
         ['Moondrop Space Travel', '/spacetravel-review.html', 'Wireless earbuds and budget audio'],
@@ -28,6 +28,37 @@
     const results = dialog.querySelector('.command-results');
     let opener;
     let selected = 0;
+    let gearRequest;
+    let gearLoading = false;
+    // Read the current inventory rather than maintaining a second set of specs.
+    const loadGear = () => {
+        if (gearRequest) return gearRequest;
+        gearLoading = true;
+        gearRequest = (async () => {
+            const local = document.querySelector('.setup-inventory');
+            let source = document;
+            if (!local) {
+                const response = await fetch('setup.html');
+                if (!response.ok) throw new Error('Inventory unavailable');
+                source = new DOMParser().parseFromString(await response.text(), 'text/html');
+            }
+            const text = node => node?.textContent.replace(/\s+/g, ' ').trim() || '';
+            const names = selector => [...source.querySelectorAll(selector)].map(text).join(', ');
+            const specs = node => [...node.querySelectorAll('dl > div')].map(row => [...row.children].map(text).join(': ')).join(' · ');
+            const workstation = source.querySelector('#workstation .component-board');
+            if (workstation) pages.push(['Workstation specifications', '/setup.html#workstation', specs(workstation)]);
+            pages.push(['Keyboards', '/setup.html#peripherals', names('[data-keyboard-name]')]);
+            const mice = source.querySelector('.mouse-inventory')?.closest('.gear-panel');
+            if (mice) pages.push(['Mice & mousepads', '/setup.html#peripherals', `${names('.mouse-inventory [data-gear-name]')} · ${specs(mice)}`]);
+            source.querySelectorAll('.audio-category').forEach(card => {
+                pages.push([text(card.querySelector('[data-audio-title]')), `/setup.html#${card.id}`, [...card.querySelectorAll('[data-gear-name]')].map(text).join(', ')]);
+            });
+            source.querySelectorAll('.server-card').forEach(card => {
+                pages.push([`${text(card.querySelector('h4'))} home server`, '/setup.html#home-lab', specs(card)]);
+            });
+        })().catch(() => {}).finally(() => { gearLoading = false; if (dialog.open) render(); });
+        return gearRequest;
+    };
     const updateSelection = () => {
         const links = [...results.querySelectorAll('a')];
         links.forEach((link, i) => link.classList.toggle('is-selected', i === selected));
@@ -46,7 +77,7 @@
             link.append(create('strong', '', title), create('span', '', description), create('b', '', '↗'));
             results.appendChild(link);
         });
-        if (!matches.length) results.append(create('p', 'empty-message', 'No matches. Try a shorter search, like “audio” or “mouse”.'));
+        if (!matches.length) results.append(create('p', 'empty-message', gearLoading ? 'Loading setup gear…' : 'No matches. Try a shorter search, like “audio” or “mouse”.'));
         selected = 0;
         updateSelection();
     };
@@ -57,6 +88,7 @@
         input.value = '';
         dialog.showModal();
         document.body.classList.add('search-open');
+        loadGear();
         render();
         input.focus();
     };

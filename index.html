@@ -43,7 +43,7 @@
                     <p class="home-lead">Hardware, audio, and useful links.</p>
                     <p class="home-description">A collection of hardware resources I find useful, reviews of gear I've used, and a look at my setup.</p>
                     <div class="home-actions"><a href="resources1.html" class="button button-primary">Browse resources <span aria-hidden="true">↗</span></a><a href="setup.html" class="button button-secondary">View my setup <span aria-hidden="true">→</span></a></div>
-                    <nav class="home-wayfinding" aria-label="Browse the site"><a href="reviews.html">Hardware reviews</a><a href="resources1.html">Resource library</a><a href="setup.html">My setup</a></nav>
+                    <nav class="home-wayfinding home-jump-links" aria-label="On this page"><span>Jump to</span><a href="#resources">Resources</a><a href="#reviews">Reviews</a><a href="#explore">Explore</a></nav>
                 </div>
                 <a class="hero-showcase" href="setup.html">
                     <div class="showcase-topline"><span>My setup</span><span>PC / Audio / Peripherals</span></div>
@@ -53,18 +53,18 @@
                 <div class="hero-footnote"><span>Resources · PC hardware · Peripherals · Audio</span><div class="hero-footnote-actions"><button type="button" id="scene-toggle" class="motion-toggle" aria-pressed="false" hidden>Pause motion</button><a href="#resources">Browse the site <span aria-hidden="true">↓</span></a></div></div>
             </div>
         </section>
-        <section id="resources" class="home-section">
+        <section id="resources" class="home-section" aria-labelledby="resources-title">
             <div class="site-container">
-                <div class="section-heading"><div><span class="eyebrow">01 / Resources &amp; setup</span><h2>Useful links. My gear.</h2></div><p>Community resources and a breakdown<br>of the hardware I use.</p></div>
+                <div class="section-heading"><div><span class="eyebrow">01 / Resources &amp; setup</span><h2 id="resources-title">Useful links. My gear.</h2></div><p>Community resources and a breakdown<br>of the hardware I use.</p></div>
                 <div class="work-grid">
                     <a href="resources1.html" class="work-card"><div class="resource-overview"><span class="eyebrow">Resource library</span><h3>Hardware links<br>in one place.</h3><div class="resource-topics"><span>Audio</span><span>Mice</span><span>Keyboards</span><span>Monitors</span><span>3D printing</span><span>Tools &amp; guides</span></div></div><div class="work-content"><span class="eyebrow">Spreadsheets / Guides / Tools</span><div class="card-title-row"><h3>Resource library</h3><span aria-hidden="true">↗</span></div><p>Community spreadsheets, hardware guides, and tools. Search by topic, filter by category, and save links for later.</p><span class="card-link">Browse resources →</span></div></a>
-                    <a href="setup.html" class="work-card"><div class="work-image"><img src="images/optimized/setup-setup1-1280.webp" width="1280" height="720" alt="Bepsi's gaming workstation and audio setup" loading="lazy" decoding="async"><span class="image-label">Workstation / Peripherals / Audio</span></div><div class="work-content"><span class="eyebrow">PC / Peripherals / Audio</span><div class="card-title-row"><h3>My setup</h3><span aria-hidden="true">↗</span></div><p>My PC, peripherals, and audio setup, including the Sennheiser HD580 and HD 480 Pro headphones.</p><span class="card-link">See the hardware →</span></div></a>
+                    <a href="setup.html" class="work-card"><div class="work-image"><img src="images/optimized/setup-setup1-1280.webp" width="1280" height="720" alt="Bepsi's gaming workstation and audio setup" loading="lazy" decoding="async"><span class="image-label">Workstation / Peripherals / Audio</span></div><div class="work-content"><span class="eyebrow">PC / Peripherals / Audio / Servers</span><div class="card-title-row"><h3>My setup</h3><span aria-hidden="true">↗</span></div><p>My workstation, peripherals, audio gear, and home servers, with the hardware and software behind each part of the setup.</p><span class="card-link">See the hardware →</span></div></a>
                 </div>
             </div>
         </section>
-        <section class="home-section home-section-tinted">
+        <section id="reviews" class="home-section home-section-tinted" aria-labelledby="reviews-title">
             <div class="site-container">
-                <div class="section-heading"><div><span class="eyebrow">02 / Reviews</span><h2>Hardware reviews.</h2></div><a class="text-link" href="reviews.html">All reviews ↗</a></div>
+                <div class="section-heading"><div><span class="eyebrow">02 / Reviews</span><h2 id="reviews-title">Hardware reviews.</h2></div><a class="text-link" href="reviews.html">All reviews ↗</a></div>
                 <div class="review-grid">
                     <a class="review-preview" href="geekoma5pro-review.html"><div class="review-image"><img src="images/optimized/geekom-cover-640.webp" alt="GEEKOM A5 Pro mini PC" width="640" height="478" loading="lazy" decoding="async"></div><div class="review-preview-content"><span class="eyebrow">Mini PCs</span><h3>GEEKOM A5 Pro</h3><p>Zen 3 mini PC for desktop and homelab use.</p><span class="card-link">Read the review ↗</span></div></a>
                     <a class="review-preview" href="spacetravel-review.html"><div class="review-image"><img src="images/optimized/setup-reviews-spacetravels-moondrop_spacetravel_main-640.webp" alt="Moondrop Space Travel wireless earphones" width="640" height="360" loading="lazy" decoding="async"></div><div class="review-preview-content"><span class="eyebrow">Wireless audio</span><h3>Moondrop Space Travel</h3><p>Budget ANC earbuds with reference tuning.</p><span class="card-link">Read the review ↗</span></div></a>
@@ -73,13 +73,14 @@
                 </div>
             </div>
         </section>
-        <section class="home-section">
+        <section id="explore" class="home-section" aria-labelledby="explore-title">
             <div class="site-container">
-                <div class="section-heading"><div><span class="eyebrow">03 / More to browse</span><h2>Audio, peripherals<br>&amp; notes.</h2></div><p>More detail on the gear<br>and topics covered here.</p></div>
+                <div class="section-heading"><div><span class="eyebrow">03 / Explore</span><h2 id="explore-title">Take a closer look.</h2></div><p>Jump straight to the gear<br>or find something to read.</p></div>
                 <div class="hub-grid">
                     <a class="hub-card" href="setup.html#audio"><span class="hub-index">01</span><h3>Audio setup</h3><p>The headphones, speakers, and audio equipment I use.</p><span class="card-link">View audio gear ↗</span></a>
-                    <a class="hub-card" href="articles.html"><span class="hub-index">02</span><h3>Articles &amp; guides</h3><p>Explore the writing and tech guides collected in this workspace.</p><span class="card-link">Explore articles ↗</span></a>
-                    <a class="hub-card" href="setup.html#peripherals"><span class="hub-index">03</span><h3>Peripherals</h3><p>My mice, keyboards, and other desk hardware.</p><span class="card-link">View peripherals ↗</span></a>
+                    <a class="hub-card" href="setup.html#peripherals"><span class="hub-index">02</span><h3>Peripherals</h3><p>My mice, keyboards, and other desk hardware.</p><span class="card-link">View peripherals ↗</span></a>
+                    <a class="hub-card" href="setup.html#home-lab"><span class="hub-index">03</span><h3>Home servers</h3><p>The machines and operating systems in my home lab.</p><span class="card-link">Explore the home lab ↗</span></a>
+                    <a class="hub-card" href="articles.html"><span class="hub-index">04</span><h3>Articles &amp; guides</h3><p>More writing, useful guides, and notes on technology.</p><span class="card-link">Explore articles ↗</span></a>
                 </div>
             </div>
         </section>

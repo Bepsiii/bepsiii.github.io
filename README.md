@@ -12,10 +12,10 @@ The committed HTML, CSS, JavaScript, and images are ready to serve directly. No 
 - `pages.css` and `pages.js` provide the resource library, review directory, articles, About, Contact, and archive layouts.
 - `reading.css` and `reading-experience.js` provide review typography, sticky contents, text-size controls, reading progress, and photo enlargement. The original review text and benchmark data remain in the HTML.
 - `main.js` handles navigation, resource search, clipboard feedback, and the contact form.
-- `enhancements.js` adds site search, review filters, saved resources, and reading tools.
+- `enhancements.js` adds site search, review filters, saved resources, and reading tools. Gear search reads `setup.html` when search opens, so the current inventory remains the source of specifications.
 - `home-scene.js` renders the homepage's animated 3D ribbon. `visual-polish.js` adds pointer highlights and scroll reveals.
-- `setup-explorer.js` adds the desk photo explorer, inventory filters, and audio category overview. It reads the existing gear lists rather than maintaining separate specifications.
-- `setup-refinement.css` styles the readable inventory rows, keyboard builds, and audio groups. All specifications are static HTML and remain visible without JavaScript.
+- `setup-explorer.js` adds the desk photo explorer, inventory filters, and audio category overview. It reads the existing gear lists rather than maintaining separate specifications. Filters use `?section=audio` (or another section ID), survive reloads, and follow browser history; inventory anchors reveal their targets.
+- `setup-refinement.css` styles the readable inventory rows, keyboard builds, audio groups, and home server cards. The home lab is linked at `setup.html#home-lab`. All specifications are static HTML and remain visible without JavaScript.
 - `page-scenes.js` and `scenes.css` add the library lattice, orbital forms, audio waveform, and abstract workstation schematic.
 - `images/optimized/` contains responsive WebP images; original photos remain in `images/`.
 

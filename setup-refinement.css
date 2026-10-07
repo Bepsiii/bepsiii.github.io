@@ -79,6 +79,17 @@
 .compute-card .gear-group-label { margin: 0 0 12px; font-family: ui-monospace, monospace; font-size: .7rem; }
 .compute-card h3 { color: var(--setup-title); font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.5; }
 .compute-card p { color: var(--setup-muted); font-size: .88rem; line-height: 1.7; margin-top: 12px; }
+.home-lab { margin-bottom: 24px; scroll-margin-top: 200px; }
+.lab-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 22px; }
+.lab-heading .eyebrow { color: var(--setup-accent); font: .68rem ui-monospace, monospace; letter-spacing: .12em; }
+.lab-heading h3 { margin-top: 12px; color: var(--setup-title); font-size: clamp(1.35rem, 2.4vw, 1.75rem); line-height: 1.4; letter-spacing: -.035em; font-weight: 600; }
+.lab-count { color: var(--setup-muted); font: .7rem ui-monospace, monospace; white-space: nowrap; padding-bottom: 5px; }
+.server-card { position: relative; overflow: hidden; border-top: 2px solid var(--setup-accent); }
+.server-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; }
+.server-heading .gear-group-label { margin: 0; }
+.server-platform { color: var(--setup-accent); border: 1px solid var(--setup-line); background: var(--setup-surface-soft); font: .7rem ui-monospace, monospace; border-radius: 6px; padding: 7px 10px; white-space: nowrap; }
+.server-card h4 { color: var(--setup-title); font: 600 1.55rem/1.4 'Space Grotesk', sans-serif; letter-spacing: -.035em; margin-bottom: 20px; }
+.laptop-card { margin-bottom: 24px; }
 .desk-tool-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }
 .desk-tool-list .gear-entry:last-child { border-bottom: 1px solid var(--setup-line); }
 .desk-tool-list .gear-entry:nth-last-child(-n+2) { border-bottom: 0; }
@@ -132,6 +143,8 @@
     .setup-page .inspector-content { min-height: 240px; }
 }
 @media (max-width: 370px) {
+    .lab-heading { align-items: flex-start; flex-direction: column; gap: 12px; }
+    .server-heading { align-items: flex-start; flex-direction: column; gap: 12px; }
     .gear-panel { padding: 18px; }
     .gear-entry { grid-template-columns: 1fr; gap: 8px; }
     .gear-tag { justify-self: start; }

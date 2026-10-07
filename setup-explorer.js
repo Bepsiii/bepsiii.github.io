@@ -70,13 +70,34 @@
     const group = make('div', 'setup-browser-buttons'); const count = make('span', 'setup-browser-count', '04 sections');
     count.setAttribute('aria-live', 'polite');
     const filterButtons = [];
+    const applyFilter = index => {
+        filterButtons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+        sections.forEach((section, i) => { section.hidden = index !== 0 && i !== index - 1; });
+        count.textContent = index === 0 ? '04 sections' : `0${index} / 04`;
+    };
+    const hashDestination = () => {
+        const target = document.getElementById(location.hash.slice(1));
+        return target?.closest('.inventory-section') ? target : null;
+    };
+    const restoreLocation = () => {
+        const url = new URL(location.href);
+        const target = hashDestination();
+        const index = target ? 0 : sections.findIndex(section => section.id === url.searchParams.get('section')) + 1;
+        applyFilter(index);
+        if (target && url.searchParams.has('section')) {
+            url.searchParams.delete('section'); history.replaceState(null, '', url);
+        }
+        if (target) requestAnimationFrame(() => target.scrollIntoView({ behavior: 'instant', block: 'start' }));
+    };
     ['All sections', ...labels].forEach((label, index) => {
         const button = make('button', 'setup-section-filter', label); button.type = 'button'; button.dataset.section = index ? sections[index - 1].id : 'all';
         button.setAttribute('aria-pressed', String(index === 0));
         button.addEventListener('click', () => {
-            filterButtons.forEach((other, i) => other.setAttribute('aria-pressed', String(i === index)));
-            sections.forEach((section, i) => { section.hidden = index !== 0 && i !== index - 1; });
-            count.textContent = index === 0 ? '04 sections' : `0${index} / 04`;
+            applyFilter(index);
+            const url = new URL(location.href); url.hash = '';
+            if (index) url.searchParams.set('section', sections[index - 1].id);
+            else url.searchParams.delete('section');
+            if (url.href !== location.href) history.pushState(null, '', url);
             const target = index === 0 ? browser : sections[index - 1];
             target.scrollIntoView({ behavior: reduced.matches ? 'instant' : 'smooth', block: 'start' });
         });
@@ -84,11 +105,17 @@
     });
     browser.append(group, count); explorer.after(browser);
     document.body.classList.add('setup-enhanced');
+    window.addEventListener('popstate', restoreLocation);
+    window.addEventListener('hashchange', restoreLocation);
     // Internal links always reveal their destination, even while a filter is active.
     document.addEventListener('click', event => {
         const link = event.target.closest('a[href^="#"]');
-        const section = sections.find(item => `#${item.id}` === link?.getAttribute('href'));
-        if (section) { sections.forEach(item => item.hidden = false); filterButtons.forEach((button, index) => button.setAttribute('aria-pressed', String(index === 0))); count.textContent = '04 sections'; }
+        const target = link && document.getElementById(link.getAttribute('href').slice(1));
+        if (target?.closest('.inventory-section')) {
+            applyFilter(0);
+            const url = new URL(location.href); url.searchParams.delete('section');
+            history.replaceState(null, '', url);
+        }
     });
 
     // An overview of the actual audio categories, with a visual path into each list.
@@ -109,4 +136,5 @@
         const heading = section.querySelector('h2');
         const number = make('span', 'inventory-number', `0${index + 1}`); number.setAttribute('aria-hidden', 'true'); heading.prepend(number);
     });
+    restoreLocation();
 })();
