@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review: VZMORE AX9 Max - Bepsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+    <link rel="preload" href="header.html" as="fetch" crossorigin="">
+    <link rel="preload" href="footer.html" as="fetch" crossorigin="">
+    <link rel="icon" type="image/png" href="images/website-logo.png">
+    <link rel="stylesheet" href="assets/utilities.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="refresh.css">
+    <link rel="stylesheet" href="site-refinement.css">
+    <script src="enhancements.js" defer=""></script>
+    <link rel="canonical" href="https://bepsi.dev/vzmoreax9max-review.html">
+    <meta name="theme-color" content="#080d18">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="VZMORE AX9 Max review: Ryzen AI 9 HX 470, Radeon 890M gaming, 65W thermals, Linux home server testing, and local AI benchmarks.">
+<link rel="stylesheet" href="pages.css"><link rel="stylesheet" href="reading.css"><script src="reading-experience.js" defer=""></script>
+    <meta name="author" content="Bepsi">
+    <meta property="og:title" content="VZMORE AX9 Max: AMD Gorgon Point in the Palm of Your Hand">
+    <meta property="og:description" content="The full r/PcBuild review: gaming, thermals, Linux, and local AI benchmarks on the VZMORE AX9 Max.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bepsi.dev/vzmoreax9max-review.html">
+    <meta property="og:image" content="https://bepsi.dev/images/setup/reviews/vzmoreax9max/cover.png">
+    <meta property="og:image:alt" content="VZMORE AX9 Max — the r/PcBuild review">
+    <meta property="article:published_time" content="2026-10-21">
+    <link rel="stylesheet" href="vzmore-review.css">
+</head>
+<body class="editorial-page review-page vzmore-review">
+    <noscript><nav class="noscript-links" aria-label="Main navigation"><a href="/">Home</a><a href="/reviews.html">Reviews</a><a href="/resources1.html">Resources</a><a href="/setup.html">Setup</a><a href="/contact.html">Contact</a></nav></noscript>
+    <div id="header-placeholder"></div>
+    <main tabindex="-1" id="main-content" class="review-main">
+        <article class="review-article">
+            <nav aria-label="breadcrumb" class="review-breadcrumb"><a href="index.html">Home</a> / <a href="reviews.html">Reviews</a> / <span>VZMORE AX9 Max</span></nav>
+            <header class="review-hero">
+                <div class="review-heading"><span class="text-blue-500 font-bold text-xs tracking-wider uppercase mb-2 block">Mini PC review · <time datetime="2026-10-21">21 October 2026</time></span><h1>VZMORE AX9 Max</h1><h2>AMD Gorgon Point in the Palm of Your Hand — The r/PcBuild Review</h2></div>
+                <figure class="review-cover review-photo"><img src="images/optimized/vzmore-cover-1280.webp" srcset="images/optimized/vzmore-cover-640.webp 640w, images/optimized/vzmore-cover-1280.webp 1280w" sizes="(max-width: 767px) 92vw, 560px" width="1920" height="1080" decoding="async" fetchpriority="high" loading="eager" data-full-src="images/setup/reviews/vzmoreax9max/cover.png" alt="VZMORE AX9 Max mini PC — the r/PcBuild review"><figcaption>VZMORE AX9 Max — the r/PcBuild review</figcaption></figure>
+            </header>
+            <div class="review-layout"><aside class="review-sidebar" aria-label="Reading controls and contents"></aside><div class="review-prose">
+<p>Hey gang, Im back again with another review, with the AX9 Max from VZMORE, which turned out to be rather impressive!</p>
+<div class="review-disclosure"><p><strong>Disclosure:</strong> This review unit was provided by VZMORE for independent review. No monetary compensation was exchanged, and VZMORE had no editorial input over the content of this review.</p></div>
+<p class="review-source">Originally posted in r/PcBuild. <a href="https://www.reddit.com/r/PcBuild/comments/1wt9htw/vzmore_ax9_max_mini_pc_amd_gorgon_point_in_the/">Read the original review and discussion on Reddit ↗</a></p>
+<section class="review-section">
+<h3 id="1-introduction">1. Introduction:</h3>
+<p>The VZMORE AX9 Max is a compact mini-PC engineered to push the limits of small-form-factor performance by pairing AMD&#x27;s Gorgon Point architecture with an advanced vapor chamber cooling solution.</p>
+<h4 id="who-is-vzmore">Who is VZMORE?</h4>
+<p>VZMORE is a new player in the space, established in 2026 and has carved out a niche in the space by improving upon cooling in mini pcs by utilising large vapour chambers and focusing on high end workhorses in a small form factor.</p>
+<p>Specifically with their first releases, the AX9 Max and IX9 Max, rather than compromising on memory or throttling underload, they target prosumers like developers compiling heavy codebases, home lab enthusiasts requiring headless 24/7 hypervisors or people who want to run their own local LLMs and who want to bypass the 8GB VRAM paywall without running a 300W ATX desktop rig.</p>
+<h4 id="what-s-inside-the-ax9-max">What&#x27;s inside the AX9 Max?</h4>
+<p>Let’s get straight to the specs of the PC since that is by far the coolest part.</p>
+<ul>
+<li>CPU: AMD Ryzen AI 9 HX 470 (12 Cores / 24 Threads: 4x Zen 5 + 8x Zen 5c, up to 5.2 GHz boost)</li>
+<li>IGPU: AMD Radeon 890M (RDNA 3.5 architecture, 16 Compute Units @ 3,100 MHz)</li>
+<li>NPU: AMD XDNA 2 architecture delivering up to 50–55 TOPS INT8 local AI compute</li>
+<li>RAM: 32GB (2x 16GB) DDR5-5600 MT/s in dual-channel SO-DIMM configuration</li>
+<li>Storage: 1TB PCIe 4.0 NVMe M.2 SSD (expandable, 1x 2230, 1x 2280)</li>
+<li>Networking: Dual 2.5GbE RJ-45 LAN, Wi-Fi 7, and Bluetooth 5.4</li>
+<li>Power Supply: 120W DC Barrel Jack adapter</li>
+</ul>
+<p>The cooling system is a substantial fin array complemented by a vapour chamber which proved to be rather effective in my testing.</p>
+</section>
+<section class="review-section">
+<h3 id="2-unboxing-and-industrial-design">2. Unboxing and Industrial Design</h3>
+<h4 id="packaging-and-included-accessories">Packaging and Included Accessories</h4>
+<p>The AX9 Max ships in a minimalist matte white presentation box sporting the outline of the device and the ax9 max identifier, secured with tamper seals. Opening the magnetic lid reveals the main unit seated firmly a custom card insert, laid out rather nicely and all the accessories in their own compartments, wrapped in paper.</p>
+<p>Alongside the PC, VZMORE includes a set of accessories:</p>
+<ul>
+<li>1x 120W compact DC barrel-jack power adapter</li>
+<li>1x Ultra-high-speed HDMI 2.1 cable (1.0m)</li>
+<li>1x Solid steel VESA mounting plate with screws</li>
+<li>1x Quick-start hardware manual &amp; warranty documentation</li>
+</ul>
+<h4 id="chassis-build-quality-and-form-factor">Chassis Build Quality and Form Factor</h4>
+<p>Measuring approximately 130 mm x 128 mm x 55 mm, the AX9 Max occupies virtually the same footprint as a desktop headphone amplifier, making it effortless to integrate into clean desk setups.</p>
+<p>The chassis construction is predominantly CNC-machined anodized aluminium with grey anodized finish that resists fingerprints. Aside from offering structural rigidity, the metal shell acts as a secondary heat spreader. The bottom plate utilizes rigid, high-impact ABS housing four non-slip rubber feet with integrated cutouts that dampen desk resonance and allow reuse without destroying adhesive tape. The bottom plate is also magnetically attached alongside the 4 screws. Which is nice to see.</p>
+<h4 id="i-o-layout-and-connectivity">I/O Layout and Connectivity</h4>
+<p>The number of ports on the PC honestly took me back a bit, especially just the 4 USB-As on the front. Though it would have been nice to see 1 or 2 USB-Cs alongside them for external SSD use or otherwise.</p>
+<p><strong>Front Panel:</strong></p>
+<ul>
+<li>4x USB 3.2 Gen 2 Type-A ports (10 Gbps)</li>
+<li>1x 3.5mm combo headphone/microphone audio jack</li>
+<li>1x Power button with an integrated status LED</li>
+</ul>
+<p><strong>Rear Panel:</strong></p>
+<ul>
+<li>2x Full-spec USB4 Type-C ports (40 Gbps, DP Alt Mode, and Power Delivery passthrough)</li>
+<li>1x USB 3.2 Gen 2 Type-A port (10 Gbps)</li>
+<li>1x USB 2.0 Type-A port</li>
+<li>2x HDMI 2.1 display outputs (supporting up to 4K @ 120Hz / 8K @ 60Hz)</li>
+<li>2x 2.5GbE RJ-45 Ethernet ports (ideal for multi-WAN, routing, or segregated home lab hypervisor subnets)</li>
+<li>1x 19V DC-In power port</li>
+</ul>
+<h4 id="internal-access-and-upgradability">Internal Access and Upgradability</h4>
+<p>Gaining access to the internals is a nice change in an world dominated by soldered, anti-consumer hardware, especially on smaller footprint devices.</p>
+<ol>
+<li>Four Phillips head screws sit recessed beneath the rubber feet.</li>
+<li>Lifting the bottom cover reveals a secondary internal aluminium bracket that shields the internals, acts as a passive heatsink for the M.2 SSDs and as an antenna.</li>
+<li>Beneath the shield, is the internals, with easy access to the dual SODIMMS, which are populated with dual DDR5 DIMMS, the primary 2280 m.2 NVME and a secondary 2230 slot. Underneath the main SSD is where you find the WiFi-7 Module, which is a MediaTek modem.</li>
+</ol>
+</section>
+<section class="review-section">
+<h3 id="3-thermal-engineering-the-v-cooling-vapor-chamber">3. Thermal Engineering: The V-Cooling™ Vapor Chamber</h3>
+<h4 id="the-technology-vapor-chamber-vs-heat-pipes">The Technology: Vapor Chamber vs. Heat Pipes</h4>
+<p>Traditional mini-PCs rely on basic sintered copper heat pipes soldered to fin stacks. While functional, heat pipes create localized hot spots across the components.</p>
+<p>VZMORE utilizes a custom V-Cooling™ vapor chamber that covers the APU die, power delivery stages, and surrounding controller circuitry. By utilizing a two-phase hermetically sealed vacuum chamber containing working liquid that vaporizes and condenses across an internal flat surface, the heat is then transferred to a large fin array with fresh air rushing through to remove the heat</p>
+<h4 id="sustained-stress-testing-thermal-results">Sustained Stress Testing &amp; Thermal Results</h4>
+<p>To evaluate sustained thermal dissipation, the AX9 Max was subjected to a 60-minute sustained power test (simultaneous AVX-512 CPU workload alongside 3D rendering) at an ambient room temperature of 25°C (my room is quite hot)</p>
+<ul>
+<li>Sustained Package Power: Locked stably at 65W without thermal throttling or clock dropping.</li>
+<li>Peak CPU Temperature: Peaked at 78.6°C before stabilizing around 74–76°C.</li>
+<li>iGPU Temperature: Never exceeded 60.1°C, leaving thermal headroom for graphic tasks.</li>
+<li>Acoustic Profile: Under idle workloads, the system was inaudible (&lt;26 dBA). Under the full 65W stress test, the blower fan spun up into a smooth, low-pitch whoosh peaking at 37.8 dBA, completely avoiding the shrill whine typical of cheap compact blowers.</li>
+</ul>
+</section>
+<section class="review-section">
+<h3 id="4-the-parts-used">4. The Parts Used</h3>
+<h4 id="zen-5-zen-5c">Zen 5 + Zen 5c:</h4>
+<p>The Ryzen AI 9 HX 470 pairs 4 Zen 5 performance cores with 8 Zen 5c dense cores for 12 cores and 24 threads. Unlike standard big.LITTLE designs that strip instruction sets from efficiency cores, both Zen 5 and Zen 5c share identical ISA support, including native AVX-512. These cores are complimented by AMDs 2nd generation XDNA NPU which has 55 TOPS itself but 86 TOPS when combined with the performance from the CPU and GPU.</p>
+<p>From my testing and use with this CPU, it genuinely gives my primary 12700kf a run for its money</p>
+<p>The AX9 Max Features two standard SODIMM slots running dual channel. Whilst VZMORE cites the platform supports up to 256gb, the AX9 Max itself currently only supports up to 128GB via 2 x 64GB, however future releases may see 128GB DIMMS.</p>
+</section>
+<section class="review-section">
+<h3 id="5-synthetic-benchmarks">5. Synthetic Benchmarks</h3>
+<ul>
+<li>Geekbench 6: Single-core and Multi-core runs. The AX9 achieved a 2978 pt Single Core Score and 15125 pt Multi-Core Score.</li>
+<li>Cinebench 2024: Sustained rendering performance. Single-core score reached 119 pts, multi-core reached 1,163 pts.</li>
+<li>3DMark Steel Nomad &amp; Steel Nomad Light. Standard test score: 711 (7.12 FPS). Light test score: 3,368 (24.95 FPS).</li>
+<li>Storage &amp; Connectivity Performance: CrystalDiskMark sequential reads reached ~5,788 MB/s and writes reached ~4,437 MB/s.</li>
+<li>Bluetooth &amp; Networking: Stable Bluetooth connection throughout testing with no audio dropouts. Ethernet tests showed complete saturation of a 1Gb network connection over a Realtek NIC.</li>
+<li>VRAM Allocation: 4GB dedicated to GPU out of the box, fully reconfigurable in BIOS. Up to 24GB! Making it even better for AI, bypassing windows dynamic ram usage.</li>
+</ul>
+</section>
+<section class="review-section"><h3 id="gaming">6. Gaming Benchmarks</h3>
+<h4 id="6-1-forza-horizon-6">6.1 Forza Horizon 6</h4>
+<ul>
+<li>Settings: Medium / High Preset, Ray Tracing Off.</li>
+<li>Metrics: Average 40 FPS at 1080p high, 37fps at 1440p high WITH FSR 4.1.1, 45fps at 1440p low</li>
+<li>Experience: For a new AAA game, it genuinely felt good to play especially with FSR and even more if you are willing to mess around with settings.</li>
+</ul>
+<h4 id="6-2-forza-horizon-5">6.2 Forza Horizon 5</h4>
+<ul>
+<li>Settings: High/ Extreme Preset.</li>
+<li>Metrics: Reached 40 FPS at 1080p High with RT, 51 FPS at 1080p Extreme, and up to 45 FPS at 1440p Low preset.</li>
+<li>Experience: This was by far the best playing game, and achieving playable ray tracing on 1080p High in such a compact package is particularly impressive.</li>
+</ul>
+<h4 id="6-3-dirt-rally-2-0">6.3 Dirt Rally 2.0</h4>
+<ul>
+<li>Settings: High/Ultra/Low Preset.</li>
+<li>Metrics: Reached 72 FPS at 1080p High, 54 FPS at 1080p Ultra, and up to 48 FPS at 1440p Medium preset.</li>
+<li>Comparison: Radeon 890M delivers playable 1080p/1440p frame rates, rivalling entry-level discrete GPUs like the lower power RTX 3050 Mobile while drawing significantly less power.</li>
+</ul>
+<h4 id="6-4-tom-clancy-s-rainbow-six-siege-directx-12">6.4 Tom Clancy’s Rainbow Six Siege (DirectX 12)</h4>
+<ul>
+<li>Settings: Low / High Preset.</li>
+<li>Metrics: Reached 89 FPS at 1080p High (68 FPS min, 96 FPS max), 74 FPS at 1440p High (59 FPS min, 85 FPS max), and 60 FPS at 1440p Low (56 FPS min, 63 FPS max).</li>
+<li>Comparison: The Radeon 890M handles fast-paced competitive shooters with ease, consistently holding minimum framerates near or well above 60 FPS even at 1440p High while drawing minimal power and keeping GPU temperatures under 68°C, Im not making that joke, shoo.</li>
+</ul>
+<h4 id="6-5-shadow-of-the-tomb-raider-directx-12">6.5 Shadow of the Tomb Raider (DirectX 12)</h4>
+<ul>
+<li>Settings: High Preset, Ray Tracing Off.</li>
+<li>Metrics: Reached an average of 35 FPS at 1080p High (31 FPS min, 48 FPS max), and 24 FPS at 1440p High (19 FPS min, 32 FPS max).</li>
+<li>Comparison: While native 1440p High pushes the Radeon 890M to its absolute limit at 24 FPS (69% GPU bound), dropping down to 1080p High achieves a stable 35 FPS. Which is on par with consoles!</li>
+</ul>
+</section>
+<section class="review-section">
+<h3 id="7-home-server-and-linux-testing">7. Home Server and Linux Testing</h3>
+<ul>
+<li>OS Compatibility: Tested under Ubuntu 24.04 LTS (Kernel 6.8) and Proxmox VE 8.2. Out-of-the-box hardware detection was seamless across both distributions without requiring custom kernel patches or out-of-tree drivers.</li>
+<li>Idle Power: The PC pulled only 8.2W at the wall under headless Ubuntu. AMD XDNA driver support via AMDXDNA allowed the NPU to work for Linux AI workloads and I could use local models.</li>
+<li>Virtualization &amp; Container Density: Under Proxmox, the 12 cores and 32GB RAM sustained 25+ lightweight Debian containers and 3 full virtual machines without running out of cores or thermal throttling.</li>
+</ul>
+</section>
+<section class="review-section">
+<h3 id="8-local-ai-gemma-4-26b-qwen3-6-35b-a3b-radeon-890m-vulkan-radv">8. Local AI: Gemma 4 26B &amp; Qwen3.6-35B-A3B (Radeon 890M, Vulkan RADV)</h3>
+<p>With rising memory prices putting 16GB+ discrete GPUs out of reach for budget home labs, running local LLMs on integrated graphics is a flagship selling point for AMD&#x27;s Gorgon Point platform and the AX9 Max especially. Testing was done on the 890M under Ubuntu using llama.cpp (build 11238, Vulkan/RADV backend) with 24.0 GiB of dedicated VRAM dedicated in the BIOS. I did go mildly overkill with the testing.</p>
+<h4>Real-World Prompt Benchmarks (llama-server, Temperature 0)</h4>
+<div class="review-table-scroll review-table-wide" tabindex="0" role="region" aria-label="Real-world prompt benchmarks (llama-server, temperature 0), scroll horizontally if needed"><table><caption>Real-world prompt benchmarks (llama-server, temperature 0)</caption><thead><tr>
+<th scope="col">Model</th>
+<th scope="col">Architecture / Quant</th>
+<th scope="col">Workload Scenario</th>
+<th scope="col">Prompt Tokens</th>
+<th scope="col">TTFT</th>
+<th scope="col">Eval Speed</th>
+<th scope="col">Peak VRAM</th>
+<th scope="col">System RAM</th>
+</tr></thead><tbody>
+<tr>
+<th scope="row">Gemma 4 26B</th>
+<td>25.2B Dense (Q4_K_M, 15.8 GiB)</td>
+<td>Short Q&amp;A</td>
+<td>27</td>
+<td>0.30s</td>
+<td>21.8 t/s</td>
+<td>17.8 GiB</td>
+<td>5.7 GiB</td>
+</tr>
+<tr>
+<th scope="row">Gemma 4 26B</th>
+<td>25.2B Dense (Q4_K_M, 15.8 GiB)</td>
+<td>Code Generation (500T)</td>
+<td>31</td>
+<td>0.31s</td>
+<td>21.4 t/s</td>
+<td>17.8 GiB</td>
+<td>5.7 GiB</td>
+</tr>
+<tr>
+<th scope="row">Gemma 4 26B</th>
+<td>25.2B Dense (Q4_K_M, 15.8 GiB)</td>
+<td>Reasoning / Math</td>
+<td>50</td>
+<td>0.38s</td>
+<td>21.7 t/s</td>
+<td>17.8 GiB</td>
+<td>5.7 GiB</td>
+</tr>
+<tr>
+<th scope="row">Gemma 4 26B</th>
+<td>25.2B Dense (Q4_K_M, 15.8 GiB)</td>
+<td>Long Context (~5.7k)</td>
+<td>5,745</td>
+<td>10.97s</td>
+<td>19.3 t/s</td>
+<td>17.8 GiB</td>
+<td>5.7 GiB</td>
+</tr>
+<tr>
+<th scope="row">Qwen3.6-35B-A3B</th>
+<td>34.7B MoE (Q4_K_M, 20.6 GiB)</td>
+<td>Short Q&amp;A</td>
+<td>27</td>
+<td>0.50s</td>
+<td>24.8 t/s</td>
+<td>21.5 GiB</td>
+<td>5.1 GiB</td>
+</tr>
+<tr>
+<th scope="row">Qwen3.6-35B-A3B</th>
+<td>34.7B MoE (Q4_K_M, 20.6 GiB)</td>
+<td>Code Generation (416T)</td>
+<td>30</td>
+<td>0.50s</td>
+<td>24.7 t/s</td>
+<td>21.5 GiB</td>
+<td>5.1 GiB</td>
+</tr>
+<tr>
+<th scope="row">Qwen3.6-35B-A3B</th>
+<td>34.7B MoE (Q4_K_M, 20.6 GiB)</td>
+<td>Reasoning / Math</td>
+<td>49</td>
+<td>0.61s</td>
+<td>24.8 t/s</td>
+<td>21.5 GiB</td>
+<td>5.1 GiB</td>
+</tr>
+<tr>
+<th scope="row">Qwen3.6-35B-A3B</th>
+<td>34.7B MoE (Q4_K_M, 20.6 GiB)</td>
+<td>Long Context (~5.6k)</td>
+<td>5,624</td>
+<td>10.14s</td>
+<td>23.8 t/s</td>
+<td>21.5 GiB</td>
+<td>5.1 GiB</td>
+</tr>
+</tbody></table></div>
+<h4>Speculative Decoding &amp; Multi-Token Prediction (MTP) Tuning</h4>
+<p>To push inference throughput further on the MoE architecture, I tested Qwen3.6-35B-A3B using speculative decoding with its native Multi-Token Prediction (MTP) drafting heads:</p>
+<div class="review-table-scroll review-table-wide" tabindex="0" role="region" aria-label="Speculative decoding and MTP tuning, scroll horizontally if needed"><table><caption>Speculative decoding and MTP tuning</caption><thead><tr>
+<th scope="col">Configuration</th>
+<th scope="col">Quant Size</th>
+<th scope="col">Generation Speed</th>
+<th scope="col">vs Standard Q4_K_M</th>
+<th scope="col">Draft Acceptance Rate</th>
+<th scope="col">Prompt Speed (~3k tok)</th>
+<th scope="col">Peak VRAM</th>
+</tr></thead><tbody>
+<tr>
+<th scope="row">mtp-UD-IQ4_XS-n2</th>
+<td>17.0 GiB</td>
+<td>34.2 t/s</td>
+<td>1.38x</td>
+<td>73%</td>
+<td>531 t/s</td>
+<td>17.8 GiB</td>
+</tr>
+<tr>
+<th scope="row">mtp-UD-IQ4_XS-n3</th>
+<td>17.0 GiB</td>
+<td>33.9 t/s</td>
+<td>1.37x</td>
+<td>66%</td>
+<td>523 t/s</td>
+<td>17.9 GiB</td>
+</tr>
+<tr>
+<th scope="row">mtp-UD-IQ4_XS-n1</th>
+<td>17.0 GiB</td>
+<td>32.6 t/s</td>
+<td>1.32x</td>
+<td>84%</td>
+<td>526 t/s</td>
+<td>17.8 GiB</td>
+</tr>
+<tr>
+<th scope="row">mtp-UD-IQ4_XS-n0</th>
+<td>17.0 GiB</td>
+<td>25.5 t/s</td>
+<td>1.03x</td>
+<td aria-label="Not reported">—</td>
+<td>551 t/s</td>
+<td>17.2 GiB</td>
+</tr>
+</tbody></table></div>
+<p>Zero CPU Offload Penalty: With 24GB of dedicated VRAM, both the 25.2B dense and 34.7B MoE models fit 100% into GPU memory, eliminating PCIe bus bottlenecking entirely.</p>
+<ul>
+<li>Speculative Speedup: Utilizing 2-token MTP drafting (n2) on IQ4_XS boosted generation from the standard 24.7 t/s rate up to 34.2 t/s at a 73% acceptance rate, while keeping the memory footprint under 18GB which left ample headroom for larger context buffers.</li>
+</ul>
+</section>
+<section class="review-section">
+<h3 id="9-conclusion-and-verdict">9. Conclusion and Verdict</h3>
+<h4>Pros</h4>
+<ul>
+<li>Remarkable performance-per-watt from AMD&#x27;s Zen 5 + Zen 5c architecture.</li>
+<li>Best-in-class Radeon 890M integrated graphics capable of solid 1080p and light 1440p gaming.</li>
+<li>Sustained 65W thermal dissipation without thermal throttling, supported by an exceptionally quiet acoustic profile (&lt;38 dBA).</li>
+<li>Reconfigurable BIOS VRAM allocation (up to 24GB) enables effortless execution of 25-35B+ parameter local AI models.</li>
+<li>Dual 2.5GbE networking, Wi-Fi 7, and dual USB4 ports provide unmatched I/O versatility.</li>
+<li>Unsoldered, modular DDR5 SO-DIMM and dual M.2 storage slots.</li>
+</ul>
+<h4>Cons</h4>
+<ul>
+<li>Premium pricing over previous-generation Zen 3/Zen 4 mini-PCs.</li>
+<li>All four front I/O ports are Type-A. A front-mounted USB-C port would have improved usability for modern flash drives.</li>
+<li>Modest ray-tracing compute ceiling (expected for an iGPU).</li>
+<li>Brand is a newcomer to Western markets without established long-term firmware track records.</li>
+</ul>
+</section>
+            </div></div>
+            <div class="text-center mt-16"><a href="reviews.html" class="btn-outline">← Back to Reviews</a></div>
+            <nav class="review-related" aria-label="More reviews"><span class="review-related-label">Keep reading</span><a href="geekoma5pro-review.html"><span>Mini PCs</span><strong>GEEKOM A5 Pro ↗</strong></a><a href="spacetravel-review.html"><span>Wireless audio</span><strong>Moondrop Space Travel ↗</strong></a><a class="review-all" href="reviews.html">All reviews →</a></nav>
+        </article>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="main.js"></script>
+</body></html>

@@ -13,6 +13,7 @@
         ['Hardware reviews', '/reviews.html', 'Hands-on audio, mini PC and mouse reviews'],
         ['My setup', '/setup.html', 'Workstation, peripherals, headphones, audio and home lab'],
         ['Articles and notes', '/articles.html', 'Writing and project notes'],
+        ['VZMORE AX9 Max', '/vzmoreax9max-review.html', 'Mini PC review: Ryzen AI 9 HX 470, Radeon 890M gaming, thermals, Linux and local AI benchmarks'],
         ['GEEKOM A5 Pro', '/geekoma5pro-review.html', 'Mini PC benchmarks, thermals and home server'],
         ['Moondrop Space Travel', '/spacetravel-review.html', 'Wireless earbuds and budget audio'],
         ['7Hz Sonus', '/7hzsonus-review.html', 'Hybrid in-ear monitor audio review'],
@@ -139,7 +140,7 @@
             const terms = query.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
             let count = 0;
             cards.forEach(card => {
-                const type = card.href.includes('geekom') ? 'pc' : card.href.includes('beanmouse') ? 'mouse' : 'audio';
+                const type = { minipc: 'pc', mousemod: 'mouse', iem: 'audio' }[card.dataset.category];
                 card.hidden = !(category.value === 'all' || category.value === type) || !terms.every(term => card.textContent.toLowerCase().includes(term));
                 if (!card.hidden) { count++; card.classList.add('is-visible'); card.classList.remove('hidden'); }
             });

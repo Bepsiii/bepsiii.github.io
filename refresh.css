@@ -183,3 +183,10 @@ main h2[id] { scroll-margin-top: 100px; }
 }
 @media (prefers-reduced-motion: reduce) { .hero-showcase { transform: none; } }
 @media print { .reading-tools, .return-top, .save-resource, .command-dialog { display: none !important; } }
+
+/* The latest review sits above the existing homepage review grid. */
+.review-grid .review-preview-featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; }
+.review-preview-featured .review-image { height: auto; aspect-ratio: 16 / 9; }
+.review-preview-featured .review-image img { object-fit: contain; }
+.review-preview-featured h3 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
+@media (max-width: 767px) { .review-grid .review-preview-featured { grid-template-columns: 1fr; } }

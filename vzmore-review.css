@@ -1,0 +1,10 @@
+/* Formatting for the AX9 Max review's dense benchmark tables. */
+.vzmore-review .review-prose ul { list-style: disc; }
+.vzmore-review .review-prose ol { list-style: decimal; padding-left: 24px; }
+.vzmore-review .review-disclosure p { margin: 0; font-size: inherit; }
+.vzmore-review .review-source { font-size: .85rem; margin-top: 18px; }
+.vzmore-review .review-table-wide table { min-width: 1050px; }
+.vzmore-review caption { text-align: left; padding: 16px; color: var(--text-heading); font-size: .85rem; font-weight: 600; }
+.vzmore-review tbody th { text-align: left; font-weight: 500; }
+.vzmore-review .review-table-scroll:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 4px; }
+.vzmore-review .review-prose h4 { scroll-margin-top: 120px; }

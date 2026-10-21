@@ -31,17 +31,25 @@ const assert = require('node:assert/strict');
   for (const [term, destination] of [['Joro', 'setup.html#peripherals'], ['VZmore', 'setup.html#home-lab']]) {
     await page.locator('#global-search').fill(term);
     await page.locator(`.command-result[href$="${destination}"]`).waitFor();
-    assert.equal(await page.locator('.command-result').count(), 1, `Search should locate current gear: ${term}`);
+    assert.equal(await page.locator('.command-result').count(), term === 'VZmore' ? 2 : 1, `Search should locate current gear and reviews: ${term}`);
   }
   await page.keyboard.press('Escape');
   await page.waitForFunction(() => !document.querySelector('.command-dialog').open);
   assert.equal(await page.locator('.command-dialog').evaluate(el => el.open), false);
   await visit('reviews.html?category=pc');
+  assert.equal(await page.locator('[data-review-card]:visible').count(), 2);
+  await page.locator('#review-search').fill('VZMORE');
   assert.equal(await page.locator('[data-review-card]:visible').count(), 1);
+  await page.locator('[data-review-card]:visible').click();
+  assert.equal(await page.locator('h1').innerText(), 'VZMORE AX9 Max');
+  assert.equal(await page.locator('.review-table-scroll').count(), 2);
+  assert.equal(await page.locator('.review-table-scroll tbody tr').count(), 12);
+  await page.locator('.review-sidebar .article-contents').waitFor();
+  await visit('reviews.html?category=pc');
   await page.locator('#review-search').fill('nomatchxyz');
   assert.equal(await page.locator('[data-review-card]:visible').count(), 0);
   await page.locator('[data-reset-reviews]').click();
-  assert.equal(await page.locator('[data-review-card]:visible').count(), 4);
+  assert.equal(await page.locator('[data-review-card]:visible').count(), 5);
   await visit('resources1.html');
   const save = page.locator('.save-resource').first();
   await save.click();
@@ -275,7 +283,7 @@ const assert = require('node:assert/strict');
   await blocked.close();
   const staticContext = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 900 } });
   const staticPage = await staticContext.newPage();
-  for (const file of ['resources1.html', 'setup.html', 'beanmouse-review.html']) {
+  for (const file of ['resources1.html', 'setup.html', 'beanmouse-review.html', 'vzmoreax9max-review.html']) {
     await staticPage.goto('http://127.0.0.1:8123/' + file);
     assert.equal(await staticPage.locator('h1').count(), 1);
     assert.equal(await staticPage.locator('noscript nav').isVisible(), true);
