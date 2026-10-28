@@ -600,7 +600,7 @@ const SiteSearch = {
         { title: 'Workstation Specifications', category: 'Hardware', url: 'setup.html#workstation', desc: 'Current processor, graphics, memory, cooling, and storage.' },
         { title: 'Peripherals & Input', category: 'Hardware', url: 'setup.html#peripherals', desc: 'Current mice, keyboards, and mousepads.' },
         { title: 'Audio Equipment', category: 'Audio', url: 'setup.html#audio', desc: 'Current headphones, monitors, earbuds, and amplification.' },
-        { title: 'Home Lab', category: 'Hardware', url: 'setup.html#home-lab', desc: 'Two home servers running Proxmox VE and Ubuntu.' },
+        { title: 'Home Lab', category: 'Hardware', url: 'setup.html#home-lab', desc: 'GEEKOM home server running Proxmox VE.' },
         { title: 'Resource Library & Databases', category: 'Tools', url: 'resources1.html', desc: 'Curated spreadsheets, benchmarking tools, datasets, and guides.' },
         { title: 'Hardware Reviews Hub', category: 'Reviews', url: 'reviews.html', desc: 'In-depth evaluations on tech, audio gear, and peripherals.' },
         { title: 'GEEKOM A5 Pro (2026) Review', category: 'Reviews', url: 'geekoma5pro-review.html', desc: 'Comprehensive review of the Zen 3 mini PC for desktop and homelab.' },

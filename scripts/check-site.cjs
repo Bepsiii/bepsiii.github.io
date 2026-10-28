@@ -28,10 +28,10 @@ const assert = require('node:assert/strict');
   await page.locator('#navbar [data-site-search]').first().click();
   await page.locator('#global-search').fill('sonus');
   assert.equal(await page.locator('.command-result').count(), 1);
-  for (const [term, destination] of [['Joro', 'setup.html#peripherals'], ['VZmore', 'setup.html#home-lab']]) {
+  for (const [term, destination] of [['Joro', 'setup.html#peripherals'], ['GEEKOM', 'setup.html#home-lab']]) {
     await page.locator('#global-search').fill(term);
     await page.locator(`.command-result[href$="${destination}"]`).waitFor();
-    assert.equal(await page.locator('.command-result').count(), term === 'VZmore' ? 2 : 1, `Search should locate current gear and reviews: ${term}`);
+    assert.equal(await page.locator('.command-result').count(), term === 'GEEKOM' ? 2 : 1, `Search should locate current gear and reviews: ${term}`);
   }
   await page.keyboard.press('Escape');
   await page.waitForFunction(() => !document.querySelector('.command-dialog').open);
@@ -77,8 +77,12 @@ const assert = require('node:assert/strict');
   assert.match(geekomSpecs, /Ryzen 5 7540U/);
   assert.match(geekomSpecs, /16GB/);
   assert.match(geekomSpecs, /Proxmox VE/);
-  const secondServerSpecs = await page.locator('#home-lab .server-card').filter({ hasText: 'VZmore AX9 Max' }).innerText();
-  assert.match(secondServerSpecs, /Ubuntu/);
+  assert.equal(await page.locator('#home-lab .server-card').count(), 1);
+  assert.ok(!/VZmore|MSI Prestige|155H/i.test(inventoryText));
+  const laptopSpecs = await page.locator('.laptop-card').innerText();
+  assert.match(laptopSpecs, /OMEN Transcend 14/);
+  assert.match(laptopSpecs, /285H/);
+  assert.match(laptopSpecs, /RTX 5070/);
   assert.equal(await page.locator('.desk-hotspot').count(), 4);
   await page.locator('.desk-hotspot[aria-label="Explore headphones"]').click();
   assert.ok((await page.locator('.inspector-list').innerText()).includes('Sennheiser HD 580'));
@@ -101,11 +105,12 @@ const assert = require('node:assert/strict');
   await page.evaluate(() => { navigator.clipboard.writeText = async text => { window.__copiedSpecs = text; }; });
   await page.locator('#copy-specs-btn').click();
   const copiedSpecs = await page.evaluate(() => window.__copiedSpecs);
-  for (const gear of ['FIIO K15', 'Pulsar X2 Crazylight Mini', 'A620SE', 'Razer Joro', 'GEEKOM', 'Ryzen 5 7540U', '16GB', 'Proxmox VE', 'VZmore AX9 Max', 'Ubuntu']) {
+  for (const gear of ['FIIO K15', 'Pulsar X2 Crazylight Mini', 'A620SE', 'Razer Joro', 'GEEKOM', 'Ryzen 5 7540U', '16GB', 'Proxmox VE', 'OMEN Transcend 14', '285H', 'RTX 5070']) {
     assert.ok(copiedSpecs.includes(gear), `Copy Specs should include gear from every section: ${gear}`);
   }
   assert.ok(!removedGear.test(copiedSpecs), 'Copy Specs should omit removed gear');
   assert.ok(!copiedSpecs.includes('Topping DX5'));
+  assert.ok(!/VZmore|MSI Prestige|155H/i.test(copiedSpecs));
   await page.locator('.setup-section-filter[data-section="ecosystem"]').click();
   assert.equal(new URL(page.url()).searchParams.get('section'), 'ecosystem');
   await page.goBack();
